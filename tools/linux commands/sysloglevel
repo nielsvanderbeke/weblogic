@@ -1,0 +1,2 @@
+#!/bin/sh
+sed -n '/<record level="'"$1"'" /,/<\/record>/p' $2
