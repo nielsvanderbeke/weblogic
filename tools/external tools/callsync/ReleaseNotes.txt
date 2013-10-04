@@ -1,0 +1,242 @@
+﻿Release Notes
+
+1.8.0
+	- Fixed the auto-login problem
+	- Fixed the greyed settings problem
+
+1.7.2
+	-Fixed issue where CalSync would not start up minimized when the "Automatically
+	 Sync" option was checked.
+	-Implemented workaround for issue where the sync process would fail when syncing
+	 large numbers of entries at once.  The Google API doesn't seem to handle long-
+	 running processes gracefully.  CalSync will now implement updates in batches of
+	 50 to prevent issues from ocurring.
+	-Fixed new issue in 1.7 where CalSync would skip appointments in LN whenever there
+	 was a To Do on the calendar.
+	-Fixed issue where users could not login with their proxy settings unless the 
+	 "Save passwords and automatically login" option was selected.
+
+1.7.1545
+	-Changes made to fix problems in 1.7 for those who use international date
+	 formatting (thanks lionsh).
+
+1.7 
+	-Major changes were made to the way that CalSync retrieves calendar entries
+	 from Lotus Notes. This should improve for all users, but performance will
+	 be drastically better for users with large mailfiles.  In addition,
+	 performance will be drastically improved for users with mailfiles on remote'
+	 servers where network performance is not the best.  As a result of this 
+	 change, all previously synced calendar entries will be updated the first time
+	 version 1.7 is run.
+	-Fixed bug where the default sync calendar was not saved where if the user's
+	 selected the first calendar in the list to be the Default calendar (thanks
+	 to cnybroe).
+	-Reorganized some of the 'Settings' screens and added option on 'Reminders'
+	 screen to use the Lotus Notes notifications that are already setup for each calendar
+	 entry instead of using the default notification preferences setup for the 
+	 destination Google calendar.
+
+1.6
+	-Minor performance enhancements for some users.
+	-Added two flags to run CalSync from the command line.  The '/auto' flag will 
+	 cause CalSync to open to the System Tray, login, run a sync, and then quit.  
+	 The '/silent' flag will make the automatic login/sync process silent.  There
+	 will be no windows, nothing in the taskbar, no icons in the system tray, and
+	 no indication whether the sync was successful or not. *Note* that in order 
+	 for the '/auto' flag to work correctly, the user must have logged in normally
+	 and set the Save Passwords option.
+	-Modified how saved passwords are encrypted and decrypted.  They are now 'salted'
+	 with the credentials of the logged in user.  This means that if you are not 
+	 running CalSync with the same user account, it will not be able to decrypt the
+	 saved password.
+	
+
+1.5.2874
+	-Fixes bug that causes sync to crash when Location property is missing from
+	 Calendar entry.
+
+1.5.2647
+	-Small code modifications to facilitate debugging large mailfiles.
+
+1.5.2512
+	-Fixed bug with some repeating entries that prevented sync from completing
+	-Fixed "Manual Delete All" button so that it will only delete entries created by
+	 CalSync.
+	-Fixed process which pulls events from Google so that it only pulls events created
+	 by CalSync
+	
+1.5.1619
+	-Fixed bug where CalSync would get stuck in an endless loop while trying to connect
+	 to Google
+	-Modified CalSync so that it always attempts to use Default Proxy credentials first
+	 before trying saved proxy credentials.
+	-Fixed bug where CalSync would crash when it could not detect the Lotus Notes form
+	 type.
+
+1.5.1
+	-Fixed bug where the Auto Sync was not disabled when the "Log Out" button was clicked
+	-Added option to use or not use HTTPS. Default is to use HTTPS but it can be changed
+	 on Account Options screen in Settings.
+
+1.5.0
+	-Added option for CalSync settings to be stored in User Profile
+	-Added option to include Attendees when syncing to Google. Attendees will be stored
+	 in the body of the Google Calendar event.
+	-UI has had a number of modifications where most of the options were moved to the  
+	 "Settings" screen.
+	-Added the ability to hide the log.
+	-Modified logic for proxy login so that proxy will automatically login if credentials
+	 have been saved.
+	-Modified log capturing. Enabling verbose logging will now show the verbose messages
+	 from previous syncs. It is no longer required to enable verbose logging and then 
+	 re-sync or re-login.
+	-Added option for CalSync to quit automatically after syncing.
+	-Added option to prevent CalSync from showing balloon popups when minimized.
+	-Added privacy settings which adds option to not sync any actual data from Lotus
+	 Notes to Google and only block time off on Google Calendar.
+	-Fixed bug where the Auto Sync was not disabled when the "Log Out" button was clicked
+	-Added option to use or not use HTTPS. Default is to use HTTPS but it can be changed
+	 on Account Options screen in Settings.
+
+1.2.3115
+	-Changed release naming convention.  No more "beta" tags on release names.  
+	-Fixed issue with repeating calendar entries.
+	-Added domain option to Proxy login form and fixed where Proxy form would not be
+	 shown if proxy address wasn't detected.
+	-Modifications to code were made to troubleshoot proxy problems.
+	-Modified logic to display important messages
+
+1.1.4117
+	-Fixed bug that prevented the System from shutting down when CalSync is open.
+	
+1.1.2623
+	-Fixed issue with repeating calendar entries.	
+	 
+1.1.2144
+ 	-Fixed bug that would cause CalSync to not save settings correctly if the user's
+	 machine name did not start with a letter.
+	-Fixed issue with repeating calendar entries.
+	-Changed release naming convention.  No more "beta" tags on release names. 
+
+1.1.1
+	-Code cleanup to prepare for release.
+	-Changes in Release 1.1.1 in comparison to the previous release (1.0.0) includes all 
+	 changes listed below under 1.1.1r1beta, 1.1.1beta, and 1.1.0beta. 
+
+1.1.1r1beta
+	-Fixed issue where CalSync would crash if the EndDateTime property was not found on
+     repeating meeting entries.
+    -Made some modifications to the code that saves CalSync settings to facilitate some
+     debugging.  Also added an alert when there are errors saving settings instead of 
+     just having CalSync crash.
+    -Fixed issue where proxies had a problem with the Expect100Continue header and would
+	 prevent CalSync from posting data back to Google.
+
+
+1.1.1beta
+	-Added logic to prompt for Proxy credentials when a proxy is detected and the
+	 default credentials don't work.
+	-Cleaned up some of the code which captures and displays exception details.
+	-New Calendar entries use new logic to establish a Unique ID.  The old method caused
+	 repeating entries to have a few problems.
+	-Added logic for CalSync to display important messages the first time someone runs 
+	 a new release of CalSync.
+	-Code cleanup.
+	-Because of a bug in the Google Calendar API, CalSync was entering a dash (-) in
+     the location field if it was blank in Lotus Notes. CalSync has been modified to
+     leave the location field blank if it is blank to begin with. However, due to the
+     API bug, CalSync will change the location field to a dash if it is ever changed
+     to a blank field after originally containing text.
+
+1.1.0beta
+	-Fixed issue that caused entries originating in Google to be synced back to Google
+	 in CalSync.
+	-Added some logic to facilitate debugging.
+	-Fixed bug that caused sync to continue even if there were errors in retrieving
+	 entries from Notes or Google.
+	-Fixed bug where meetings without a location/body would prevent sync from running.
+	-Fixed bug when clicking 'No' on Auto Sync confirmation dialog
+	-Cleaned up a pieces of the UI
+	-Added two new context menus to control syncing.
+
+1.0.0
+	-Fixed issue that caused entries not created by CalSync to be deleted.
+	-No longer in Beta.
+
+0.9.9r9
+	-Modified functionality to so the "Sync in progress" balloon only shows for about 
+	 1.5 seconds.
+	-Added functionality to populate the Google Calendar 'Where' field with the Lotus
+	 Notes 'Rooms' field if the 'Location' field is empty.  If both the 'Rooms' field
+	 and the 'Location' field are populated then the 'Location' field will be used to
+	 populate the Google Calendar 'Where' field and the 'Rooms' field will be copied 
+	 into the Calendar Description.
+
+0.9.9r8
+	-Fixed issue that caused some Anniversary appointments to be included in sync
+	 and also caused All Day appointments to not sync correctly.
+
+0.9.9r7
+	-Fixed issue that prevented CalSync from recovering once an error has ocurred.
+
+0.9.9r6
+	-Fixed issue that sometimes caused duplicate Google Calendar entries
+
+0.9.9r5
+	-Fixed issue where Last Sync" wasn't updated after manual sync.
+	-Fixed issue where sync balloon didn't popup when auto sync was in progress while
+	 the form was minimized.
+	-Fixed issue introduced in 0.9.9r2 where automatically logging in and syncing would
+	 fail.
+	-Added cancel button to cancel sync and login processes.
+
+0.9.9r4
+	-Fixed issue where user received a "Please login" message on the Sync Settings tab
+	 even after successfully logging in.
+	-Added option to minimize the application instead of closing when user clicks the 
+	 close button ("X").
+	-CalSync will now allow a zero as a valid number for the Sync Before and Sync After
+	 fields.
+
+0.9.9r3
+	-Removed Lotus Notes Tasks from CalSync. There were numerous bugs involving tasks
+	 that were causing CalSync to crash or not run correctly.
+
+0.9.9r2
+	-More changes to the UI.
+	-Added multithreading so that the background tasks do not cause the UI to lock up.
+	-Fixed issue where tasks on Calendar were still not handled properly.
+	-Added control to indicate that background processes are running.
+
+0.9.9
+	-Some changes to the UI.
+	-Fixed issue where tasks on Calendar were not handled properly.
+	-CalSync will no longer edit or delete existing entries on your Google Calendar
+	 that were not created by CalSync.  This eliminates the need to setup a new
+	 Google Calendar just for syncing with CalSync.
+
+0.9.8
+	-Fixed bug where those that were not behind a proxy could not connect to Google
+	-Added functionality to logout on first tab.
+
+
+0.9.7
+	-Fixed issue where Chair/Location/Subject were not synced properly.
+	-Combined DLLs into one file.
+	-Modified logging process and added button to copy log to clipboard.
+
+0.9.6
+	-Fixed icons so they are "pretty" when you Alt+Tab and when you create shortcuts
+	-Added logic so that if the server and mailfile are left blank it will automatically
+	 find your mailfile.
+	-Addded the functionality to store encoded version of your passwords so that CalSync
+	 can be opened automatically and automatically start syncing.  This will allow you 
+	 to add a CalSync shortcut to your Startup folder.
+	-Fixed bug where all CalSync settings weren't being stored in the same folder as
+	 the application and DLLs.
+
+0.9.5:
+	-Initial release
+	
+Future plans
+	-Add Lotus Notes Tasks back to CalSync

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+  <proxyDomain>
+  </proxyDomain>
+  <reminderWeekends>True</reminderWeekends>
+  <saveInUserProfile>False</saveInUserProfile>
+  <showNotice>True</showNotice>
+  <savePasswords>False</savePasswords>
+  <reminderAfterAmPm>PM</reminderAfterAmPm>
+  <alertVersion>CalSync 1.8.0</alertVersion>
+  <autoSync>False</autoSync>
+  <syncForward>2</syncForward>
+  <googleUsername>smals.niels.vanderbeke@gmail.com.</googleUsername>
+  <syncTime>1</syncTime>
+  <notesServer>
+  </notesServer>
+  <syncBackInterval>Week(s)</syncBackInterval>
+  <defaultCalendar>
+  </defaultCalendar>
+  <useNotesAlarms>False</useNotesAlarms>
+  <useHttps>True</useHttps>
+  <reminderBefore>8</reminderBefore>
+  <syncBack>1</syncBack>
+  <reminderAfter>4</reminderAfter>
+  <privateEntries>
+  </privateEntries>
+  <syncInterval>Hours</syncInterval>
+  <proxyAddress>
+  </proxyAddress>
+  <notesPassword>
+  </notesPassword>
+  <showLog>False</showLog>
+  <closeForm>False</closeForm>
+  <calendarBody>True</calendarBody>
+  <lastSync>
+  </lastSync>
+  <syncForwardInterval>Month(s)</syncForwardInterval>
+  <proxyUser>
+  </proxyUser>
+  <googlePassword>
+  </googlePassword>
+  <reminderBeforeAmPm>AM</reminderBeforeAmPm>
+  <proxyPass>
+  </proxyPass>
+  <mtgAttendees>False</mtgAttendees>
+  <notesMailfile>
+  </notesMailfile>
+  <privacyLevel>Medium</privacyLevel>
+  <noBalloonTips>False</noBalloonTips>
+  <L00370046626>
+    <windowLocation>100, 100</windowLocation>
+  </L00370046626>
+  <NIV>
+    <windowLocation>100, 100</windowLocation>
+  </NIV>
+</Settings>
