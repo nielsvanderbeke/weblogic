@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/ssvn/middleware/!svn/ver/570/rpm-repository/trunk/jdk/SPECS
+END
+jdk6-smals.spec
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/ssvn/middleware/!svn/ver/505/rpm-repository/trunk/jdk/SPECS/jdk6-smals.spec
+END
+jdk7-smals.spec
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/ssvn/middleware/!svn/ver/570/rpm-repository/trunk/jdk/SPECS/jdk7-smals.spec
+END
+jrockit-jdk6-smals.spec
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/ssvn/middleware/!svn/ver/504/rpm-repository/trunk/jdk/SPECS/jrockit-jdk6-smals.spec
+END
+jrockit-jdk142-smals.spec
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/ssvn/middleware/!svn/ver/503/rpm-repository/trunk/jdk/SPECS/jrockit-jdk142-smals.spec
+END
