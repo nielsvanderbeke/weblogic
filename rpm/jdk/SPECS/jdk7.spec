@@ -6,12 +6,12 @@
 %define         jdk_short_version  7u40
 %define         install_dir        /opt/oracle/jvm/jdk7
 
-Name:           jdk7-smals
+Name:           jdk7
 Version:        %{jdk_version}
 Release:        1%{?dist}
 Summary:        Oracle JDK
 
-Group:          Smals/Java
+Group:          Java
 License:        Oracle Binary Code License
 URL:            http://www.oracle.com/technetwork/java/index.html
 Source0:        jdk-%{jdk_short_version}-linux-x64.tar.gz

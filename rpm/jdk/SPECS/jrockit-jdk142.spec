@@ -6,12 +6,12 @@
 %define         jrockit_version  27.6.9
 %define         install_dir      /opt/oracle/jvm/jrockit-jdk142
 
-Name:           jrockit-jdk142-smals
+Name:           jrockit-jdk142
 Version:        %{jrockit_version}
 Release:        2%{?dist}
 Summary:        Oracle JRockit JDK
 
-Group:          Smals/Java
+Group:          Java
 License:        Oracle Binary Code License
 URL:            http://www.oracle.com/technetwork/middleware/jrockit/index.html
 Source0:        p11931237_276900_LINUX.zip
