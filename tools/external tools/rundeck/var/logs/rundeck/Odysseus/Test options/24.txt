@@ -1,0 +1,95 @@
+^^^09:15:58|CONFIG|admin|||skywalker||[workflow] Begin execution: rundeck-workflow-node-first^^^
+^^^09:15:59|CONFIG|admin|||skywalker||preparing for sequential execution on 1 nodes^^^
+^^^09:15:59|CONFIG|admin|||skywalker||Executing command on node: skywalker, NodeEntryImpl{tags=[], attributes={tags=, osFamily=unix, username=pp, osVersion=5.10, osArch=sparcv9, description=Rundeck server node, hostname=skywalker, nodename=skywalker, osName=SunOS}, project='null'}^^^
+^^^09:15:59|CONFIG|admin|||skywalker||NodeSet: SingleNodeSelector{nodename='skywalker'}^^^
+^^^09:15:59|CONFIG|admin|||skywalker||Workflow: com.dtolabs.rundeck.core.execution.workflow.StepFirstWorkflowStrategy$stepFirstWrapper@958bfd11^^^
+^^^09:15:59|CONFIG|admin|||skywalker||data context: {job={id=ca45e652-e094-4e42-8ea4-2f43398315e6, project=Odysseus, username=admin, name=Test options, group=null, execid=24}, option={wlsnodes=Odysseus_BE_1}}^^^
+^^^09:15:59|CONFIG|||1-exec|||[workflow] Begin step: 1,exec^^^
+^^^09:15:59|CONFIG|||1-exec|||1: com.dtolabs.rundeck.execution.ExecutionItemFactory$4@188e3996^^^
+^^^09:15:59|CONFIG|||1-exec|||ExecutionItem created, executing: com.dtolabs.rundeck.execution.ExecutionItemFactory$4@188e3996^^^
+^^^09:15:59|CONFIG|||1-exec|||preparing for sequential execution on 1 nodes^^^
+^^^09:15:59|CONFIG|||1-exec|||Executing command on node: skywalker, NodeEntryImpl{tags=[], attributes={tags=, osFamily=unix, username=pp, osVersion=5.10, osArch=sparcv9, description=Rundeck server node, hostname=skywalker, nodename=skywalker, osName=SunOS}, project='null'}^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||beginInterpretCommand(skywalker): exec: com.dtolabs.rundeck.execution.ExecutionItemFactory$4@188e3996^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Current OS is SunOS^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Adding reference: ant.PropertyHelper^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Project base dir set to: /export/home/weblogic/pp/rundeck^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_NODE_DESCRIPTION=Rundeck server node^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_NODE_OS_ARCH=sparcv9^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_JOB_NAME=Test options^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_JOB_ID=ca45e652-e094-4e42-8ea4-2f43398315e6^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_JOB_EXECID=24^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_NODE_HOSTNAME=skywalker^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_NODE_TAGS=^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_NODE_NAME=skywalker^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_JOB_PROJECT=Odysseus^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_NODE_OS_VERSION=5.10^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_NODE_USERNAME=pp^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_NODE_OS_FAMILY=unix^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_JOB_USERNAME=admin^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_OPTION_WLSNODES=Odysseus_BE_1^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_NODE_OS_NAME=SunOS^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Executing '/bin/sh' with arguments:
+'-c'
+'/export/home/weblogic/pp/rundeck/projects/Odysseus/scripts/test_options.sh @option.wlsnodes@'
+
+The ' characters around the executable and arguments are
+not part of the command.^^^
+^^^09:15:59|CONFIG|pp||1-exec|skywalker||Execute:Java13CommandLauncher: Executing '/bin/sh' with arguments:
+'-c'
+'/export/home/weblogic/pp/rundeck/projects/Odysseus/scripts/test_options.sh @option.wlsnodes@'
+
+The ' characters around the executable and arguments are
+not part of the command.^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||@option.wlsnodes@^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||CLI_CP=:/export/home/weblogic/pp/rundeck/tools/lib/ant-1.7.1.jar:/export/home/weblogic/pp/rundeck/tools/lib/ant-jsch-1.7.1.jar:/export/home/weblogic/pp/rundeck/tools/lib/ant-launcher-1.7.1.jar:/export/home/weblogic/pp/rundeck/tools/lib/commons-beanutils-1.8.0.jar:/export/home/weblogic/pp/rundeck/tools/lib/commons-cli-1.0.jar:/export/home/weblogic/pp/rundeck/tools/lib/commons-codec-1.5.jar:/export/home/weblogic/pp/rundeck/tools/lib/commons-collections-3.2.1.jar:/export/home/weblogic/pp/rundeck/tools/lib/commons-httpclient-3.0.1.jar:/export/home/weblogic/pp/rundeck/tools/lib/commons-lang-2.4.jar:/export/home/weblogic/pp/rundeck/tools/lib/commons-logging-1.1.jar:/export/home/weblogic/pp/rundeck/tools/lib/dom4j-1.6.1.jar:/export/home/weblogic/pp/rundeck/tools/lib/jaxen-1.1.jar:/export/home/weblogic/pp/rundeck/tools/lib/jsch-0.1.45.jar:/export/home/weblogic/pp/rundeck/tools/lib/log4j-1.2.16.jar:/export/home/weblogic/pp/rundeck/tools/lib/rundeck-core-1.4.3.jar:/export/home/weblogic/pp/rundeck/tools/lib/snakeyaml-1.9.jar:/export/home/weblogic/pp/rundeck/tools/lib/xercesImpl-2.6.0.jar^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||DISPLAY=localhost:10.0^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||HOME=/export/home/weblogic/pp^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||IFS= 	^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||JAVA_CMD=/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre/bin/java^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||JAVA_HOME=/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||LD_LIBRARY_PATH=/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre/lib/sparcv9/jrockit:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre/lib/sparcv9:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre/../lib/sparcv9^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||LOGNAME=pp^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||MAIL=/usr/mail/pp^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||MAILCHECK=600^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||MANPATH=/usr/share/man:/usr/sfw/man:/opt/sfw/bin:/opt/csw/man^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||NLSPATH=/usr/dt/lib/nls/msg/%L/%N.cat^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||OPTIND=1^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||PATH=/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre/bin:/export/home/weblogic/pp/rundeck/tools/bin:/usr/sbin:/usr/bin:/usr/openwin/bin:/usr/sfw/bin:/opt/sfw/bin:/opt/csw/bin:/usr/ucb:/opt/smals/bin:/usr/local/bin^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||PWD=/export/home/weblogic/pp/rundeck^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RDECK_BASE=/export/home/weblogic/pp/rundeck^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RDECK_HOME=/export/home/weblogic/pp/rundeck^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RDECK_JVM= -Xmx1024m -Xms256m^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RDECK_SSL_OPTS=-Djavax.net.ssl.trustStore=/export/home/weblogic/pp/rundeck/etc/truststore -Djavax.net.ssl.trustStoreType=jks -Djava.protocol.handler.pkgs=com.sun.net.ssl.internal.www.protocol^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RD_JOB_EXECID=24^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RD_JOB_ID=ca45e652-e094-4e42-8ea4-2f43398315e6^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RD_JOB_NAME=Test options^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RD_JOB_PROJECT=Odysseus^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RD_JOB_USERNAME=admin^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RD_NODE_DESCRIPTION=Rundeck server node^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RD_NODE_HOSTNAME=skywalker^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RD_NODE_NAME=skywalker^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RD_NODE_OS_ARCH=sparcv9^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RD_NODE_OS_FAMILY=unix^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RD_NODE_OS_NAME=SunOS^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RD_NODE_OS_VERSION=5.10^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RD_NODE_TAGS=^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RD_NODE_USERNAME=pp^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RD_OPTION_WLSNODES=Odysseus_BE_1^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||RUNDECK_CLI_TERSE=true^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||SHELL=/bin/bash^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||SHLVL=2^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||SSH_CLIENT=10.4.141.100 54416 22^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||SSH_CONNECTION=10.4.141.100 54416 10.6.103.157 22^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||SSH_TTY=/dev/pts/13^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||TERM=xterm^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||TZ=Europe/Brussels^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||USER=pp^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt^^^
+^^^09:16:01|WARNING|pp||1-exec|skywalker||_=/usr/bin/nohup^^^
+^^^09:16:01|CONFIG|pp||1-exec|skywalker||Setting project property: 1349421359069.node.skywalker.LocalNodeExecutor.result -> 0^^^
+^^^09:16:01|CONFIG|||1-exec|||finishInterpretCommand(skywalker): exec: [local node exec] result was success, resultcode: 0^^^
+^^^09:16:01|CONFIG|admin|||skywalker||[workflow] Finish step: 1,exec^^^
+^^^09:16:01|CONFIG|admin|||skywalker||1: ExecutionItem finished, result: BaseExecutionResult{resultObject=DispatcherResult{status=true, results={skywalker=[local node exec] result was success, resultcode: 0}}, success=true, exception=null}^^^
+^^^09:16:01|CONFIG|admin|||skywalker||[workflow] Finish execution:  rundeck-workflow-node-first: [Workflow results: {skywalker=[[local node exec] result was success, resultcode: 0]}]^^^
+^^^END^^^

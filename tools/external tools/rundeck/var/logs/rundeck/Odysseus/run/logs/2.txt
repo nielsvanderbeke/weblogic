@@ -1,0 +1,2 @@
+^^^09:58:51|SEVERE|pp||1-exec|badaboum||Authentication failure connecting to node: "badaboum". Make sure your resource definitions and credentials are up to date.^^^
+^^^END^^^

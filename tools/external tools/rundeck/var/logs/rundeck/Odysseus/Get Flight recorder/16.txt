@@ -1,0 +1,22 @@
+^^^02:50:05|INFO|pp||1-script|badaboum||Odysseus_BE_1^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||12682^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||HOME=/export/home/weblogic/pp^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||IFS= 	^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||LOGNAME=pp^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||MAIL=/var/mail//pp^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||MAILCHECK=600^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||OPTIND=1^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||PATH=/usr/bin:/bin^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||PWD=/export/home/weblogic/pp^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||SHELL=/bin/bash^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||SHLVL=1^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||SSH_CLIENT=10.6.103.157 59521 22^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||SSH_CONNECTION=10.6.103.157 59521 10.32.32.25 22^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||TZ=Europe/Brussels^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||USER=pp^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||_=/tmp/1349268599985-badaboum-get_jfr.sh^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||node=Odysseus_BE_1^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||pid=12682^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||wls_nodes=Odysseus_BE_1 Odysseus_BE_2^^^
+^^^02:50:05|INFO|pp||1-script|badaboum||Odysseus_BE_2^^^
+^^^END^^^

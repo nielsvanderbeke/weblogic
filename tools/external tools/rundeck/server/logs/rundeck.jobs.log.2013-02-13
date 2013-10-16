@@ -1,0 +1,7 @@
+[2013-02-13 12:00:07,392] admin create [f6e2b0cf-0d1a-4b03-92a8-f8195fb2565a] Test "-/Embedded jython test" (save)
+[2013-02-13 12:01:51,423] admin modify [f6e2b0cf-0d1a-4b03-92a8-f8195fb2565a] Test "-/Embedded jython test" (update)
+[2013-02-13 12:03:43,445] admin modify [f6e2b0cf-0d1a-4b03-92a8-f8195fb2565a] Test "-/Embedded jython test" (update)
+[2013-02-13 12:04:27,331] admin modify [f6e2b0cf-0d1a-4b03-92a8-f8195fb2565a] Test "-/Embedded jython test" (update)
+[2013-02-13 14:04:52,509] admin modify [f6e2b0cf-0d1a-4b03-92a8-f8195fb2565a] AccTest "-/Embedded jython test" (apiJobsImport)
+[2013-02-13 14:04:52,635] admin modify [ac6fb37b-a02c-43d3-8df5-7c8613be4f04] AccTest "-/Test WLST" (apiJobsImport)
+[2013-02-13 14:04:52,759] admin modify [97a82396-fcf6-4789-a140-dc6454df3857] AccTest "-/Test node attributes forwarding" (apiJobsImport)

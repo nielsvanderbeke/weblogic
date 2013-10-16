@@ -1,0 +1,5 @@
+^^^12:02:14|INFO|pp||1-exec|Intramuros||Starting jython^^^
+^^^12:02:18|SEVERE|pp||2-script-url|Intramuros||/tmp/1360753336038-Intramuros-6b4cdbabf18544fbc3b44d0e0b1689bfcd233063.temp.sh: line 7: syntax error near unexpected token `newline'^^^
+^^^12:02:18|SEVERE|pp||2-script-url|Intramuros||/tmp/1360753336038-Intramuros-6b4cdbabf18544fbc3b44d0e0b1689bfcd233063.temp.sh: line 7: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'^^^
+^^^12:02:18|SEVERE|pp||2-script-url|Intramuros||Remote command failed with exit status 2^^^
+^^^END^^^

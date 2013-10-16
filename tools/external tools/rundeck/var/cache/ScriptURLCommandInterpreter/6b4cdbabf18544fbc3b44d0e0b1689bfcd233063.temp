@@ -1,0 +1,295 @@
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!-- ViewVC :: http://www.viewvc.org/ -->
+<head>
+
+<title>[CollabNet Subversion] Log of: ea/trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.sh</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="ViewVC 1.1.11" />
+<link rel="stylesheet" href="/viewvc-static/styles.css" type="text/css" />
+<script src="/viewvc-static/scripts.js" type="text/javascript"></script>
+<link rel="shortcut icon" href="/viewvc-static/images/branding/favicon.ico" />
+
+
+</head>
+<body>
+<div id="vc_header">
+
+<div id="vc_masthead">
+<div id="vc_topmatter">
+
+</div>
+<div id="vc_logo">
+<img src="/viewvc-static/images/branding/CSVN-Logo.png" alt="CollabNet Subversion Edge" width="272" height="25" />
+</div>
+</div> <!-- vc_masthead -->
+
+
+<div id="vc_view_selection_group">
+<table cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+
+
+<td class="vc_view_link">
+<a href="/viewvc"><img src="/viewvc-static/images/branding/roots-icon.gif" alt="" />Roots</a>
+</td>
+
+
+<td class="vc_view_link">
+<a href="/viewvc/ea?view=revision&amp;revision=636"><img src="/viewvc-static/images/branding/revision-icon.gif" alt="" />Changeset</a>
+</td>
+
+
+
+<td class="vc_view_link_this">
+<a href="/viewvc/ea/trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.sh?view=log"><img src="/viewvc-static/images/branding/log-icon.gif" alt="" />Change&nbsp;Log</a>
+</td>
+
+<td class="vc_view_link">
+<a href="/viewvc/ea/trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.sh?revision=636&amp;view=markup"><img src="/viewvc-static/images/branding/file-icon.gif" alt="" />View&nbsp;File</a>
+</td>
+
+
+<td class="vc_view_link">
+<a href="/viewvc/ea/trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.sh?annotate=636"><img src="/viewvc-static/images/branding/annotate-icon.gif" alt="" />Annotate</a>
+</td>
+
+
+<td class="vc_view_link">
+<a href="/viewvc/ea/trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.sh?revision=636&amp;view=co"><img src="/viewvc-static/images/branding/download-icon.gif" alt="" />Download</a>
+</td>
+
+
+
+</tr>
+</tbody>
+</table>
+</div> <!-- vc_view_selection_group -->
+<div id="vc_current_path">
+
+
+<a href="/viewvc/ea/">
+
+[ea]
+
+</a>
+<span class="pathdiv">/</span>
+
+<a href="/viewvc/ea/trunk/">
+
+trunk
+
+</a>
+<span class="pathdiv">/</span>
+
+<a href="/viewvc/ea/trunk/rundeck/">
+
+rundeck
+
+</a>
+<span class="pathdiv">/</span>
+
+<a href="/viewvc/ea/trunk/rundeck/rundeck_scripts/">
+
+rundeck_scripts
+
+</a>
+<span class="pathdiv">/</span>
+
+
+
+<span class="thisitem">embeddedDatasourceListScript.sh</span>
+
+
+
+
+
+</div>
+<hr/>
+</div> <!-- vc_header -->
+<div id="vc_view_main">
+
+<table class="auto">
+
+
+
+<tr>
+<td>Links to HEAD:</td>
+<td>
+(<a href="/viewvc/ea/trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.sh?revision=636&amp;view=markup">view</a>)
+(<a href="/viewvc/ea/trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.sh?revision=636&amp;view=co">download</a>)
+(<a href="/viewvc/ea/trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.sh?revision=636&amp;content-type=text%2Fplain&amp;view=co">as text</a>)
+(<a href="/viewvc/ea/trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.sh?annotate=636">annotate</a>)
+</td>
+</tr>
+
+
+
+<tr>
+<td>Sticky Revision:</td>
+<td><form method="get" action="/viewvc/ea" style="display: inline">
+<div style="display: inline">
+<input type="hidden" name="orig_pathtype" value="FILE"/><input type="hidden" name="orig_view" value="log"/><input type="hidden" name="orig_path" value="trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.sh"/><input type="hidden" name="view" value="redirect_pathrev"/>
+
+<input type="text" name="pathrev" value="" size="6"/>
+
+<input type="submit" value="Set Sticky Revision" />
+</div>
+</form>
+
+</td>
+</tr>
+
+<tr>
+<td>Sort logs by:</td>
+<td><form method="get" action="/viewvc/ea/trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.sh">
+<div>
+<a name="logsort"></a>
+<input type="hidden" name="view" value="log"/>
+<select name="logsort" onchange="submit()">
+<option value="cvs" >Not sorted</option>
+<option value="date" >Commit date</option>
+<option value="rev" >Revision</option>
+</select>
+<input type="submit" value=" Sort " />
+</div>
+</form>
+</td>
+</tr>
+</table>
+<div id="vc_main_body">
+<!-- ************************************************************** -->
+
+
+
+
+
+
+<div>
+
+
+<a name="rev636"></a>
+
+
+Revision <a href="/viewvc/ea?view=revision&amp;revision=636"><strong>636</strong></a> -
+
+
+(<a href="/viewvc/ea/trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.sh?revision=636&amp;view=markup">view</a>)
+
+
+(<a href="/viewvc/ea/trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.sh?revision=636&amp;view=co">download</a>)
+(<a href="/viewvc/ea/trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.sh?revision=636&amp;content-type=text%2Fplain&amp;view=co">as text</a>)
+(<a href="/viewvc/ea/trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.sh?annotate=636">annotate</a>)
+
+
+
+- <a href="/viewvc/ea/trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.sh?r1=636&amp;view=log">[select for diffs]</a>
+
+
+
+
+<br />
+
+Added
+
+<em>Wed Feb 13 11:55:48 2013 CET</em>
+(6 minutes, 27 seconds ago)
+by <em>pp</em>
+
+
+
+
+
+
+
+
+<br />File length: 2820 byte(s)
+
+
+
+
+
+
+
+
+
+
+<pre class="vc_log">Add a new embedded juthon script
+</pre>
+</div>
+
+<!-- ************************************************************** -->
+</div>
+
+
+<div>
+<p id="diff">This form allows you to request diffs between any two
+revisions of this file.
+For each of the two "sides" of the diff,
+
+enter a numeric revision.
+
+</p>
+<form method="get" action="/viewvc/ea/trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.sh" id="diff_select">
+<table cellpadding="2" cellspacing="0" class="auto">
+<tr>
+<td>&nbsp;</td>
+<td>
+<input type="hidden" name="view" value="diff"/>
+Diffs between
+
+<input type="text" size="12" name="r1"
+value="636" />
+
+and
+
+<input type="text" size="12" name="r2" value="636" />
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+Type of Diff should be a
+<select name="diff_format" onchange="submit()">
+<option value="h" selected="selected">Colored Diff</option>
+<option value="l" >Long Colored Diff</option>
+<option value="f" >Full Colored Diff</option>
+<option value="u" >Unidiff</option>
+<option value="c" >Context Diff</option>
+<option value="s" >Side by Side</option>
+</select>
+<input type="submit" value=" Get Diffs " />
+</td>
+</tr>
+</table>
+</form>
+</div>
+
+
+
+<div id="vc_admin">Administered by <address><a href="mailto:JDSS@smals.be">JDSS@smals.be</a></address></div>
+<div id="vc_footer">
+
+<div id="poweredbylogo" style="float: left;"><a href="http://www.collab.net/?cid=csvnedgeL" target="collabnet">
+<img width="102" height="31" alt="Powered by CollabNet" border="0"
+src="/viewvc-static/images/branding/poweredbylogo.gif"/></a>
+</div>
+&copy; 2011 CollabNet. CollabNet is a registered trademark of <a href="http://www.collab.net/?cid=csvnedgeL">CollabNet, Inc.</a>
+
+<br />
+<a href="http://subversion.apache.org">Apache Subversion</a> is a trademark of the <a href="http://www.apache.org/">Apache Software Foundation</a>.<br />
+Subversion and the Apache Subversion logo are registered trademarks of the <a href="http://www.apache.org/">Apache Software Foundation</a>.
+
+</div>
+</div> <!-- vc_view_main -->
+</body>
+</html>
+

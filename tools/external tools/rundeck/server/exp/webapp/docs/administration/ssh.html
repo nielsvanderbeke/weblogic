@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SSH</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="ssh.html">SSH</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        <li class="prev"><a href="relational-database.html">Relational Database</a></li>
+        <li class="next"><a href="authentication.html">Authentication</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">SSH</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#ssh-configuration-requirements"
+      >SSH configuration requirements</a
+      ></li
+    ><li
+    ><a href="#ssh-key-generation"
+      >SSH key generation</a
+      ></li
+    ><li
+    ><a href="#configuring-remote-machine-for-ssh"
+      >Configuring remote machine for SSH</a
+      ></li
+    ><li
+    ><a href="#passing-environment-variables-through-remote-command"
+      >Passing environment variables through remote command</a
+      ></li
+    ></ul
+  ></div
+>
+<p
+>Rundeck by default uses <a href="http://en.wikipedia.org/wiki/Secure_Shell"
+  >SSH</a
+  > for remote execution. You do <em
+  >not</em
+  > need to have root account access on either the server or the remote hosts.</p
+><p
+>See more about settings up Nodes and Jobs for SSH execution in the section about built-in providers: <a href="../manual/plugins.html#ssh-provider"
+  >SSH Provider</a
+  >.</p
+><div id="ssh-configuration-requirements"
+><h2
+  ><a href="#TOC"
+    >SSH configuration requirements</a
+    ></h2
+  ><ul
+  ><li
+    >The SSH configuration requires that the Rundeck server machine can ssh commands to the client machines.</li
+    ><li
+    >SSH is assumed to be installed and configured appropriately to allow this access.<br
+       /></li
+    ><li
+    >SSH can be configured for either <em
+      >password</em
+      > based authentication or <em
+      >public/private key</em
+      > based authentication.</li
+    ><li
+    >For public/private key authentication:<ul
+      ><li
+	>There are many resources available on how to configure ssh to use public key authentication instead of passwords such as: <a href="http://www.debian-administration.org/articles/152"
+	  >Password-less logins with OpenSSH</a
+	  > or <a href="http://www.cs.wustl.edu/~mdeters/how-to/ssh/"
+	  >How-To: Password-less SSH</a
+	  >.</li
+	><li
+	>If your private key file has a passphrase, each Job definition that will execute on the node must be configured correctly.</li
+	></ul
+      ></li
+    ><li
+    >For password authentication:<ul
+      ><li
+	>each Node definition must be configured to allow password authentication</li
+	><li
+	>each Job definition that will use it must be configured correctly</li
+	></ul
+      ></li
+    ></ul
+  ><p
+  >For information on configuring Nodes, Jobs and Password options for jobs, see the <a href="../manual/plugins.html#ssh-provider"
+    >User Manual - Plugins - SSH Provider</a
+    > section.</p
+  ></div
+><div id="ssh-key-generation"
+><h2
+  ><a href="#TOC"
+    >SSH key generation</a
+    ></h2
+  ><ul
+  ><li
+    >The Rundeck installation can be configured to use RSA <em
+      >or</em
+      > DSA type keys.</li
+    ></ul
+  ><p
+  >Here's an example of SSH RSA key generation on a Linux system:</p
+  ><pre
+  ><code
+    >$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/demo/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/demo/.ssh/id_rsa.
+Your public key has been saved in /home/demo/.ssh/id_rsa.pub.
+The key fingerprint is:
+a7:31:01:ca:f0:62:42:9d:ab:c8:b7:9c:d1:80:76:c6 demo@ubuntu
+The key's randomart image is:
++--[ RSA 2048]----+
+| .o . .          |
+|.  * . .         |
+|. = =   .        |
+| = E     .       |
+|+ + o   S .      |
+|.o o .   =       |
+|  o +   .        |
+|   +             |
+|                 |
++-----------------+
+</code
+    ></pre
+  ></div
+><div id="configuring-remote-machine-for-ssh"
+><h2
+  ><a href="#TOC"
+    >Configuring remote machine for SSH</a
+    ></h2
+  ><p
+  >To be able to directly ssh to remote machines, the SSH public key of the client should be shared to the remote machine.</p
+  ><p
+  >Follow the steps given below to enable ssh to remote machines.</p
+  ><p
+  >The ssh public key should be copied to the <code
+    >authorized_keys</code
+    > file of the remote machine. The public key will be available in <code
+    >~/.ssh/id_rsa.pub</code
+    > file.</p
+  ><p
+  >The <code
+    >authorized_keys</code
+    > file should be created in the <code
+    >.ssh</code
+    > directory of the remote machine.</p
+  ><p
+  >The file permission of the authorized key should be read/write for the user and nothing for group and others. To do this check the permission and change it as shown below.</p
+  ><pre
+  ><code
+    >$ cd ~/.ssh
+$ ls -la
+-rw-r--r--   1 raj  staff     0 Nov 22 18:14 authorized_keys
+
+$ chmod 600 authorized_keys 
+$ ls -la
+-rw-------   1 raj  staff     0 Nov 22 18:14 authorized_keys
+</code
+    ></pre
+  ><p
+  >The permission for the .ssh directory of the remote machine should be read/write/execute for the user and nothing for the group and others. To do this, check the permission and change it as shown below.</p
+  ><pre
+  ><code
+    >$ ls -la
+drwxr-xr-x   2 raj  staff    68 Nov 22 18:19 .ssh
+$ chmod 700 .ssh
+$ ls -la
+drwx------   2 raj  staff    68 Nov 22 18:19 .ssh
+</code
+    ></pre
+  ><p
+  >If you are running Rundeck on Windows, we heartily recommend using <a href="http://www.cygwin.org"
+    >Cygwin</a
+    > on Windows as it includes SSH and a number of Unix-like tools that are useful when you work in a command line environment.</p
+  ></div
+><div id="passing-environment-variables-through-remote-command"
+><h2
+  ><a href="#TOC"
+    >Passing environment variables through remote command</a
+    ></h2
+  ><p
+  >To pass environment variables through remote command dispatches, it is required to properly configure the SSH server on the remote end. See the <code
+    >AcceptEnv</code
+    > directive in the &quot;sshd_config(5)&quot; manual page for instructions.</p
+  ><p
+  >Use a wild card pattern to permit <code
+    >RD_</code
+    > prefixed variables to provide open access to Rundeck generated environment variables.</p
+  ><p
+  >Example in sshd_config:</p
+  ><pre
+  ><code
+    ># pass Rundeck variables
+AcceptEnv RD_*
+</code
+    ></pre
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="ssh.html">SSH</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        <li class="prev"><a href="relational-database.html">Relational Database</a></li>
+        <li class="next"><a href="authentication.html">Authentication</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

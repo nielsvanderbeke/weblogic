@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Plugin Development</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Greg Schueler" />
+  <meta name="date" content="November 20, 2010" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="plugin-development.html">Plugin Development</a></li>
+        <li class="toc"><a href="index.html">Developer Guide</a></li>
+        
+        
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">Plugin Development</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#java-plugin-development"
+      >Java Plugin Development</a
+      ><ul
+      ><li
+	><a href="#provider-classes"
+	  >Provider Classes</a
+	  ></li
+	><li
+	><a href="#jar-dependencies"
+	  >Jar Dependencies</a
+	  ></li
+	><li
+	><a href="#available-services:"
+	  >Available Services:</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#provider-lifecycle"
+      >Provider Lifecycle</a
+      ><ul
+      ><li
+	><a href="#node-executor-providers"
+	  >Node Executor Providers</a
+	  ></li
+	><li
+	><a href="#file-copier-providers"
+	  >File Copier Providers</a
+	  ></li
+	><li
+	><a href="#resource-model-source-providers"
+	  >Resource Model Source Providers</a
+	  ></li
+	><li
+	><a href="#resource-format-parser-and-generator-providers"
+	  >Resource Format Parser and Generator Providers</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#script-plugin-development"
+      >Script Plugin Development</a
+      ><ul
+      ><li
+	><a href="#provider-metadata"
+	  >Provider metadata</a
+	  ></li
+	><li
+	><a href="#configurable-resource-model-source-script-plugin"
+	  >Configurable Resource Model Source Script Plugin</a
+	  ></li
+	><li
+	><a href="#how-script-plugin-providers-are-invoked"
+	  >How script plugin providers are invoked</a
+	  ></li
+	><li
+	><a href="#script-provider-requirements"
+	  >Script provider requirements</a
+	  ></li
+	></ul
+      ></li
+    ></ul
+  ></div
+>
+<p
+>There are currently two ways to develop plugins:</p
+><ol style="list-style-type: decimal;"
+><li
+  >Develop Java code that is distributed within a Jar file. See <a href="plugin-development.html#java-plugin-development"
+    >Java plugin development</a
+    >.</li
+  ><li
+  >Write shell/system scripts that implement your desired behavior and put them in a zip file with some metadata. See <a href="plugin-development.html#script-plugin-development"
+    >Script Plugin Development</a
+    >.</li
+  ></ol
+><p
+>Either way, the resultant plugin archive file, either a .jar java archive, or a .zip file archive, will be placed in the <code
+  >$RDECK_BASE/libext</code
+  > dir.</p
+><div id="java-plugin-development"
+><h2
+  ><a href="#TOC"
+    >Java Plugin Development</a
+    ></h2
+  ><p
+  >Java plugins are distributed as .jar files containing the necessary classes for one or more service provider, as well as any other java jar dependency files.</p
+  ><p
+  >The <code
+    >.jar</code
+    > file you distribute must have this metadata within the main Manifest for the jar file to be correctly loaded by the system:</p
+  ><ul
+  ><li
+    ><code
+      >Rundeck-Plugin-Version: 1.0</code
+      ></li
+    ><li
+    ><code
+      >Rundeck-Plugin-Archive: true</code
+      ></li
+    ><li
+    ><code
+      >Rundeck-Plugin-Classnames: classname,..</code
+      ></li
+    ><li
+    ><code
+      >Rundeck-Plugin-Libs: lib/something.jar ...</code
+      > <em
+      >(optional)</em
+      ></li
+    ></ul
+  ><p
+  >Each classname listed must be a valid &quot;Provider Class&quot; as defined below.</p
+  ><p
+  >Additionally, you should include a manifest entry to indicate the plugin file's version:</p
+  ><ul
+  ><li
+    ><code
+      >Rundeck-Plugin-File-Version: 1.x</code
+      ></li
+    ></ul
+  ><p
+  >This version number will be used to load only the newest plugin file, if more than one provider of the same name and type is defined.</p
+  ><div id="provider-classes"
+  ><h3
+    ><a href="#TOC"
+      >Provider Classes</a
+      ></h3
+    ><p
+    >A &quot;Provider Class&quot; is a java class that implements a particular interface and declares itself as a provider for a particular Rundeck &quot;Service&quot;.</p
+    ><p
+    >Each plugin also defines a &quot;Name&quot; that identifies it for use in Rundeck. The Name of a plugin is also referred to as a &quot;Provider Name&quot;, as the plugin class is a provider of a particular service.</p
+    ><p
+    >You should choose a unique but simple name for your provider.</p
+    ><p
+    >Each plugin class must have the &quot;com.dtolabs.rundeck.core.plugins.Plugin&quot; annotation applied to it.</p
+    ><pre
+    ><code
+      >@Plugin(name=&quot;myprovider&quot;, service=&quot;NodeExecutor&quot;)
+public class MyProvider implements NodeExecutor{
+...
+</code
+      ></pre
+    ><p
+    >Your provider class must have at least a zero-argument constructor, and optionally can have a single-argument constructor with a <code
+      >com.dtolabs.rundeck.core.common.Framework</code
+      > parameter, in which case your class will be constructed with this constructor and passed the Framework instance.</p
+    ><p
+    >You may log messages to the ExecutionListener available via <code
+      >ExecutionContext#getExecutionListener()</code
+      > method.</p
+    ><p
+    >You can also send output to <code
+      >System.err</code
+      > and <code
+      >System.out</code
+      > and it will be captured as output of the execution.</p
+    ></div
+  ><div id="jar-dependencies"
+  ><h3
+    ><a href="#TOC"
+      >Jar Dependencies</a
+      ></h3
+    ><p
+    >If your Java classes require external libraries that are not included with the Rundeck runtime, you can include them in your .jar archive. (Look in <code
+      >$RDECK_BASE/tools/lib</code
+      > to see the set of third-party jars that are available for your classes by default at runtime).</p
+    ><p
+    >Specify the <code
+      >Rundeck-Plugin-Libs</code
+      > attribute in the Main attributes of the Manifest for the jar, set the value to a space-separated list of jar file names as you have included them in the jar.</p
+    ><p
+    >E.g.:</p
+    ><pre
+    ><code
+      >Rundeck-Plugin-Libs: lib/somejar-1.2.jar lib/anotherjar-1.3.jar
+</code
+      ></pre
+    ><p
+    >Then include the jar files in the Plugin's jar contents:</p
+    ><pre
+    ><code
+      >META-INF/
+META-INF/MANIFEST.MF
+com/
+com/mycompany/
+com/mycompany/rundeck/
+com/mycompany/rundeck/plugin/
+com/mycompany/rundeck/plugin/test/
+com/mycompany/rundeck/plugin/test/TestNodeExecutor.class
+lib/
+lib/somejar-1.2.jar
+lib/anotherjar-1.3.jar
+</code
+      ></pre
+    ></div
+  ><div id="available-services:"
+  ><h3
+    ><a href="#TOC"
+      >Available Services:</a
+      ></h3
+    ><ul
+    ><li
+      ><code
+	>NodeExecutor</code
+	> - executes a command on a node</li
+      ><li
+      ><code
+	>FileCopier</code
+	> - copies a file to a node</li
+      ><li
+      ><code
+	>ResourceModelSource</code
+	> - produces a set of Node definitions for a project</li
+      ><li
+      ><code
+	>ResourceFormatParser</code
+	> - parses a document into a set of Node resources</li
+      ><li
+      ><code
+	>ResourceFormatGenerator</code
+	> - generates a document from a set of Node resources</li
+      ></ul
+    ></div
+  ></div
+><div id="provider-lifecycle"
+><h2
+  ><a href="#TOC"
+    >Provider Lifecycle</a
+    ></h2
+  ><p
+  >Provider classes are instantiated when needed by the Framework object, and the instance is retained within the Service for future reuse. The Framework object may exist across multiple executions, and the provider instance may be reused.</p
+  ><p
+  >Provider instances may also be used by multiple threads.</p
+  ><p
+  >Your provider class should not use any instance fields and should be careful not to use un-threadsafe operations.</p
+  ><div id="node-executor-providers"
+  ><h3
+    ><a href="#TOC"
+      >Node Executor Providers</a
+      ></h3
+    ><p
+    >A Node Executor provider executes a certain command on a remote or local node.</p
+    ><p
+    >Your provider class must implement the <code
+      >com.dtolabs.rundeck.core.execution.service.NodeExecutor</code
+      > interface:</p
+    ><pre
+    ><code
+      >public interface NodeExecutor {
+    public NodeExecutorResult executeCommand(ExecutionContext context, 
+        String[] command, INodeEntry node) throws ExecutionException;
+}
+</code
+      ></pre
+    ><p
+    >A Node Executor can be me made Configurable on a per-project basis via the Web GUI by implementing the <code
+      >com.dtolabs.rundeck.core.plugins.configuration.Describable</code
+      > interface. It is up to your plugin implementation to use configuration properties from the <code
+      >FrameworkProject</code
+      > instance to configure itself. You must also be sure to return an appropriate mapping in the <code
+      >getPropertiesMapping</code
+      > method of the <code
+      >Description</code
+      > interface to declare the property names to be used in the <code
+      >project.properties</code
+      > file.</p
+    ><p
+    >More information is available in the Javadoc.</p
+    ></div
+  ><div id="file-copier-providers"
+  ><h3
+    ><a href="#TOC"
+      >File Copier Providers</a
+      ></h3
+    ><p
+    >A File Copier provider copies a file or script to a remote or local node.</p
+    ><p
+    >Your provider class must implement the <code
+      >com.dtolabs.rundeck.core.execution.service.FileCopier</code
+      > interface:</p
+    ><pre
+    ><code
+      >public interface FileCopier {
+    public String copyFileStream(final ExecutionContext context, InputStream input, INodeEntry node) throws
+        FileCopierException;
+
+    public String copyFile(final ExecutionContext context, File file, INodeEntry node) throws FileCopierException;
+
+    public String copyScriptContent(final ExecutionContext context, String script, INodeEntry node) throws
+        FileCopierException;
+}
+</code
+      ></pre
+    ><p
+    >A File Copier can be me made Configurable on a per-project basis via the Web GUI by implementing the <code
+      >com.dtolabs.rundeck.core.plugins.configuration.Describable</code
+      > interface. It is up to your plugin implementation to use configuration properties from the <code
+      >FrameworkProject</code
+      > instance to configure itself. You must also be sure to return an appropriate mapping in the <code
+      >getPropertiesMapping</code
+      > method of the <code
+      >Description</code
+      > interface to declare the property names to be used in the <code
+      >project.properties</code
+      > file.</p
+    ><p
+    >More information is available in the Javadoc.</p
+    ></div
+  ><div id="resource-model-source-providers"
+  ><h3
+    ><a href="#TOC"
+      >Resource Model Source Providers</a
+      ></h3
+    ><p
+    >A Resource Model Source provider is actually a Factory class. An instance of your Resource Model Source provider will be re-used, so each time a new Resource Model Source with a new configuration is required, your Factory class will be invoked to produce it.</p
+    ><p
+    >Your provider class must implement the <code
+      >com.dtolabs.rundeck.core.resources.ResourceModelSourceFactory</code
+      > interface:</p
+    ><pre
+    ><code
+      >public interface ResourceModelSourceFactory {
+    /**
+     * Return a resource model source for the given configuration
+     */
+    public ResourceModelSource createResourceModelSource(Properties configuration) throws ConfigurationException;
+}
+</code
+      ></pre
+    ><p
+    >A Resource Model Source provider can also be Configurable via the Web GUI by implementing the <code
+      >com.dtolabs.rundeck.core.plugins.configuration.Describable</code
+      > interface. This allows you to return a descriptor of the configuration parameters for your plugin, which is used by the GUI to render a web form. The properties the user configures are stored in the <code
+      >project.properties</code
+      > configuration file, and are passed to your factory method as the <code
+      >configuration</code
+      > properties.</p
+    ><p
+    >More information is available in the Javadoc.</p
+    ></div
+  ><div id="resource-format-parser-and-generator-providers"
+  ><h3
+    ><a href="#TOC"
+      >Resource Format Parser and Generator Providers</a
+      ></h3
+    ><p
+    >Resource format Parser and Generator providers are used to serialize a set of Node resources into a textual format for transport or storage.</p
+    ><p
+    >Each Parser and Generator must declare the set of filename extensions (such as &quot;xml&quot; or &quot;json&quot;) that it supports, as well as the set of MIME types that it supports (such as &quot;text/xml&quot; or &quot;application/json&quot;.) This lets other services retrieve the appropriate parser or generator when all that is known about the source or destination of serialized data is a filename or a MIME type.</p
+    ><p
+    >For Parsers, your provider class must implement the <code
+      >com.dtolabs.rundeck.core.resources.format.ResourceFormatParser</code
+      > interface:</p
+    ><pre
+    ><code
+      >public interface ResourceFormatParser {
+    /**
+     * Return the list of file extensions that this format parser can parse.
+     */
+    public Set&lt;String&gt; getFileExtensions();
+
+    /**
+     * Return the list of MIME types that this format parser can parse. This may include wildcards such as
+     * &quot;*&amp;#47;xml&quot;.
+     */
+    public Set&lt;String&gt; getMIMETypes();
+
+    /**
+     * Parse a file
+     */
+    public INodeSet parseDocument(File file) throws ResourceFormatParserException;
+
+    /**
+     * Parse an input stream
+     */
+    public INodeSet parseDocument(InputStream input) throws ResourceFormatParserException;
+}
+</code
+      ></pre
+    ><p
+    >For Generators, your provider class must implement the <code
+      >com.dtolabs.rundeck.core.resources.format.ResourceFormatGenerator</code
+      > interface:</p
+    ><pre
+    ><code
+      >public interface ResourceFormatGenerator {
+
+    /**
+     * Return the list of file extensions that this format generator can generate
+     */
+    public Set&lt;String&gt; getFileExtensions();
+
+    /**
+     * Return the list of MIME types that this format generator can generate. If more than one
+     * are returned, then the first value will be used by default if necessary.
+     */
+    public List&lt;String&gt; getMIMETypes();
+
+    /**
+     * generate formatted output
+     */
+    public void generateDocument(INodeSet nodeset, OutputStream stream) throws ResourceFormatGeneratorException,
+        IOException;
+}
+</code
+      ></pre
+    ><p
+    >More information is available in the Javadoc.</p
+    ></div
+  ></div
+><div id="script-plugin-development"
+><h2
+  ><a href="#TOC"
+    >Script Plugin Development</a
+    ></h2
+  ><p
+  >Script plugins can provide the same services as Java plugins, but they do so with a script that is invoked in an external system processes by the JVM.</p
+  ><p
+  >These Services support Script Plugins:</p
+  ><ul
+  ><li
+    ><code
+      >NodeExecutor</code
+      ></li
+    ><li
+    ><code
+      >FileCopier</code
+      ></li
+    ><li
+    ><code
+      >ResourceModelSource</code
+      ></li
+    ></ul
+  ><p
+  ><strong
+    >Note:</strong
+    > Currently, the Resource Format Parser and Generator services <em
+    >do not</em
+    > support Script Plugins.</p
+  ><p
+  >You must create a zip file with the following structure:</p
+  ><pre
+  ><code
+    >[name]-plugin.zip
+\- [name]-plugin/ -- root directory of zip contents, same name as zip file
+   |- plugin.yaml -- plugin metadata file
+   \- contents/
+      |- ...      -- script or resource files
+      \- ...
+</code
+    ></pre
+  ><p
+  >Here is an example:</p
+  ><pre
+  ><code
+    >$ unzip -l example-1.0-plugin.zip 
+Archive:  example-1.0-plugin.zip
+  Length     Date   Time    Name
+ --------    ----   ----    ----
+        0  04-12-11 11:31   example-1.0-plugin/
+        0  04-11-11 15:31   example-1.0-plugin/contents/
+     2142  04-11-11 15:31   example-1.0-plugin/contents/script1.sh
+     1591  04-11-11 13:10   example-1.0-plugin/contents/script2.sh
+      576  04-12-11 10:58   example-1.0-plugin/plugin.yaml
+ --------                   -------
+     4309                   5 files
+</code
+    ></pre
+  ><p
+  >The filename of the plugin zip must end with &quot;-plugin.zip&quot; to be recognized as a plugin archive. The zip must contain a top-level directory with the same base name as the zip file (sans &quot;.zip&quot;).</p
+  ><p
+  >The file <code
+    >plugin.yaml</code
+    > must have this structure:</p
+  ><pre
+  ><code
+    ># yaml plugin metadata
+
+name: plugin name
+version: plugin version
+rundeckPluginVersion: 1.0
+author: author name
+date: release date
+providers:
+    - name: provider
+      service: service name
+      plugin-type: script
+      script-interpreter: [interpreter]
+      script-file: [script file name]
+      script-args: [script file args]
+</code
+    ></pre
+  ><p
+  >The main metadata that is required:</p
+  ><ul
+  ><li
+    ><code
+      >name</code
+      > - name for the plugin</li
+    ><li
+    ><code
+      >version</code
+      > - version number of the plugin</li
+    ><li
+    ><code
+      >rundeckPluginVersion</code
+      > - Rundeck Plugin type version, currently &quot;1.0&quot;</li
+    ><li
+    ><code
+      >providers</code
+      > - list of provider metadata maps</li
+    ></ul
+  ><p
+  >These are optional:</p
+  ><ul
+  ><li
+    ><code
+      >author</code
+      > - optional author info</li
+    ><li
+    ><code
+      >date</code
+      > - optional release date info</li
+    ></ul
+  ><p
+  >This provides the necessary metadata about the plugin, including one or more entries in the <code
+    >providers</code
+    > list to declare those providers defined in the plugin.</p
+  ><div id="provider-metadata"
+  ><h3
+    ><a href="#TOC"
+      >Provider metadata</a
+      ></h3
+    ><p
+    >Required provider entries:</p
+    ><ul
+    ><li
+      ><code
+	>name</code
+	> - provider name</li
+      ><li
+      ><code
+	>service</code
+	> - service name, one of these valid services:<ul
+	><li
+	  ><code
+	    >NodeExecutor</code
+	    ></li
+	  ><li
+	  ><code
+	    >FileCopier</code
+	    ></li
+	  ><li
+	  ><code
+	    >ResourceModelSource</code
+	    ></li
+	  ></ul
+	></li
+      ><li
+      ><code
+	>plugin-type</code
+	> - must be &quot;script&quot; currently.</li
+      ><li
+      ><code
+	>script-file</code
+	> - must be the name of a file relative to the <code
+	>contents</code
+	> directory</li
+      ></ul
+    ><p
+    >For <code
+      >ResourceModelSource</code
+      > service, this additional entry is required:</p
+    ><ul
+    ><li
+      ><code
+	>resource-format</code
+	> - Must be the name of one of the supported <a href="../manual/rundeck-basics.html#resource-model-document-formats"
+	>Resource Model Document Formats</a
+	>.</li
+      ></ul
+    ><p
+    >Optional entries:</p
+    ><ul
+    ><li
+      ><code
+	>script-interpreter</code
+	> - A system command that should be used to execute the script. This can be a single binary path, e.g. <code
+	>/bin/bash</code
+	>, or include any args to the command, such as <code
+	>/bin/bash -c</code
+	>.</li
+      ><li
+      ><code
+	>script-args</code
+	> - the arguments to use when executing the script file.</li
+      ><li
+      ><code
+	>interpreter-args-quoted</code
+	> - true/false - (default false). If true, the execution will be done by passing the file and args as a single argument to the interpreter: <code
+	>${interpreter} &quot;${file} ${arg1} ${arg2}...&quot;</code
+	>. If false, the execution will be done by passing the file and args as separate arguments: <code
+	>${interpreter} ${file} ${arg1} ${arg2}...</code
+	></li
+      ></ul
+    ></div
+  ><div id="configurable-resource-model-source-script-plugin"
+  ><h3
+    ><a href="#TOC"
+      >Configurable Resource Model Source Script Plugin</a
+      ></h3
+    ><p
+    >The <code
+      >ResourceModelSource</code
+      > service allows the plugins to be configured via the Rundeck Web GUI. You are thus able to declare configuration properties for your plugin, which will be displayed as a web form when the Project is configured, or can be manually configured in the <code
+      >project.properties</code
+      > file.</p
+    ><p
+    >You can use these metadata entries to declare configuration properties for your plugin:</p
+    ><p
+    >Create a <code
+      >config</code
+      > entry in each provider definition, containing a sequence of map entries for each configuration property you want to define. In the map entry include:</p
+    ><ul
+    ><li
+      ><code
+	>type</code
+	> - The type of property. Must be one of:<ul
+	><li
+	  ><code
+	    >String</code
+	    ></li
+	  ><li
+	  ><code
+	    >Boolean</code
+	    > must be &quot;true&quot; or &quot;false&quot;</li
+	  ><li
+	  ><code
+	    >Integer</code
+	    ></li
+	  ><li
+	  ><code
+	    >Long</code
+	    ></li
+	  ><li
+	  ><code
+	    >Select</code
+	    > must be on of a set of values</li
+	  ><li
+	  ><code
+	    >FreeSelect</code
+	    > may be one of a set of values</li
+	  ></ul
+	></li
+      ><li
+      ><code
+	>name</code
+	> - Name to identify the property</li
+      ><li
+      ><code
+	>title</code
+	> - Title to display in the GUI (optional)</li
+      ><li
+      ><code
+	>description</code
+	> - Description to display in the GUI (optional)</li
+      ><li
+      ><code
+	>required</code
+	> - (true/false) if true, require a non-empty value (optional)</li
+      ><li
+      ><code
+	>default</code
+	> - A default value to use (optional)</li
+      ><li
+      ><code
+	>values</code
+	> - A comma-separated list of values to use for Select or FreeSelect. Required for Select/FreeSelect.</li
+      ></ul
+    ><p
+    >When your script is invoked, each configuration property defined for the plugin will be set as <code
+      >config.NAME</code
+      > in the data context passed to your script (see below).</p
+    ><p
+    >Here is an example <code
+      >providers</code
+      > section for a Resource Model Source plugin that asks for two input properties from the user and produces &quot;resourceyaml&quot; formatted output:</p
+    ><pre
+    ><code
+      >providers:
+    - name: mysource
+      service: ResourceModelSource
+      plugin-type: script
+      script-interpreter: bash -c
+      script-file: generate.sh
+      resource-format: resourceyaml
+      config:
+        - type: Integer
+          name: count
+          title: Count
+          description: Enter the number of nodes to generate
+        - type: FreeSelect
+          name: flavor
+          title: Flavor
+          description: Select a flavor
+          required: true
+          default: vanilla
+          values: vanilla,blueberry,strawberry,chocolate
+</code
+      ></pre
+    ></div
+  ><div id="how-script-plugin-providers-are-invoked"
+  ><h3
+    ><a href="#TOC"
+      >How script plugin providers are invoked</a
+      ></h3
+    ><p
+    >When the provider is used for node execution or file copying, the script file, interpreter, and args are combined into a commandline executed by the system in this pattern:</p
+    ><pre
+    ><code
+      >[interpreter] [filename] [args...]
+</code
+      ></pre
+    ><p
+    >If the interpreter is not specified, then the script file is executed directly, and that means it must be acceptable by the system to be executed directly (include any necessary <code
+      >#!</code
+      > line, etc).</p
+    ><p
+    ><code
+      >script-args</code
+      > can contain data-context properties such as <code
+      >${node.name}</code
+      >. Additionally, the specific Service will provide some additional context properties that can be used:</p
+    ><ul
+    ><li
+      >NodeExecutor will define <code
+	>${exec.command}</code
+	> containing the command to be executed</li
+      ><li
+      >FileCopier will define <code
+	>${file-copy.file}</code
+	> containing the local path to the file that needs to be copied.</li
+      ><li
+      >ResourceModelSource will define <code
+	>${config.KEY}</code
+	> for each configuration property KEY that is defined.</li
+      ></ul
+    ><p
+    >All script-plugins will also be provided with these context entries:</p
+    ><ul
+    ><li
+      ><code
+	>rundeck.base</code
+	> - base directory of the Rundeck installation</li
+      ><li
+      ><code
+	>rundeck.project</code
+	> - project name</li
+      ><li
+      ><code
+	>plugin.base</code
+	> - base directory of the expanded 'contents' dir of the plugin</li
+      ><li
+      ><code
+	>plugin.file</code
+	> - the plugin file itself</li
+      ><li
+      ><code
+	>plugin.scriptfile</code
+	> - the path to the script file being executed for the plugin</li
+      ><li
+      ><code
+	>plugin.vardir</code
+	> - var dir the plugin can use for caching data, local to the project</li
+      ><li
+      ><code
+	>plugin.tmpdir</code
+	> - temp dir the plugin can use</li
+      ></ul
+    ><p
+    >In addition, all of the data-context properties that are available in the <code
+      >script-args</code
+      > are provided as environment variables to the script or interpreter when it is executed.</p
+    ><p
+    >Environment variables are generated in all-caps with this format:</p
+    ><pre
+    ><code
+      >RD_[KEY]_[NAME]
+</code
+      ></pre
+    ><p
+    >The <code
+      >KEY</code
+      > and <code
+      >NAME</code
+      > are the same as <code
+      >${key.name}</code
+      >. Any characters in the key or name that are not valid Bash shell variable characters are replaced with underscore '_'.</p
+    ><p
+    >Examples:</p
+    ><ul
+    ><li
+      ><code
+	>${node.name}</code
+	> becomes <code
+	>$RD_NODE_NAME</code
+	></li
+      ><li
+      ><code
+	>${node.some-attribute}</code
+	> becomes <code
+	>$RD_NODE_SOME_ATTRIBUTE</code
+	></li
+      ><li
+      ><code
+	>${exec.command}</code
+	> becomes <code
+	>$RD_EXEC_COMMAND</code
+	></li
+      ><li
+      ><code
+	>${file-copy.file}</code
+	> becomes <code
+	>$RD_FILE_COPY_FILE</code
+	></li
+      ></ul
+    ></div
+  ><div id="script-provider-requirements"
+  ><h3
+    ><a href="#TOC"
+      >Script provider requirements</a
+      ></h3
+    ><p
+    >The specific service has expectations about the way your provider script behaves:</p
+    ><ul
+    ><li
+      >Exit code of 0 indicates success</li
+      ><li
+      >Any other exit code indicates failure</li
+      ></ul
+    ><dl
+    ><dt
+      >For <code
+	>NodeExecutor</code
+	></dt
+      ><dd
+      ><p
+	>All output to <code
+	  >STDOUT</code
+	  >/<code
+	  >STDERR</code
+	  > will be captured for the job's output</p
+	></dd
+      ><dt
+      >For <code
+	>FileCopier</code
+	></dt
+      ><dd
+      ><p
+	>The first line of output of <code
+	  >STDOUT</code
+	  > MUST be the filepath of the file copied to the target node. Other output is ignored. All output to <code
+	  >STDERR</code
+	  > will be captured for the job's output.</p
+	></dd
+      ><dt
+      >For <code
+	>ResourceModelSource</code
+	></dt
+      ><dd
+      ><p
+	>All output on <code
+	  >STDOUT</code
+	  > will be captured and passed to a <code
+	  >ResourceFormatParser</code
+	  > for the specified <code
+	  >resource-format</code
+	  > to create the Node definitions.</p
+	></dd
+      ></dl
+    ></div
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="plugin-development.html">Plugin Development</a></li>
+        <li class="toc"><a href="index.html">Developer Guide</a></li>
+        
+        
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

@@ -1,0 +1,26 @@
+ldapsmals {
+    com.dtolabs.rundeck.jetty.jaas.JettyCachingLdapLoginModule sufficient
+      debug="true"
+      contextFactory="com.sun.jndi.ldap.LdapCtxFactory"
+      providerUrl="ldap://ldapsmals.smals-mvm.be:1389"
+      bindDn="uid=weblogic_ldap,ou=people,dc=smals-mvm,dc=be"
+      bindPassword="WeblogicLdap"
+      authenticationMethod="simple"
+      forceBindingLogin="true"
+      userBaseDn="ou=people, dc=smals-mvm,dc=be"
+      userRdnAttribute="uid"
+      userIdAttribute="uid"
+      userPasswordAttribute="userPassword"
+      userObjectClass="account"
+      roleBaseDn="ou=group,dc=smals-mvm,dc=be"
+      roleNameAttribute="cn"
+      roleUsernameMemberAttribute="memberUid"
+      roleMemberAttribute="memberUid"
+      roleObjectClass="posixGroup"
+      cacheDurationMillis="300000"
+      reportStatistics="true";
+
+   org.mortbay.jetty.plus.jaas.spi.PropertyFileLoginModule required
+     debug="true"
+     file="/export/home/weblogic/pp/rundeck/server/config/realm.properties";
+};

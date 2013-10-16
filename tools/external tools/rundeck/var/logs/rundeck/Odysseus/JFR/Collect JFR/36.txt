@@ -1,0 +1,10 @@
+^^^02:59:50|WARNING|pp||1-exec|skywalker||Collecting Odysseus flight recording^^^
+^^^02:59:58|INFO|pp||2-rundeck-jobref:1-script|podboudin||Odysseus_BE_1^^^
+^^^02:59:58|INFO|pp||2-rundeck-jobref:1-script|podboudin||Odysseus_BE_2^^^
+^^^02:59:58|INFO|pp||2-rundeck-jobref:1-script|podboudin||16338^^^
+^^^02:59:58|INFO|pp||2-rundeck-jobref:1-script|badaboum||Odysseus_BE_1^^^
+^^^02:59:58|INFO|pp||2-rundeck-jobref:1-script|badaboum||25340^^^
+^^^03:00:03|INFO|pp||2-rundeck-jobref:1-script|podboudin||16338:^^^
+^^^03:00:03|INFO|pp||2-rundeck-jobref:1-script|badaboum||25340:^^^
+^^^03:00:09|INFO|pp||2-rundeck-jobref:1-script|badaboum||Odysseus_BE_2^^^
+^^^END^^^

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Logs</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="logs.html">Logs</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        <li class="prev"><a href="node-resource-sources.html">Node Resource Sources</a></li>
+        <li class="next"><a href="backup-and-recovery.html">Backup and Recovery</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">Logs</h1>
+<p
+>Depending on the installer used, the log files will be under a base directory:</p
+><ul
+><li
+  >RPM: <code
+    >/var/log/rundeck</code
+    ></li
+  ><li
+  >Launcher: <code
+    >$RDECK_BASE/server/logs</code
+    ></li
+  ></ul
+><p
+>The following files will be found in the log directory:</p
+><pre
+><code
+  > .
+ |-- command.log
+ |-- rundeck.audit.log
+ |-- rundeck.jobs.log
+ |-- rundeck.options.log
+ |-- rundeck.log
+ `-- service.log
+</code
+  ></pre
+><p
+>Different facilities log to their own files:</p
+><ul
+><li
+  ><code
+    >command.log</code
+    >: Shell tools log their activity to the command.log</li
+  ><li
+  ><code
+    >rundeck.audit.log</code
+    >: Authorization messages pertaining to aclpolicy</li
+  ><li
+  ><code
+    >rundeck.job.log</code
+    >: Log of all job definition changes</li
+  ><li
+  ><code
+    >rundeck.options.log</code
+    >: Logs remote HTTP requests for Options JSON data</li
+  ><li
+  ><code
+    >rundeck.log</code
+    >: General Rundeck application messages</li
+  ><li
+  ><code
+    >service.log</code
+    >: Standard input and output generated during runtime</li
+  ></ul
+><p
+>See the <a href="configuration.html#log4j.properties"
+  >#log4j.properties</a
+  > section for information about customizing log message formats and location.</p
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="logs.html">Logs</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        <li class="prev"><a href="node-resource-sources.html">Node Resource Sources</a></li>
+        <li class="next"><a href="backup-and-recovery.html">Backup and Recovery</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

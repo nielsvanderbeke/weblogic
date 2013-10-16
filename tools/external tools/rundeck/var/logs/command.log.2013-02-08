@@ -1,0 +1,9 @@
+2013-02-08 17:33:32,075 [main] DEBUG com.dtolabs.rundeck.core.common.Framework - creating new Framework instance.  rdeck_base_dir=/export/home/weblogic/pp/rundeck
+2013-02-08 17:33:32,079 [main] DEBUG com.dtolabs.rundeck.core.common.Framework - creating new Framework instance.  rdeck_base_dir=/export/home/weblogic/pp/rundeck, projects_base_dir=/export/home/weblogic/pp/rundeck/projects
+2013-02-08 17:33:32,116 [main] DEBUG com.dtolabs.rundeck.core.authentication.AuthenticationMgrFactory - using authentication class: com.dtolabs.rundeck.core.authentication.NoAuthentication
+2013-02-08 17:33:32,143 [main] DEBUG com.dtolabs.rundeck.core.dispatcher.CentralDispatcherMgrFactory - using centralDispatcher class: com.dtolabs.client.services.RundeckAPICentralDispatcher
+2013-02-08 17:33:32,267 [main] DEBUG com.dtolabs.rundeck.core.plugins.PluginManagerService - Create PluginManagerService
+2013-02-08 17:33:32,404 [main] DEBUG com.dtolabs.rundeck.core.common.Framework - Framework.initialize() time: 301ms
+2013-02-08 17:33:32,479 [main] DEBUG com.dtolabs.rundeck.core.common.FrameworkProject - loading existing project.properties: /export/home/weblogic/pp/rundeck/projects/WLS_Acceptation/etc/project.properties
+2013-02-08 17:33:32,486 [main] DEBUG com.dtolabs.rundeck.core.common.FrameworkProject - loading existing project.properties: /export/home/weblogic/pp/rundeck/projects/Test/etc/project.properties
+2013-02-08 17:33:32,492 [main] DEBUG com.dtolabs.rundeck.core.common.FrameworkProject - loading existing project.properties: /export/home/weblogic/pp/rundeck/projects/Odysseus/etc/project.properties

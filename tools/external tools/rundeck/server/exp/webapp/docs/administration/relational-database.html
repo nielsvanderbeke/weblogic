@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Relational Database</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="relational-database.html">Relational Database</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        <li class="prev"><a href="backup-and-recovery.html">Backup and Recovery</a></li>
+        <li class="next"><a href="ssh.html">SSH</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">Relational Database</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#enable-rdbsupport"
+      >Enable rdbsupport</a
+      ></li
+    ><li
+    ><a href="#customize-the-datasource"
+      >Customize the Datasource</a
+      ></li
+    ><li
+    ><a href="#add-the-jdbc-driver"
+      >Add the JDBC Driver</a
+      ></li
+    ></ul
+  ></div
+>
+<p
+>You can configure Rundeck to use a RDB instead of the default file-based data storage.</p
+><p
+>You must modify the <code
+  >server/config/rundeck-config.properties</code
+  > file, to change the <code
+  >dataSource</code
+  > configuration, and you will have to add the appropriate JDBC driver JAR file to the lib directory.</p
+><div id="enable-rdbsupport"
+><h2
+  ><a href="#TOC"
+    >Enable rdbsupport</a
+    ></h2
+  ><p
+  >First, you <strong
+    >must</strong
+    > enable the <code
+    >rundeck.v14.rdbsupport</code
+    > property:</p
+  ><pre
+  ><code
+    >#note, make sure this is set to &quot;true&quot; if you are using Oracle or Mysql
+rundeck.v14.rdbsupport=true
+</code
+    ></pre
+  ><p
+  >This makes Rundeck use table/field names that are compatible with Oracle/Mysql.</p
+  ><p
+  >Note: It is safe to set this to true if you are using the default file based backend, but only for a fresh install. It will cause a problem if you set it to true for an existing Rundeck 1.3 HSQLDB database. Make sure it is set to &quot;false&quot; or is absent from your config file if you are upgrading from Rundeck 1.3 and using the filesystem storage.</p
+  ></div
+><div id="customize-the-datasource"
+><h2
+  ><a href="#TOC"
+    >Customize the Datasource</a
+    ></h2
+  ><p
+  >The default dataSource is configured for filesystem storage using HSQLDB:</p
+  ><pre
+  ><code
+    >dataSource.url = jdbc:hsqldb:file:/var/lib/rundeck/data/grailsdb;shutdown=true
+</code
+    ></pre
+  ><p
+  >Here is an example configuration to use an Oracle backend:</p
+  ><pre
+  ><code
+    >dataSource.url = jdbc:oracle:thin:@localhost:1521:XE
+dataSource.driverClassName = oracle.jdbc.driver.OracleDriver
+dataSource.username = dbuser
+dataSource.password = dbpass
+dataSource.dialect = org.hibernate.dialect.Oracle10gDialect
+</code
+    ></pre
+  ><p
+  >Here is an example configuration to use Mysql:</p
+  ><pre
+  ><code
+    >dataSource.url = jdbc:mysql://myserver/rundeckdb?autoReconnect=true
+dataSource.username = dbuser
+dataSource.password = dbpass
+</code
+    ></pre
+  ><p
+  >NB: for Mysql, the <code
+    >autoReconnect=true</code
+    > will fix a common problem where the Rundeck server's connection to Mysql is dropped after a period of inactivity, resulting in an error message: &quot;Message: Can not read response from server. Expected to read 4 bytes, read 0 bytes before connection was unexpectedly lost.&quot;</p
+  ><p
+  >See more about <a href="http://dev.mysql.com/doc/refman/5.1/en/connector-j-reference-configuration-properties.html"
+    >configuring the Mysql JDBC Connector/J URL</a
+    >.</p
+  ></div
+><div id="add-the-jdbc-driver"
+><h2
+  ><a href="#TOC"
+    >Add the JDBC Driver</a
+    ></h2
+  ><p
+  >Copy the appropriate JDBC driver, such as &quot;ojdbc14.jar&quot; for Oracle into the server <code
+    >lib</code
+    > dir:</p
+  ><pre
+  ><code
+    >cp ojdbc14.jar $RDECK_BASE/server/lib
+</code
+    ></pre
+  ><p
+  >Or:</p
+  ><pre
+  ><code
+    >cp mysql-connector-java-5.1.17-bin.jar $RDECK_BASE/server/lib
+</code
+    ></pre
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="relational-database.html">Relational Database</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        <li class="prev"><a href="backup-and-recovery.html">Backup and Recovery</a></li>
+        <li class="next"><a href="ssh.html">SSH</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

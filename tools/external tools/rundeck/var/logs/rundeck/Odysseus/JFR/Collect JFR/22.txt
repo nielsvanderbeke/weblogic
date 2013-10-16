@@ -1,0 +1,166 @@
+^^^03:31:26|CONFIG|admin|||skywalker||[workflow] Begin execution: rundeck-workflow-node-first^^^
+^^^03:31:26|CONFIG|admin|||skywalker||preparing for sequential execution on 1 nodes^^^
+^^^03:31:26|CONFIG|admin|||skywalker||Executing command on node: skywalker, NodeEntryImpl{tags=[], attributes={tags=, osFamily=unix, username=pp, osVersion=5.10, osArch=sparcv9, description=Rundeck server node, hostname=skywalker, nodename=skywalker, osName=SunOS}, project='null'}^^^
+^^^03:31:26|CONFIG|admin|||skywalker||NodeSet: SingleNodeSelector{nodename='skywalker'}^^^
+^^^03:31:26|CONFIG|admin|||skywalker||Workflow: com.dtolabs.rundeck.core.execution.workflow.StepFirstWorkflowStrategy$stepFirstWrapper@7dc5c875^^^
+^^^03:31:26|CONFIG|admin|||skywalker||data context: {job={id=41513417-cf29-4b29-9c84-78e14210903a, project=Odysseus, username=admin, name=Collect JFR, group=JFR, execid=22}, option={}}^^^
+^^^03:31:26|CONFIG|||1-exec|||[workflow] Begin step: 1,exec^^^
+^^^03:31:26|CONFIG|||1-exec|||1: com.dtolabs.rundeck.execution.ExecutionItemFactory$4@19af46f8^^^
+^^^03:31:26|CONFIG|||1-exec|||ExecutionItem created, executing: com.dtolabs.rundeck.execution.ExecutionItemFactory$4@19af46f8^^^
+^^^03:31:26|CONFIG|||1-exec|||preparing for sequential execution on 1 nodes^^^
+^^^03:31:26|CONFIG|||1-exec|||Executing command on node: skywalker, NodeEntryImpl{tags=[], attributes={tags=, osFamily=unix, username=pp, osVersion=5.10, osArch=sparcv9, description=Rundeck server node, hostname=skywalker, nodename=skywalker, osName=SunOS}, project='null'}^^^
+^^^03:31:26|CONFIG|pp||1-exec|skywalker||beginInterpretCommand(skywalker): exec: com.dtolabs.rundeck.execution.ExecutionItemFactory$4@19af46f8^^^
+^^^03:31:26|CONFIG|pp||1-exec|skywalker||Current OS is SunOS^^^
+^^^03:31:26|CONFIG|pp||1-exec|skywalker||Adding reference: ant.PropertyHelper^^^
+^^^03:31:26|CONFIG|pp||1-exec|skywalker||Project base dir set to: /export/home/weblogic/pp/rundeck^^^
+^^^03:31:26|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_NODE_DESCRIPTION=Rundeck server node^^^
+^^^03:31:26|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_NODE_OS_ARCH=sparcv9^^^
+^^^03:31:26|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_JOB_NAME=Collect JFR^^^
+^^^03:31:26|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_JOB_ID=41513417-cf29-4b29-9c84-78e14210903a^^^
+^^^03:31:26|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_JOB_EXECID=22^^^
+^^^03:31:26|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_NODE_HOSTNAME=skywalker^^^
+^^^03:31:26|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_NODE_TAGS=^^^
+^^^03:31:26|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_NODE_NAME=skywalker^^^
+^^^03:31:26|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_JOB_PROJECT=Odysseus^^^
+^^^03:31:26|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_NODE_OS_VERSION=5.10^^^
+^^^03:31:26|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_NODE_USERNAME=pp^^^
+^^^03:31:26|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_NODE_OS_FAMILY=unix^^^
+^^^03:31:27|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_JOB_GROUP=JFR^^^
+^^^03:31:27|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_JOB_USERNAME=admin^^^
+^^^03:31:27|CONFIG|pp||1-exec|skywalker||Setting environment variable: RD_NODE_OS_NAME=SunOS^^^
+^^^03:31:27|CONFIG|pp||1-exec|skywalker||Executing '/bin/sh' with arguments:
+'-c'
+'echo Collecting Odysseus flight recording'
+
+The ' characters around the executable and arguments are
+not part of the command.^^^
+^^^03:31:27|CONFIG|pp||1-exec|skywalker||Execute:Java13CommandLauncher: Executing '/bin/sh' with arguments:
+'-c'
+'echo Collecting Odysseus flight recording'
+
+The ' characters around the executable and arguments are
+not part of the command.^^^
+^^^03:31:29|WARNING|pp||1-exec|skywalker||Collecting Odysseus flight recording^^^
+^^^03:31:29|CONFIG|pp||1-exec|skywalker||Setting project property: 1349357486993.node.skywalker.LocalNodeExecutor.result -> 0^^^
+^^^03:31:29|CONFIG|||1-exec|||finishInterpretCommand(skywalker): exec: [local node exec] result was success, resultcode: 0^^^
+^^^03:31:29|CONFIG|admin|||skywalker||[workflow] Finish step: 1,exec^^^
+^^^03:31:29|CONFIG|admin|||skywalker||1: ExecutionItem finished, result: BaseExecutionResult{resultObject=DispatcherResult{status=true, results={skywalker=[local node exec] result was success, resultcode: 0}}, success=true, exception=null}^^^
+^^^03:31:29|CONFIG|||2-rundeck-jobref|||[workflow] Begin step: 2,rundeck-jobref^^^
+^^^03:31:29|CONFIG|||2-rundeck-jobref|||2: com.dtolabs.rundeck.execution.ExecutionItemFactory$5@19af475a^^^
+^^^03:31:29|CONFIG|||2-rundeck-jobref|||ExecutionItem created, executing: com.dtolabs.rundeck.execution.ExecutionItemFactory$5@19af475a^^^
+^^^03:31:29|CONFIG|||2-rundeck-jobref|||preparing for sequential execution on 1 nodes^^^
+^^^03:31:29|CONFIG|||2-rundeck-jobref|||Executing command on node: skywalker, NodeEntryImpl{tags=[], attributes={tags=, osFamily=unix, username=pp, osVersion=5.10, osArch=sparcv9, description=Rundeck server node, hostname=skywalker, nodename=skywalker, osName=SunOS}, project='null'}^^^
+^^^03:31:29|CONFIG|pp||2-rundeck-jobref|skywalker||beginInterpretCommand(skywalker): rundeck-jobref: com.dtolabs.rundeck.execution.ExecutionItemFactory$5@19af475a^^^
+^^^03:31:30|CONFIG|admin|||skywalker||[workflow] Begin execution: rundeck-workflow-step-first^^^
+^^^03:31:30|CONFIG|admin|||skywalker||NodeSet: NodeSet{includes={tags=production, dominant=false, }}^^^
+^^^03:31:30|CONFIG|admin|||skywalker||Workflow: WorkflowImpl{commands=[com.dtolabs.rundeck.execution.ExecutionItemFactory$2@19cecace], threadcount=1, keepgoing=false, strategy=step-first}^^^
+^^^03:31:30|CONFIG|admin|||skywalker||data context: {job={id=dab79198-967a-4880-969c-970cd2bf9d22, project=Odysseus, username=admin, name=Dump Flight Recorder, group=JFR, execid=22}, option={}}^^^
+^^^03:31:30|CONFIG|||2-rundeck-jobref:1-script|||[workflow] Begin step: 1,script^^^
+^^^03:31:30|CONFIG|||2-rundeck-jobref:1-script|||1: com.dtolabs.rundeck.execution.ExecutionItemFactory$2@19cecace^^^
+^^^03:31:30|CONFIG|||2-rundeck-jobref:1-script|||ExecutionItem created, executing: com.dtolabs.rundeck.execution.ExecutionItemFactory$2@19cecace^^^
+^^^03:31:30|CONFIG|||2-rundeck-jobref:1-script|||preparing for parallel execution...(keepgoing? false, threads: 2)^^^
+^^^03:31:30|CONFIG|||2-rundeck-jobref:1-script|||Create task for node: badaboum^^^
+^^^03:31:30|CONFIG|||2-rundeck-jobref:1-script|||Create task for node: podboudin^^^
+^^^03:31:30|CONFIG|||2-rundeck-jobref:1-script|||parallel dispatch to nodes: [podboudin, badaboum]^^^
+^^^03:31:30|CONFIG|pp||2-rundeck-jobref:1-script|badaboum||beginInterpretCommand(badaboum): script: com.dtolabs.rundeck.execution.ExecutionItemFactory$2@19cecace^^^
+^^^03:31:30|CONFIG|pp||2-rundeck-jobref:1-script|podboudin||beginInterpretCommand(podboudin): script: com.dtolabs.rundeck.execution.ExecutionItemFactory$2@19cecace^^^
+^^^03:31:36|CONFIG|pp||2-rundeck-jobref:1-script|badaboum||Using ssh keyfile: /export/home/weblogic/pp/.ssh/id_rsa_unencrypted^^^
+^^^03:31:36|CONFIG|pp||2-rundeck-jobref:1-script|podboudin||Using ssh keyfile: /export/home/weblogic/pp/.ssh/id_rsa_unencrypted^^^
+^^^03:31:37|CONFIG|pp||2-rundeck-jobref:1-script|podboudin||Adding reference: ant.PropertyHelper^^^
+^^^03:31:37|CONFIG|pp||2-rundeck-jobref:1-script|podboudin||Setting project property: sshexec.output -> ^^^
+^^^03:31:37|CONFIG|pp||2-rundeck-jobref:1-script|podboudin||Using ssh keyfile: /export/home/weblogic/pp/.ssh/id_rsa_unencrypted^^^
+^^^03:31:37|CONFIG|pp||2-rundeck-jobref:1-script|badaboum||Adding reference: ant.PropertyHelper^^^
+^^^03:31:37|CONFIG|pp||2-rundeck-jobref:1-script|badaboum||Setting project property: sshexec.output -> ^^^
+^^^03:31:37|CONFIG|pp||2-rundeck-jobref:1-script|badaboum||Using ssh keyfile: /export/home/weblogic/pp/.ssh/id_rsa_unencrypted^^^
+^^^03:31:38|INFO|pp||2-rundeck-jobref:1-script|podboudin||Odysseus_BE_1^^^
+^^^03:31:38|INFO|pp||2-rundeck-jobref:1-script|podboudin||Odysseus_BE_2^^^
+^^^03:31:38|INFO|pp||2-rundeck-jobref:1-script|podboudin||176^^^
+^^^03:31:38|INFO|pp||2-rundeck-jobref:1-script|badaboum||Odysseus_BE_1^^^
+^^^03:31:38|INFO|pp||2-rundeck-jobref:1-script|badaboum||12682^^^
+^^^03:31:42|INFO|pp||2-rundeck-jobref:1-script|badaboum||12682:^^^
+^^^03:31:44|INFO|pp||2-rundeck-jobref:1-script|podboudin||176:^^^
+^^^03:31:46|INFO|pp||2-rundeck-jobref:1-script|badaboum||Odysseus_BE_2^^^
+^^^03:31:47|CONFIG|pp||2-rundeck-jobref:1-script|badaboum||Adding reference: ant.PropertyHelper^^^
+^^^03:31:47|CONFIG|pp||2-rundeck-jobref:1-script|badaboum||Setting project property: sshexec.output -> Odysseus_BE_1
+12682
+12682:
+
+Odysseus_BE_2^^^
+^^^03:31:47|CONFIG|||2-rundeck-jobref:1-script|||finishInterpretCommand(badaboum): script: [jsch-ssh] result was success, resultcode: 0^^^
+^^^03:31:49|CONFIG|pp||2-rundeck-jobref:1-script|podboudin||Adding reference: ant.PropertyHelper^^^
+^^^03:31:49|CONFIG|pp||2-rundeck-jobref:1-script|podboudin||Setting project property: sshexec.output -> Odysseus_BE_1
+Odysseus_BE_2
+176
+176:
+^^^
+^^^03:31:49|CONFIG|||2-rundeck-jobref:1-script|||finishInterpretCommand(podboudin): script: [jsch-ssh] result was success, resultcode: 0^^^
+^^^03:31:49|CONFIG|admin|||skywalker||[workflow] Finish step: 1,script^^^
+^^^03:31:49|CONFIG|admin|||skywalker||1: ExecutionItem finished, result: BaseExecutionResult{resultObject=Parallel dispatch: (true) {podboudin=[jsch-ssh] result was success, resultcode: 0, badaboum=[jsch-ssh] result was success, resultcode: 0}, success=true, exception=null}^^^
+^^^03:31:49|CONFIG|admin|||skywalker||[workflow] Finish execution:  rundeck-workflow-step-first: [Workflow results: {podboudin=[[jsch-ssh] result was success, resultcode: 0], badaboum=[[jsch-ssh] result was success, resultcode: 0]}]^^^
+^^^03:31:49|CONFIG|admin|||skywalker||finishInterpretCommand(skywalker): rundeck-jobref: [Workflow results: {podboudin=[[jsch-ssh] result was success, resultcode: 0], badaboum=[[jsch-ssh] result was success, resultcode: 0]}]^^^
+^^^03:31:49|CONFIG|admin|||skywalker||[workflow] Finish step: 2,rundeck-jobref^^^
+^^^03:31:49|CONFIG|admin|||skywalker||2: ExecutionItem finished, result: BaseExecutionResult{resultObject=DispatcherResult{status=true, results={skywalker=[Workflow results: {podboudin=[[jsch-ssh] result was success, resultcode: 0], badaboum=[[jsch-ssh] result was success, resultcode: 0]}]}}, success=true, exception=null}^^^
+^^^03:31:49|CONFIG|||3-rundeck-jobref|||[workflow] Begin step: 3,rundeck-jobref^^^
+^^^03:31:49|CONFIG|||3-rundeck-jobref|||3: com.dtolabs.rundeck.execution.ExecutionItemFactory$5@19af4794^^^
+^^^03:31:49|CONFIG|||3-rundeck-jobref|||ExecutionItem created, executing: com.dtolabs.rundeck.execution.ExecutionItemFactory$5@19af4794^^^
+^^^03:31:49|CONFIG|||3-rundeck-jobref|||preparing for sequential execution on 1 nodes^^^
+^^^03:31:49|CONFIG|||3-rundeck-jobref|||Executing command on node: skywalker, NodeEntryImpl{tags=[], attributes={tags=, osFamily=unix, username=pp, osVersion=5.10, osArch=sparcv9, description=Rundeck server node, hostname=skywalker, nodename=skywalker, osName=SunOS}, project='null'}^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref|skywalker||beginInterpretCommand(skywalker): rundeck-jobref: com.dtolabs.rundeck.execution.ExecutionItemFactory$5@19af4794^^^
+^^^03:31:49|CONFIG|admin|||skywalker||[workflow] Begin execution: rundeck-workflow-node-first^^^
+^^^03:31:49|CONFIG|admin|||skywalker||preparing for sequential execution on 1 nodes^^^
+^^^03:31:49|CONFIG|admin|||skywalker||Executing command on node: skywalker, NodeEntryImpl{tags=[], attributes={tags=, osFamily=unix, username=pp, osVersion=5.10, osArch=sparcv9, description=Rundeck server node, hostname=skywalker, nodename=skywalker, osName=SunOS}, project='null'}^^^
+^^^03:31:49|CONFIG|admin|||skywalker||NodeSet: SingleNodeSelector{nodename='skywalker'}^^^
+^^^03:31:49|CONFIG|admin|||skywalker||Workflow: com.dtolabs.rundeck.core.execution.workflow.StepFirstWorkflowStrategy$stepFirstWrapper@33b15124^^^
+^^^03:31:49|CONFIG|admin|||skywalker||data context: {job={id=57523a0e-6f4c-40e7-bad1-4ce861456af3, project=Odysseus, username=admin, name=Fetch JFRs, group=JFR, execid=22}, option={}}^^^
+^^^03:31:49|CONFIG|||3-rundeck-jobref:1-exec|||[workflow] Begin step: 1,exec^^^
+^^^03:31:49|CONFIG|||3-rundeck-jobref:1-exec|||1: com.dtolabs.rundeck.execution.ExecutionItemFactory$4@18589663^^^
+^^^03:31:49|CONFIG|||3-rundeck-jobref:1-exec|||ExecutionItem created, executing: com.dtolabs.rundeck.execution.ExecutionItemFactory$4@18589663^^^
+^^^03:31:49|CONFIG|||3-rundeck-jobref:1-exec|||preparing for sequential execution on 1 nodes^^^
+^^^03:31:49|CONFIG|||3-rundeck-jobref:1-exec|||Executing command on node: skywalker, NodeEntryImpl{tags=[], attributes={tags=, osFamily=unix, username=pp, osVersion=5.10, osArch=sparcv9, description=Rundeck server node, hostname=skywalker, nodename=skywalker, osName=SunOS}, project='null'}^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||beginInterpretCommand(skywalker): exec: com.dtolabs.rundeck.execution.ExecutionItemFactory$4@18589663^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Current OS is SunOS^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Adding reference: ant.PropertyHelper^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Project base dir set to: /export/home/weblogic/pp/rundeck^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Setting environment variable: RD_NODE_DESCRIPTION=Rundeck server node^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Setting environment variable: RD_NODE_OS_ARCH=sparcv9^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Setting environment variable: RD_JOB_NAME=Fetch JFRs^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Setting environment variable: RD_JOB_ID=57523a0e-6f4c-40e7-bad1-4ce861456af3^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Setting environment variable: RD_JOB_EXECID=22^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Setting environment variable: RD_NODE_HOSTNAME=skywalker^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Setting environment variable: RD_NODE_TAGS=^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Setting environment variable: RD_NODE_NAME=skywalker^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Setting environment variable: RD_JOB_PROJECT=Odysseus^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Setting environment variable: RD_NODE_OS_VERSION=5.10^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Setting environment variable: RD_NODE_USERNAME=pp^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Setting environment variable: RD_NODE_OS_FAMILY=unix^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Setting environment variable: RD_JOB_GROUP=JFR^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Setting environment variable: RD_JOB_USERNAME=admin^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Setting environment variable: RD_NODE_OS_NAME=SunOS^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Executing '/bin/sh' with arguments:
+'-c'
+'/export/home/weblogic/pp/rundeck/projects/Odysseus/scripts/import_jfr.sh'
+
+The ' characters around the executable and arguments are
+not part of the command.^^^
+^^^03:31:49|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Execute:Java13CommandLauncher: Executing '/bin/sh' with arguments:
+'-c'
+'/export/home/weblogic/pp/rundeck/projects/Odysseus/scripts/import_jfr.sh'
+
+The ' characters around the executable and arguments are
+not part of the command.^^^
+^^^03:31:59|WARNING|pp||3-rundeck-jobref:1-exec|skywalker||ssh -i /export/home/weblogic/pp/.ssh/id_rsa_unencrypted pp@podboudin.smals-mvm.be /bin/rm /var/tmp/Odysseus_BE_2-20121003150911.jfr^^^
+^^^03:32:04|WARNING|pp||3-rundeck-jobref:1-exec|skywalker||ssh -i /export/home/weblogic/pp/.ssh/id_rsa_unencrypted pp@podboudin.smals-mvm.be /bin/rm /var/tmp/Odysseus_BE_2-20121004152319.jfr^^^
+^^^03:32:10|WARNING|pp||3-rundeck-jobref:1-exec|skywalker||ssh -i /export/home/weblogic/pp/.ssh/id_rsa_unencrypted pp@podboudin.smals-mvm.be /bin/rm /var/tmp/Odysseus_BE_2-20121004153138.jfr^^^
+^^^03:32:18|WARNING|pp||3-rundeck-jobref:1-exec|skywalker||ssh -i /export/home/weblogic/pp/.ssh/id_rsa_unencrypted pp@badaboum.smals-mvm.be /bin/rm /var/tmp/Odysseus_BE_1-20121003150857.jfr^^^
+^^^03:32:24|WARNING|pp||3-rundeck-jobref:1-exec|skywalker||ssh -i /export/home/weblogic/pp/.ssh/id_rsa_unencrypted pp@badaboum.smals-mvm.be /bin/rm /var/tmp/Odysseus_BE_1-20121004152317.jfr^^^
+^^^03:32:29|WARNING|pp||3-rundeck-jobref:1-exec|skywalker||ssh -i /export/home/weblogic/pp/.ssh/id_rsa_unencrypted pp@badaboum.smals-mvm.be /bin/rm /var/tmp/Odysseus_BE_1-20121004153138.jfr^^^
+^^^03:32:30|CONFIG|pp||3-rundeck-jobref:1-exec|skywalker||Setting project property: 1349357509138.node.skywalker.LocalNodeExecutor.result -> 0^^^
+^^^03:32:30|CONFIG|||3-rundeck-jobref:1-exec|||finishInterpretCommand(skywalker): exec: [local node exec] result was success, resultcode: 0^^^
+^^^03:32:30|CONFIG|admin|||skywalker||[workflow] Finish step: 1,exec^^^
+^^^03:32:30|CONFIG|admin|||skywalker||1: ExecutionItem finished, result: BaseExecutionResult{resultObject=DispatcherResult{status=true, results={skywalker=[local node exec] result was success, resultcode: 0}}, success=true, exception=null}^^^
+^^^03:32:30|CONFIG|admin|||skywalker||[workflow] Finish execution:  rundeck-workflow-node-first: [Workflow results: {skywalker=[[local node exec] result was success, resultcode: 0]}]^^^
+^^^03:32:30|CONFIG|admin|||skywalker||finishInterpretCommand(skywalker): rundeck-jobref: [Workflow results: {skywalker=[[local node exec] result was success, resultcode: 0]}]^^^
+^^^03:32:30|CONFIG|admin|||skywalker||[workflow] Finish step: 3,rundeck-jobref^^^
+^^^03:32:30|CONFIG|admin|||skywalker||3: ExecutionItem finished, result: BaseExecutionResult{resultObject=DispatcherResult{status=true, results={skywalker=[Workflow results: {skywalker=[[local node exec] result was success, resultcode: 0]}]}}, success=true, exception=null}^^^
+^^^03:32:30|CONFIG|admin|||skywalker||[workflow] Finish execution:  rundeck-workflow-node-first: [Workflow results: {skywalker=[[local node exec] result was success, resultcode: 0, [Workflow results: {podboudin=[[jsch-ssh] result was success, resultcode: 0], badaboum=[[jsch-ssh] result was success, resultcode: 0]}], [Workflow results: {skywalker=[[local node exec] result was success, resultcode: 0]}]]}]^^^
+^^^END^^^

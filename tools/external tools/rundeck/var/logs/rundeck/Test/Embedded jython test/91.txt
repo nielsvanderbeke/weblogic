@@ -1,0 +1,3 @@
+^^^12:03:48|INFO|pp||1-exec|Intramuros||Starting jython^^^
+^^^12:03:49|SEVERE|||2-script-url|||Failed dispatching to node Intramuros: Error requesting URL Script: http://svn01.smals-mvm.be/viewvc/ea/trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.shhttp://svn01.smals-mvm.be/viewvc/ea/trunk/rundeck/rundeck_scripts/embeddedDatasourceListScript.sh?view=co: com.dtolabs.rundeck.core.common.FileUpdaterException: Unable to retrieve content: result code: 404 Not Found^^^
+^^^END^^^

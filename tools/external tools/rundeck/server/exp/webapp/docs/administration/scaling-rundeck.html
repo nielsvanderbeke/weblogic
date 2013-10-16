@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scaling Rundeck</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="scaling-rundeck.html">Scaling Rundeck</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        <li class="prev"><a href="gui-customization.html">GUI Customization</a></li>
+        
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">Scaling Rundeck</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#file-descriptors"
+      >File descriptors</a
+      ></li
+    ><li
+    ><a href="#java-heap-size"
+      >Java heap size</a
+      ></li
+    ><li
+    ><a href="#quartz-job-threadcount"
+      >Quartz job threadCount</a
+      ></li
+    ><li
+    ><a href="#jmx-instrumentation"
+      >JMX instrumentation</a
+      ></li
+    ></ul
+  ></div
+>
+<p
+>Note: This section is early in its development.</p
+><div id="file-descriptors"
+><h3
+  ><a href="#TOC"
+    >File descriptors</a
+    ></h3
+  ><p
+  >The Rundeck server process opens a number of files during normal operation. These include system and java libraries, logs, and sockets. Your system restricts the number of open file handles per process but these limitations can be adjusted.</p
+  ><p
+  >If your installation attempts to exceed the limit, you will see an error like the one shown below in your <a href="logs.html"
+    >service.log</a
+    > file.</p
+  ><pre
+  ><code
+    >Too many open files 
+</code
+    ></pre
+  ><p
+  ><em
+    >On Linux nodes</em
+    ></p
+  ><p
+  >List the current limit with the <a href="http://ss64.com/bash/ulimit.html"
+    >ulimit</a
+    > command:</p
+  ><pre
+  ><code
+    >ulimit -n
+</code
+    ></pre
+  ><p
+  >If the limit is low (eg <code
+    >1024</code
+    >) it should be raised.</p
+  ><p
+  >You can get the current number of open file descriptors used by the Rundeck server process with <a href="http://linux.die.net/man/8/lsof"
+    >lsof</a
+    >:</p
+  ><pre
+  ><code
+    >losf -p &lt;rundeck pid&gt; | wc -l
+</code
+    ></pre
+  ><p
+  >Increase the limit for a wide margin. Edit <a href="http://ss64.com/bash/limits.conf.html"
+    >/etc/security/limits.conf</a
+    > file to raise the hard and soft limits. Here they are raised to <code
+    >65535</code
+    > for the &quot;rundeck&quot; system account:</p
+  ><pre
+  ><code
+    >rundeck hard nofile 65535
+rundeck soft nofile 65535
+</code
+    ></pre
+  ><p
+  >The system file descriptor limit is set in /proc/sys/fs/file-max. The following command will increase the limit to 65535:</p
+  ><pre
+  ><code
+    >echo 65535 &gt; /proc/sys/fs/file-max
+</code
+    ></pre
+  ><p
+  >In a new shell, run the ulimit command to set the new level:</p
+  ><pre
+  ><code
+    >ulimit -n 65535
+</code
+    ></pre
+  ><p
+  >The ulimit setting can be set in the <a href="#rundeckd"
+    >rundeckd</a
+    > startup script, or <a href="configuration.html#profile"
+    >profile</a
+    >.</p
+  ><p
+  >Restart Rundeck.</p
+  ></div
+><div id="java-heap-size"
+><h3
+  ><a href="#TOC"
+    >Java heap size</a
+    ></h3
+  ><p
+  >The <code
+    >rundeckd</code
+    > startup script sets initial and maximum heap sizes for the server process. For many installations it will be sufficient.</p
+  ><p
+  >If the Rundeck JVM runs out of memory, the following error occurs:</p
+  ><pre
+  ><code
+    >Exception in thread &quot;main&quot; java.lang.OutOfMemoryError: Java heap space
+</code
+    ></pre
+  ><p
+  >Heap size is governed by the following startup parameters: <code
+    >-Xms&lt;initial heap size&gt;</code
+    > and <code
+    >-Xmx&lt;maximum heap size&gt;</code
+    ></p
+  ><p
+  >You can increase these by updating the Rundeck <a href="configuration.html#profile"
+    >profile</a
+    >. To see the current values, grep the <code
+    >profile</code
+    > for the Xmx and Xms patterns:</p
+  ><ul
+  ><li
+    ><p
+      >Launcher installs:</p
+      ><pre
+      ><code
+	>egrep '(Xmx|Xms)' $RDECK_BASE/etc/profile
+</code
+	></pre
+      ></li
+    ><li
+    ><p
+      >RPM installs:</p
+      ><pre
+      ><code
+	>egrep '(Xmx|Xms)' /etc/rundeck/profile
+</code
+	></pre
+      ></li
+    ></ul
+  ><p
+  >The default settings initialized by the installer sets these to 1024 megabytes maximum and 256 megabytes initial:</p
+  ><pre
+  ><code
+    >export RDECK_JVM=&quot;$RDECK_JVM -Xmx1024m -Xms256m&quot;
+</code
+    ></pre
+  ><p
+  ><em
+    >Sizing advice</em
+    ></p
+  ><p
+  >Several factors drive memory usage in Rundeck:</p
+  ><ul
+  ><li
+    >User sessions</li
+    ><li
+    >Concurrent threads</li
+    ><li
+    >Concurrent jobs</li
+    ><li
+    >Number of managed nodes</li
+    ></ul
+  ><p
+  >For example, if your installation has dozens of active users that manage a large environment (1000+ nodes), and has sufficient system memory, the following sizings might be more suitable:</p
+  ><pre
+  ><code
+    >export RDECK_JVM=&quot;$RDECK_JVM -Xmx4096m -Xms1024m -XX:MaxPermSize=256m&quot;
+</code
+    ></pre
+  ></div
+><div id="quartz-job-threadcount"
+><h3
+  ><a href="#TOC"
+    >Quartz job threadCount</a
+    ></h3
+  ><p
+  >The maximum number of threads used by Rundeck for concurrent jobs is set in the <code
+    >quartz.properties</code
+    > file. By default, this is set to <code
+    >10</code
+    >.</p
+  ><ul
+  ><li
+    >RPM install: <code
+      >/var/lib/rundeck/server/exp/webapp/WEB-INF/classes/quartz.properties</code
+      ></li
+    ><li
+    >Launcher install: <code
+      >$RDECK_BASE/server/exp/webapp/WEB-INF/classes/quartz.properties</code
+      ></li
+    ></ul
+  ><p
+  >To change the maximum threadCount modify this file and alter the line:</p
+  ><pre
+  ><code
+    >org.quartz.threadPool.threadCount = 20
+</code
+    ></pre
+  ><p
+  >Set the threadCount value to the max number of threads you want to run concurrently.</p
+  ><p
+  >Please refer to the Quartz site for detailed information: <a href="http://www.quartz-scheduler.org/docs/1.x/configuration/ConfigThreadPool.html"
+    >Configuration - Thread Pool</a
+    ></p
+  ></div
+><div id="jmx-instrumentation"
+><h3
+  ><a href="#TOC"
+    >JMX instrumentation</a
+    ></h3
+  ><p
+  >You may wish to monitor the internal operation of your Rundeck server via JMX.</p
+  ><p
+  >JMX provides introspection on the JVM, the application server, and classes all through a consistent interface. These various components are exposed to the management console via JMX managed beans - MBeans for short.</p
+  ><p
+  ><em
+    >Note</em
+    >: For more background information on JMX, see &quot;<a href="http://www.ibm.com/developerworks/library/j-jtp09196/"
+    >Java theory and practice: Instrumenting applications with JMX.</a
+    >&quot;.</p
+  ><p
+  >Enable local JMX monitoring by adding the <code
+    >com.sun.management.jmxremote</code
+    > flag to the startup parameters in the <a href="configuration.html#profile"
+    >profile</a
+    >.</p
+  ><pre
+  ><code
+    >export RDECK_JVM=&quot;$RDECK_JVM -Dcom.sun.management.jmxremote&quot;
+</code
+    ></pre
+  ><p
+  >You use a JMX client to monitor JMX agents. This can be a desktop GUI like JConsole run locally.</p
+  ><pre
+  ><code
+    >jconsole &lt;rundeck pid&gt;
+</code
+    ></pre
+  ><p
+  >For instructions on remote JMX monitoring for Grails, Spring and log4j see: <a href="http://www.ibm.com/developerworks/java/library/j-grails12168/index.html"
+    >Grails in the enterprise</a
+    >.</p
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="scaling-rundeck.html">Scaling Rundeck</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        <li class="prev"><a href="gui-customization.html">GUI Customization</a></li>
+        
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

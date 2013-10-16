@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Workflows</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Alex Honor" />
+  <meta name="author" content="Greg Schueler" />
+  <meta name="date" content="November 20, 2010" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="job-workflows.html">Job Workflows</a></li>
+        <li class="toc"><a href="index.html">User Manual</a></li>
+        <li class="prev"><a href="jobs.html">Jobs</a></li>
+        <li class="next"><a href="job-options.html">Job Options</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">Job Workflows</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#workflow-definition"
+      >Workflow definition</a
+      ></li
+    ><li
+    ><a href="#workflow-control-settings"
+      >Workflow control settings</a
+      ></li
+    ><li
+    ><a href="#workflow-steps"
+      >Workflow steps</a
+      ><ul
+      ><li
+	><a href="#command-step"
+	  >Command step</a
+	  ></li
+	><li
+	><a href="#script-step"
+	  >Script step</a
+	  ></li
+	><li
+	><a href="#script-file-step"
+	  >Script file step</a
+	  ></li
+	><li
+	><a href="#script-url-step"
+	  >Script URL step</a
+	  ></li
+	><li
+	><a href="#job-reference-step"
+	  >Job reference step</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#reordering-steps"
+      >Reordering steps</a
+      ></li
+    ><li
+    ><a href="#save-the-changes"
+      >Save the changes</a
+      ></li
+    ><li
+    ><a href="#context-variables"
+      >Context Variables</a
+      ><ul
+      ><li
+	><a href="#context-variable-usage"
+	  >Context Variable Usage</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#summary"
+      >Summary</a
+      ></li
+    ></ul
+  ></div
+>
+<p
+>The Job's most basic feature is its ability to execute one or more commands across a set of nodes. This sequence of commands is called a <em
+  >workflow</em
+  >, and each step in the workflow is defined as an invocation to a command.</p
+><p
+>The steps of the Job workflow are displayed when viewing a Job's detail from a Job listing or within the Job editor form.</p
+><div id="workflow-definition"
+><h2
+  ><a href="#TOC"
+    >Workflow definition</a
+    ></h2
+  ><p
+  >Workflows can be defined within the Rundeck graphical console or as an XML or YAML document that is loaded to the server.</p
+  ><p
+  >The graphical console provides an authoring environment where steps can be added, edited, removed or reordered.</p
+  ><p
+  >Users preferring to define Jobs in a text format should refer to the two format definitions:</p
+  ><ul
+  ><li
+    >XML: <a href="../manpages/man5/job-v20.html"
+      >job-v20(5)</a
+      ></li
+    ><li
+    >YAML: <a href="../manpages/man5/job-yaml-v12.html"
+      >job-yaml-v12(5)</a
+      ></li
+    ></ul
+  ><p
+  >It is also possible to author Jobs inside the graphical console and then export the definition as a file using the <code
+    >rd-jobs</code
+    > shell tool (<a href="../manpages/man1/rd-jobs.html"
+    >rd-jobs(1)</a
+    >).</p
+  ><p
+  >See <a href="#exporting-job-definitions"
+    >Exporting Job definitions</a
+    > and <a href="#importing-job-definitions"
+    >Importing Job definitions</a
+    >.</p
+  ></div
+><div id="workflow-control-settings"
+><h2
+  ><a href="#TOC"
+    >Workflow control settings</a
+    ></h2
+  ><p
+  >Workflow execution is controlled by two important settings: <em
+    >Keepgoing</em
+    > and <em
+    >Strategy</em
+    >.</p
+  ><div class="figure"
+  ><img src="../figures/fig0401.png" alt="Workflow controls"
+     /><p class="caption"
+    >Workflow controls</p
+    ></div
+  ><p
+  ><em
+    >Keepgoing</em
+    >: This manages what to do if a step incurs and error:</p
+  ><ul
+  ><li
+    >No: Fail immediately (default)</li
+    ><li
+    >Yes: Continue to next step</li
+    ></ul
+  ><p
+  >The default is to fail immediately but depending on the procedure at hand you can choose to have the execution continue.</p
+  ><p
+  ><em
+    >Strategy</em
+    >: Controls the order of execution of steps and command dispatch to nodes: <em
+    >Node-oriented</em
+    > and <em
+    >Step-oriented</em
+    >.</p
+  ><ul
+  ><li
+    ><em
+      >Node-oriented</em
+      >: Executes the full workflow on each node before the next node. (default)</li
+    ><li
+    ><em
+      >Step-oriented</em
+      >: Executes each step on all nodes before the next node.</li
+    ></ul
+  ><p
+  >The following illustrations contrast the strategies showing how three steps proceed across two nodes.</p
+  ><p
+  >Node-oriented flow illustrated:</p
+  ><pre
+  ><code
+    >1.   NodeA    step#1
+2.     &quot;      step#2
+3.     &quot;      step#3
+4.   NodeB    step#1
+5.     &quot;      step#2
+6.     &quot;      step#3
+</code
+    ></pre
+  ><p
+  >Step-oriented flow illustrated:</p
+  ><pre
+  ><code
+    >1.   NodeA    step#1
+2.   NodeB      &quot;
+3.   NodeA    step#2
+4.   NodeB      &quot;
+5.   NodeA    step#1
+6.   NodeB      &quot;
+</code
+    ></pre
+  ><p
+  >The process you are automating will determine which strategy is correct, though the node-oriented flow is more commonplace.</p
+  ></div
+><div id="workflow-steps"
+><h2
+  ><a href="#TOC"
+    >Workflow steps</a
+    ></h2
+  ><p
+  >The following sections describe how to construct a workflow as a set of steps that call commands of different types.</p
+  ><p
+  >When creating a new Job definition, the Workflow form will be set with defaults and have no workflow steps defined. The workflow editor will have a form open asking to enter a shell command as the first step.</p
+  ><div class="figure"
+  ><img src="../figures/fig0402.png" alt="Add a step"
+     /><p class="caption"
+    >Add a step</p
+    ></div
+  ><p
+  >To add new steps simply press the &quot;Add a step&quot; link inside the workflow editor form. This will prompt you with a dialog asking which kind of workflow step you would like to add. Each kind of step has its own form. When you are done filling out the form, press &quot;Save&quot; to add it to the sequence. Pressing &quot;Cancel&quot; will close the form and leave the sequence unchanged.</p
+  ><div class="figure"
+  ><img src="../figures/fig0403.png" alt="Workflow step types"
+     /><p class="caption"
+    >Workflow step types</p
+    ></div
+  ><p
+  >New steps are always added to the end of the sequence. See <a href="job-workflows.html#reordering-steps"
+    >Reordering steps</a
+    > for directions on modifying the step order.</p
+  ><p
+  >The next several sections describe the specification of each kind of command step.</p
+  ><div id="command-step"
+  ><h3
+    ><a href="#TOC"
+      >Command step</a
+      ></h3
+    ><p
+    >Use the command step to call system commands. This is the default type of workflow step when creating a Job. Enter any command string you would type at the terminal on the remote hosts.</p
+    ><div class="figure"
+    ><img src="../figures/fig0404.png" alt="Command step type"
+       /><p class="caption"
+      >Command step type</p
+      ></div
+    ><p
+    >This is similar to calling the command with <code>dispatch</code>:</p
+    ><pre
+    ><code
+      >dispatch [filter-options] -- command
+</code
+      ></pre
+    ></div
+  ><div id="script-step"
+  ><h3
+    ><a href="#TOC"
+      >Script step</a
+      ></h3
+    ><p
+    >Execute the supplied shell script content. Optionally, can pass an argument to the script specified in the lower text field.</p
+    ><div class="figure"
+    ><img src="../figures/fig0405.png" alt="Script step type"
+       /><p class="caption"
+      >Script step type</p
+      ></div
+    ><p
+    >This is similar to calling the command with <code>dispatch</code>:</p
+    ><pre
+    ><code
+      >dispatch [filter-options] --stdin -- args &lt;&lt;EOF 
+script content here 
+EOF
+</code
+      ></pre
+    ></div
+  ><div id="script-file-step"
+  ><h3
+    ><a href="#TOC"
+      >Script file step</a
+      ></h3
+    ><p
+    >Executes the script file local to the sever to the filtered Node set. Arguments can be passed to the script by specifying them in the lower text field.</p
+    ><div class="figure"
+    ><img src="../figures/fig0406.png" alt="Script file step type"
+       /><p class="caption"
+      >Script file step type</p
+      ></div
+    ><p
+    >This is similar to calling the script file with <code>dispatch</code>:</p
+    ><pre
+    ><code
+      >dispatch [filter-options] -s scriptfile -- args
+</code
+      ></pre
+    ></div
+  ><div id="script-url-step"
+  ><h3
+    ><a href="#TOC"
+      >Script URL step</a
+      ></h3
+    ><p
+    >Downloads a script from a URL, and executes it to the filtered Node set. Arguments can be passed to the script by specifying them in the lower text field.</p
+    ><div class="figure"
+    ><img src="../figures/fig0406.png" alt="Script URL step type"
+       /><p class="caption"
+      >Script URL step type</p
+      ></div
+    ><p
+    >This is similar to calling the script URL with <code>dispatch</code>:</p
+    ><pre
+    ><code
+      >dispatch [filter-options] -u URL -- args
+</code
+      ></pre
+    ><p
+    >The URL can contain <a href="#context-variables"
+      >Context Variables</a
+      > that will be expanded at runtime.</p
+    ></div
+  ><div id="job-reference-step"
+  ><h3
+    ><a href="#TOC"
+      >Job reference step</a
+      ></h3
+    ><p
+    >To call another saved Job, create a Job Reference step. Enter the name of the Job and its group.</p
+    ><div class="figure"
+    ><img src="../figures/fig0407.png" alt="Job step type"
+       /><p class="caption"
+      >Job step type</p
+      ></div
+    ><p
+    >The Job Reference form provides a Job browser to make it easier to select from the existing set of saved Jobs. Click the &quot;Choose A Job...&quot; link and navigate to the desired Job.</p
+    ><p
+    >Finally, if the Job defines Options, you can specify them in the commandline arguments text field and can include variable expansion to pass any input options for the current job. Format:</p
+    ><pre
+    ><code
+      >-optname &lt;value&gt; -optname &lt;value&gt; ...
+</code
+      ></pre
+    ><p
+    >The format for specifying options is exactly the same as you would pass to the <code
+      >run</code
+      > commandline tool, and you can substitute values of input options to the current job. For example:</p
+    ><pre
+    ><code
+      >-opt1 something -opt2 ${option.opt2}
+</code
+      ></pre
+    ><p
+    >This would set the value &quot;something&quot; for the Job's &quot;opt1&quot; option, and then pass the &quot;opt2&quot; option directly from the top-level job to the Job reference.</p
+    ><p
+    >This is similar to calling the other Job with <a href="../manpages/man1/run.html"
+      >run</a
+      >:</p
+    ><pre
+    ><code
+      >run [filter-options] -j group/jobname -- -opt1 something -opt2 somethingelse
+</code
+      ></pre
+    ><p
+    >If the Job has required Options that are not specified on the arguments line, then a &quot;defaultValue&quot; of that option will be used if it is defined. If a required option does not have a default value, then the execution will fail because the option is not specified.</p
+    ></div
+  ></div
+><div id="reordering-steps"
+><h2
+  ><a href="#TOC"
+    >Reordering steps</a
+    ></h2
+  ><p
+  >The order of the Workflow steps can be modified by hovering over any step and then clicking and dragging the double arrow icon to the desired position. A blue horizontal bar helps highlight the position where the Job will land.</p
+  ><div class="figure"
+  ><img src="../figures/fig0408.png" alt="Job step reorder"
+     /><p class="caption"
+    >Job step reorder</p
+    ></div
+  ><p
+  >After releasing the select Job, it will land in the desired position and the step order will be updated.</p
+  ><p
+  >If you wish to Undo the step reordering, press the &quot;Undo&quot; link above the steps.</p
+  ><p
+  >The &quot;Redo&quot; button can be pressed to reapply the last undone change.</p
+  ><p
+  >Press the &quot;Revert All Changes&quot; button to go back to the original step order.</p
+  ></div
+><div id="save-the-changes"
+><h2
+  ><a href="#TOC"
+    >Save the changes</a
+    ></h2
+  ><p
+  >Once the Workflow steps have been defined and order, changes are permanently saved after pressing the &quot;Create&quot; button if new or the &quot;Update&quot; button if the Job is being modified.</p
+  ></div
+><div id="context-variables"
+><h2
+  ><a href="#TOC"
+    >Context Variables</a
+    ></h2
+  ><p
+  >When a Job step is executed, it has a set of &quot;context&quot; variables that you can access in the Job step. There are several sets of context variables, including: the Job context <code
+    >job</code
+    >, the Node context <code
+    >node</code
+    >, and the Option context <code
+    >option</code
+    >.</p
+  ><p
+  >Job context variables:</p
+  ><ul
+  ><li
+    ><code
+      >job.name</code
+      >: Name of the Job</li
+    ><li
+    ><code
+      >job.group</code
+      >: Group of the Job</li
+    ><li
+    ><code
+      >job.id</code
+      >: ID of the Job</li
+    ><li
+    ><code
+      >job.execid</code
+      >: ID of the current Execution</li
+    ><li
+    ><code
+      >job.username</code
+      >: Username of the user executing the Job</li
+    ><li
+    ><code
+      >job.project</code
+      >: Project name</li
+    ></ul
+  ><p
+  >Node context variables:</p
+  ><ul
+  ><li
+    ><code
+      >node.name</code
+      >: Name of the Node being executed on</li
+    ><li
+    ><code
+      >node.hostname</code
+      >: Hostname of the Node</li
+    ><li
+    ><code
+      >node.username</code
+      >: Usernae of the remote user</li
+    ><li
+    ><code
+      >node.description</code
+      >: Description of the node</li
+    ><li
+    ><code
+      >node.tags</code
+      >: Comma-separated list of tags</li
+    ><li
+    ><code
+      >node.os-*</code
+      >: OS properties of the Node: <code
+      >name</code
+      >,<code
+      >version</code
+      >,<code
+      >arch</code
+      >,<code
+      >family</code
+      ></li
+    ><li
+    ><code
+      >node.*</code
+      >: All Node attributes defined on the Node.</li
+    ></ul
+  ><p
+  >Option context variables are referred to as <code
+    >option.NAME</code
+    > (more about <a href="job-options.html"
+    >Job Options</a
+    > in the next chapter.)</p
+  ><div id="context-variable-usage"
+  ><h3
+    ><a href="#TOC"
+      >Context Variable Usage</a
+      ></h3
+    ><p
+    >Context variables can be used in a few ways in a Job step, with slightly different sytanxes:</p
+    ><ul
+    ><li
+      ><dl
+	><dt
+	  >Commands, Script Arguments and Job Reference Arguments</dt
+	  ><dd
+	  ><code
+	    >${ctx.name}</code
+	    ></dd
+	  ></dl
+	></li
+      ><li
+      ><dl
+	><dt
+	  >Inline Script Content (<em
+	    >see note</em
+	    >)</dt
+	  ><dd
+	  ><code
+	    >@ctx.name@</code
+	    ></dd
+	  ></dl
+	><p
+	><strong
+	  >Note</strong
+	  >: The &quot;Inline Script Content&quot; variable expansion is <strong
+	  >not</strong
+	  > available for &quot;Script File&quot; steps. The Script File is not rewritten at all when used for execution.</p
+	></li
+      ><li
+      ><dl
+	><dt
+	  >Environment Variables (<em
+	    >see note</em
+	    >)</dt
+	  ><dd
+	  ><code
+	    >$RD_CTX_NAME</code
+	    ></dd
+	  ></dl
+	><p
+	>The syntax for Environment variables is that all letters become uppercase, punctuation is replaced with underscore, and the name is prefixed with <code
+	  >RD_</code
+	  >.</p
+	><p
+	><strong
+	  >Note</strong
+	  >: See the chapter <a href="../administration/ssh.html#passing-environment-variables-through-remote-command"
+	  >Administration - SSH - Passing Environment Variables Through Remote Commands</a
+	  > for information about requirements of the SSH server.</p
+	></li
+      ></ul
+    ></div
+  ></div
+><div id="summary"
+><h2
+  ><a href="#TOC"
+    >Summary</a
+    ></h2
+  ><p
+  >At this point you should understand what a Job workflow is, the kinds of steps they can contain and how to define a workflow.</p
+  ><p
+  >Next, we'll cover more about Rundeck's Job Option features.</p
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="job-workflows.html">Job Workflows</a></li>
+        <li class="toc"><a href="index.html">User Manual</a></li>
+        <li class="prev"><a href="jobs.html">Jobs</a></li>
+        <li class="next"><a href="job-options.html">Job Options</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

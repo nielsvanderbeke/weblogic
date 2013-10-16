@@ -1,0 +1,8 @@
+[2012-10-03 11:58:53,359] admin create [a2bdd8c8-94d7-44a8-a157-87210a6eddc4] Odysseus "-/Test passphrase" (save)
+[2012-10-03 12:10:46,644] admin create [dab79198-967a-4880-969c-970cd2bf9d22] Odysseus "-/Get Flight recorder" (save)
+[2012-10-03 12:18:31,596] admin modify [dab79198-967a-4880-969c-970cd2bf9d22] Odysseus "-/Get Flight recorder" (update)
+[2012-10-03 12:20:42,237] admin modify [a2bdd8c8-94d7-44a8-a157-87210a6eddc4] Odysseus "-/Test passphrase" (update)
+[2012-10-03 13:52:32,519] admin modify [dab79198-967a-4880-969c-970cd2bf9d22] Odysseus "-/Get Flight recorder" (update)
+[2012-10-03 14:58:56,767] admin modify [dab79198-967a-4880-969c-970cd2bf9d22] Odysseus "-/Get Flight recorder" (update)
+[2012-10-03 15:02:13,282] admin modify [dab79198-967a-4880-969c-970cd2bf9d22] Odysseus "JFR/Get Flight recorder" (update)
+[2012-10-03 15:38:21,294] admin modify [dab79198-967a-4880-969c-970cd2bf9d22] Odysseus "JFR/Dump Flight Recorder" (update)

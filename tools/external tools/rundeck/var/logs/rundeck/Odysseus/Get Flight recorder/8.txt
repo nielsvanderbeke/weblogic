@@ -1,0 +1,64 @@
+^^^12:18:54|CONFIG|admin|||skywalker||[workflow] Begin execution: rundeck-workflow-node-first^^^
+^^^12:18:55|CONFIG|admin|||skywalker||preparing for sequential execution on 1 nodes^^^
+^^^12:18:55|CONFIG|admin|||skywalker||Executing command on node: badaboum, NodeEntryImpl{tags=[weblogic, production], attributes={osFamily=unix, tags=production, weblogic, username=pp, ssh-key-passphrase-option=option.sshKeyPassphrase, osVersion=5.10, osArch=T2+, nodename=badaboum, hostname=badaboum.smals-mvm.be, ssh-authentication=privateKey, osName=Solaris}, project='null'}^^^
+^^^12:18:55|CONFIG|admin|||skywalker||NodeSet: SingleNodeSelector{nodename='badaboum'}^^^
+^^^12:18:55|CONFIG|admin|||skywalker||Workflow: com.dtolabs.rundeck.core.execution.workflow.StepFirstWorkflowStrategy$stepFirstWrapper@16474fb3^^^
+^^^12:18:55|CONFIG|admin|||skywalker||data context: {job={id=dab79198-967a-4880-969c-970cd2bf9d22, project=Odysseus, username=admin, name=Get Flight recorder, group=null, execid=8}, option={}}^^^
+^^^12:18:55|CONFIG|||1-script|||[workflow] Begin step: 1,script^^^
+^^^12:18:55|CONFIG|||1-script|||1: com.dtolabs.rundeck.execution.ExecutionItemFactory$2@18caba34^^^
+^^^12:18:55|CONFIG|||1-script|||ExecutionItem created, executing: com.dtolabs.rundeck.execution.ExecutionItemFactory$2@18caba34^^^
+^^^12:18:55|CONFIG|||1-script|||preparing for sequential execution on 1 nodes^^^
+^^^12:18:55|CONFIG|||1-script|||Executing command on node: badaboum, NodeEntryImpl{tags=[weblogic, production], attributes={osFamily=unix, tags=production, weblogic, username=pp, ssh-key-passphrase-option=option.sshKeyPassphrase, osVersion=5.10, osArch=T2+, nodename=badaboum, hostname=badaboum.smals-mvm.be, ssh-authentication=privateKey, osName=Solaris}, project='null'}^^^
+^^^12:18:55|CONFIG|pp||1-script|badaboum||beginInterpretCommand(badaboum): script: com.dtolabs.rundeck.execution.ExecutionItemFactory$2@18caba34^^^
+^^^12:18:58|SEVERE|pp||1-script|badaboum||Authentication failure connecting to node: "badaboum". Make sure your resource definitions and credentials are up to date.^^^
+^^^12:18:58|CONFIG|||1-script|||finishInterpretCommand(badaboum): script: null^^^
+^^^12:18:58|SEVERE|||1-script|||Failed dispatching to node badaboum: com.dtolabs.rundeck.core.execution.service.FileCopierException: [jsch-scp] Failed copying the file: Authentication failure connecting to node: "badaboum". Make sure your resource definitions and credentials are up to date.^^^
+^^^12:18:58|CONFIG|||1-script|||Failed dispatching to node badaboum: com.dtolabs.rundeck.core.execution.commands.InterpreterException: com.dtolabs.rundeck.core.execution.service.FileCopierException: [jsch-scp] Failed copying the file: Authentication failure connecting to node: "badaboum". Make sure your resource definitions and credentials are up to date.
+	at com.dtolabs.rundeck.core.execution.commands.ScriptFileCommandInterpreter.interpretCommand(ScriptFileCommandInterpreter.java:66)
+	at com.dtolabs.rundeck.core.execution.ExecutionServiceImpl.interpretCommand(ExecutionServiceImpl.java:99)
+	at com.dtolabs.rundeck.core.execution.dispatch.SequentialNodeDispatcher.dispatch(SequentialNodeDispatcher.java:117)
+	at com.dtolabs.rundeck.core.execution.dispatch.SequentialNodeDispatcher.dispatch(SequentialNodeDispatcher.java:50)
+	at com.dtolabs.rundeck.core.execution.ExecutionServiceImpl.dispatchToNodes(ExecutionServiceImpl.java:122)
+	at com.dtolabs.rundeck.core.execution.ExecutionServiceImpl.executeItem(ExecutionServiceImpl.java:70)
+	at com.dtolabs.rundeck.core.execution.workflow.BaseWorkflowStrategy.executeWFItem(BaseWorkflowStrategy.java:156)
+	at com.dtolabs.rundeck.core.execution.workflow.BaseWorkflowStrategy.executeWorkflowItemsForNodeSet(BaseWorkflowStrategy.java:225)
+	at com.dtolabs.rundeck.core.execution.workflow.StepFirstWorkflowStrategy.executeWorkflowImpl(StepFirstWorkflowStrategy.java:67)
+	at com.dtolabs.rundeck.core.execution.workflow.BaseWorkflowStrategy.executeWorkflow(BaseWorkflowStrategy.java:101)
+	at com.dtolabs.rundeck.core.execution.workflow.BaseWorkflowStrategy.executeWorkflow(BaseWorkflowStrategy.java:41)
+	at com.dtolabs.rundeck.core.execution.workflow.NodeFirstWorkflowStrategy$1.dispatch(NodeFirstWorkflowStrategy.java:89)
+	at com.dtolabs.rundeck.core.execution.dispatch.SequentialNodeDispatcher.dispatch(SequentialNodeDispatcher.java:120)
+	at com.dtolabs.rundeck.core.execution.dispatch.SequentialNodeDispatcher.dispatch(SequentialNodeDispatcher.java:56)
+	at com.dtolabs.rundeck.core.execution.ExecutionServiceImpl.dispatchToNodes(ExecutionServiceImpl.java:145)
+	at com.dtolabs.rundeck.core.execution.workflow.NodeFirstWorkflowStrategy.executeWorkflowImpl(NodeFirstWorkflowStrategy.java:84)
+	at com.dtolabs.rundeck.core.execution.workflow.BaseWorkflowStrategy.executeWorkflow(BaseWorkflowStrategy.java:101)
+	at com.dtolabs.rundeck.core.execution.workflow.BaseWorkflowStrategy.executeWorkflow(BaseWorkflowStrategy.java:41)
+	at com.dtolabs.rundeck.core.execution.WorkflowExecutionServiceThread.run(WorkflowExecutionServiceThread.java:57)
+Caused by: com.dtolabs.rundeck.core.execution.service.FileCopierException: [jsch-scp] Failed copying the file: Authentication failure connecting to node: "badaboum". Make sure your resource definitions and credentials are up to date.
+	at com.dtolabs.rundeck.core.execution.impl.jsch.JschScpFileCopier.copyFile(JschScpFileCopier.java:156)
+	at com.dtolabs.rundeck.core.execution.impl.jsch.JschScpFileCopier.copyFile(JschScpFileCopier.java:98)
+	at com.dtolabs.rundeck.core.execution.ExecutionServiceImpl.fileCopyFile(ExecutionServiceImpl.java:196)
+	at com.dtolabs.rundeck.core.execution.commands.ScriptFileCommandInterpreter.interpretCommand(ScriptFileCommandInterpreter.java:60)
+	... 18 more
+Caused by: com.jcraft.jsch.JSchException: Auth cancel
+	at org.apache.tools.ant.taskdefs.optional.ssh.Scp.execute(Scp.java:215)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at org.apache.tools.ant.taskdefs.Sequential.execute(Sequential.java:62)
+	at com.dtolabs.rundeck.core.execution.impl.jsch.JschScpFileCopier.copyFile(JschScpFileCopier.java:142)
+	... 21 more
+Caused by: com.jcraft.jsch.JSchException: Auth cancel
+	at com.jcraft.jsch.Session.connect(Session.java:463)
+	at com.jcraft.jsch.Session.connect(Session.java:159)
+	at org.apache.tools.ant.taskdefs.optional.ssh.SSHBase.openSession(SSHBase.java:213)
+	at org.apache.tools.ant.taskdefs.optional.ssh.Scp.upload(Scp.java:291)
+	at org.apache.tools.ant.taskdefs.optional.ssh.Scp.execute(Scp.java:203)
+	... 29 more
+^^^
+^^^12:18:58|CONFIG|admin|||skywalker||[workflow] Finish step: 1,script^^^
+^^^12:18:58|CONFIG|admin|||skywalker||[workflow] Finish execution:  rundeck-workflow-node-first: [Workflow , failures: {badaboum=[Failed dispatching to node badaboum: com.dtolabs.rundeck.core.execution.service.FileCopierException: [jsch-scp] Failed copying the file: Authentication failure connecting to node: "badaboum". Make sure your resource definitions and credentials are up to date., Step 1 of the workflow threw an exception: Failed dispatching to node badaboum: com.dtolabs.rundeck.core.execution.service.FileCopierException: [jsch-scp] Failed copying the file: Authentication failure connecting to node: "badaboum". Make sure your resource definitions and credentials are up to date.]}]^^^
+^^^12:18:58|SEVERE|[Workflow , failures: {badaboum=[Failed dispatching to node badaboum: com.dtolabs.rundeck.core.execution.service.FileCopierException: [jsch-scp] Failed copying the file: Authentication failure connecting to node: "badaboum". Make sure your resource definitions and credentials are up to date., Step 1 of the workflow threw an exception: Failed dispatching to node badaboum: com.dtolabs.rundeck.core.execution.service.FileCopierException: [jsch-scp] Failed copying the file: Authentication failure connecting to node: "badaboum". Make sure your resource definitions and credentials are up to date.]}]^^^
+^^^END^^^

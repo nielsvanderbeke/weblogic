@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Node Resource Sources</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="node-resource-sources.html">Node Resource Sources</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        <li class="prev"><a href="configuration.html">Configuration</a></li>
+        <li class="next"><a href="logs.html">Logs</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">Node Resource Sources</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#resource-model-source"
+      >Resource Model Source</a
+      ><ul
+      ><li
+	><a href="#requirements"
+	  >Requirements</a
+	  ></li
+	><li
+	><a href="#configuration"
+	  >Configuration</a
+	  ></li
+	><li
+	><a href="#implementations-and-examples"
+	  >Implementations and Examples</a
+	  ><ul
+	  ><li
+	    ><a href="#simple-vcs-url-resource-model-source"
+	      >Simple VCS URL resource model source</a
+	      ></li
+	    ><li
+	    ><a href="#amazon-ec2-nodes"
+	      >Amazon EC2 Nodes</a
+	      ></li
+	    ><li
+	    ><a href="#third-party-url-resource-model-sources"
+	      >Third party URL resource model sources</a
+	      ></li
+	    ></ul
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#resource-editor"
+      >Resource Editor</a
+      ><ul
+      ><li
+	><a href="#definition"
+	  >Definition</a
+	  ></li
+	><li
+	><a href="#using-properties"
+	  >Using properties</a
+	  ></li
+	><li
+	><a href="#using-remoteurl"
+	  >Using remoteUrl</a
+	  ><ul
+	  ><li
+	    ><a href="#streamlining-the-interface"
+	      >Streamlining the interface</a
+	      ></li
+	    ></ul
+	  ></li
+	><li
+	><a href="#examples"
+	  >Examples</a
+	  ><ul
+	  ><li
+	    ><a href="#simple-site-integration"
+	      >Simple site integration</a
+	      ></li
+	    ></ul
+	  ></li
+	></ul
+      ></li
+    ></ul
+  ></div
+>
+<p
+>Rundeck can integrate with external data by configuring the use of <em
+  >Providers</em
+  > or <em
+  >Sources</em
+  >. Providers are third-party services or systems that export data that Rundeck can import. Additionally, Rundeck supports an external Editor for Node data.</p
+><p
+>Rundeck makes use of common data formats (XML, JSON &amp; YAML). Third-party software may produce these formats natively, however it is typical to have to massage the output of one system into the appropriate format to be consumed by Rundeck. Since URLs and HTTP are a lowest-common-denominator for communication, Rundeck only requires that the data Providers make this data available as a file at a URL or on the local disk.</p
+><p
+>There are a few types of external integration:</p
+><dl
+><dt
+  ><a href="node-resource-sources.html#resource-model-source"
+    ><em
+      >Resource Model Source</em
+      ></a
+    ></dt
+  ><dd
+  ><p
+    >Provides a set of Nodes in XML or YAML format. E.g. a CMDB or hosted virtual machines service. Rundeck can be configured to use a different provider for each Project, and can refresh the Resources it uses from this provider.</p
+    ></dd
+  ><dt
+  ><a href="node-resource-sources.html#resource-editor"
+    ><em
+      >Resource Editor</em
+      ></a
+    ></dt
+  ><dd
+  ><p
+    >Provides a web-based editor to manage the Node definitions. Rundeck can link to this editor from the Run page, and has optional JavaScript interactions to make editing externally-managed Node resources integrated with the Rundeck GUI.</p
+    ></dd
+  ></dl
+><div id="resource-model-source"
+><h2
+  ><a href="#TOC"
+    >Resource Model Source</a
+    ></h2
+  ><p
+  >The Resource model source is a way to transfer Node definitions from other systems, tools or services into Rundeck. The means of providing the Resource model data can be done in whichever way suits your environment best.</p
+  ><p
+  >Rundeck supports plugins to provide different kinds of sources, but has built-in support for URLs or File based sources.</p
+  ><p
+  >Resource model data is a set of Node descriptors, each with a uniquely identifying name. In addition to Name, some pieces of metadata are required (like <code
+    >hostname</code
+    >, and <code
+    >username</code
+    >), and some are optional.</p
+  ><p
+  >(See <a href="../manual/rundeck-basics.html#resource-model-document-formats"
+    >Resource Model Document Formats</a
+    > for more information on what format the files need to be in.)</p
+  ><p
+  >The Resource model data is stored on the server as a set of files. Each Project in Rundeck has at least a single Resources file, and may have multiple additional sources (such as a URL or a directory containing multiple files). All of these sources will be combined into the set of all Nodes that are available for the project. Each node's metadata can define how to connect to it and run commands.</p
+  ><div id="requirements"
+  ><h3
+    ><a href="#TOC"
+      >Requirements</a
+      ></h3
+    ><p
+    >In order to provide the Resource model data to Rundeck:</p
+    ><ol style="list-style-type: decimal;"
+    ><li
+      >The data must be in one of the supported <a href="../manual/rundeck-basics.html#resource-model-document-formats"
+	>Resource Model Document Formats</a
+	></li
+      ><li
+      >Each Node entry must have a unique <code
+	>name</code
+	> value. You may have to convert the external system's identifier to be unique, or create one yourself.</li
+      ></ol
+    ><p
+    >This means you can provide the data in the way that best suits your specific use-case. Some examples:</p
+    ><ul
+    ><li
+      >Hand-crafted XML/YAML data, which you could store in a version control system. The URL for the file in the VCS repository would be provided to Rundeck.<ul
+	><li
+	  >To update the data you would commit changes to your VCS, and then tell Rundeck to refresh.</li
+	  ></ul
+	></li
+      ><li
+      >Data generated from a custom CMDB or other software, and stored on disk.<ul
+	><li
+	  >You could do this with a cron-job, or via some external trigger. Rundeck will simply read the resource.xml/resource.yaml file identified in the configuration file.</li
+	  ></ul
+	></li
+      ><li
+      >Data generated from a simple CGI script which interfaces with another third-party or external service.<ul
+	><li
+	  >You could run Apache and host a simple CGI script. The CGI script would communicate to some other system and then return the XML/YAML content. You could tell Rundeck to refresh the Resource model, which would in turn cause the CGI to access the external data and return the reformatted content.</li
+	  ></ul
+	></li
+      ><li
+      >Using a <a href="../manual/plugins.html#resource-model-source-plugins"
+	>Resource Model Source Plugin</a
+	>, the data could come from some other external source</li
+      ></ul
+    ><p
+    >The Resource model data does not have to include the Rundeck server Node, as it is implicitly included.</p
+    ></div
+  ><div id="configuration"
+  ><h3
+    ><a href="#TOC"
+      >Configuration</a
+      ></h3
+    ><p
+    >Resource model sources are defined on a per-project basis, in the <a href="configuration.html#project.properties"
+      ><code
+	>project.properties</code
+	></a
+      > file.</p
+    ><p
+    >The only required configuration value is <code
+      >project.resources.file</code
+      >, which defines a single file containing resource model data stored on-disk. Each new project will have a good default location, but you may change either the location or the file extension. The file extension determines the format of the data. (See <a href="../manual/rundeck-basics.html#resource-model-document-formats"
+      >Resource Model Document Formats</a
+      >.)</p
+    ><pre
+    ><code
+      >project.resources.file = ..
+</code
+      ></pre
+    ><p
+    >This file path is where Rundeck will read the contents from, and also where it will store it to if refreshing from a remote URL.</p
+    ><p
+    >You may also specify a URL, which will be automatically retrieved and stored in a cache file. The Resource Model data within the content is merged with the previous file.</p
+    ><pre
+    ><code
+      >project.resources.url = http://...
+</code
+      ></pre
+    ><p
+    >This configures the remote URL for loading the Resources model data.</p
+    ><p
+    >In addition, multiple <a href="../manual/plugins.html#resource-model-source-plugins"
+      >Resource Model Source Plugin</a
+      > can be configured to add additional sources of Resource Model data.</p
+    ></div
+  ><div id="implementations-and-examples"
+  ><h3
+    ><a href="#TOC"
+      >Implementations and Examples</a
+      ></h3
+    ><div id="simple-vcs-url-resource-model-source"
+    ><h4
+      ><a href="#TOC"
+	>Simple VCS URL resource model source</a
+	></h4
+      ><p
+      >Putting the resources.xml/resources.yaml file under the control of a source code management tool is a simple solution to controlling and tracking change to the resources.xml file. Any changes will be committed and the commit messages become an audit log. Most source code management tools provide a web interface to retrieve file revisions based on a URL and thus make it accessible as a resource model source.</p
+      ><p
+      >Going back to the <a href="../manual/rundeck-by-example.html#acme-anvils"
+	>Acme Anvils Example</a
+	> section, imagine the administrator decides the VCS approach is a good first step to control versioning for the anvils resource model. Acme is a <a href="http://subversion.tigris.org/"
+	>subversion</a
+	> user and installed <a href="http://www.viewvc.org/"
+	>viewvc</a
+	> to give web access to the repository.</p
+      ><p
+      >First, the current resources.xml is added to the repository and committed:</p
+      ><pre
+      ><code
+	>svn add resources.xml http://svn.acme.com/ops/anvils/resources.xml
+svn commit -m &quot;added resource model for anvils&quot; resources.xml
+</code
+	></pre
+      ><p
+      >To test access, the administrator downloads the latest revision (ie, &quot;HEAD&quot;) via the &quot;viewvc&quot; interface.</p
+      ><pre
+      ><code
+	> curl http://svn.acme.com/viewvc/ops/anvils/resources.xml?revision=HEAD
+</code
+	></pre
+      ><p
+      >Next, the anvils project.properties configuration file is modified to reference the URL to retrieve the &quot;HEAD&quot; revision:</p
+      ><pre
+      ><code
+	>project.resources.file = /etc/rundeck/projects/anvils/resources.xml
+project.resources.url  = http://svn.acme.com/viewvc/ops/anvils/resources.xml?revision=HEAD
+</code
+	></pre
+      ><p
+      >This configuration specifies the anvils resource model will be retrieved from <code>project.resources.url</code> and then stored at <code>project.resources.file</code>. Now, anytime Rundeck refreshes the anvils resource model, it will request the resources.xml file from the viewvc URL, obtaining the latest revision.</p
+      ></div
+    ><div id="amazon-ec2-nodes"
+    ><h4
+      ><a href="#TOC"
+	>Amazon EC2 Nodes</a
+	></h4
+      ><p
+      ><a href="http://aws.amazon.com/ec2/"
+	>Amazon's EC2</a
+	> (Elastic Cloud Compute) is a cloud service in wide use for dynamic infrastructure; it is easy to start up and shut down Node &quot;Instances&quot; in the cloud.</p
+      ><p
+      >For Rundeck, we would like to have a way of querying the EC2 service to see what EC2 Instances are available for use as Rundeck Nodes.</p
+      ><p
+      >Amazon has a well-defined API for communication with their services, which would allow us to pull out the EC2 data, and generate XML if we wanted to. We could write a script that produces that data and use that script on a server to produce data via a URL, or we could use that script with the <a href="../manual/plugins.html#script-resource-model-source-configuration"
+	>script resource model source plugin</a
+	> to generate it. This would give us complete control of the output, but does require extra work.</p
+      ><p
+      >However, there is already a plugin to do this for you: the <a href="https://github.com/gschueler/rundeck-ec2-nodes-plugin"
+	>Rundeck EC2 Nodes Plugin</a
+	>.</p
+      ><ul
+      ><li
+	><a href="https://github.com/gschueler/rundeck-ec2-nodes-plugin"
+	  >rundeck-ec2-nodes-plugin</a
+	  > project source code on github</li
+	><li
+	><a href="https://github.com/gschueler/rundeck-ec2-nodes-plugin/downloads"
+	  >download the binary distribution</a
+	  >.</li
+	></ul
+      ><p
+      >Use is fairly simple:</p
+      ><ol style="list-style-type: decimal;"
+      ><li
+	>Copy the plugin file &quot;rundeck-ec2-nodes-plugin-1.2.jar&quot; into your <code
+	  >$RDECK_BASE/libext</code
+	  > directory. The plugin contains all of the required dependencies.</li
+	><li
+	>Login to Rundeck with an administrator account, and click the &quot;Admin&quot; link in the page header for your project then click the &quot;Configure Project&quot; link, <em
+	  >or</em
+	  > create a new project.</li
+	><li
+	>In the project configuration page, under <strong
+	  >Resource Model Sources</strong
+	  > click the &quot;Add Source&quot; button.</li
+	><li
+	>Click &quot;Add&quot; for the &quot;AWS EC2 Resources&quot; type.</li
+	><li
+	>Enter the configuration details (see below) for the plugin and click &quot;Save&quot;.</li
+	><li
+	>Click &quot;Save&quot; for the Project Configuration.</li
+	></ol
+      ><p
+      >Minimal configuration details for the plugin includes your AWS access credentials you can find here <a href="http://aws.amazon.com/security-credentials"
+	><code
+	  >http://aws.amazon.com/security-credentials</code
+	  ></a
+	>.</p
+      ><dl
+      ><dt
+	><em
+	  >Access Key</em
+	  ></dt
+	><dd
+	><p
+	  >Specify your AWS Access key.</p
+	  ></dd
+	><dt
+	><em
+	  >Secret Key</em
+	  ></dt
+	><dd
+	><p
+	  >Specify your AWS Secret Key</p
+	  ></dd
+	></dl
+      ><p
+      >Read about the other configuration details in the <a href="https://github.com/gschueler/rundeck-ec2-nodes-plugin/blob/master/Readme.md"
+	>readme</a
+	> for the rundeck-ec2-nodes-plugin.</p
+      ><p
+      >Finally, within Rundeck, you can Refresh the Nodes from within the Run tab. You should see a Node entry for each EC2 Instance that is available.</p
+      ><p
+      >You can manage the set of Nodes that gets returned from the plugin by organizing your EC2 instances using EC2 Tags, as well as adding EC2 Filters to the plugin configuration.</p
+      ><p
+      >The EC2 plugin will automatically add tags for the nodes based on an EC2 Instance Tag named &quot;Rundeck-Tags&quot;, as well as the Instance's state. You can also add &quot;Mapping parameters&quot; to the EC2 Plugin configuration to add additional tags.</p
+      ><p
+      >You can add filters to the EC2 Plugin configuration under the &quot;Filter Params&quot; configuration area, with the sytanx of: <code
+	>filter=value;filter2=value2</code
+	>. The available filter names are listed in <a href="http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstances.html"
+	>AWS API - DescribeInstances</a
+	>.</p
+      ><p
+      >You can also configure your EC2 Plugin manually or automatically by creating or modifying the <a href="configuration#project.properties"
+	>project.properties</a
+	> file, and defining a <a href="../manual/plugins.html#resource-model-sources"
+	>Resource Model Source</a
+	> provider, like this:</p
+      ><pre
+      ><code
+	>resources.source.1.type=aws-ec2
+resources.source.1.config.accessKey=...
+resources.source.1.config.privateKey=...
+resources.source.1.config.filter=...
+</code
+	></pre
+      ><p
+      >More configuration is available for the <a href="https://github.com/gschueler/rundeck-ec2-nodes-plugin"
+	>rundeck-ec2-nodes-plugin project</a
+	>.</p
+      ></div
+    ><div id="third-party-url-resource-model-sources"
+    ><h4
+      ><a href="#TOC"
+	>Third party URL resource model sources</a
+	></h4
+      ><p
+      >URL Resource model sources can be developed by third parties to integrate Rundeck with their tools.</p
+      ><p
+      >Check the list on our wiki: <a href="https://github.com/dtolabs/rundeck/wiki/Resource-model-providers"
+	>https://github.com/dtolabs/rundeck/wiki/Resource-model-providers</a
+	>.</p
+      ></div
+    ></div
+  ></div
+><div id="resource-editor"
+><h2
+  ><a href="#TOC"
+    >Resource Editor</a
+    ></h2
+  ><p
+  >The Resource Editor integration is a way to link to a third-party system used for managing Node definitions from within Rundeck. Each Node entry in the resources.xml or resources.yaml can define a URL to provide an &quot;Edit&quot; link that will appear in the Rundeck Run page for that Node.</p
+  ><p
+  >This allows you to make use of the Resource Model Source in a more seamless way. Rundeck will load the Resource model from the third-party Provider system, and users of Rundeck can click straight to the Editor for those Nodes. The Provider and the Editor could be the same system, or they could both be custom CGI scripts that integrate with a third system.</p
+  ><p
+  >Some teams have acquired or developed tools to manage information about the hosts deployed in their networks. These tools have interfaces to not just view but also modify the data about these hosts. Though there is no widely used common standard adopted by users of these tools, it is possible to map the data to meet the needs of <a href="#resource-model-provider"
+    >Rundeck resource models</a
+    >.</p
+  ><div id="definition"
+  ><h3
+    ><a href="#TOC"
+      >Definition</a
+      ></h3
+    ><p
+    >The <a href="../manpages/man5/resource-v13.html"
+      >Rundeck resource model document format</a
+      > and the <a href="../manpages/man5/resource-yaml-v13.html"
+      >resource-yaml-v13</a
+      > format provide two attributes that help connect the dots between the Rundeck UI and the editing interface provided by the external data management tool. They can use <code
+      >editUrl</code
+      > or <code
+      >remoteUrl</code
+      > attributes to specify the remote URL. The URLs can embed properties about the node to expand prior to being loaded, which allows you to e.g. submit query parameters using the node name.</p
+    ><dl
+    ><dt
+      ><code
+	>editUrl</code
+	></dt
+      ><dd
+      ><p
+	>Specifies a URL to a remote site which will allow editing of the Node. When specified, the Node resource will display an &quot;Edit&quot; link in the Rundeck GUI and clicking it will open a new browser page for the URL.</p
+	></dd
+      ><dt
+      ><a href="node-resource-sources.html#using-remoteurl"
+	><code
+	  >remoteUrl</code
+	  ></a
+	></dt
+      ><dd
+      ><p
+	>Specifies a URL for a remote site which will be loaded in an iframe within a Rundeck page. Clicking the &quot;Edit&quot; link for the Node will load content from the site within the current Rundeck page, allow you to perform your edit at the remote site, and has optional JavaScript hooks to report the state of the editing process back to the Rundeck page for a more streamlined user interface.</p
+	></dd
+      ></dl
+    ></div
+  ><div id="using-properties"
+  ><h3
+    ><a href="#TOC"
+      >Using properties</a
+      ></h3
+    ><p
+    >Properties of the Node can be embedded in the URL and expanded prior to use. The syntax is:</p
+    ><pre
+    ><code
+      >${node.property}
+</code
+      ></pre
+    ><p
+    >Available properties are:</p
+    ><p
+    ><code
+      >name</code
+      >, <code
+      >hostname</code
+      >, <code
+      >os-name</code
+      >, <code
+      >os-version</code
+      >, <code
+      >os-family</code
+      >, <code
+      >os-arch</code
+      >, <code
+      >username</code
+      >, <code
+      >description</code
+      >, <code
+      >tags</code
+      >, <code
+      >project</code
+      ></p
+    ><p
+    >You can embed these properties within the url like this:</p
+    ><pre
+    ><code
+      >http://mycmdb:8080/node/edit?name=${node.name}
+</code
+      ></pre
+    ></div
+  ><div id="using-remoteurl"
+  ><h3
+    ><a href="#TOC"
+      >Using remoteUrl</a
+      ></h3
+    ><p
+    >Using the <code
+      >remoteUrl</code
+      > lets you embed another site into an iframe within the Rundeck page, and optionally allows communication back to the Rundeck page about the state of the editing process.</p
+    ><p
+    >If you want to embed the remote site without having to make any changes to the remote page content, you can do so simply by specifying the <code
+      >remoteUrl</code
+      > to use. When the user clicks &quot;Edit&quot; the site will load within an iframe, and the user can perform whatever actions on the site are necessary. After they are done they will have to manually click the &quot;Close&quot; button on the Rundeck page to close the iframe.</p
+    ><p
+    >If you want the user interface in Rundeck to be more streamlined, you will have to be able to modify the web pages produced by the remote site to add simple Javascript calls to communicate back to the Rundeck page. The JavaScript hooks are designed to not add much burden to the developer of the remote site or system, so they are optional.</p
+    ><div id="streamlining-the-interface"
+    ><h4
+      ><a href="#TOC"
+	>Streamlining the interface</a
+	></h4
+      ><p
+      >If the remote site implements some Javascript messaging conforming to a simple optional protocol, then the user interface between Rundeck and the remote site can be made more seamless.</p
+      ><p
+      >Rundeck lets the remote site inform it when the following steps occur:</p
+      ><ul
+      ><li
+	>The user begins editing a Node</li
+	><li
+	>The user saves the Node changes successfully and is finished</li
+	><li
+	>The user cancels the Node changes, or otherwise has finished without saving</li
+	><li
+	>An error occurs and an error message should be shown.</li
+	></ul
+      ><p
+      >Due to web browser security restrictions, direct communication between different webpages can only be done through use of the <a href="http://www.whatwg.org/specs/web-apps/current-work/#crossDocumentMessages"
+	>postMessage</a
+	> method.</p
+      ><p
+      >The remote page can send these messages simply with this javascript:</p
+      ><pre
+      ><code
+	>&lt;script type=&quot;text/javascript&quot;&gt;
+    if(window.self!=window.parent){
+        window.parent.postMessage(&quot;...message...&quot;,&quot;http://rundeckserver:port&quot;);
+    }
+&lt;/script&gt;
+</code
+	></pre
+      ><p
+      ><code
+	>window.parent</code
+	> will be the enclosing browser window when the site is loaded within an iframe. This script simply checks whether the page is loaded in an iframe before sending the message.</p
+      ><p
+      >The first argument to <code
+	>postMessage</code
+	> is one of the message codes shown below. The second argument is the expected &quot;origin&quot;, meaning the URL scheme, server and port of the server receiving the message. You can specify &quot;*&quot; to include any site that may be loading the content, but you may want to restrict it to your Rundeck installation's scheme, hostname and port.</p
+      ><p
+      >Rundeck can receive the following messages sent by the remote site:</p
+      ><dl
+      ><dt
+	><code
+	  >rundeck:node:edit:started</code
+	  ></dt
+	><dd
+	><p
+	  >Sent as soon as the remote edit URL is loaded and indicates that the remote Site understands the messaging protocol and has loaded the correct edit page. You would probably send this on the &quot;edit&quot; or &quot;form&quot; page for the targetted node.</p
+	  ></dd
+	><dt
+	><code
+	  >rundeck:node:edit:error</code
+	  > or <code
+	  >rundeck:node:edit:error:An error message</code
+	  ></dt
+	><dd
+	><p
+	  >Sent if some error occurs. The remote editing form will close and the error message (if any) will be shown. You would probably send this on the &quot;edit&quot; or &quot;view&quot; page if there is an error locating the targeted Node or loading anything required for the edit process.</p
+	  ></dd
+	></dl
+      ><p
+      >The next two messages are only valid after the &quot;started&quot; message has already been received:</p
+      ><dl
+      ><dt
+	><code
+	  >rundeck:node:edit:finished:true</code
+	  ></dt
+	><dd
+	><p
+	  >Sent after the remote form has been saved without errors. This indicates that the editing process is done and has completed with saved changes. You would probably send this on the &quot;view&quot; or &quot;show&quot; page for the targeted node if the save operation was successful.</p
+	  ></dd
+	><dt
+	><code
+	  >rundeck:node:edit:finished:false</code
+	  ></dt
+	><dd
+	><p
+	  >Sent after the remote form has been either cancelled or discarded without changes. This indicates that the editing process is done but no changes were made. You would probably send this on the &quot;view&quot; or &quot;show&quot; for the targeted node (if your site simply shows the node view again) or &quot;list&quot; page (if your site goes back to a list of resources) if the user hits &quot;cancel&quot;.</p
+	  ></dd
+	></dl
+      ><p
+      >Any message not shown here that is received by Rundeck after it has received the &quot;started&quot; message will be considered unexpected and the editing process will close the iframe.</p
+      ><p
+      >The user will also have the option to close and cancel the remote editing process at any time.</p
+      ><p
+      >Note that sending the &quot;error&quot; or &quot;finished&quot; message will close the editing session and all subsequent messages will be ignored.</p
+      ><p
+      >TODO: The JavaScript code to communicate back to Rundeck could be bundled into a simple widget script file for easier inclusion on remote sites.</p
+      ></div
+    ></div
+  ><div id="examples"
+  ><h3
+    ><a href="#TOC"
+      >Examples</a
+      ></h3
+    ><p
+    >Here are some examples of using the <code
+      >editUrl</code
+      > and <code
+      >remoteUrl</code
+      > in a resources.xml/resources.yaml file:</p
+    ><p
+    >Specify a simple URL for editing, which will simply produce a link:</p
+    ><pre
+    ><code
+      >&lt;node name=&quot;venkman&quot; editUrl=&quot;http://mycmdb:8080/node/edit&quot; ... /&gt;
+</code
+      ></pre
+    ><p
+    >Specify a URL for editing, with embedded &quot;name&quot; property as a parameter:</p
+    ><pre
+    ><code
+      >&lt;node name=&quot;venkman&quot; editUrl=&quot;http://mycmdb:8080/node/edit?name=${node.name}&quot; ... /&gt;
+</code
+      ></pre
+    ><p
+    >Specify a remote URL with embedded &quot;name&quot; and &quot;project&quot; properties as parameters:</p
+    ><pre
+    ><code
+      >&lt;node name=&quot;venkman&quot; remoteUrl=&quot;http://mycmdb:8080/node/edit?name=${node.name}&amp;amp;project=${node.project}&quot; ... /&gt;
+</code
+      ></pre
+    ><p
+    >Specify a remote URL with embedded &quot;name&quot; property as part of the path:</p
+    ><pre
+    ><code
+      >&lt;node name=&quot;venkman&quot; remoteUrl=&quot;http://mycmdb:8080/node/edit/${node.name}&quot;  ... /&gt;
+</code
+      ></pre
+    ><p
+    >In YAML, some examples:</p
+    ><p
+    >Specify a remote URL with embedded &quot;name&quot; and &quot;project&quot; properties as parameters:</p
+    ><pre
+    ><code
+      >venkman:
+  nodename: venkman
+  remoteUrl: http://mycmdb:8080/node/edit?name=${node.name}&amp;amp;project=${node.project}
+</code
+      ></pre
+    ><p
+    >Specify a remote URL with embedded &quot;name&quot; property as part of the path:</p
+    ><pre
+    ><code
+      >venkman:
+  nodename: venkman
+  remoteUrl: &quot;http://mycmdb:8080/node/edit/${node.name}
+</code
+      ></pre
+    ><div id="simple-site-integration"
+    ><h4
+      ><a href="#TOC"
+	>Simple site integration</a
+	></h4
+      ><p
+      >The <a href="https://github.com/gschueler/ndbtest"
+	>ndbtest</a
+	> project on github provides an example of how the remote Resource Editor can integrate with Rundeck using JavaScript.</p
+      ><p
+      >This project is a simple <a href="http://grails.org"
+	>Grails</a
+	> application which provides a database of Node data. The standard web-based user flow is:</p
+      ><ul
+      ><li
+	>List all nodes.</li
+	><li
+	>Edit a Node with the edit page. From here the User can:<ul
+	  ><li
+	    >Cancel the Node changes<ul
+	      ><li
+		>Goes to the Node show page</li
+		></ul
+	      ></li
+	    ><li
+	    >Save the Node changes<ul
+	      ><li
+		>Result is successful<ul
+		  ><li
+		    >Goes to the Node show page</li
+		    ></ul
+		  ></li
+		><li
+		>Result fails, so display an Error message (either on the edit page or the list page)</li
+		></ul
+	      ></li
+	    ></ul
+	  ></li
+	></ul
+      ><p
+      >We want the Node's &quot;edit&quot; link in Rundeck to go directly to an edit page, so the <code
+	>remoteUrl</code
+	> for each Node entry then should be a URL to link to this page, for example:</p
+      ><pre
+      ><code
+	>remoteUrl=&quot;http://localhost:8080/node/edit?name=${node.name}&amp;amp;project=${node.project}&quot;
+</code
+	></pre
+      ><p
+      >The code below shows that the <code
+	>name</code
+	> &amp; <code
+	>project</code
+	> are used to select the correct node from the database, even though the built-in identifier is an ID number:</p
+      ><ul
+      ><li
+	><p
+	  ><a href="https://github.com/gschueler/ndbtest/blob/master/grails-app/controllers/com/dtolabs/ndb/NodeController.groovy#L51"
+	    >NodeController.groovy:51</a
+	    >.</p
+	  ><ul
+	  ><li
+	    >Note that if there is no Node found with the specified values, then the response will be to set an error message and then show the list page.</li
+	    ></ul
+	  ></li
+	></ul
+      ><p
+      >So the JavaScript for integrating with Rundeck is then added to the following pages in this system:</p
+      ><ul
+      ><li
+	><a href="https://github.com/gschueler/ndbtest/blob/master/grails-app/views/node/edit.gsp"
+	  >node/edit.gsp</a
+	  ><ul
+	  ><li
+	    >If an error has occurred, it posts an error message starting on <a href="https://github.com/gschueler/ndbtest/blob/master/grails-app/views/node/edit.gsp#L27"
+	      >Line 27</a
+	      ></li
+	    ><li
+	    >Otherwise, it posts the <code
+	      >started</code
+	      > message starting <a href="https://github.com/gschueler/ndbtest/blob/master/grails-app/views/node/edit.gsp#L34"
+	      >on line 34</a
+	      ></li
+	    ></ul
+	  ></li
+	><li
+	><a href="https://github.com/gschueler/ndbtest/blob/master/grails-app/views/node/show.gsp"
+	  >node/show.gsp</a
+	  ><ul
+	  ><li
+	    >If the node save was successful, send the <code
+	      >finished:true</code
+	      > message, starting at <a href="https://github.com/gschueler/ndbtest/blob/master/grails-app/views/node/show.gsp#L21"
+	      >line 21</a
+	      >.</li
+	    ><li
+	    >Otherwise send the <code
+	      >finished:false</code
+	      > message starting at <a href="https://github.com/gschueler/ndbtest/blob/master/grails-app/views/node/show.gsp#L28"
+	      >line 28</a
+	      >.</li
+	    ></ul
+	  ></li
+	><li
+	><a href="https://github.com/gschueler/ndbtest/blob/master/grails-app/views/node/list.gsp"
+	  >node/list.gsp</a
+	  ><ul
+	  ><li
+	    >If an error has occurred, it posts an error message starting on <a href="https://github.com/gschueler/ndbtest/blob/master/grails-app/views/node/list.gsp#L20"
+	      >line 20</a
+	      >.</li
+	    ></ul
+	  ></li
+	></ul
+      ><p
+      >To complete the round-trip of editing a Node and then showing the results back in Rundeck, the ndbtest project would have to export XML formatted Resource data, and then your Rundeck project.properties file would have to point to the appropriate URL. (This is left as an exercise to the reader.)</p
+      ></div
+    ></div
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="node-resource-sources.html">Node Resource Sources</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        <li class="prev"><a href="configuration.html">Configuration</a></li>
+        <li class="next"><a href="logs.html">Logs</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

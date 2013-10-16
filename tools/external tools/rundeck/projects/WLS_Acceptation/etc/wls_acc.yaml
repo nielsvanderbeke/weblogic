@@ -1,0 +1,247 @@
+skywalker:
+  username: pp
+  hostname: skywalker.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+anakin:
+  username: pp
+  hostname: anakin.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+montreal:
+  username: pp
+  hostname: montreal.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+seoul:
+  username: pp
+  hostname: seoul.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+fenris:
+  username: pp
+  hostname: fenris.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+juliet:
+  username: pp
+  hostname: juliet.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+titania:
+  username: pp
+  hostname: titania.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+sinopea:
+  username: pp
+  hostname: sinopea.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+despina:
+  username: pp
+  hostname: despina.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+oxymoron1:
+  username: pp
+  hostname: oxymoron1.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+oxymoron2:
+  username: pp
+  hostname: oxymoron2.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+oxymoron3:
+  username: pp
+  hostname: oxymoron3.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+oxymoron4:
+  username: pp
+  hostname: oxymoron4.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+oxymoron5:
+  username: pp
+  hostname: oxymoron5.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+oxymoron6:
+  username: pp
+  hostname: oxymoron6.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+oxymoron7:
+  username: pp
+  hostname: oxymoron7.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+oxymoron8:
+  username: pp
+  hostname: oxymoron8.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+poseidon1:
+  username: pp
+  hostname: poseidon1.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+poseidon2:
+  username: pp
+  hostname: poseidon2.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+poseidon3:
+  username: pp
+  hostname: poseidon3.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+poseidon4:
+  username: pp
+  hostname: poseidon4.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+ferule:
+  username: pp
+  hostname: ferule.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+origan:
+  username: pp
+  hostname: origan.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+selkis:
+  username: pp
+  hostname: selkis.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+sokaris:
+  username: pp
+  hostname: sokaris.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+loki:
+  username: pp
+  hostname: loki.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+vali:
+  username: pp
+  hostname: vali.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+yansolo:
+  username: pp
+  hostname: yansolo.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+darkvador:
+  username: pp
+  hostname: darkvador.smals-mvm.be
+  tags: acceptation,weblogic
+  osArch: x86_64
+  osFamily: unix
+  osName: Linux RHEL 5
+  osVersion: '5'
+saextapp001a.extranetdc.be:
+  username: pp
+  hostname: saextapp001a.extranetdc.be
+  tags: acceptation,weblogic
+  osArch: x86_64
+  osFamily: unix
+  osName: Linux RHEL 5
+  osVersion: '5'
+saextapp001b.extranetdc.be:
+  hostname: saextapp001b.extranetdc.be
+  tags: acceptation,weblogic
+  osArch: x86_64
+  osFamily: unix
+  osName: Linux RHEL 5
+  osVersion: '5'

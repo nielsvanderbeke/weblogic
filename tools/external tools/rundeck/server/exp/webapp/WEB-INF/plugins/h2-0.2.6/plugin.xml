@@ -1,0 +1,20 @@
+<plugin name='h2' version='0.2.6' grailsVersion='1.1.1 &gt; *'>
+  <author>Mingfai Ma</author>
+  <authorEmail>mingfai.ma@gmail.com</authorEmail>
+  <title>Provide H2 Database Support</title>
+  <description>\
+This plugin provides the following features:
+  - included all h2 libraries
+  - provide configuration to start H2 tcpserver, webserver (standalone console), pgserver, and console servlet
+  - create database and Spring data source by configuration
+</description>
+  <documentation>http://grails.org/H2+Database+Plugin</documentation>
+  <resources>
+    <resource>BootStrap</resource>
+    <resource>Config</resource>
+    <resource>DataSource</resource>
+    <resource>spring.resources</resource>
+    <resource>UrlMappings</resource>
+  </resources>
+  <dependencies />
+</plugin>

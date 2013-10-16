@@ -1,0 +1,10 @@
+#!/bin/sh
+wls_nodes='Odysseus_BE_1 Odysseus_BE_2'
+for node in $wls_nodes; do
+  echo $node
+  if [ -e "/bea/user_projects/domains/odysseusdomain//servers/$node/data/nodemanager/$node.pid" ]
+  then
+    pid=`cat /bea/user_projects/domains/odysseusdomain//servers/$node/data/nodemanager/$node.pid`
+    echo $pid
+  fi
+done

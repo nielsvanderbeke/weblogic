@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Installation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="installation.html">Installation</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        
+        <li class="next"><a href="startup-and-shutdown.html">Startup and Shutdown</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">Installation</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#system-requirements"
+      >System Requirements</a
+      ><ul
+      ><li
+	><a href="#java"
+	  >Java</a
+	  ></li
+	><li
+	><a href="#network-access"
+	  >Network access</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#installing-from-source"
+      >Installing from Source</a
+      ></li
+    ><li
+    ><a href="#installing-with-rpm"
+      >Installing with RPM</a
+      ></li
+    ><li
+    ><a href="#installing-with-launcher"
+      >Installing with Launcher</a
+      ><ul
+      ><li
+	><a href="#launcher-options"
+	  >Launcher Options</a
+	  ></li
+	><li
+	><a href="#system-properties"
+	  >System Properties</a
+	  ></li
+	></ul
+      ></li
+    ></ul
+  ></div
+>
+<p
+>Assuming the system requirements are met, Rundeck can be installed either from source, system package or via the launcher.</p
+><div id="system-requirements"
+><h3
+  ><a href="#TOC"
+    >System Requirements</a
+    ></h3
+  ><p
+  >The following operating systems are known to support Rundeck:</p
+  ><ul
+  ><li
+    >Linux: Most recent distributions are likely to work</li
+    ><li
+    >Windows: XP, Server and above</li
+    ><li
+    >Mac OS X 10.4 or later</li
+    ></ul
+  ><p
+  >Root (or Administrator on Windows) is not required or recommended. We recommend using a dedicated user account such as &quot;rundeck&quot;.</p
+  ><p
+  >If there is need for root access, please set up the Rundeck user to have access via <a href="http://en.wikipedia.org/wiki/Sudo"
+    >sudo</a
+    >.</p
+  ><div id="java"
+  ><h4
+    ><a href="#TOC"
+      >Java</a
+      ></h4
+    ><p
+    >Rundeck is a Java-Servlet based server and therefore requires the Java runtime.</p
+    ><p
+    >The install process requires that the latest version of Java 1.6 be installed. Both the <a href="http://openjdk.java.net/"
+      >Open JDK</a
+      > and <a href="http://java.com/"
+      >Sun/Oracle</a
+      > JVMs can be used. You must have the JAVA_HOME environment variable defined in your environment before running the launcher. The RPM will use the java found on your path. See <a href="startup-and-shutdown.html#setting-java_home"
+      >Setting JAVA_HOME</a
+      > if you want to run a different version of java.</p
+    ><p
+    >Verify your Java version to check it meets the requirement:</p
+    ><pre
+    ><code
+      >$ java -version
+java version &quot;1.6.0_22&quot;
+Java(TM) SE Runtime Environment (build 1.6.0_22-b04-307-10M3261)
+Java HotSpot(TM) 64-Bit Server VM (build 17.1-b03-307, mixed mode)
+</code
+      ></pre
+    ></div
+  ><div id="network-access"
+  ><h4
+    ><a href="#TOC"
+      >Network access</a
+      ></h4
+    ><p
+    >When the server starts, it binds to several TCP ports by default:</p
+    ><ul
+    ><li
+      >4440 (http)</li
+      ><li
+      >4443 (https)</li
+      ></ul
+    ><p
+    >To check if the ports are free on a Unix host, run:</p
+    ><pre
+    ><code
+      >netstat -an | egrep '4440|4443' 
+</code
+      ></pre
+    ><p
+    >If the ports are in use on the server, you will see output similar to below:</p
+    ><pre
+    ><code
+      >tcp46      0      0  *.4440                 *.*                    LISTEN
+</code
+      ></pre
+    ><p
+    >The installation procedures describe how to choose different ports, if there is a conflict.</p
+    ><p
+    >In addition, TCP port 22 (by default) needs to be open on the clients for SSH.</p
+    ><p
+    >Clients should be set up to allow the Rundeck server user to connect to the clients using SSH via public-key authentication. It should not prompt for a password. See <a href="ssh.html#configuring-remote-machine-for-ssh"
+      >Configure remote machine for SSH</a
+      > in the Administration chapter.</p
+    ><p
+    >There are various ways for installing SSH on Windows; we recommend <a href="http://www.cygwin.com/"
+      >Cygwin</a
+      >.</p
+    ></div
+  ></div
+><div id="installing-from-source"
+><h3
+  ><a href="#TOC"
+    >Installing from Source</a
+    ></h3
+  ><p
+  >Checkout the sources from <a href="https://github.com/dtolabs/rundeck"
+    >GitHub</a
+    ></p
+  ><p
+  >You can build either the launcher jar (self-running archive), or a RPM.</p
+  ><pre
+  ><code
+    >make
+</code
+    ></pre
+  ><p
+  >Creates the rundeck-launcher.jar</p
+  ><p
+  >Build the RPM:</p
+  ><pre
+  ><code
+    >make rpm
+</code
+    ></pre
+  ><p
+  >To build clean:</p
+  ><pre
+  ><code
+    >make clean
+</code
+    ></pre
+  ><p
+  >Documentation can be built using: <code
+    >make clean docs</code
+    >. Documentation build requires <a href="http://johnmacfarlane.net/pandoc/"
+    >pandoc</a
+    >. The RPM build depends on the the documentation as well.</p
+  ></div
+><div id="installing-with-rpm"
+><h3
+  ><a href="#TOC"
+    >Installing with RPM</a
+    ></h3
+  ><p
+  >If you want to install Rundeck on Linux via a binary installer, you can generally do so through the RPM tool that comes with your distribution.</p
+  ><pre
+  ><code
+    ># rpm -i rundeck-1.1.0.noarch.rpm
+</code
+    ></pre
+  ><p
+  >To install it using yum, first install the yum repo package and then run yum install:</p
+  ><pre
+  ><code
+    ># rpm -Uvh http://rundeck.org/latest.rpm
+# yum install rundeck
+</code
+    ></pre
+  ></div
+><div id="installing-with-launcher"
+><h3
+  ><a href="#TOC"
+    >Installing with Launcher</a
+    ></h3
+  ><p
+  >Use the launcher as an alternative to a system package:</p
+  ><ol style="list-style-type: decimal;"
+  ><li
+    >Download the launcher jar file.</li
+    ><li
+    ><p
+      >Define RDECK_BASE environment variable to the location of the install</p
+      ><pre
+      ><code
+	>export RDECK_BASE=$HOME/rundeck; # or where you like it
+</code
+	></pre
+      ></li
+    ><li
+    ><p
+      >Create the directory for the installation.</p
+      ><pre
+      ><code
+	>mkdir -p $RDECK_BASE 
+</code
+	></pre
+      ></li
+    ><li
+    ><p
+      >Copy the launcher jar to the installation directory.</p
+      ><pre
+      ><code
+	>cp rundeck-launcher-1.1.0.jar $RDECK_BASE
+</code
+	></pre
+      ></li
+    ><li
+    ><p
+      >Change directory and run the jar.</p
+      ><pre
+      ><code
+	>cd $RDECK_BASE    
+java -jar rundeck-launcher-1.1.0.jar
+</code
+	></pre
+      ></li
+    ><li
+    ><p
+      >Wait for the Started message.</p
+      ><pre
+      ><code
+	>2010-11-19 13:35:51.127::INFO:  Started SocketConnector@0.0.0.0:4440
+</code
+	></pre
+      ></li
+    ><li
+    ><p
+      >Update your shell environment</p
+      ><pre
+      ><code
+	>PATH=$PATH:$RDECK_BASE/tools/bin
+MANPATH=$MANPATH:$RDECK_BASE/docs/man
+</code
+	></pre
+      ></li
+    ></ol
+  ><p
+  >If you get an error message that resembles the one below, you probably are using an unsupported Java version.</p
+  ><pre
+  ><code
+    >Exception in thread &quot;main&quot; java.lang.UnsupportedClassVersionError: Bad version number in .class file
+</code
+    ></pre
+  ><p
+  >See the <a href="startup-and-shutdown.html"
+    >startup and shutdown</a
+    > section for instructions on using the <code
+    >rundeckd</code
+    > shell tool to manage the rundeck launcher process.</p
+  ><div id="launcher-options"
+  ><h4
+    ><a href="#TOC"
+      >Launcher Options</a
+      ></h4
+    ><p
+    >The launcher jar can take a number of options to specify how the server should start. If you execute with a &quot;-h&quot; you will see the usage information:</p
+    ><pre
+    ><code
+      >java -jar rundeck-launcher-1.3.0.jar -h
+
+usage: java [JAVA_OPTIONS] -jar rundeck-launcher.jar  [-c PATH] [-d]
+       [--installonly] [-s PATH] [-b PATH] [-p PATH] [-h] [-x PATH]
+       [--skipinstall] [--serverdir PATH] [--datadir PATH]
+
+Run the rundeck server, installing the necessary components if they do not
+exist.
+    --skipinstall         Skip the extraction of the utilities from the
+                          launcher.
+    --installonly         Perform installation only and do not start the
+                          server.
+ -b,--basedir &lt;PATH&gt;      The basedir
+ -c,--configdir &lt;PATH&gt;    The location of the configuration.
+ -d                       Show debug information
+ -h,--help                Display this message.
+ -p,--projectdir &lt;PATH&gt;   The location of Rundeck's project data.
+ -s,--sbindir &lt;PATH&gt;      The install directory for the tools used by
+                          administrators.
+ -x,--bindir &lt;PATH&gt;       The install directory for the tools used by
+                          users.
+</code
+      ></pre
+    ><p
+    >These options can be used to customize the directories used by the launcher. By default all the directories are organized by convention within the current working directory where the launcher jar is located.</p
+    ></div
+  ><div id="system-properties"
+  ><h4
+    ><a href="#TOC"
+      >System Properties</a
+      ></h4
+    ><p
+    >You can also customize the launcher behavior by using some java system properties.</p
+    ><p
+    >Specify these properties using the normal <code
+      >-Dproperty=value</code
+      > commandline options to the <code
+      >java</code
+      > command:</p
+    ><ul
+    ><li
+      ><code
+	>server.http.port</code
+	> The HTTP port to use for the server, default &quot;4440&quot;</li
+      ><li
+      ><code
+	>server.https.port</code
+	> The HTTPS port to use or the server, default &quot;4443&quot;</li
+      ><li
+      ><code
+	>server.http.host</code
+	> Address/hostname to listen on, default is all addresses &quot;0.0.0.0&quot;</li
+      ><li
+      ><code
+	>server.hostname</code
+	> Hostname to use for the server, default is the system hostname</li
+      ><li
+      ><code
+	>server.web.context</code
+	> Web context path to use, such as &quot;/rundeck&quot;. Default is &quot;/&quot;.</li
+      ><li
+      ><code
+	>rdeck.base</code
+	> Rundeck Basedir to use, default is the directory containing the launcher jar</li
+      ><li
+      ><code
+	>server.datastore.path</code
+	> Path to server datastore dir</li
+      ><li
+      ><code
+	>default.user.name</code
+	> Username for default user account to create</li
+      ><li
+      ><code
+	>default.user.password</code
+	> Password for default user account to create</li
+      ><li
+      ><code
+	>rundeck.jaaslogin</code
+	> &quot;true/false&quot; - if true, enable JAAS login. If false, use the realm.properties file for login information.</li
+      ><li
+      ><code
+	>loginmodule.name</code
+	> Custom JAAS loginmodule name to use</li
+      ><li
+      ><code
+	>loginmodule.conf.name</code
+	> Name of a custom JAAS config file, located in the server's config dir.</li
+      ><li
+      ><code
+	>rundeck.config.name</code
+	> Name of a custom rundeck config file, located in the server's config dir.</li
+      ><li
+      ><code
+	>rundeck.ssl.config</code
+	> Path to the SSL config properties file to enable SSL. If not set, SSL is not enabled.</li
+      ></ul
+    ><p
+    >For more information about using SSL, see <a href="ssl.html"
+      >Configuring Rundeck for SSL</a
+      >.</p
+    ></div
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="installation.html">Installation</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        
+        <li class="next"><a href="startup-and-shutdown.html">Startup and Shutdown</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

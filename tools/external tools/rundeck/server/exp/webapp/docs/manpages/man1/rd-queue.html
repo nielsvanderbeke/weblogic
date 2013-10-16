@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>rd-queue(1) | Version 1.4.4</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Greg Schueler" />
+  <meta name="author" content="Alex Honor" />
+  <meta name="date" content="July 7, 2011" />
+  <link rel="stylesheet" href="../../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../../index.html">Rundeck Documentation (1.4.4)</a></li>
+    
+        <li><a href="../index.html">Man Pages</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="rd-queue.html">rd-queue(1)</a></li>
+        <li class="toc"><a href="index.html">Commands | Man(1)</a></li>
+        <li class="prev"><a href="rd-project.html">rd-project(1)</a></li>
+        <li class="next"><a href="rd-setup.html">rd-setup(1)</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">rd-queue(1) | Version 1.4.4</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#name"
+      >NAME</a
+      ></li
+    ><li
+    ><a href="#synopsis"
+      >SYNOPSIS</a
+      ></li
+    ><li
+    ><a href="#description"
+      >DESCRIPTION</a
+      ></li
+    ><li
+    ><a href="#options"
+      >OPTIONS</a
+      ><ul
+      ><li
+	><a href="#follow-mode"
+	  >follow mode</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#list-action"
+      >LIST ACTION</a
+      ></li
+    ><li
+    ><a href="#follow-action"
+      >FOLLOW ACTION</a
+      ></li
+    ><li
+    ><a href="#kill-action"
+      >KILL ACTION</a
+      ></li
+    ><li
+    ><a href="#see-also"
+      >SEE ALSO</a
+      ></li
+    ></ul
+  ></div
+>
+<div id="name"
+><h1
+  ><a href="#TOC"
+    >NAME</a
+    ></h1
+  ><p
+  >rd-queue - Lists and kills executions in the Rundeck queue</p
+  ></div
+><div id="synopsis"
+><h1
+  ><a href="#TOC"
+    >SYNOPSIS</a
+    ></h1
+  ><p
+  >rd-queue [<em
+    >action</em
+    >] [-h] [-e id] [-p project]</p
+  ></div
+><div id="description"
+><h1
+  ><a href="#TOC"
+    >DESCRIPTION</a
+    ></h1
+  ><p
+  >The rd-queue command is used to query the Central Dispatcher for a list of currently running Executions, or to Kill a currently running execution.</p
+  ><p
+  >The tool provides two actions:</p
+  ><ul
+  ><li
+    ><p
+      ><code
+	>list</code
+	> : list the currently running executions on the server (default action)</p
+      ></li
+    ><li
+    ><p
+      ><code
+	>follow</code
+	> : Follow the output of the execution specified by ID</p
+      ></li
+    ><li
+    ><p
+      ><code
+	>kill</code
+	> : kill the execution specified by ID</p
+      ></li
+    ></ul
+  ></div
+><div id="options"
+><h1
+  ><a href="#TOC"
+    >OPTIONS</a
+    ></h1
+  ><dl
+  ><dt
+    >-h, --help</dt
+    ><dd
+    ><p
+      >Print usage message.</p
+      ></dd
+    ><dt
+    >-e, --eid</dt
+    ><dd
+    ><p
+      >ID of the execution (kill or follow action only)</p
+      ></dd
+    ><dt
+    >-p</dt
+    ><dd
+    ><p
+      >Project name (list action only)</p
+      ></dd
+    ></dl
+  ><div id="follow-mode"
+  ><h2
+    ><a href="#TOC"
+      >follow mode</a
+      ></h2
+    ><dl
+    ><dt
+      >-q, --quiet</dt
+      ><dd
+      ><p
+	>Do not show output from the execution, but wait until it completes.</p
+	></dd
+      ><dt
+      >-r, --progress</dt
+      ><dd
+      ><p
+	>Show execution progress. For Jobs with a known average duration, '#' will indicate percentage complete, otherwise '.' will indicate continued progress.</p
+	></dd
+      ><dt
+      >-t, --restart</dt
+      ><dd
+      ><p
+	>If specified, all output from the Execution is retrieved from the beginning, rather than resuming from the current point in time.</p
+	></dd
+      ></dl
+    ></div
+  ></div
+><div id="list-action"
+><h1
+  ><a href="#TOC"
+    >LIST ACTION</a
+    ></h1
+  ><p
+  >This is the default action of the tool, so to list all running Executions for a project, simply use:</p
+  ><pre
+  ><code
+    >rd-queue -p project
+</code
+    ></pre
+  ><p
+  >The output will display the number of executions, and their IDs and identifying names or descriptions, as well as a link to the Rundeck page to follow the output.</p
+  ><p
+  >If there is only one project, the <code
+    >-p</code
+    > option can be left out.</p
+  ><p
+  ><em
+    >Example</em
+    ></p
+  ><pre
+  ><code
+    >rd-queue -p test
+Queue: 1 items
+[160] adhoc script job &lt;http://localhost:8080/rundeck/execution/follow/160&gt;
+</code
+    ></pre
+  ></div
+><div id="follow-action"
+><h1
+  ><a href="#TOC"
+    >FOLLOW ACTION</a
+    ></h1
+  ><p
+  >This action allows you to specify the Execution ID of a currently running execution that you want to follow the progress of. The output of the execution will be retrieved from the current point in time onward and echoed locally to the console.</p
+  ><p
+  >If <code
+    >-t</code
+    >/<code
+    >--restart</code
+    > is used, then all output of the execution is retrieved from the beginning.</p
+  ><p
+  >If <code
+    >-r</code
+    >/<code
+    >--progress</code
+    > is used, then the output is not echoed, and a progress indicator bar is printed.</p
+  ><p
+  >If <code
+    >-q</code
+    >/<code
+    >--quiet</code
+    > is used, then no output is echoed, and the tool will wait until the execution completes, and exit with a non-zero exit status if the execution was not successful.</p
+  ><p
+  ><em
+    >Example</em
+    ></p
+  ><pre
+  ><code
+    >rd-queue follow -e 160
+Output from the job
+...
+Final output
+[160] execution status: failed
+</code
+    ></pre
+  ><p
+  ><em
+    >Example using --progress</em
+    ></p
+  ><pre
+  ><code
+    >rd-queue follow -e 160 --progress
+####################.....
+[160] execution status: failed
+</code
+    ></pre
+  ></div
+><div id="kill-action"
+><h1
+  ><a href="#TOC"
+    >KILL ACTION</a
+    ></h1
+  ><p
+  >This action allows you to specify the Execution ID of a currently running execution that you want to stop.</p
+  ><p
+  ><em
+    >Example</em
+    ></p
+  ><pre
+  ><code
+    >rd-queue kill -e 160
+rd-queue kill: success. [160] Job status: killed
+</code
+    ></pre
+  ></div
+><div id="see-also"
+><h1
+  ><a href="#TOC"
+    >SEE ALSO</a
+    ></h1
+  ><p
+  ><a href="dispatch.html"
+    ><code
+      >dispatch</code
+      > (1)</a
+    >, <a href="run.html"
+    ><code
+      >run</code
+      > (1)</a
+    >.</p
+  ><p
+  >The Rundeck source code and all documentation may be downloaded from <a href="https://github.com/dtolabs/rundeck/"
+    ><code
+      >https://github.com/dtolabs/rundeck/</code
+      ></a
+    >.</p
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="rd-queue.html">rd-queue(1)</a></li>
+        <li class="toc"><a href="index.html">Commands | Man(1)</a></li>
+        <li class="prev"><a href="rd-project.html">rd-project(1)</a></li>
+        <li class="next"><a href="rd-setup.html">rd-setup(1)</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../../index.html">Rundeck Documentation (1.4.4)</a></li>
+    
+        <li><a href="../index.html">Man Pages</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

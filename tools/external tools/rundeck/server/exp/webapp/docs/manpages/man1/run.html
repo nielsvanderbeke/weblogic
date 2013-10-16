@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>run(1) | Version 1.4.4</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Alex Honor" />
+  <meta name="date" content="November 20, 2010" />
+  <link rel="stylesheet" href="../../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../../index.html">Rundeck Documentation (1.4.4)</a></li>
+    
+        <li><a href="../index.html">Man Pages</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="run.html">run(1)</a></li>
+        <li class="toc"><a href="index.html">Commands | Man(1)</a></li>
+        <li class="prev"><a href="rd-setup.html">rd-setup(1)</a></li>
+        
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">run(1) | Version 1.4.4</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#name"
+      >NAME</a
+      ></li
+    ><li
+    ><a href="#synopsis"
+      >SYNOPSIS</a
+      ></li
+    ><li
+    ><a href="#description"
+      >DESCRIPTION</a
+      ></li
+    ><li
+    ><a href="#options"
+      >OPTIONS</a
+      ></li
+    ><li
+    ><a href="#execution"
+      >EXECUTION</a
+      ></li
+    ><li
+    ><a href="#arguments"
+      >ARGUMENTS</a
+      ><ul
+      ><li
+	><a href="#examples"
+	  >EXAMPLES</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#see-also"
+      >SEE ALSO</a
+      ></li
+    ></ul
+  ></div
+>
+<div id="name"
+><h1
+  ><a href="#TOC"
+    >NAME</a
+    ></h1
+  ><p
+  >run - execute a stored Job on the Rundeck server</p
+  ></div
+><div id="synopsis"
+><h1
+  ><a href="#TOC"
+    >SYNOPSIS</a
+    ></h1
+  ><p
+  >run [-h] [-v] [-l level] [nodefilters] [-i id] [-j group/name][-- arguments]</p
+  ></div
+><div id="description"
+><h1
+  ><a href="#TOC"
+    >DESCRIPTION</a
+    ></h1
+  ><p
+  >The run command is used to start the execution of a Job defined in Rundeck. The Job is executed on the server, and the ID for the execution is displayed. This is equivalent to logging in to Rundeck and starting a Job within the web application GUI.</p
+  ><p
+  >The Job can either be specified by ID (-i), or by name and optional group (-j). The Node filters used for the execution of the job can also be specified on the commandline, and will be used instead of any already defined for the Job. Arguments to the Execution can be specified after (--).</p
+  ><p
+  >If the <code
+    >-f</code
+    >/<code
+    >--follow</code
+    > option is used, then the output will be retrieved from the server as it is produced and echoed locally.</p
+  ><p
+  >This can be combined with either <code
+    >-q</code
+    >/<code
+    >--quiet</code
+    > to show no output and only wait until the execution finishes. Exit status will indicate if the execution succeeded or failed. If <code
+    >-r</code
+    >/<code
+    >--progress</code
+    > is used instead, then progress of the execution is indicated periodically by echoed '.' characters.</p
+  ></div
+><div id="options"
+><h1
+  ><a href="#TOC"
+    >OPTIONS</a
+    ></h1
+  ><p
+  >-h, --help : Print usage message.</p
+  ><p
+  >-v : Run verbosely.</p
+  ><p
+  >-l, --loglevel <em
+    >LEVEL</em
+    > : Run the command using the specified LEVEL. *LEVEL can be <code
+    >verbose</code
+    >, <code
+    >info</code
+    >, <code
+    >warning</code
+    >, <code
+    >error</code
+    >.</p
+  ><p
+  >-I <em
+    >FILTER</em
+    > : Include node filter.</p
+  ><p
+  >-X <em
+    >FILTER</em
+    > : Exclude node filter.</p
+  ><p
+  >-C <em
+    >COUNT</em
+    > : Threadcount, defaults to 1.</p
+  ><p
+  >-K : Keep going on node failure.</p
+  ><p
+  >-N : Do not keep going on node failures.</p
+  ><p
+  >-j, --job <em
+    >NAME</em
+    > : Job job (group and name). Run a Job specified by Job name and group. eg: 'Group/Job'.</p
+  ><p
+  >-i, --id <em
+    >IDENTIFIER</em
+    > : Run the Job with this IDENTIFIER</p
+  ><p
+  >-- <em
+    >ARGUMENTS</em
+    > : Pass the specified ARGUMENTS as options to the job</p
+  ><p
+  >-f, --follow : Follow queued execution output</p
+  ><p
+  >-r, --progress : In follow mode, print progress indicator chars</p
+  ><p
+  >-q, --quiet : In follow mode, do not show output from the execution, but wait until it completes.</p
+  ></div
+><div id="execution"
+><h1
+  ><a href="#TOC"
+    >EXECUTION</a
+    ></h1
+  ><p
+  >This tool requires a unique Job to be identified for execution. This is done either by using <code
+    >-i id</code
+    >, or <code
+    >-j group/name</code
+    >. The group is optional if only one Job with the name exists.</p
+  ></div
+><div id="arguments"
+><h1
+  ><a href="#TOC"
+    >ARGUMENTS</a
+    ></h1
+  ><p
+  >Arguments can be passed to the Job that is being executed after the <code
+    >--</code
+    > separator. You must use this separator after all of the tool options that you specify on the commandline.</p
+  ><p
+  >Each argument that you pass should correspond to a defined Option for the Job. The syntax for passing these options is:</p
+  ><pre
+  ><code
+    >-optionname &lt;value&gt; -otheroption &lt;value&gt;
+</code
+    ></pre
+  ><p
+  >All Job Options in Rundeck require an argument value if specified.</p
+  ><div id="examples"
+  ><h2
+    ><a href="#TOC"
+      >EXAMPLES</a
+      ></h2
+    ><p
+    >Run the Job that has ID <code
+      >12</code
+      >:</p
+    ><pre
+    ><code
+      >run -i 12
+</code
+      ></pre
+    ><p
+    >Run the same job and pass arguments &quot;name&quot; and &quot;color&quot; corresponding to the Job's Options:</p
+    ><pre
+    ><code
+      >run -i 12 -- -name Bob -color blue
+</code
+      ></pre
+    ><p
+    >Run the job named &quot;Full&quot; in the group &quot;QA/Test&quot;</p
+    ><pre
+    ><code
+      >run -g QA/Test -n Full
+</code
+      ></pre
+    ><p
+    >Also runs the job &quot;Full&quot; in QA/Test group:</p
+    ><pre
+    ><code
+      >run -j QA/Test/Full
+</code
+      ></pre
+    ><p
+    >If you try to run a job by name only, but it is not unique, you will get an error message like this:</p
+    ><pre
+    ><code
+      >run -j testJob
+Error: Failed request to run a job: Server reported an error: No unique job matched the input: testJob, null. found (2)
+</code
+      ></pre
+    ><p
+    >Running a Job and specifying Node filters:</p
+    ><pre
+    ><code
+      >run -I tags=dev -X os-family=windows -C 2 -K -j 'test/Job 1'
+</code
+      ></pre
+    ><p
+    >Run a job by name, and follow the output until it finishes.</p
+    ><pre
+    ><code
+      >run -j QA/Test/Full --follow
+</code
+      ></pre
+    ></div
+  ></div
+><div id="see-also"
+><h1
+  ><a href="#TOC"
+    >SEE ALSO</a
+    ></h1
+  ><p
+  ><a href="rd-queue.html"
+    ><code
+      >rd-queue</code
+      > (1)</a
+    >, <a href="rd-jobs.html"
+    ><code
+      >rd-jobs</code
+      > (1)</a
+    >.</p
+  ><p
+  >The Rundeck source code and all documentation may be downloaded from <a href="https://github.com/dtolabs/rundeck/"
+    ><code
+      >https://github.com/dtolabs/rundeck/</code
+      ></a
+    >.</p
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="run.html">run(1)</a></li>
+        <li class="toc"><a href="index.html">Commands | Man(1)</a></li>
+        <li class="prev"><a href="rd-setup.html">rd-setup(1)</a></li>
+        
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../../index.html">Rundeck Documentation (1.4.4)</a></li>
+    
+        <li><a href="../index.html">Man Pages</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

@@ -1,0 +1,1151 @@
+^^^03:05:47|SEVERE|pp||1-exec|egovacc||+ set^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||BASH=/bin/bash^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||BASH_ARGC=([0]="4")^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||BASH_ARGV=([0]="t3://skywalker.smals-mvm.be:10004" [1]="/export/home/weblogic/pp/rundeck/projects/Test/scripts/acc-userkey.properties" [2]="/export/home/weblogic/pp/rundeck/projects/Test/scripts/acc-userconfig.properties" [3]="http://svn01.smals-mvm.be/viewvc/ea/trunk/rundeck/rundeck_scripts/getDatasourceList.py?view=co")^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||BASH_LINENO=([0]="0")^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||BASH_SOURCE=([0]="/export/home/weblogic/pp/rundeck/projects/Test/scripts/wlstWrapper.sh")^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||BASH_VERSINFO=([0]="3" [1]="2" [2]="51" [3]="1" [4]="release" [5]="sparc-sun-solaris2.10")^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||BASH_VERSION='3.2.51(1)-release'^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||DIRSTACK=()^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||EUID=3486^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||GROUPS=()^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||HOME=/export/home/weblogic/pp^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||HOSTNAME=skywalker^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||HOSTTYPE=sparc^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||IFS=$' \t\n'^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||LOGNAME=pp^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||MACHTYPE=sparc-sun-solaris2.10^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||MAIL=/var/mail//pp^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||OPTERR=1^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||OPTIND=1^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||OSTYPE=solaris2.10^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||PATH=/usr/bin:/bin:/usr/local/bin^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||PIPESTATUS=([0]="0")^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||PPID=8513^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||PS4='+ '^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||PWD=/export/home/weblogic/pp^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||SHELL=/bin/bash^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||SHELLOPTS=braceexpand:hashall:interactive-comments:xtrace^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||SHLVL=2^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||SSH_CLIENT='10.6.103.157 37620 22'^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||SSH_CONNECTION='10.6.103.157 37620 10.6.103.157 22'^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||TERM=dumb^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||TZ=Europe/Brussels^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||UID=3486^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||USER=pp^^^
+^^^03:05:47|INFO|pp||1-exec|egovacc||_=-x^^^
+^^^03:05:47|SEVERE|pp||1-exec|egovacc||+ numargs=4^^^
+^^^03:05:47|SEVERE|pp||1-exec|egovacc||+ '[' 4 -lt 2 ']'^^^
+^^^03:05:47|SEVERE|pp||1-exec|egovacc||+ scripturl='http://svn01.smals-mvm.be/viewvc/ea/trunk/rundeck/rundeck_scripts/getDatasourceList.py?view=co'^^^
+^^^03:05:47|SEVERE|pp||1-exec|egovacc||+ RD_SCRIPTS=/export/home/weblogic/pp/rundeck/projects/Test/scripts^^^
+^^^03:05:47|SEVERE|pp||1-exec|egovacc||++ mktemp -p /var/tmp^^^
+^^^03:05:47|SEVERE|pp||1-exec|egovacc||+ TMP_SCRIPT=/var/tmp/tmp.Oha4Oq^^^
+^^^03:05:47|SEVERE|pp||1-exec|egovacc||+ /usr/sfw/bin/wget -O /var/tmp/tmp.Oha4Oq 'http://svn01.smals-mvm.be/viewvc/ea/trunk/rundeck/rundeck_scripts/getDatasourceList.py?view=co'^^^
+^^^03:05:47|SEVERE|pp||1-exec|egovacc||--2012-12-20 15:05:47--  http://svn01.smals-mvm.be/viewvc/ea/trunk/rundeck/rundeck_scripts/getDatasourceList.py?view=co^^^
+^^^03:05:47|SEVERE|pp||1-exec|egovacc||Resolving svn01.smals-mvm.be... 10.6.103.236^^^
+^^^03:05:47|SEVERE|pp||1-exec|egovacc||Connecting to svn01.smals-mvm.be|10.6.103.236|:80... connected.^^^
+^^^03:05:48|SEVERE|pp||1-exec|egovacc||HTTP request sent, awaiting response... 200 OK^^^
+^^^03:05:48|SEVERE|pp||1-exec|egovacc||Length: unspecified [text/x-python]^^^
+^^^03:05:48|SEVERE|pp||1-exec|egovacc||Saving to: `/var/tmp/tmp.Oha4Oq'^^^
+^^^03:05:48|SEVERE|pp||1-exec|egovacc||0K .                                                      29.8M=0s^^^
+^^^03:05:48|SEVERE|pp||1-exec|egovacc||2012-12-20 15:05:48 (29.8 MB/s) - `/var/tmp/tmp.Oha4Oq' saved [1986]^^^
+^^^03:05:48|SEVERE|pp||1-exec|egovacc||+ /opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/bin/wlst.sh /var/tmp/tmp.Oha4Oq /export/home/weblogic/pp/rundeck/projects/Test/scripts/acc-userconfig.properties /export/home/weblogic/pp/rundeck/projects/Test/scripts/acc-userkey.properties t3://skywalker.smals-mvm.be:10004^^^
+^^^03:05:48|INFO|pp||1-exec|egovacc||CLASSPATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/lib/tools.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic_sp.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/features/weblogic.server.modules_10.3.3.0.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/webservices.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:^^^
+^^^03:05:48|INFO|pp||1-exec|egovacc||PATH=/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/bin:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/bin:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre/bin:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/bin:/usr/bin:/bin:/usr/local/bin^^^
+^^^03:05:48|INFO|pp||1-exec|egovacc||Your environment has been set.^^^
+^^^03:05:48|INFO|pp||1-exec|egovacc||CLASSPATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/lib/tools.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic_sp.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/features/weblogic.server.modules_10.3.3.0.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/webservices.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar::/opt/oracle/fmw/fmw11gR1PS2/utils/config/10.3/config-launch.jar::/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/derby/lib/derbynet.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/derby/lib/derbyclient.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/derby/lib/derbytools.jar::^^^
+^^^03:05:56|INFO|pp||1-exec|egovacc||Initializing WebLogic Scripting Tool (WLST) ...^^^
+^^^03:06:12|INFO|pp||1-exec|egovacc||Welcome to WebLogic Server Administration Scripting Shell^^^
+^^^03:06:12|INFO|pp||1-exec|egovacc||Type help() for help on available commands^^^
+^^^03:06:15|INFO|pp||1-exec|egovacc||Connecting to t3://skywalker.smals-mvm.be:10004 with userid system ...^^^
+^^^03:06:25|INFO|pp||1-exec|egovacc||Successfully connected to Admin Server 'accadmin' that belongs to domain 'accdomain'.^^^
+^^^03:06:25|INFO|pp||1-exec|egovacc||Warning: An insecure protocol was used to connect to the ^^^
+^^^03:06:25|INFO|pp||1-exec|egovacc||server. To ensure on-the-wire security, the SSL port or ^^^
+^^^03:06:25|INFO|pp||1-exec|egovacc||Admin port should be used instead.^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   ComLog^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   CryFaBridge^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   CryfaFileStore1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   CryfaFileStore2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   CryfaJMSServer1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   CryfaJMSServer2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   DMFAFileStore1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   DMFAFileStore2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   DemecoFileStore1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   DemecoFileStore2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   DemecoJMSServer1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   DemecoJMSServer2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   DmfAWebSP7Bridge^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   DmfaJMSServer1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   DmfaJMSServer2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   DrsBridge^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   DrsFileStore1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   DrsFileStore2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   DrsJMSServer1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   DrsJMSServer2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   DrsfluxBridge^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   EboxV5MessagingBridge^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   ForeignJNDIProvider-EJB1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   Fot2JmsServer1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   Fot2JmsServer2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   GototinFileStore1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   GototinFileStore2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   GototinJMSServer1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   GototinJMSServer2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   H30bisJMSFileStore1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   H30bisJMSFileStore2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   H30bisJMSServer1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   H30bisJMSServer2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   HippoJMSServer^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   HippoJmsStore^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   LimosaFileStore1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   LimosaFileStore2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   LimosaJMSServer1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   LimosaJMSServer2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   ModrepEBoxSendBridge^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   ModrepFileStore1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   ModrepFileStore2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   ModrepJMSServer1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   ModrepJMSServer2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   SAMLStartup^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   SmrStartup^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   SourceStartup^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   TestBridgeFileStore1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   TestBridgeFileStore2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   TestBridgeJMSServer1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   TestBridgeJMSServer2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   TestBridge_nip^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   Ticket^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   UMOEJMSFileStore1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   UMOEJMSFileStore2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   UMOEJMSServer1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   UMOEJMSServer2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   UmLightFileStore1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   UmLightFileStore2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   UmLightJmsServer1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   UmLightJmsServer2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.SqNbr^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.Tickets^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.a4modrep^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.agap.db2.cbss^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.agap.ehealth^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.agap.noss_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.agap.noss_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.aqdb^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.authenticatorumoe_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.authenticatorumoe_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.authenticatorumoeexp_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.authenticatorumoeexp_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.baseservice.country^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.beware2_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.beware2_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.ciscosecure^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.citizenprofile_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.citizenprofile_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.clc_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.clc_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.countrybean_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.countrybean_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.cova^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.dmfaQ1_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.dmfaQ1_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.dmfa_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.dmfa_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.dolsis.cadastre.frontend_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.dolsis.cadastre.frontend_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.ebox^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.eboxRac1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.eboxRac2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.eidbis^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.eldorado^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.eldorado_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.employer^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.epv^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.esf^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.euthanasie^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.expeditor_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.expeditor_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.fot2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.genesis.cadastre.frontend_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.genesis.cadastre.frontend_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.gmb^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.gototin_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.gototin_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.instapstages_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.instapstages_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.interactivity_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.interactivity_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.iris^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.limosa.cadastrev3_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.limosa.cadastrev3_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.limosacadv3_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.limosacadv3_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.mahisXa^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.mp_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.mp_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.onafts^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.onssdirectory^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.payit_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.payit_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.phoenix_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.phoenix_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.postit_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.postit_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.primaweb^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.refita^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.registry^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.repertoire.duc^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.repertoire.mahis^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.repertoire.mahis_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.repertoire.offident^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.rrn^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.ruspp^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.suivi^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.suivi_clt^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.timereg^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.trillium^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.uam.pep_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.uam.pep_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.umlight_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.umlight_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.umoe_node1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.umoe_node2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.useraccess_data^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.vsi^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.webcache^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.webcache_data^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.datasource.webcache_dataguard^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.mulitpool.genesis.cadastre.frontend^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.agap.noss^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.authenticatorumoe^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.authenticatorumoeexp^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.beware2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.citizenprofile^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.clc^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.countrybean^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.dmfa^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.dmfaQ1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.dolsis.cadastre.frontend^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.eldorado^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.expeditor^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.gototin^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.instapstages^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.interactivity^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.limosa.cadastrev3^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.limosacadv3^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.mp^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.payit^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.phoenix^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.postit^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.uam.pep^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.umlight^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   db.multipool.umoe^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   ebox.mail.MailSession^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   ebox_JMSServer_1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   ebox_JMSServer_2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   ebox_Store_1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   ebox_Store_2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   ebox_publications_bridge^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   ebox_publications_sim_bridge^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   esfFileStore1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   esfFileStore2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   esfJMSServer1^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   esfJMSServer2^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   mail.beware^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   mail.contactform.smtp^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   mail.dmfa^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   mail.ebox.mailpr^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   mail.eidbis.mailpr^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   mail.esf.mailpr^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   mail.fourthway^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   mail.mahis^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   mail.mailpr^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   mail.primaweb.mailpr^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   mail.session.dolsis^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   mail.session.siva^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   mqlinMessagingBridge^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   mqlinMessagingBridgeExpeditor^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   mqloutMessagingBridge^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   mqloutMessagingBridgeExpeditor^^^
+^^^03:06:27|INFO|pp||1-exec|egovacc||dr--   remoteCheckpoint^^^
+^^^03:07:06|INFO|pp||1-exec|egovacc||['db.datasource.SqNbr', 'db.datasource.Tickets', 'db.datasource.a4modrep', 'db.datasource.agap.db2.cbss', 'db.datasource.agap.ehealth', 'db.datasource.agap.noss_node1', 'db.datasource.agap.noss_node2', 'db.datasource.aqdb', 'db.datasource.authenticatorumoe_node1', 'db.datasource.authenticatorumoe_node2', 'db.datasource.authenticatorumoeexp_node1', 'db.datasource.authenticatorumoeexp_node2', 'db.datasource.baseservice.country', 'db.datasource.beware2_node1', 'db.datasource.beware2_node2', 'db.datasource.ciscosecure', 'db.datasource.citizenprofile_node1', 'db.datasource.citizenprofile_node2', 'db.datasource.clc_node1', 'db.datasource.clc_node2', 'db.datasource.countrybean_node1', 'db.datasource.countrybean_node2', 'db.datasource.cova', 'db.datasource.dmfaQ1_node1', 'db.datasource.dmfaQ1_node2', 'db.datasource.dmfa_node1', 'db.datasource.dmfa_node2', 'db.datasource.dolsis.cadastre.frontend_node1', 'db.datasource.dolsis.cadastre.frontend_node2', 'db.datasource.eboxRac1', 'db.datasource.eboxRac2', 'db.datasource.eidbis', 'db.datasource.eldorado', 'db.datasource.eldorado_node2', 'db.datasource.employer', 'db.datasource.epv', 'db.datasource.esf', 'db.datasource.euthanasie', 'db.datasource.expeditor_node1', 'db.datasource.expeditor_node2', 'db.datasource.fot2', 'db.datasource.genesis.cadastre.frontend_node1', 'db.datasource.genesis.cadastre.frontend_node2', 'db.datasource.gmb', 'db.datasource.gototin_node1', 'db.datasource.gototin_node2', 'db.datasource.instapstages_node1', 'db.datasource.instapstages_node2', 'db.datasource.interactivity_node1', 'db.datasource.interactivity_node2', 'db.datasource.iris', 'db.datasource.limosa.cadastrev3_node1', 'db.datasource.limosa.cadastrev3_node2', 'db.datasource.limosacadv3_node1', 'db.datasource.limosacadv3_node2', 'db.datasource.mahisXa', 'db.datasource.mp_node1', 'db.datasource.mp_node2', 'db.datasource.onafts', 'db.datasource.onssdirectory', 'db.datasource.payit_node1', 'db.datasource.payit_node2', 'db.datasource.phoenix_node1', 'db.datasource.phoenix_node2', 'db.datasource.postit_node1', 'db.datasource.postit_node2', 'db.datasource.primaweb', 'db.datasource.refita', 'db.datasource.registry', 'db.datasource.repertoire.duc', 'db.datasource.repertoire.mahis_node1', 'db.datasource.repertoire.offident', 'db.datasource.rrn', 'db.datasource.ruspp', 'db.datasource.suivi', 'db.datasource.suivi_clt', 'db.datasource.timereg', 'db.datasource.trillium', 'db.datasource.uam.pep_node1', 'db.datasource.uam.pep_node2', 'db.datasource.umlight_node1', 'db.datasource.umlight_node2', 'db.datasource.umoe_node1', 'db.datasource.umoe_node2', 'db.datasource.useraccess_data', 'db.datasource.vsi', 'db.datasource.webcache_data', 'db.datasource.webcache_dataguard']^^^
+^^^03:07:07|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:07|INFO|pp||1-exec|egovacc||db.datasource.SqNbr^^^
+^^^03:07:07|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4SUIVI)))^^^
+^^^03:07:07|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:07|INFO|pp||1-exec|egovacc||Properties : {user=SP7_PRD}^^^
+^^^03:07:07|INFO|pp||1-exec|egovacc||passwoord : ves3559REL^^^
+^^^03:07:07|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:07|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:07|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:07|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||db.datasource.Tickets^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//rosalind.smals-mvm.be:2003/DADB^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||Properties : {user=drsparam_prd}^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||passwoord : wlsticket^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||MaxCapacity : 5^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||db.datasource.a4modrep^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//catwoman:2003/A4MODREP^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||Properties : {user=MODREP_PRD}^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||passwoord : anapurna^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:08|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||db.datasource.agap.db2.cbss^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||URL : jdbc:weblogic:db2://adb2stage.ksz-bcss.fgov.be:50509^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||DriverName : weblogic.jdbc.db2.DB2Driver^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||Properties : {AlternateID=PIP, EncryptionMethod=SSL, serverName=adb2stage.ksz-bcss.fgov.be, TrustStorePassword=jupiler, TrustStore=/bea/user_projects/domains/accdomain10/certificates/adb2stage.jks, portNumber=50509, databaseName=am_f, batchPerformanceWorkaround=true, user=asquad_f}^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||passwoord : DbEPoUVQ^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||InitalCapacity : 5^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||MaxCapacity : 5^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||db.datasource.agap.ehealth^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=lpehtdbs001a.ehealth.fgov.be)(PORT=2004)))(CONNECT_DATA=(SERVICE_NAME=PEH_AGAP_CMAN)(SERVER=DEDICATED)))^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||Properties : {user=UMOE_PRD}^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||passwoord : nuk1748QUX^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||InitalCapacity : 2^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||db.datasource.agap.noss_node1^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||Properties : {user=UMOE_PRD}^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||passwoord : mem6233VEV^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:09|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||db.datasource.agap.noss_node2^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||Properties : {user=UMOE_PRD}^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||passwoord : mem6233VEV^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||db.datasource.aqdb^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4OCCUP)))^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||Properties : {user=TWNR_PRD}^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||passwoord : woc7354SAG^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||db.datasource.authenticatorumoe_node1^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||Properties : {user=umoe_prd}^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||passwoord : mem6233VEV^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:10|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||db.datasource.authenticatorumoe_node2^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||Properties : {user=umoe_prd}^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||passwoord : mem6233VEV^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||db.datasource.authenticatorumoeexp_node1^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||Properties : {user=exped_clt}^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||passwoord : gan6034JEK^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:11|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||db.datasource.authenticatorumoeexp_node2^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||Properties : {user=exped_clt}^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||passwoord : gan6034JEK^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||db.datasource.baseservice.country^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//orwell.smals-mvm.be:1521/AADB^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||Properties : {serverName=orwell.smals-mvm.be, portNumber=1521, user=atce}^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||passwoord : luc^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||db.datasource.beware2_node1^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4BEWARE_1)))^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||Properties : {user=beware_prd}^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||passwoord : hic9078HAV^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||MaxCapacity : 10^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:12|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||db.datasource.beware2_node2^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4BEWARE_2)))^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||Properties : {user=beware_prd}^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||passwoord : hic9078HAV^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||MaxCapacity : 10^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||db.datasource.ciscosecure^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||URL : jdbc:weblogic:sqlserver://LBAMSSQLSMA:1433^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||DriverName : weblogic.jdbc.sqlserver.SQLServerDriver^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||Properties : {serverName=LBAMSSQLSMA, portNumber=1433, user=ciscosecurelog, databaseName=ACC_CISCOSECUREDB}^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||passwoord : yew3223LUD^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||MaxCapacity : 25^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:13|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||db.datasource.citizenprofile_node1^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-SCAN.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4CTZPROFILE_1)))^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||Properties : {user=CTZPROFILE_PRD}^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||passwoord : kiq2840QEX^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||db.datasource.citizenprofile_node2^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-SCAN.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4CTZPROFILE_2)))^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||Properties : {user=CTZPROFILE_PRD}^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||passwoord : kiq2840QEX^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||db.datasource.clc_node1^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||Properties : {user=umoe_clt}^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||passwoord : noy3952TIH^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:14|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||db.datasource.clc_node2^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||Properties : {user=umoe_clt}^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||passwoord : noy3952TIH^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||db.datasource.countrybean_node1^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4GENESIS_1)))^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||Properties : {user=GENESIS_STA_PRD}^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||passwoord : yow8281LEJ^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||db.datasource.countrybean_node2^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4GENESIS_2)))^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||Properties : {user=GENESIS_STA_PRD}^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||passwoord : yow8281LEJ^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:15|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||db.datasource.cova^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//rosalind.smals-mvm.be:2003/DADB^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||Properties : {user=cova_clt}^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||passwoord : cova_clt^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||db.datasource.dmfaQ1_node1^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-SCAN.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4DMFA_1)))^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||Properties : {user=DMFA_PRD}^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||passwoord : qos3041PUT^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:16|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||db.datasource.dmfaQ1_node2^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-SCAN.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4DMFA_2)))^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||Properties : {user=DMFA_PRD}^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||passwoord : qos3041PUT^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||db.datasource.dmfa_node1^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-SCAN.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4DMFA_1)))^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||Properties : {user=DMFA_PRD}^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||passwoord : qos3041PUT^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||db.datasource.dmfa_node2^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-SCAN.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4DMFA_2)))^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||Properties : {user=DMFA_PRD}^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||passwoord : qos3041PUT^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:17|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||db.datasource.dolsis.cadastre.frontend_node1^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4GENESIS)))^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||Properties : {user=GENESIS_CAD_PRD}^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||passwoord : yoc2905XAC^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||db.datasource.dolsis.cadastre.frontend_node2^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4GENESIS)))^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||Properties : {user=GENESIS_CAD_PRD}^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||passwoord : yoc2905XAC^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||db.datasource.eboxRac1^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=bonnie-vip.smals-mvm.be)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=SA4EBOXV5_1)))^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||Properties : {user=eboxv5_prd}^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||passwoord : albatr0$^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||MaxCapacity : 30^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:18|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||db.datasource.eboxRac2^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION= (ADDRESS=(PROTOCOL=TCP)(HOST=clyde-vip.smals-mvm.be)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=SA4EBOXV5_2)))^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||Properties : {user=eboxv5_prd}^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||passwoord : albatr0$^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||MaxCapacity : 30^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||db.datasource.eidbis^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//rosalind:2003/A4IDBIS^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||Properties : {user=epluk_prd}^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||passwoord : epluk_prd_acc^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:19|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||db.datasource.eldorado^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-SCAN.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4DMFA_1)))^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||Properties : {user=eldorado_prd}^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||passwoord : hiy9991MAF^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||db.datasource.eldorado_node2^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-SCAN.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4DMFA_2)))^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||Properties : {user=ELDORADO_PRD}^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||passwoord : hiy9991MAF^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:20|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||db.datasource.employer^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//orwell.smals-mvm.be:1521/AADB^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||Properties : {user=consult}^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||passwoord : maria^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||db.datasource.epv^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//catwoman.smals-mvm.be:2003/ASA4WERK^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||Properties : {user=EPV_PRD}^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||passwoord : coMMit^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||db.datasource.esf^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//rosalind:2003/A4DB1^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||Properties : {user=FSE_PRD}^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||passwoord : remember^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:21|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||db.datasource.euthanasie^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//cman.ehealth.fgov.be:2004/A4EUTHA^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||Properties : {user=euth_prd}^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||passwoord : wob8201GEL^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||db.datasource.expeditor_node1^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE_1)))^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||Properties : {user=exped_prd}^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||passwoord : bat8754VAR^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||MaxCapacity : 25^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||db.datasource.expeditor_node2^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE_2)))^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||Properties : {user=exped_prd}^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||passwoord : bat8754VAR^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||MaxCapacity : 25^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:22|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||db.datasource.fot2^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//rosalind.smals-mvm.be:2003/A4FOT2^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||Properties : {user=FOT2_PRD}^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||passwoord : ajax^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||db.datasource.genesis.cadastre.frontend_node1^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4GENESIS_1)))^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||Properties : {user=GENESIS_CAD_PRD}^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||passwoord : yoc2905XAC^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:23|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||db.datasource.genesis.cadastre.frontend_node2^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4GENESIS_2)))^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||Properties : {user=GENESIS_CAD_PRD}^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||passwoord : yoc2905XAC^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||db.datasource.gmb^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//orwell.smals-mvm.be:1521/AADB^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||Properties : {user=consult}^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||passwoord : maria^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||db.datasource.gototin_node1^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4GOTOTIN)))^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||Properties : {user=GOTOTIN_PRD}^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||passwoord : cem9182VUF^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:24|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||db.datasource.gototin_node2^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4GOTOTIN)))^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||Properties : {user=GOTOTIN_PRD}^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||passwoord : cem9182VUF^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||db.datasource.instapstages_node1^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-SCAN.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=a4instapstages)))^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||Properties : {user=instapstages_prd}^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||passwoord : hef7799NUL^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||db.datasource.instapstages_node2^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-SCAN.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=a4instapstages)))^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||Properties : {user=instapstages_prd}^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||passwoord : hef7799NUL^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:25|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||db.datasource.interactivity_node1^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4INTERACT)))^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||Properties : {user=INTERACT_PRD}^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||passwoord : amedartiste^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||db.datasource.interactivity_node2^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4INTERACT)))^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||Properties : {user=INTERACT_PRD}^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||passwoord : amedartiste^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:26|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||db.datasource.iris^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@rosalind.smals-mvm.be:2003:A4IRIS^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||Properties : {user=IRIS_CLT}^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||passwoord : justlook^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||db.datasource.limosa.cadastrev3_node1^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4LIMOCA)))^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||Properties : {user=CA_PRD}^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||passwoord : pew9773GET^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||db.datasource.limosa.cadastrev3_node2^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4LIMOCA)))^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||Properties : {user=CA_PRD}^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||passwoord : pew9773GET^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:27|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||db.datasource.limosacadv3_node1^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=a4limoca)))^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||Properties : {user=ca_prd}^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||passwoord : pew9773GET^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||db.datasource.limosacadv3_node2^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=a4limoca)))^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||Properties : {user=ca_prd}^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||passwoord : pew9773GET^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||db.datasource.mahisXa^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//catwoman:2003/A4MAHIS^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||Properties : {user=mahis_prd}^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||passwoord : jup4060VUG^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:28|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||db.datasource.mp_node1^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4LIMOMP)))^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||Properties : {user=mp_prd}^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||passwoord : wir4151YIC^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||db.datasource.mp_node2^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4LIMOMP)))^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||Properties : {user=mp_prd}^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||passwoord : wir4151YIC^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:29|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||db.datasource.onafts^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@orwell.smals-mvm.be:1521:AADB^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||Properties : {user=CONSULT_F8}^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||passwoord : jew9763VIG^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||db.datasource.onssdirectory^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@orwell:1521/AADB^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||Properties : {user=CONSULT}^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||passwoord : maria^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||db.datasource.payit_node1^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST =CRSACC1-SCAN.DATASERV.BE)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.DATASERV.BE)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4PAYIT_1)))^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||Properties : {user=payit_prd}^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||passwoord : yap9431YIF^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:30|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||db.datasource.payit_node2^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST =CRSACC1-SCAN.DATASERV.BE)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.DATASERV.BE)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4PAYIT_2)))^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||Properties : {user=payit_prd}^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||passwoord : yap9431YIF^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||db.datasource.phoenix_node1^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4PHOENIX_1)))^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||Properties : {user=phoenix_prd}^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||passwoord : did9383ZEW^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||db.datasource.phoenix_node2^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4PHOENIX_2)))^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||Properties : {user=phoenix_prd}^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||passwoord : did9383ZEW^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:31|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||db.datasource.postit_node1^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST =CRSACC1-SCAN.DATASERV.BE)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.DATASERV.BE)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4POSTIT_1)))^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||Properties : {user=postit_prd}^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||passwoord : wac6065FUZ^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||db.datasource.postit_node2^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST =CRSACC1-SCAN.DATASERV.BE)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.DATASERV.BE)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4POSTIT_2)))^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||Properties : {user=postit_prd}^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||passwoord : wac6065FUZ^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:32|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||db.datasource.primaweb^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//rosalind:2003/PADB^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||Properties : {user=primaweb_prd}^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||passwoord : primaweb_prd_acc^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||db.datasource.refita^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//catwoman:2003/A4REFITA^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||Properties : {user=taux_prd}^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||passwoord : pef6331JET^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:33|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||db.datasource.registry^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4REGISTRY)))^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||Properties : {user=REGISTRY_SOCSEC_ADM}^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||passwoord : beh7947TIG^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||InitalCapacity : 5^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||db.datasource.repertoire.duc^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//orwell.smals-mvm.be:1521/AADB^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||Properties : {user=duc}^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||passwoord : chantier^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||db.datasource.repertoire.mahis_node1^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@orwell:1521/AADB^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||Properties : {user=MAHIS_PRD}^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||passwoord : wex1300BIG^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:34|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||db.datasource.repertoire.offident^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//orwell.smals-mvm.be:1521/AADB^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||Properties : {user=OFFIDENT}^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||passwoord : identifier^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||db.datasource.rrn^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//rosalind:2003/A4DB1^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||Properties : {user=RRNWEB_PRD}^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||passwoord : rrn500^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:35|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||db.datasource.ruspp^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//rosalind.smals-mvm.be:2003/PADB^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||Properties : {user=RUSPP_PRD}^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||passwoord : humeur^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||db.datasource.suivi^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4SUIVI)))^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||Properties : {user=suivi_prd}^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||passwoord : zer4969YIM^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||db.datasource.suivi_clt^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4SUIVI)))^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||Properties : {user=SUIVI_CLT}^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||passwoord : jig2524TUC^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 0^^^
+^^^03:07:36|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||db.datasource.timereg^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4TIMEREG)))^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||Properties : {user=timereg_prd}^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||passwoord : timereg_prd_acc^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||db.datasource.trillium^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//rosalind.smals-mvm.be:2003/ASA4TRIL^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||Properties : {user=trillium_web}^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||passwoord : tritri^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||db.datasource.uam.pep_node1^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UAM)))^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||Properties : {user=PEP3_PRD}^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||passwoord : vuj5120YAB^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:37|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||db.datasource.uam.pep_node2^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UAM)))^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||Properties : {user=PEP3_PRD}^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||passwoord : vuj5120YAB^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||db.datasource.umlight_node1^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4LIMOMP)))^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||Properties : {user=umlight_prd}^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||passwoord : fuk5239DIS^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||db.datasource.umlight_node2^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4LIMOMP)))^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||Properties : {user=umlight_prd}^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||passwoord : fuk5239DIS^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||InitalCapacity : 1^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:38|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||db.datasource.umoe_node1^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||Properties : {user=umoe_prd}^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||passwoord : mem6233VEV^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||MaxCapacity : 25^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||db.datasource.umoe_node2^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||Properties : {user=umoe_prd}^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||passwoord : mem6233VEV^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||InitalCapacity : 3^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||MaxCapacity : 25^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:39|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||db.datasource.useraccess_data^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//orwell.smals-mvm.be:1521/AADB^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||Properties : {user=CONSULT}^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||passwoord : maria^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||db.datasource.vsi^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//rosalind:2003/A4VSI^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||Properties : {user=VSI_PRD}^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||passwoord : platane^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||db.datasource.webcache_data^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//rosalind:2003/WADB^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||Properties : {user=dmwebcache}^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||passwoord : webcache^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:40|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:41|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^03:07:41|INFO|pp||1-exec|egovacc||db.datasource.webcache_dataguard^^^
+^^^03:07:41|INFO|pp||1-exec|egovacc||URL : jdbc:oracle:thin:@//hestia:1521/WADB^^^
+^^^03:07:41|INFO|pp||1-exec|egovacc||DriverName : oracle.jdbc.OracleDriver^^^
+^^^03:07:41|INFO|pp||1-exec|egovacc||Properties : {user=dmwebcache}^^^
+^^^03:07:41|INFO|pp||1-exec|egovacc||passwoord : webcache^^^
+^^^03:07:41|INFO|pp||1-exec|egovacc||InitalCapacity : 0^^^
+^^^03:07:41|INFO|pp||1-exec|egovacc||MaxCapacity : 15^^^
+^^^03:07:41|INFO|pp||1-exec|egovacc||TestConnectionsOnReserve : 1^^^
+^^^03:07:41|INFO|pp||1-exec|egovacc||==============================================^^^
+^^^END^^^

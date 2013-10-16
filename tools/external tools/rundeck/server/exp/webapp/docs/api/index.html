@@ -1,0 +1,3278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API Reference | Version 5</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Alex Honor" />
+  <meta name="author" content="Greg Schueler" />
+  <meta name="date" content="November 20, 2010" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="index.html">API Reference | Version 5</a></li>
+        
+        
+        
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">API Reference | Version 5</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#api-version-number"
+      >API Version Number</a
+      ><ul
+      ><li
+	><a href="#changes"
+	  >Changes</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#urls"
+      >URLs</a
+      ></li
+    ><li
+    ><a href="#xml"
+      >XML</a
+      ></li
+    ><li
+    ><a href="#authentication"
+      >Authentication</a
+      ><ul
+      ><li
+	><a href="#token-authentication"
+	  >Token Authentication</a
+	  ></li
+	><li
+	><a href="#password-authentication"
+	  >Password Authentication</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#response-format"
+      >Response Format</a
+      ><ul
+      ><li
+	><a href="#error-codes"
+	  >Error codes</a
+	  ></li
+	><li
+	><a href="#item-lists"
+	  >Item Lists</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#api-contents"
+      >API Contents</a
+      ><ul
+      ><li
+	><a href="#system-info"
+	  >System Info</a
+	  ></li
+	><li
+	><a href="#listing-jobs"
+	  >Listing Jobs</a
+	  ></li
+	><li
+	><a href="#listing-jobs-for-a-project"
+	  >Listing Jobs for a Project</a
+	  ></li
+	><li
+	><a href="#running-a-job"
+	  >Running a Job</a
+	  ></li
+	><li
+	><a href="#exporting-jobs"
+	  >Exporting Jobs</a
+	  ></li
+	><li
+	><a href="#importing-jobs"
+	  >Importing Jobs</a
+	  ></li
+	><li
+	><a href="#getting-a-job-definition"
+	  >Getting a Job Definition</a
+	  ></li
+	><li
+	><a href="#deleting-a-job-definition"
+	  >Deleting a Job Definition</a
+	  ></li
+	><li
+	><a href="#bulk-job-delete"
+	  >Bulk Job Delete</a
+	  ></li
+	><li
+	><a href="#getting-executions-for-a-job"
+	  >Getting Executions for a Job</a
+	  ></li
+	><li
+	><a href="#listing-running-executions"
+	  >Listing Running Executions</a
+	  ></li
+	><li
+	><a href="#getting-execution-info"
+	  >Getting Execution Info</a
+	  ></li
+	><li
+	><a href="#execution-query"
+	  >Execution Query</a
+	  ></li
+	><li
+	><a href="#execution-output"
+	  >Execution Output</a
+	  ><ul
+	  ><li
+	    ><a href="#tailing-output"
+	      >Tailing Output</a
+	      ></li
+	    ><li
+	    ><a href="#output-format-using-the-url"
+	      >Output Format Using the URL</a
+	      ></li
+	    ><li
+	    ><a href="#output-format-using-accept-header"
+	      >Output Format using Accept Header</a
+	      ></li
+	    ><li
+	    ><a href="#output-content"
+	      >Output Content</a
+	      ></li
+	    ><li
+	    ><a href="#text-format-content"
+	      >Text Format Content</a
+	      ></li
+	    ></ul
+	  ></li
+	><li
+	><a href="#aborting-executions"
+	  >Aborting Executions</a
+	  ></li
+	><li
+	><a href="#running-adhoc-commands"
+	  >Running Adhoc Commands</a
+	  ></li
+	><li
+	><a href="#running-adhoc-scripts"
+	  >Running Adhoc Scripts</a
+	  ></li
+	><li
+	><a href="#running-adhoc-script-urls"
+	  >Running Adhoc Script URLs</a
+	  ></li
+	><li
+	><a href="#listing-projects"
+	  >Listing Projects</a
+	  ></li
+	><li
+	><a href="#getting-project-info"
+	  >Getting Project Info</a
+	  ></li
+	><li
+	><a href="#updating-and-listing-resources-for-a-project"
+	  >Updating and Listing Resources for a Project</a
+	  ><ul
+	  ><li
+	    ><a href="#post-request"
+	      >POST request</a
+	      ></li
+	    ><li
+	    ><a href="#get-request"
+	      >GET request</a
+	      ></li
+	    ></ul
+	  ></li
+	><li
+	><a href="#refreshing-resources-for-a-project"
+	  >Refreshing Resources for a Project</a
+	  ></li
+	><li
+	><a href="#listing-history"
+	  >Listing History</a
+	  ></li
+	><li
+	><a href="#creating-history-event-reports"
+	  >Creating History Event Reports</a
+	  ></li
+	><li
+	><a href="#listing-resources"
+	  >Listing Resources</a
+	  ><ul
+	  ><li
+	    ><a href="#using-node-filters"
+	      >Using Node Filters</a
+	      ></li
+	    ></ul
+	  ></li
+	><li
+	><a href="#getting-resource-info"
+	  >Getting Resource Info</a
+	  ></li
+	></ul
+      ></li
+    ></ul
+  ></div
+>
+<p
+>Rundeck provides a Web API for use with your application.</p
+><div id="api-version-number"
+><h2
+  ><a href="#TOC"
+    >API Version Number</a
+    ></h2
+  ><p
+  >The current API version is <code
+    >5</code
+    >.</p
+  ><p
+  >For API endpoints described in this document, the <em
+    >minimum</em
+    > API version required for their use is indicated by the URL used, e.g.:</p
+  ><pre
+  ><code
+    >/api/2/system/info
+/api/1/projects
+</code
+    ></pre
+  ><p
+  >This means you must use at least the API version indicated to access the endpoint, unless otherwise noted. Some features or functionality for the endpoint may only be supported in later versions.</p
+  ><p
+  >The API Version Number is required to be included in all API calls within the URL.</p
+  ><p
+  >If the version number is not included or if the requested version number is unsupported, then the API call will fail. The error response will include the code &quot;api-version-unsupported&quot; and have HTTP status code of <code
+    >400 Bad Request</code
+    >:</p
+  ><pre
+  ><code
+    >&lt;result error=&quot;true&quot; apiversion=&quot;2&quot;&gt;
+    &lt;error code=&quot;api-version-unsupported&quot;&gt;
+        &lt;message&gt;
+        Unsupported API Version &quot;1&quot;. API Request: /rundeck/api/1/project/test/jobs. Reason: Minimum supported version: 2
+        &lt;/message&gt;
+    &lt;/error&gt;
+&lt;/result&gt;
+</code
+    ></pre
+  ><div id="changes"
+  ><h3
+    ><a href="#TOC"
+      >Changes</a
+      ></h3
+    ><p
+    >Changes introduced by API Version number:</p
+    ><p
+    ><strong
+      >Version 5</strong
+      >:</p
+    ><ul
+    ><li
+      >New endpoint<ul
+	><li
+	  ><code
+	    >/api/5/jobs/delete</code
+	    > - <a href="#bulk-job-delete"
+	    >Bulk Job Delete</a
+	    ></li
+	  ></ul
+	></li
+      ><li
+      >New endpoint<ul
+	><li
+	  ><code
+	    >/api/5/execution/[ID]/output</code
+	    > - <a href="#execution-output"
+	    >Execution Output</a
+	    ></li
+	  ></ul
+	></li
+      ><li
+      >New endpoint<ul
+	><li
+	  ><code
+	    >/api/5/executions</code
+	    > - <a href="#execution-query"
+	    >Execution Query</a
+	    ></li
+	  ></ul
+	></li
+      ><li
+      >Updated endpoints<ul
+	><li
+	  ><code
+	    >/api/1/history</code
+	    > - <a href="#listing-history"
+	    >Listing History</a
+	    ><ul
+	    ><li
+	      >new filter parameters added for including or excluding reports for exact job group/name values: <code
+		>jobListFilter</code
+		> and <code
+		>excludeJobListFilter</code
+		></li
+	      ></ul
+	    ></li
+	  ></ul
+	></li
+      ></ul
+    ><p
+    ><strong
+      >Version 4</strong
+      >:</p
+    ><ul
+    ><li
+      >New endpoint<ul
+	><li
+	  ><code
+	    >/api/4/run/url</code
+	    > - <a href="#running-adhoc-script-urls"
+	    >Running Adhoc Script URLs</a
+	    ></li
+	  ></ul
+	></li
+      ></ul
+    ><p
+    ><strong
+      >Version 3</strong
+      >:</p
+    ><ul
+    ><li
+      >Updated endpoints<ul
+	><li
+	  ><code
+	    >/api/1/resources</code
+	    > - <a href="#listing-resources"
+	    >Listing Resources</a
+	    ><ul
+	    ><li
+	      ><code
+		>format</code
+		> parameter can now use any supported Resource Format Parser format name.</li
+	      ></ul
+	    ></li
+	  ><li
+	  ><code
+	    >/api/2/project/[NAME]/resources</code
+	    > - <a href="#updating-and-listing-resources-for-a-project"
+	    >Updating and Listing Resources for a Project</a
+	    ><ul
+	    ><li
+	      ><code
+		>POST</code
+		> request Content-Type can be any MIME type supported by a Resource Format Parser plugin.</li
+	      ></ul
+	    ></li
+	  ></ul
+	></li
+      ></ul
+    ><p
+    ><strong
+      >Version 2</strong
+      >:</p
+    ><ul
+    ><li
+      >New endpoints<ul
+	><li
+	  ><code
+	    >/api/2/project/[NAME]/jobs</code
+	    > - <a href="#listing-jobs-for-a-project"
+	    >Listing Jobs for a Project</a
+	    ></li
+	  ><li
+	  ><code
+	    >/api/2/project/[NAME]/resources</code
+	    > - <a href="#updating-and-listing-resources-for-a-project"
+	    >Updating and Listing Resources for a Project</a
+	    ></li
+	  ><li
+	  ><code
+	    >/api/2/project/[NAME]/resources/refresh</code
+	    > - <a href="#refreshing-resources-for-a-project"
+	    >Refreshing Resources for a Project</a
+	    ></li
+	  ></ul
+	></li
+      ><li
+      >Updated endpoints<ul
+	><li
+	  ><code
+	    >/api/1/jobs</code
+	    > - <a href="#listing-jobs"
+	    >Listing Jobs</a
+	    ><ul
+	    ><li
+	      >Additional parameters added</li
+	      ></ul
+	    ></li
+	  ></ul
+	></li
+      ></ul
+    ></div
+  ></div
+><div id="urls"
+><h2
+  ><a href="#TOC"
+    >URLs</a
+    ></h2
+  ><p
+  >The Rundeck server has a &quot;Base URL&quot;, where you access the server. Your Rundeck Server URL may look like: <code
+    >http://myserver:4440</code
+    >.</p
+  ><p
+  >The root URL path for all calls to the API in this version is:</p
+  ><pre
+  ><code
+    >$RUNDECK_SERVER_URL/api/2
+</code
+    ></pre
+  ></div
+><div id="xml"
+><h2
+  ><a href="#TOC"
+    >XML</a
+    ></h2
+  ><p
+  >The majority of API calls require XML for input and output. Some import/export features support YAML formatted documents, but XML is used for all API-level information. (JSON support is planned for a future API version.)</p
+  ></div
+><div id="authentication"
+><h2
+  ><a href="#TOC"
+    >Authentication</a
+    ></h2
+  ><p
+  >Authentication can be done in two different ways, either with Token based authentication, or with a username and password.</p
+  ><p
+  >Note that in either case, <strong
+    >it is recommended that you enable SSL Support for the Rundeck server</strong
+    > so that communication is encrypted at all times. For more information about using SSL, see <a href="../administration/ssl.html"
+    >Administration - Configuring Rundeck for SSL</a
+    >.</p
+  ><div id="token-authentication"
+  ><h3
+    ><a href="#TOC"
+      >Token Authentication</a
+      ></h3
+    ><p
+    >Token Authentication consists of including a string known as an &quot;API Token&quot; with every request to the Rundeck API.</p
+    ><p
+    >To obtain an API Token, you must first log in to the Rundeck GUI using a user account that has &quot;admin&quot; credentials. Click on your username in the header of the page, and you will be shown your User Profile page. From this page you can manage your API Tokens. Click &quot;Generate API Token&quot; to create a new one. The unique string that is shown is the API Token.</p
+    ><p
+    >You must include one of the following with every HTTP request to the API:</p
+    ><ul
+    ><li
+      >HTTP Header <code
+	>X-Rundeck-Auth-Token</code
+	> set to the API Token string</li
+      ></ul
+    ><p
+    >OR</p
+    ><ul
+    ><li
+      >HTTP URL Parameter <code
+	>authtoken</code
+	> set to the API Token string</li
+      ></ul
+    ><p
+    >With that in place, you can make calls to the API as described in the rest of this document, and you don't need to maintain any cookies between requests.</p
+    ><p
+    >Examples:</p
+    ><p
+    >Using the URL parameter to request the project list:</p
+    ><pre
+    ><code
+      >GET /api/1/projects?authtoken=E4rNvVRV378knO9dp3d73O0cs1kd0kCd HTTP/1.1
+...
+</code
+      ></pre
+    ><p
+    >Using the HTTP Header:</p
+    ><pre
+    ><code
+      >GET /api/1/projects HTTP/1.1
+X-Rundeck-Auth-Token: E4rNvVRV378knO9dp3d73O0cs1kd0kCd
+...
+</code
+      ></pre
+    ></div
+  ><div id="password-authentication"
+  ><h3
+    ><a href="#TOC"
+      >Password Authentication</a
+      ></h3
+    ><p
+    >If using Password Authentication, you must perform the authentication steps prior to accessing the API.</p
+    ><p
+    >This means that you must submit authentication parameters (username, password) to the &quot;Authentication URL&quot; and retain a Session Cookie.</p
+    ><p
+    >The Session Cookie must be sent with all calls to the API to maintain the authenticated connection.</p
+    ><p
+    >To submit authentication, submit a <code
+      >POST</code
+      > request to the URL:</p
+    ><pre
+    ><code
+      >$RUNDECK_SERVER_URL/j_security_check
+</code
+      ></pre
+    ><p
+    >With these parameters:</p
+    ><ul
+    ><li
+      ><code
+	>j_username</code
+	>: rundeck username</li
+      ><li
+      ><code
+	>j_password</code
+	>: password</li
+      ></ul
+    ><p
+    >If the response includes a redirect chain which includes or results in <code
+      >$RUNDECK_SERVER_URL/user/login</code
+      > or <code
+      >$RUNDECK_SERVER_URL/user/error</code
+      >, then the authentication request failed.</p
+    ><p
+    >Otherwise, if the response is a redirect chain which results in <code
+      >200 successful</code
+      > response, then the authentication was successful.</p
+    ><p
+    >The response should set a cookie named <code
+      >JSESSIONID</code
+      >.</p
+    ></div
+  ></div
+><div id="response-format"
+><h2
+  ><a href="#TOC"
+    >Response Format</a
+    ></h2
+  ><p
+  >The XML Response format will conform to this document structure:</p
+  ><pre
+  ><code
+    >&lt;result success/error=&quot;true&quot; apiversion=&quot;X&quot;&gt;
+    &lt;!-- error included if error=&quot;true&quot; --&gt;
+    &lt;error&gt;
+        &lt;message&gt;&lt;!-- error message text --&gt;&lt;/message&gt;
+        &lt;!-- ... multiple message elements --&gt;
+    &lt;/error&gt;
+
+    &lt;!-- optional success element if declared for the endpoint --&gt;
+    &lt;success&gt;
+        &lt;message&gt;&lt;!-- success message --&gt;&lt;/message&gt;
+    &lt;/success&gt;
+
+    &lt;!-- 
+        Specific API results..
+    --&gt;
+&lt;/result&gt;
+</code
+    ></pre
+  ><p
+  >If an error occurred, then the <code
+    >error</code
+    > attribute of the <code
+    >&lt;result&gt;</code
+    > element will be &quot;true&quot;. Otherwise a <code
+    >success</code
+    > attribute will have the value &quot;true&quot;.</p
+  ><p
+  >Some <code
+    >&lt;error&gt;</code
+    > responses will include a <code
+    >code</code
+    > attribute giving a specific type of error code, in addition to the message.</p
+  ><p
+  >The <code
+    >apiversion</code
+    > attribute will be set to the latest version of the API supported by the server.</p
+  ><div id="error-codes"
+  ><h3
+    ><a href="#TOC"
+      >Error codes</a
+      ></h3
+    ><p
+    >Defined error codes that may be returned as <code
+      >&lt;error code=&quot;...&quot;&gt;</code
+      ></p
+    ><dl
+    ><dt
+      ><code
+	>api-version-unsupported</code
+	></dt
+      ><dd
+      ><p
+	>The specified API version is not supported for the requested resource</p
+	></dd
+      ><dt
+      ><code
+	>unauthorized</code
+	></dt
+      ><dd
+      ><p
+	>The requested action is not authorized and/or the connection is not authenticated.</p
+	></dd
+      ></dl
+    ></div
+  ><div id="item-lists"
+  ><h3
+    ><a href="#TOC"
+      >Item Lists</a
+      ></h3
+    ><p
+    >Many API requests will return an item list as a result. These are typically in the form:</p
+    ><pre
+    ><code
+      >&lt;[items] count=&quot;x&quot;&gt;
+    &lt;[item] ...&gt;
+    &lt;[item] ...&gt;
+&lt;/[items]&gt;
+</code
+      ></pre
+    ><p
+    >Where the list of specific items are wrapped in a pluralized element name which contains a <code
+      >count</code
+      > attribute.</p
+    ><p
+    >When an API path declares its results as an &quot;Item List&quot; this is the format that will be returned.</p
+    ></div
+  ></div
+><div id="api-contents"
+><h2
+  ><a href="#TOC"
+    >API Contents</a
+    ></h2
+  ><div id="system-info"
+  ><h3
+    ><a href="#TOC"
+      >System Info</a
+      ></h3
+    ><p
+    >Get Rundeck server information and stats.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/system/info
+</code
+      ></pre
+    ><p
+    >Parameters: none</p
+    ><p
+    >Result: Success response, with included system info and stats in this format:</p
+    ><pre
+    ><code
+      >&lt;system&gt;
+    &lt;timestamp epoch=&quot;1305909785806&quot; unit=&quot;ms&quot;&gt;
+        &lt;datetime&gt;2011-05-20T16:43:05Z&lt;/datetime&gt;
+    &lt;/timestamp&gt;
+    &lt;rundeck&gt;
+        &lt;version&gt;1.2.1&lt;/version&gt;
+        &lt;apiversion&gt;2&lt;/apiversion&gt;
+        &lt;build&gt;1.2.1-0-beta&lt;/build&gt;
+        &lt;node&gt;Venkman.local&lt;/node&gt;
+        &lt;base&gt;/Users/greg/rundeck121&lt;/base&gt;
+    &lt;/rundeck&gt;
+    &lt;os&gt;
+        &lt;arch&gt;x86_64&lt;/arch&gt;
+        &lt;name&gt;Mac OS X&lt;/name&gt;
+        &lt;version&gt;10.6.7&lt;/version&gt;
+    &lt;/os&gt;
+    &lt;jvm&gt;
+        &lt;name&gt;Java HotSpot(TM) 64-Bit Server VM&lt;/name&gt;
+        &lt;vendor&gt;Apple Inc.&lt;/vendor&gt;
+        &lt;version&gt;19.1-b02-334&lt;/version&gt;
+    &lt;/jvm&gt;
+    &lt;stats&gt;
+        &lt;uptime duration=&quot;300584&quot; unit=&quot;ms&quot;&gt;
+            &lt;since epoch=&quot;1305909485222&quot; unit=&quot;ms&quot;&gt;
+                &lt;datetime&gt;2011-05-20T16:38:05Z&lt;/datetime&gt;
+            &lt;/since&gt;
+        &lt;/uptime&gt;
+        &lt;cpu&gt;
+            &lt;loadAverage unit=&quot;percent&quot;&gt;0.40234375&lt;/loadAverage&gt;
+            &lt;processors&gt;4&lt;/processors&gt;
+        &lt;/cpu&gt;
+        &lt;memory unit=&quot;byte&quot;&gt;
+            &lt;max&gt;477233152&lt;/max&gt;
+            &lt;free&gt;76626216&lt;/free&gt;
+            &lt;total&gt;257163264&lt;/total&gt;
+        &lt;/memory&gt;
+        &lt;scheduler&gt;
+            &lt;running&gt;0&lt;/running&gt;
+        &lt;/scheduler&gt;
+        &lt;threads&gt;
+            &lt;active&gt;24&lt;/active&gt;
+        &lt;/threads&gt;
+    &lt;/stats&gt;
+&lt;/system&gt;
+</code
+      ></pre
+    ><p
+    >Description of included elements:</p
+    ><p
+    ><code
+      >timestamp</code
+      > describes the current system time known to the server. The <code
+      >@epoch</code
+      > attribute includes the milliseconds since the unix epoch.</p
+    ><dl
+    ><dt
+      ><code
+	>datetime</code
+	></dt
+      ><dd
+      >The W3C date and time</dd
+      ></dl
+    ><p
+    ><code
+      >rundeck</code
+      > includes information about the Rundeck application.</p
+    ><dl
+    ><dt
+      ><code
+	>rundeck/version</code
+	></dt
+      ><dd
+      ><p
+	>Rundeck version</p
+	></dd
+      ><dt
+      ><code
+	>rundeck/apiversion</code
+	></dt
+      ><dd
+      ><p
+	>Rundeck API version</p
+	></dd
+      ><dt
+      ><code
+	>rundeck/build</code
+	></dt
+      ><dd
+      ><p
+	>Rundeck build stamp</p
+	></dd
+      ><dt
+      ><code
+	>rundeck/node</code
+	></dt
+      ><dd
+      ><p
+	>Server node name</p
+	></dd
+      ><dt
+      ><code
+	>rundeck/base</code
+	></dt
+      ><dd
+      ><p
+	>Server base directory</p
+	></dd
+      ><dt
+      ><code
+	>os/arch</code
+	></dt
+      ><dd
+      ><p
+	>Operating System architecture</p
+	></dd
+      ><dt
+      ><code
+	>os/name</code
+	></dt
+      ><dd
+      ><p
+	>Operating System Name</p
+	></dd
+      ><dt
+      ><code
+	>os/version</code
+	></dt
+      ><dd
+      ><p
+	>Operating System Version</p
+	></dd
+      ><dt
+      ><code
+	>jvm/name</code
+	></dt
+      ><dd
+      ><p
+	>JVM name</p
+	></dd
+      ><dt
+      ><code
+	>jvm/vendor</code
+	></dt
+      ><dd
+      ><p
+	>JVM vendor</p
+	></dd
+      ><dt
+      ><code
+	>jvm/version</code
+	></dt
+      ><dd
+      ><p
+	>JVM version</p
+	></dd
+      ></dl
+    ><p
+    ><code
+      >stats</code
+      > section includes some system statistics:</p
+    ><p
+    ><code
+      >uptime</code
+      > describes the JVM uptime as duration in ms, and includes absolute startup time:</p
+    ><dl
+    ><dt
+      ><code
+	>uptime/since</code
+	></dt
+      ><dd
+      ><p
+	>JVM startup time as time since the unix epoch</p
+	></dd
+      ><dt
+      ><code
+	>uptime/since/datetime</code
+	></dt
+      ><dd
+      ><p
+	>JVM startup time as W3C date time.</p
+	></dd
+      ><dt
+      ><code
+	>cpu/loadAverage</code
+	></dt
+      ><dd
+      ><p
+	>JVM load average percentage for the system for the previous minute (see <a href="http://download.oracle.com/javase/6/docs/api/java/lang/management/OperatingSystemMXBean.html#getSystemLoadAverage()"
+	  >getSystemLoadAverage</a
+	  >)</p
+	></dd
+      ><dt
+      ><code
+	>cpu/processors</code
+	></dt
+      ><dd
+      ><p
+	>Number of available system processors. note that loadAverage might be calculated based on the total number of available processors</p
+	></dd
+      ></dl
+    ><p
+    >The <code
+      >memory</code
+      > section describes memory usage in bytes:</p
+    ><dl
+    ><dt
+      ><code
+	>max</code
+	></dt
+      ><dd
+      ><p
+	>Maximum JVM memory that can be allocated</p
+	></dd
+      ><dt
+      ><code
+	>free</code
+	></dt
+      ><dd
+      ><p
+	>Free memory of the allocated memory</p
+	></dd
+      ><dt
+      ><code
+	>total</code
+	></dt
+      ><dd
+      ><p
+	>Total allocated memory for the JVM</p
+	></dd
+      ><dt
+      ><code
+	>scheduler/running</code
+	></dt
+      ><dd
+      ><p
+	>Number of running jobs in the scheduler</p
+	></dd
+      ><dt
+      ><code
+	>threads/active</code
+	></dt
+      ><dd
+      ><p
+	>Number of active Threads in the JVM</p
+	></dd
+      ></dl
+    ></div
+  ><div id="listing-jobs"
+  ><h3
+    ><a href="#TOC"
+      >Listing Jobs</a
+      ></h3
+    ><p
+    >List the jobs that exist for a project.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/jobs
+</code
+      ></pre
+    ><p
+    >Required parameters:</p
+    ><ul
+    ><li
+      ><code
+	>project</code
+	>: the project name</li
+      ></ul
+    ><p
+    >The following parameters can also be used to narrow down the result set.</p
+    ><ul
+    ><li
+      ><code
+	>idlist</code
+	>: specify a comma-separated list of Job IDs to include</li
+      ><li
+      ><code
+	>groupPath</code
+	>: specify a group or partial group path to include all jobs within that group path. (Default value: &quot;*&quot;, all groups). Set to the special value &quot;-&quot; to match the top level jobs only.</li
+      ><li
+      ><code
+	>jobFilter</code
+	>: specify a filter for the job Name. Matches any job name that contains this value.</li
+      ><li
+      ><code
+	>jobExactFilter</code
+	>: specify an exact job name to match. (<strong
+	>API version 2</strong
+	> required.)</li
+      ><li
+      ><code
+	>groupPathExact</code
+	>: specify an exact group path to match. Set to the special value &quot;-&quot; to match the top level jobs only. (<strong
+	>API version 2</strong
+	> required.)</li
+      ></ul
+    ><p
+    >Result: An Item List of <code
+      >jobs</code
+      >. Each <code
+      >job</code
+      > is of the form:</p
+    ><pre
+    ><code
+      >&lt;job id=&quot;ID&quot;&gt;
+    &lt;name&gt;Job Name&lt;/name&gt;
+    &lt;group&gt;Job Name&lt;/group&gt;
+    &lt;project&gt;Project Name&lt;/project&gt;
+    &lt;description&gt;...&lt;/description&gt;
+&lt;/job&gt;
+</code
+      ></pre
+    ><p
+    >Note: If neither <code
+      >groupPath</code
+      > nor <code
+      >groupPathExact</code
+      > are specified, then the default <code
+      >groupPath</code
+      > value of &quot;*&quot; will be used (matching jobs in all groups). <code
+      >groupPathExact</code
+      > cannot be combined with <code
+      >groupPath</code
+      >. You can set either one to &quot;-&quot; to match only the top-level jobs which are not within a group.</p
+    ></div
+  ><div id="listing-jobs-for-a-project"
+  ><h3
+    ><a href="#TOC"
+      >Listing Jobs for a Project</a
+      ></h3
+    ><p
+    >List the jobs that exist for a project. (<strong
+      >API version 2</strong
+      > required.)</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/2/project/[NAME]/jobs
+</code
+      ></pre
+    ><p
+    >The following parameters can also be used to narrow down the result set.</p
+    ><ul
+    ><li
+      ><code
+	>idlist</code
+	>: specify a comma-separated list of Job IDs to include</li
+      ><li
+      ><code
+	>groupPath</code
+	>: specify a group or partial group path to include all jobs within that group path. (Default value: &quot;*&quot;, all groups). Set to the special value &quot;-&quot; to match the top level jobs only</li
+      ><li
+      ><code
+	>jobFilter</code
+	>: specify a filter for the job Name. Matches any job name that contains this value.</li
+      ><li
+      ><code
+	>jobExactFilter</code
+	>: specify an exact job name to match.</li
+      ><li
+      ><code
+	>groupPathExact</code
+	>: specify an exact group path to match. Set to the special value &quot;-&quot; to match the top level jobs only</li
+      ></ul
+    ><p
+    >Result: An Item List of <code
+      >jobs</code
+      >. Each <code
+      >job</code
+      > is of the form:</p
+    ><pre
+    ><code
+      >&lt;job id=&quot;ID&quot;&gt;
+    &lt;name&gt;Job Name&lt;/name&gt;
+    &lt;group&gt;Job Name&lt;/group&gt;
+    &lt;project&gt;Project Name&lt;/project&gt;
+    &lt;description&gt;...&lt;/description&gt;
+&lt;/job&gt;
+</code
+      ></pre
+    ><p
+    >Note: If neither <code
+      >groupPath</code
+      > nor <code
+      >groupPathExact</code
+      > are specified, then the default <code
+      >groupPath</code
+      > value of &quot;*&quot; will be used (matching jobs in all groups). <code
+      >groupPathExact</code
+      > cannot be combined with <code
+      >groupPath</code
+      >. You can set either one to &quot;-&quot; to match only the top-level jobs which are not within a group.</p
+    ></div
+  ><div id="running-a-job"
+  ><h3
+    ><a href="#TOC"
+      >Running a Job</a
+      ></h3
+    ><p
+    >Run a job specified by ID.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/job/[ID]/run
+</code
+      ></pre
+    ><p
+    >Optional parameters:</p
+    ><ul
+    ><li
+      ><code
+	>argString</code
+	>: argument string to pass to the job, of the form: <code
+	>-opt value -opt2 value ...</code
+	>.</li
+      ><li
+      ><code
+	>loglevel</code
+	>: argument specifying the loglevel to use, one of: 'DEBUG','VERBOSE','INFO','WARN','ERR'</li
+      ><li
+      >Node filter parameters as described under <a href="#using-node-filters"
+	>Using Node Filters</a
+	></li
+      ></ul
+    ><p
+    >Result: An Item List of <code
+      >executions</code
+      > containing a single entry for the execution that was created. See <a href="#listing-running-executions"
+      >Listing Running Executions</a
+      >.</p
+    ></div
+  ><div id="exporting-jobs"
+  ><h3
+    ><a href="#TOC"
+      >Exporting Jobs</a
+      ></h3
+    ><p
+    >Export the job definitions for in XML or YAML formats.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/jobs/export
+</code
+      ></pre
+    ><p
+    >Required parameters:</p
+    ><ul
+    ><li
+      ><code
+	>project</code
+	></li
+      ></ul
+    ><p
+    >Optional parameters:</p
+    ><ul
+    ><li
+      ><code
+	>format</code
+	> : can be &quot;xml&quot; or &quot;yaml&quot; to specify the output format. Default is &quot;xml&quot;</li
+      ></ul
+    ><p
+    >The following parameters can also be used to narrow down the result set.</p
+    ><ul
+    ><li
+      ><code
+	>idlist</code
+	>: specify a comma-separated list of Job IDs to export</li
+      ><li
+      ><code
+	>groupPath</code
+	>: specify a group or partial group path to include all jobs within that group path.</li
+      ><li
+      ><code
+	>jobFilter</code
+	>: specify a filter for the job Name</li
+      ></ul
+    ><p
+    >Result:</p
+    ><p
+    >If you specify <code
+      >format=xml</code
+      >, then the output will be in <a href="jobs-v20.html"
+      >jobs-v20(5)</a
+      > format.</p
+    ><p
+    >If you specify <code
+      >format=yaml</code
+      >, then the output will be in <a href="jobs-v20-yaml.html"
+      >jobs-v20-yaml(5)</a
+      > format.</p
+    ><p
+    >If an error occurs, then the output will be in XML format, using the common <code
+      >result</code
+      > element described in the <a href="#response-format"
+      >Response Format</a
+      > section.</p
+    ></div
+  ><div id="importing-jobs"
+  ><h3
+    ><a href="#TOC"
+      >Importing Jobs</a
+      ></h3
+    ><p
+    >Import job definitions in XML or YAML formats.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/jobs/import
+</code
+      ></pre
+    ><p
+    >Method: <code
+      >POST</code
+      ></p
+    ><p
+    >Expected Content-Type: <code
+      >application/x-www-form-urlencoded</code
+      > (<strong
+      >since 1.3</strong
+      >) or <code
+      >multipart/form-data</code
+      ></p
+    ><p
+    >Required Content:</p
+    ><ul
+    ><li
+      ><code
+	>xmlBatch</code
+	>: Either a <code
+	>x-www-form-urlencoded</code
+	> request parameter containing the input content (<strong
+	>since 1.3</strong
+	>), or a <code
+	>multipart/form-data</code
+	> multipart MIME request part containing the content.</li
+      ></ul
+    ><p
+    >Optional parameters:</p
+    ><ul
+    ><li
+      ><code
+	>format</code
+	> : can be &quot;xml&quot; or &quot;yaml&quot; to specify the output format. Default is &quot;xml&quot;</li
+      ><li
+      ><code
+	>dupeOption</code
+	>: A value to indicate the behavior when importing jobs which already exist. Value can be &quot;skip&quot;, &quot;create&quot;, or &quot;update&quot;. Default is &quot;create&quot;.</li
+      ></ul
+    ><p
+    >Result:</p
+    ><p
+    >A set of status results. Each imported job definition will be either &quot;succeeded&quot;, &quot;failed&quot; or &quot;skipped&quot;. These status sections contain a <code
+      >count</code
+      > attribute declaring how many jobs they contain. Within each one there will be 0 or more <code
+      >job</code
+      > elements.</p
+    ><pre
+    ><code
+      >&lt;succeeded count=&quot;x&quot;&gt;
+    &lt;!-- job elements --&gt;
+&lt;/succeeded&gt;
+&lt;failed count=&quot;x&quot;&gt;
+    &lt;!-- job elements --&gt;
+&lt;/failed&gt;
+&lt;skipped count=&quot;x&quot;&gt;
+    &lt;!-- job elements --&gt;
+&lt;/skipped&gt;
+</code
+      ></pre
+    ><p
+    >Each Job element will be of the form:</p
+    ><pre
+    ><code
+      >&lt;job&gt;
+    &lt;!-- ID may not exist if the job was not created yet --&gt;
+    &lt;id&gt;ID&lt;/id&gt;
+    &lt;name&gt;job name&lt;/name&gt;
+    &lt;group&gt;job group&lt;/group&gt;
+    &lt;project&gt;job project&lt;/project&gt;
+    &lt;!--if within the failed section, then an error section will be included --&gt;
+    &lt;error&gt;Error message&lt;/error&gt; 
+&lt;/job&gt;
+</code
+      ></pre
+    ></div
+  ><div id="getting-a-job-definition"
+  ><h3
+    ><a href="#TOC"
+      >Getting a Job Definition</a
+      ></h3
+    ><p
+    >Export a single job definition in XML or YAML formats.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/job/[ID]
+</code
+      ></pre
+    ><p
+    >Optional parameters:</p
+    ><ul
+    ><li
+      ><code
+	>format</code
+	> : can be &quot;xml&quot; or &quot;yaml&quot; to specify the output format. Default is &quot;xml&quot;</li
+      ></ul
+    ><p
+    >Result:</p
+    ><p
+    >If you specify <code
+      >format=xml</code
+      >, then the output will be in <a href="jobs-v20.html"
+      >jobs-v20(5)</a
+      > format.</p
+    ><p
+    >If you specify <code
+      >format=yaml</code
+      >, then the output will be in <a href="jobs-v20-yaml.html"
+      >jobs-v20-yaml(5)</a
+      > format.</p
+    ><p
+    >If an error occurs, then the output will be in XML format, using the common <code
+      >result</code
+      > element described in the <a href="#response-format"
+      >Response Format</a
+      > section.</p
+    ></div
+  ><div id="deleting-a-job-definition"
+  ><h3
+    ><a href="#TOC"
+      >Deleting a Job Definition</a
+      ></h3
+    ><p
+    >Delete a single job definition.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/job/[ID]
+</code
+      ></pre
+    ><p
+    >Method: <code
+      >DELETE</code
+      ></p
+    ><p
+    >Result:</p
+    ><p
+    >The common <code
+      >result</code
+      > element described in the <a href="#response-format"
+      >Response Format</a
+      > section, indicating success or failure and any messages.</p
+    ><p
+    >If successful, then the <code
+      >result</code
+      > will contain a <code
+      >success/message</code
+      > element with the result message:</p
+    ><pre
+    ><code
+      >&lt;success&gt;
+&lt;message&gt;Job was successfully deleted: ... &lt;/message&gt;
+&lt;/success&gt;
+</code
+      ></pre
+    ></div
+  ><div id="bulk-job-delete"
+  ><h3
+    ><a href="#TOC"
+      >Bulk Job Delete</a
+      ></h3
+    ><p
+    >Delete multiple job definitions at once.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/5/jobs/delete
+</code
+      ></pre
+    ><p
+    >Method: <code
+      >DELETE</code
+      >, or <code
+      >POST</code
+      ></p
+    ><p
+    >Query parameters:</p
+    ><ul
+    ><li
+      ><code
+	>ids</code
+	>: The Job IDs to delete, can be specified multiple times</li
+      ><li
+      ><code
+	>idlist</code
+	>: The Job IDs to delete as a single comma-separated string.</li
+      ></ul
+    ><p
+    >Note: you can combine <code
+      >ids</code
+      > with <code
+      >idlist</code
+      ></p
+    ><p
+    >Result:</p
+    ><p
+    >The common <code
+      >result</code
+      > element described in the <a href="#response-format"
+      >Response Format</a
+      > section, indicating success or failure and any messages.</p
+    ><p
+    >If successful, then the <code
+      >result</code
+      > will contain a <code
+      >deleteJobs</code
+      > element with two sections of results, <code
+      >succeeded</code
+      > and <code
+      >failed</code
+      >:</p
+    ><pre
+    ><code
+      >&lt;deleteJobs requestCount=&quot;#&quot; allsuccessful=&quot;true/false&quot;&gt;
+    &lt;succeeded count=&quot;1&quot;&gt;
+        &lt;deleteJobRequest id=&quot;[job ID]&quot;&gt;
+            &lt;message&gt;[message]&lt;/message&gt;
+        &lt;/deleteJobRequest&gt;
+    &lt;/succeeded&gt;
+    &lt;failed count=&quot;1&quot;&gt;
+        &lt;deleteJobRequest id=&quot;[job ID]&quot; errorCode=&quot;[code]&quot;&gt;
+            &lt;error&gt;[message]&lt;/error&gt;
+        &lt;/deleteJobRequest&gt;
+    &lt;/failed&gt;
+&lt;/deleteJobs&gt;
+</code
+      ></pre
+    ><p
+    ><code
+      >deleteJobs</code
+      > will have two attributes:</p
+    ><ul
+    ><li
+      ><code
+	>requestCount</code
+	>: the number of job IDs that were in the delete request</li
+      ><li
+      ><code
+	>allsuccessful</code
+	>: true/false: true if all job deletes were successful, false otherwise.</li
+      ></ul
+    ><p
+    >The response may contain only one of <code
+      >succeeded</code
+      > or <code
+      >failed</code
+      >, depending on the result.</p
+    ><p
+    >The <code
+      >succeeded</code
+      > and <code
+      >failed</code
+      > sections contain multiple <code
+      >deleteJobRequest</code
+      > elements.</p
+    ><p
+    >Each <code
+      >deleteJobRequest</code
+      > under the <code
+      >succeeded</code
+      > section will contain:</p
+    ><ul
+    ><li
+      ><code
+	>id</code
+	> attribute - the Job ID</li
+      ><li
+      ><code
+	>message</code
+	> sub-element - result message for the delete request</li
+      ></ul
+    ><p
+    >Each <code
+      >deleteJobRequest</code
+      > under the <code
+      >failed</code
+      > section will contain:</p
+    ><ul
+    ><li
+      ><code
+	>id</code
+	> attribute - the Job ID</li
+      ><li
+      ><code
+	>error</code
+	> sub-element - result error message for the delete request</li
+      ><li
+      ><code
+	>errorCode</code
+	> attribute - a code indicating the type of failure, currently one of <code
+	>failed</code
+	>, <code
+	>unauthorized</code
+	> or <code
+	>notfound</code
+	>.</li
+      ></ul
+    ></div
+  ><div id="getting-executions-for-a-job"
+  ><h3
+    ><a href="#TOC"
+      >Getting Executions for a Job</a
+      ></h3
+    ><p
+    >Get the list of executions for a Job.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/job/[ID]/executions
+</code
+      ></pre
+    ><p
+    >Optional Query Parameters:</p
+    ><ul
+    ><li
+      ><code
+	>status</code
+	>: the status of executions you want to be returned. Must be one of &quot;succeeded&quot;, &quot;failed&quot;, &quot;aborted&quot;, or &quot;running&quot;. If this parameter is blank or unset, include all executions.</li
+      ><li
+      >Paging parameters:<ul
+	><li
+	  ><code
+	    >max</code
+	    >: indicate the maximum number of results to return. If unspecified, all results will be returned.</li
+	  ><li
+	  ><code
+	    >offset</code
+	    >: indicate the 0-indexed offset for the first result to return.</li
+	  ></ul
+	></li
+      ></ul
+    ><p
+    >Result: an Item List of <code
+      >executions</code
+      >. See <a href="#listing-running-executions"
+      >Listing Running Executions</a
+      >.</p
+    ></div
+  ><div id="listing-running-executions"
+  ><h3
+    ><a href="#TOC"
+      >Listing Running Executions</a
+      ></h3
+    ><p
+    >List the currently running executions for a project</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/executions/running
+</code
+      ></pre
+    ><p
+    >Required Parameters:</p
+    ><ul
+    ><li
+      ><code
+	>project</code
+	>: the project name</li
+      ></ul
+    ><p
+    >Result: An Item List of <code
+      >executions</code
+      >. Each <code
+      >execution</code
+      > of the form:</p
+    ><pre
+    ><code
+      >&lt;execution id=&quot;[ID]&quot; href=&quot;[url]&quot; status=&quot;[status]&quot;&gt;
+    &lt;user&gt;[user]&lt;/user&gt;
+    &lt;date-started unixtime=&quot;[unixtime]&quot;&gt;[datetime]&lt;/date-started&gt;
+
+    &lt;!-- optional job context if the execution is associated with a job --&gt;
+    &lt;job id=&quot;jobID&quot; averageDuration=&quot;[milliseconds]&quot;&gt;
+        &lt;name&gt;..&lt;/name&gt;
+        &lt;group&gt;..&lt;/group&gt;
+        &lt;description&gt;..&lt;/description&gt;
+    &lt;/job&gt;
+
+    &lt;!-- description of the execution --&gt;
+    &lt;description&gt;...&lt;/description&gt;
+
+    &lt;!-- argString (arguments) of the execution --&gt;
+    &lt;argstring&gt;...&lt;/argstring&gt;
+
+    &lt;!-- The following elements included only if the execution has ended --&gt;
+
+    &lt;!-- the completion time of the execution --&gt;
+    &lt;date-ended unixtime=&quot;[unixtime]&quot;&gt;[datetime]&lt;/date-ended&gt; 
+
+    &lt;!-- if the execution was aborted, the username who aborted it: --&gt;
+    &lt;abortedby&gt;[username]&lt;/abortedby&gt;
+
+&lt;/execution&gt;
+</code
+      ></pre
+    ><p
+    >The <code
+      >[status]</code
+      > value indicates the execution status. It is one of:</p
+    ><ul
+    ><li
+      ><code
+	>running</code
+	>: execution is running</li
+      ><li
+      ><code
+	>succeeded</code
+	>: execution completed successfully</li
+      ><li
+      ><code
+	>failed</code
+	>: execution completed with failure</li
+      ><li
+      ><code
+	>aborted</code
+	>: execution was aborted</li
+      ></ul
+    ><p
+    >The <code
+      >[url]</code
+      > value is a URL to the Rundeck server page to view the execution output.</p
+    ><p
+    ><code
+      >[user]</code
+      > is the username of the user who started the execution.</p
+    ><p
+    ><code
+      >[unixtime]</code
+      > is the millisecond unix timestamp, and <code
+      >[datetime]</code
+      > is a W3C dateTime string in the format &quot;yyyy-MM-ddTHH:mm:ssZ&quot;.</p
+    ><p
+    >If known, the average duration of the associated Job will be indicated (in milliseconds) as <code
+      >averageDuration</code
+      >. (Since API v5)</p
+    ></div
+  ><div id="getting-execution-info"
+  ><h3
+    ><a href="#TOC"
+      >Getting Execution Info</a
+      ></h3
+    ><p
+    >Get the status for an execution by ID.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/execution/[ID]
+</code
+      ></pre
+    ><p
+    >Result: an Item List of <code
+      >executions</code
+      > with a single item. See <a href="#listing-running-executions"
+      >Listing Running Executions</a
+      >.</p
+    ></div
+  ><div id="execution-query"
+  ><h3
+    ><a href="#TOC"
+      >Execution Query</a
+      ></h3
+    ><p
+    >Query for Executions based on Job or Execution details.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/5/executions
+</code
+      ></pre
+    ><p
+    >Result: an Item List of <code
+      >executions</code
+      >. See <a href="#listing-running-executions"
+      >Listing Running Executions</a
+      >.</p
+    ><p
+    >The <code
+      >executions</code
+      > element will have paging attributes:</p
+    ><ul
+    ><li
+      ><code
+	>max</code
+	>: maximum number of results per page</li
+      ><li
+      ><code
+	>offset</code
+	>: offset from first of all results</li
+      ><li
+      ><code
+	>total</code
+	>: total number of results</li
+      ><li
+      ><code
+	>count</code
+	>: number of results in the response</li
+      ></ul
+    ><p
+    >Required Parameters:</p
+    ><ul
+    ><li
+      ><code
+	>project</code
+	>: the project name</li
+      ></ul
+    ><p
+    >The following parameters can also be used to narrow down the result set.</p
+    ><p
+    >Parameters for Execution details:</p
+    ><ul
+    ><li
+      ><code
+	>statusFilter</code
+	>: execution status, one of &quot;running&quot;, succeeded&quot;, &quot;failed&quot; or &quot;aborted&quot;</li
+      ><li
+      ><code
+	>abortedbyFilter</code
+	>: Username who aborted an execution</li
+      ><li
+      ><code
+	>userFilter</code
+	>: Username who started the execution</li
+      ><li
+      >Date query parameters:<ul
+	><li
+	  ><code
+	    >recentFilter</code
+	    >: Use a simple text format to filter executions that completed within a period of time. The format is &quot;XY&quot; where X is an integer, and &quot;Y&quot; is one of:<ul
+	    ><li
+	      ><code
+		>h</code
+		>: hour</li
+	      ><li
+	      ><code
+		>d</code
+		>: day</li
+	      ><li
+	      ><code
+		>w</code
+		>: week</li
+	      ><li
+	      ><code
+		>m</code
+		>: month</li
+	      ><li
+	      ><code
+		>y</code
+		>: year So a value of &quot;2w&quot; would return executions that completed within the last two weeks.</li
+	      ></ul
+	    ></li
+	  ><li
+	  ><code
+	    >begin</code
+	    >: Specify exact date for earliest execution completion time</li
+	  ><li
+	  ><code
+	    >end</code
+	    >: Specify exact date for latest xecution completion time</li
+	  ></ul
+	></li
+      ><li
+      ><code
+	>adhoc</code
+	>: &quot;true/false&quot;, if true, include only Adhoc executions, if false return only Job executions. By default any matching executions are returned, however if you use any of the Job filters below, then only Job executions will be returned.</li
+      ></ul
+    ><p
+    >The format for the <code
+      >end</code
+      >, and <code
+      >begin</code
+      > filters is either: a unix millisecond timestamp, or a W3C dateTime string in the format &quot;yyyy-MM-ddTHH:mm:ssZ&quot;.</p
+    ><p
+    >Parameters for querying for Executions for particular jobs:</p
+    ><ul
+    ><li
+      ><code
+	>jobIdListFilter</code
+	>: specify a Job ID to include, can be specified multiple times</li
+      ><li
+      ><code
+	>excludeJobIdListFilter</code
+	>: specify a Job ID to exclude, can be specified multiple times</li
+      ><li
+      ><code
+	>jobListFilter</code
+	>: specify a full Job group/name to include, can be specified multiple times</li
+      ><li
+      ><code
+	>excludeJobListFilter</code
+	>: specify a full Job group/name to exclude, can be specified multiple times</li
+      ><li
+      ><code
+	>groupPath</code
+	>: specify a group or partial group path to include all jobs within that group path. Set to the special value &quot;-&quot; to match the top level jobs only.</li
+      ><li
+      ><code
+	>groupPathExact</code
+	>: specify an exact group path to match. Set to the special value &quot;-&quot; to match the top level jobs only.</li
+      ><li
+      ><code
+	>excludeGroupPath</code
+	>: specify a group or partial group path to exclude all jobs within that group path. Set to the special value &quot;-&quot; to match the top level jobs only.</li
+      ><li
+      ><code
+	>excludeGroupPathExact</code
+	>: specify an exact group path to exclude. Set to the special value &quot;-&quot; to match the top level jobs only.</li
+      ><li
+      ><code
+	>jobFilter</code
+	>: specify a filter for the job Name. Include any job name that matches this value.</li
+      ><li
+      ><code
+	>excludeJobFilter</code
+	>: specify a filter for the job Name. Exclude any job name that matches this value.</li
+      ><li
+      ><code
+	>jobExactFilter</code
+	>: specify an exact job name to match.</li
+      ><li
+      ><code
+	>excludeJobExactFilter</code
+	>: specify an exact job name to exclude.</li
+      ></ul
+    ><p
+    >The format for the <code
+      >jobListFilter</code
+      > and <code
+      >excludeJobListFilter</code
+      > is the job's group and name separated by a '/' character, such as: &quot;group1/job name&quot;, or &quot;my job&quot; if there is no group.</p
+    ><p
+    >Paging parameters:</p
+    ><ul
+    ><li
+      ><code
+	>max</code
+	>: maximum number of results to include in response. (default: 20)</li
+      ><li
+      ><code
+	>offset</code
+	>: offset for first result to include. (default: 0)</li
+      ></ul
+    ></div
+  ><div id="execution-output"
+  ><h3
+    ><a href="#TOC"
+      >Execution Output</a
+      ></h3
+    ><p
+    >Get the output for an execution by ID. The execution can be currently running or may have already completed.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/5/execution/[ID]/output
+</code
+      ></pre
+    ><p
+    >The log output for each execution is stored in a file on the Rundeck server, and this API endpoint allows you to retrieve some or all of the output, in several possible formats: json, XML, and plain text. When retrieving the plain text output, some metadata about the log is included in HTTP Headers. JSON and XML output formats include metadata about each output log line, as well as metadata about the state of the execution and log file, and your current index location in the file.</p
+    ><p
+    >Several parameters can be used to retrieve only part of the output log data. You can use these parameters to more efficiently retrieve the log content over time while an execution is running.</p
+    ><p
+    >The log file used to store the execution output is a formatted text file which also contains metadata about each line of log output emitted during an execution. Several data values in this API endpoint refer to &quot;bytes&quot;, but these do not reflect the size of the final log data; they are only relative to the formatted log file itself. You can treat these byte values as opaque locations in the log file, but you should not try to correlate them to the actual textual log lines.</p
+    ><p
+    >Optional Parameters:</p
+    ><ul
+    ><li
+      ><code
+	>offset</code
+	>: byte offset to read from in the file. 0 indicates the beginning.</li
+      ><li
+      ><code
+	>lastlines</code
+	>: number of lines to retrieve from the end of the available output. If specified it will override the <code
+	>offset</code
+	> value and return only the specified number of lines at the end of the log.</li
+      ><li
+      ><code
+	>lastmod</code
+	>: epoch datestamp in milliseconds, return results only if modification changed since the specified date OR if more data is available at the given <code
+	>offset</code
+	></li
+      ><li
+      ><code
+	>maxlines</code
+	>: maximum number of lines to retrieve forward from the specified offset.</li
+      ></ul
+    ><p
+    >Result: The output content in the requested format.</p
+    ><div id="tailing-output"
+    ><h4
+      ><a href="#TOC"
+	>Tailing Output</a
+	></h4
+      ><p
+      >To &quot;tail&quot; the output from a running execution, you will need to make a series of requests to this API endpoint, and update the <code
+	>offset</code
+	> value that you send to reflect the returned <code
+	>dataoffset</code
+	> value that you receive. This gives you a consistent pointer into the output log file.</p
+      ><p
+      >When starting these requests, there are two mechanisms you can use:</p
+      ><ol style="list-style-type: decimal;"
+      ><li
+	>Start at the beginning, specifying either a <code
+	  >lastmod</code
+	  > or a <code
+	  >offset</code
+	  > of 0</li
+	><li
+	>Start at the end, by using <code
+	  >lastlines</code
+	  > to receive the last available set of log lines.</li
+	></ol
+      ><p
+      >After your first request you will have the <code
+	>dataoffset</code
+	> and <code
+	>lastmod</code
+	> response values you can use to continue making requests for subsequent log output. You can choose several ways to do this:</p
+      ><ol style="list-style-type: decimal;"
+      ><li
+	>Use the <code
+	  >offset</code
+	  > and <code
+	  >lastmod</code
+	  > parameters to indicate modification time and receive as much output as is available</li
+	><li
+	>Use the <code
+	  >offset</code
+	  > and <code
+	  >maxlines</code
+	  > parameter to specify a maximum number of log entries</li
+	><li
+	>Use only the <code
+	  >offset</code
+	  > parameter and receive as much output as is available.</li
+	></ol
+      ><p
+      >After each request, you will update your <code
+	>offset</code
+	> value to reflect the <code
+	>dataoffset</code
+	> in the response.</p
+      ><p
+      >All log output has been read when the <code
+	>iscompleted</code
+	> value is &quot;true&quot;.</p
+      ><p
+      >Below is some example pseudo-code for using this API endpoint to follow the output of a running execution &quot;live&quot;:</p
+      ><ul
+      ><li
+	>set offset to 0</li
+	><li
+	>set lastmod to 0</li
+	><li
+	>Repeat until <code
+	  >iscompleted</code
+	  > response value is &quot;true&quot;:<ul
+	  ><li
+	    >perform request sending <code
+	      >offset</code
+	      > and <code
+	      >lastmod</code
+	      > parameters</li
+	    ><li
+	    >print any log entries, update progress bar, etc.</li
+	    ><li
+	    >Record the resulting <code
+	      >dataoffset</code
+	      > and <code
+	      >lastmod</code
+	      > response values for the next request</li
+	    ><li
+	    >if <code
+	      >unmodified</code
+	      > is &quot;true&quot;, sleep for 5 seconds</li
+	    ><li
+	    >otherwise sleep for 2 seconds</li
+	    ></ul
+	  ></li
+	></ul
+      ><p
+      ><strong
+	>Authorization:</strong
+	></p
+      ><p
+      >This endpoint requires that the user have 'read' access to the Job or to Adhoc executions to retrieve the output content.</p
+      ></div
+    ><div id="output-format-using-the-url"
+    ><h4
+      ><a href="#TOC"
+	>Output Format Using the URL</a
+	></h4
+      ><p
+      >Specifying an output format can occur in several ways. The simplest ways are to include the format in the URL, either by including a <code
+	>format</code
+	> URL parameter, or an extension on the request URL.</p
+      ><p
+      >When using a URL format, use one of these values for the format:</p
+      ><ul
+      ><li
+	><code
+	  >json</code
+	  ></li
+	><li
+	><code
+	  >xml</code
+	  ></li
+	><li
+	><code
+	  >text</code
+	  ></li
+	></ul
+      ><p
+      >To use a URL parameter, add a <code
+	>?format=</code
+	> parameter to your request.</p
+      ><p
+      >E.g.:</p
+      ><pre
+      ><code
+	>GET /api/5/execution/3/output?format=json
+</code
+	></pre
+      ><p
+      >To use a URL extension, add a &quot;.[format]&quot; to the end of the URL, but prior to any URL parameters.</p
+      ><p
+      >E.g.:</p
+      ><pre
+      ><code
+	>GET /api/5/execution/3/output.xml?offset=120
+</code
+	></pre
+      ></div
+    ><div id="output-format-using-accept-header"
+    ><h4
+      ><a href="#TOC"
+	>Output Format using Accept Header</a
+	></h4
+      ><p
+      >You can also specify the format using Content Negotiation techniques by including an <code
+	>Accept</code
+	> header in your request, and specifying a valid MIME-type to represent one of the formats:</p
+      ><ul
+      ><li
+	>For XML, <code
+	  >text/xml</code
+	  > or <code
+	  >application/xml</code
+	  ></li
+	><li
+	>For JSON, <code
+	  >application/json</code
+	  > or <code
+	  >text/json</code
+	  ></li
+	><li
+	>For plain text, <code
+	  >text/plain</code
+	  ></li
+	></ul
+      ><p
+      >E.g.:</p
+      ><pre
+      ><code
+	>GET /api/5/execution/3/output
+Accept: */xml
+</code
+	></pre
+      ></div
+    ><div id="output-content"
+    ><h4
+      ><a href="#TOC"
+	>Output Content</a
+	></h4
+      ><p
+      >The result will contain a set of data values reflecting the execution's status, as well as the status and read location in the output file.</p
+      ><ul
+      ><li
+	>In JSON, there will be an object containing these entries.</li
+	><li
+	>In XML, within the standard <a href="#response-format"
+	  >Response Format</a
+	  > <code
+	  >result</code
+	  > there will be an <code
+	  >output</code
+	  > element, containing these sub-elements, each with a text value.</li
+	></ul
+      ><p
+      >Entries:</p
+      ><ul
+      ><li
+	><code
+	  >id</code
+	  >: ID of the execution</li
+	><li
+	><code
+	  >message</code
+	  >: optional text message indicating why no entries were returned</li
+	><li
+	><code
+	  >error</code
+	  >: optional text message indicating an error case</li
+	><li
+	><code
+	  >unmodified</code
+	  >: true/false, (optional) &quot;true&quot; will be returned if the <code
+	  >lastmod</code
+	  > parameter was used and the file had not changed</li
+	><li
+	><code
+	  >empty</code
+	  >: true/false, (optional) &quot;true&quot; will be returned if the log file does not exist or is empty, which may occur if the log data is requested before any output has been stored.</li
+	><li
+	><code
+	  >offset</code
+	  >: Byte offset to read for the next set of data</li
+	><li
+	><code
+	  >completed</code
+	  >: true/false, &quot;true&quot; if the current log entries or request parameters include all of the available data</li
+	><li
+	><code
+	  >execCompleted</code
+	  >: true/false, &quot;true&quot; if the execution has completed.</li
+	><li
+	><code
+	  >hasFailedNodes</code
+	  >: true/false, &quot;true&quot; if the execution has recorded a list of failed nodes</li
+	><li
+	><code
+	  >execState</code
+	  >: execution state, one of &quot;running&quot;,&quot;succeeded&quot;,&quot;failed&quot;,&quot;aborted&quot;</li
+	><li
+	><code
+	  >lastModified</code
+	  >: (long integer), millisecond timestamp of the last modification of the log file</li
+	><li
+	><code
+	  >execDuration</code
+	  >: (long integer), millisecond duration of the execution</li
+	><li
+	><code
+	  >percentLoaded</code
+	  >: (float), percentage of the output which has been loaded by the parameters to this request</li
+	><li
+	><code
+	  >totalSize</code
+	  >: (integer), total bytes available in the output file</li
+	></ul
+      ><p
+      >Each log entry will be included in a section called <code
+	>entries</code
+	>.</p
+      ><ul
+      ><li
+	>In JSON, <code
+	  >entries</code
+	  > will contain an array of Objects, each containing the following format</li
+	><li
+	>In XML, the <code
+	  >entries</code
+	  > element will contain a sequence of <code
+	  >entry</code
+	  > elements</li
+	></ul
+      ><p
+      >Content of each Log Entry:</p
+      ><ul
+      ><li
+	><code
+	  >time</code
+	  >: Timestamp in format: &quot;HH:MM:SS&quot;</li
+	><li
+	><code
+	  >level</code
+	  >: Log level, one of: SEVERE,WARNING,INFO,CONFIG,FINEST</li
+	><li
+	><code
+	  >mesg</code
+	  >: The log message (JSON only)</li
+	><li
+	><code
+	  >user</code
+	  >: User name</li
+	><li
+	><code
+	  >command</code
+	  >: Workflow command context string</li
+	><li
+	><code
+	  >node</code
+	  >: Node name</li
+	></ul
+      ><p
+      >The XML <code
+	>entry</code
+	> will have the log message as the text value.</p
+      ></div
+    ><div id="text-format-content"
+    ><h4
+      ><a href="#TOC"
+	>Text Format Content</a
+	></h4
+      ><p
+      >For the plain text format, the content of the response will simply be the log output lines at the chosen offset location.</p
+      ><p
+      >Included in the response will be some HTTP headers that provide the metadata about the output location. Some headers may not be present, depending on the state of the response. See the <a href="#output-content"
+	>Output Content</a
+	> section for descriptions of the content and availability of the values:</p
+      ><ul
+      ><li
+	><code
+	  >X-Rundeck-ExecOutput-Error</code
+	  >: The <code
+	  >error</code
+	  > field</li
+	><li
+	><code
+	  >X-Rundeck-ExecOutput-Message</code
+	  >: The <code
+	  >message</code
+	  > field</li
+	><li
+	><code
+	  >X-Rundeck-ExecOutput-Empty</code
+	  >: The <code
+	  >empty</code
+	  > field</li
+	><li
+	><code
+	  >X-Rundeck-ExecOutput-Unmodified</code
+	  >: The <code
+	  >unmodified</code
+	  > field</li
+	><li
+	><code
+	  >X-Rundeck-ExecOutput-Offset</code
+	  >: The <code
+	  >offset</code
+	  > field</li
+	><li
+	><code
+	  >X-Rundeck-ExecOutput-Completed</code
+	  >: The <code
+	  >completed</code
+	  > field</li
+	><li
+	><code
+	  >X-Rundeck-Exec-Completed</code
+	  >: The <code
+	  >execCompleted</code
+	  > field</li
+	><li
+	><code
+	  >X-Rundeck-Exec-State</code
+	  >: The <code
+	  >execState</code
+	  > field</li
+	><li
+	><code
+	  >X-Rundeck-Exec-Duration</code
+	  >: the <code
+	  >execDuration</code
+	  > field</li
+	><li
+	><code
+	  >X-Rundeck-ExecOutput-LastModifed</code
+	  >: The <code
+	  >lastModified</code
+	  > field</li
+	><li
+	><code
+	  >X-Rundeck-ExecOutput-TotalSize</code
+	  >: The <code
+	  >totalSize</code
+	  > field</li
+	></ul
+      ></div
+    ></div
+  ><div id="aborting-executions"
+  ><h3
+    ><a href="#TOC"
+      >Aborting Executions</a
+      ></h3
+    ><p
+    >Abort a running execution by ID.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/execution/[ID]/abort
+</code
+      ></pre
+    ><p
+    >Result: The result will contain a <code
+      >success/message</code
+      > element will contain a descriptive message. The status of the abort action will be included as an element:</p
+    ><pre
+    ><code
+      >&lt;abort status=&quot;[abort-state]&quot;&gt;
+    &lt;execution id=&quot;[id]&quot; status=&quot;[status]&quot;/&gt;
+&lt;/abort&gt;
+</code
+      ></pre
+    ><p
+    >The <code
+      >[abort-state]</code
+      > will be one of: &quot;pending&quot;, &quot;failed&quot;, or &quot;aborted&quot;.</p
+    ></div
+  ><div id="running-adhoc-commands"
+  ><h3
+    ><a href="#TOC"
+      >Running Adhoc Commands</a
+      ></h3
+    ><p
+    >Run a command string.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/run/command
+</code
+      ></pre
+    ><p
+    >Required Parameters:</p
+    ><ul
+    ><li
+      ><code
+	>project</code
+	>: the project name</li
+      ><li
+      ><code
+	>exec</code
+	>: the shell command string to run, e.g. &quot;echo hello&quot;.</li
+      ></ul
+    ><p
+    >Optional Parameters:</p
+    ><ul
+    ><li
+      ><code
+	>nodeThreadcount</code
+	>: threadcount to use</li
+      ><li
+      ><code
+	>nodeKeepgoing</code
+	>: if &quot;true&quot;, continue executing on other nodes even if some fail.</li
+      ></ul
+    ><p
+    >Node filter parameters as described under <a href="#using-node-filters"
+      >Using Node Filters</a
+      ></p
+    ><p
+    >Result: A success message, and a single <code
+      >&lt;execution&gt;</code
+      > item identifying the new execution by ID:</p
+    ><pre
+    ><code
+      >&lt;execution id=&quot;X&quot;/&gt;
+</code
+      ></pre
+    ></div
+  ><div id="running-adhoc-scripts"
+  ><h3
+    ><a href="#TOC"
+      >Running Adhoc Scripts</a
+      ></h3
+    ><p
+    >Run a script.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/run/script
+</code
+      ></pre
+    ><p
+    >Method: <code
+      >POST</code
+      ></p
+    ><p
+    >Expected Content-Type: <code
+      >application/x-www-form-urlencoded</code
+      ></p
+    ><p
+    >Required Parameters:</p
+    ><ul
+    ><li
+      ><code
+	>project</code
+	>: the project name</li
+      ></ul
+    ><p
+    >Required Content:</p
+    ><ul
+    ><li
+      ><code
+	>scriptFile</code
+	>: A <code
+	>x-www-form-urlencoded</code
+	> request parameter containing the script file content.</li
+      ></ul
+    ><p
+    >Optional Parameters:</p
+    ><ul
+    ><li
+      ><code
+	>argString</code
+	>: Arguments to pass to the script when executed.</li
+      ><li
+      ><code
+	>nodeThreadcount</code
+	>: threadcount to use</li
+      ><li
+      ><code
+	>nodeKeepgoing</code
+	>: if &quot;true&quot;, continue executing on other nodes even if some fail.</li
+      ></ul
+    ><p
+    >Node filter parameters as described under <a href="#using-node-filters"
+      >Using Node Filters</a
+      ></p
+    ><p
+    >Result: A success message, and a single <code
+      >&lt;execution&gt;</code
+      > item identifying the new execution by ID:</p
+    ><pre
+    ><code
+      >&lt;execution id=&quot;X&quot;/&gt;
+</code
+      ></pre
+    ></div
+  ><div id="running-adhoc-script-urls"
+  ><h3
+    ><a href="#TOC"
+      >Running Adhoc Script URLs</a
+      ></h3
+    ><p
+    >Run a script downloaded from a URL. (<strong
+      >API version 4</strong
+      > required.)</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/4/run/url
+</code
+      ></pre
+    ><p
+    >Method: <code
+      >POST</code
+      ></p
+    ><p
+    >Expected Content-Type: <code
+      >application/x-www-form-urlencoded</code
+      ></p
+    ><p
+    >Required Parameters:</p
+    ><ul
+    ><li
+      ><code
+	>project</code
+	>: the project name</li
+      ></ul
+    ><p
+    >Required Content:</p
+    ><ul
+    ><li
+      ><code
+	>scriptURL</code
+	>: A URL pointing to a script file</li
+      ></ul
+    ><p
+    >Optional Parameters:</p
+    ><ul
+    ><li
+      ><code
+	>argString</code
+	>: Arguments to pass to the script when executed.</li
+      ><li
+      ><code
+	>nodeThreadcount</code
+	>: threadcount to use</li
+      ><li
+      ><code
+	>nodeKeepgoing</code
+	>: if &quot;true&quot;, continue executing on other nodes even if some fail.</li
+      ></ul
+    ><p
+    >Node filter parameters as described under <a href="#using-node-filters"
+      >Using Node Filters</a
+      ></p
+    ><p
+    >Result: A success message, and a single <code
+      >&lt;execution&gt;</code
+      > item identifying the new execution by ID:</p
+    ><pre
+    ><code
+      >&lt;execution id=&quot;X&quot;/&gt;
+</code
+      ></pre
+    ></div
+  ><div id="listing-projects"
+  ><h3
+    ><a href="#TOC"
+      >Listing Projects</a
+      ></h3
+    ><p
+    >List the existing projects on the server.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/projects
+</code
+      ></pre
+    ><p
+    >Result: An Item List of <code
+      >projects</code
+      >, each <code
+      >project</code
+      > of the form specified in the <a href="#getting-project-info"
+      >Getting Project Info</a
+      > section.</p
+    ></div
+  ><div id="getting-project-info"
+  ><h3
+    ><a href="#TOC"
+      >Getting Project Info</a
+      ></h3
+    ><p
+    >Get information about a project.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/project/[NAME]
+</code
+      ></pre
+    ><p
+    >Result: An Item List of <code
+      >projects</code
+      > with one <code
+      >project</code
+      >. The <code
+      >project</code
+      > is of the form:</p
+    ><pre
+    ><code
+      >&lt;project&gt;
+    &lt;name&gt;Project Name&lt;/name&gt;
+    &lt;description&gt;...&lt;/description&gt;
+    &lt;!-- additional items --&gt;
+&lt;/project&gt;
+</code
+      ></pre
+    ><p
+    >If the project defines a Resource Model Provider URL, then the additional items are:</p
+    ><pre
+    ><code
+      >&lt;resources&gt;
+    &lt;providerURL&gt;URL&lt;/providerURL&gt;
+&lt;/resources&gt;
+</code
+      ></pre
+    ></div
+  ><div id="updating-and-listing-resources-for-a-project"
+  ><h3
+    ><a href="#TOC"
+      >Updating and Listing Resources for a Project</a
+      ></h3
+    ><p
+    >Update or retrieve the Resources for a project. A GET request returns the resources for the project, and a POST request will update the resources. (<strong
+      >API version 2</strong
+      > required.)</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/2/project/[NAME]/resources
+</code
+      ></pre
+    ><p
+    >Method: POST, GET</p
+    ><div id="post-request"
+    ><h4
+      ><a href="#TOC"
+	>POST request</a
+	></h4
+      ><p
+      >POSTing to this URL will set the resources for the project to the content of the request.</p
+      ><p
+      >Expected POST Content: For API version 2: either <code
+	>text/xml</code
+	> or <code
+	>text/yaml</code
+	> Content-Type containing the Resource Model definition in <a href="resources-v10.html"
+	>resources-v10(5)</a
+	> or <a href="resources-v10-yaml.html"
+	>resources-v10-yaml(5)</a
+	> formats as the request body. (Note: any MIME type ending with '/yaml' or '/x-yaml' or '/xml' will be accepted).</p
+      ><p
+      ><strong
+	>Since API version 3</strong
+	>: You can also POST data using a content type supported by a Resource Format Parser plugin. This requires using API version <code
+	>3</code
+	>.</p
+      ><p
+      >POST Result: A success or failure API response. (See <a href="#response-format"
+	>Response Format</a
+	>).</p
+      ><p
+      >Example POST request:</p
+      ><pre
+      ><code
+	>POST /api/2/project/test/resources
+Content-Type: text/yaml
+
+node1:
+  hostname: node1
+  username: bob
+
+node2:
+  hostname: node2
+  username: bob
+</code
+	></pre
+      ><p
+      >Result:</p
+      ><pre
+      ><code
+	>200 OK
+
+&lt;result success=&quot;true&quot;&gt;
+    &lt;success&gt;
+        &lt;message&gt;Resources were successfully updated for project test&lt;/message&gt;
+    &lt;/success&gt;
+&lt;/result&gt;
+</code
+	></pre
+      ></div
+    ><div id="get-request"
+    ><h4
+      ><a href="#TOC"
+	>GET request</a
+	></h4
+      ><p
+      >Optional GET Parameters:</p
+      ><ul
+      ><li
+	><code
+	  >format</code
+	  > : Result format. One of &quot;xml&quot; or &quot;yaml&quot;. Default is &quot;xml&quot;.</li
+	><li
+	>Query parameters can also be used. This is an alternate interface to <a href="#listing-resources"
+	  >Listing Resources</a
+	  >.</li
+	></ul
+      ><p
+      >GET Result: Depending on the <code
+	>format</code
+	> parameter, a value of &quot;xml&quot; will return <a href="resources-v10.html"
+	>resources-v10(5)</a
+	> and &quot;yaml&quot; will return <a href="resources-v10-yaml.html"
+	>resources-v10-yaml(5)</a
+	> formatted results.</p
+      ><p
+      >Example GET request:</p
+      ><pre
+      ><code
+	>GET /api/2/project/test/resources
+</code
+	></pre
+      ><p
+      >Response:</p
+      ><pre
+      ><code
+	>200 OK
+Content-Type: text/xml
+
+&lt;project&gt;
+    &lt;node name=&quot;node1&quot; hostname=&quot;node1&quot; username=&quot;bob&quot; /&gt;
+    &lt;node name=&quot;node2&quot; hostname=&quot;node2&quot; username=&quot;bob&quot; /&gt;
+&lt;/project&gt;
+</code
+	></pre
+      ></div
+    ></div
+  ><div id="refreshing-resources-for-a-project"
+  ><h3
+    ><a href="#TOC"
+      >Refreshing Resources for a Project</a
+      ></h3
+    ><p
+    >Refresh the resources for a project via its Resource Model Provider URL. The URL can be specified as a request parameter, or the pre-configured URL for the project can be used. (<strong
+      >API version 2</strong
+      > required.)</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/2/project/[NAME]/resources/refresh
+</code
+      ></pre
+    ><p
+    >Method: POST</p
+    ><p
+    >Optional Parameters:</p
+    ><dl
+    ><dt
+      ><code
+	>providerURL</code
+	></dt
+      ><dd
+      >Specify the Resource Model Provider URL to refresh the resources from. If not specified then the configured provider URL in the <code
+	>project.properties</code
+	> file will be used.</dd
+      ></dl
+    ><p
+    >Result: A success or failure result with a message.</p
+    ><p
+    >The URL requested as the <code
+      >providerURL</code
+      > must be allowed by the <code
+      >project.properties</code
+      > and <code
+      >framework.properties</code
+      > configuration settings according to these rules:</p
+    ><ul
+    ><li
+      >If the <code
+	>providerURL</code
+	> matches the value of <code
+	>project.resources.url</code
+	>, it is allowed.</li
+      ><li
+      >Otherwise, these properties are checked as regular expressions to match the URL:<ul
+	><li
+	  ><code
+	    >project.resources.allowedURL.X</code
+	    > in project.properties (X starts at 0).</li
+	  ><li
+	  ><code
+	    >framework.resources.allowedURL.X</code
+	    > in framework.properties</li
+	  ></ul
+	></li
+      ><li
+      >If both files define allowedURL regexes, the URL must match a regex in both of them.</li
+      ><li
+      >Otherwise, if only one file defines regexes, the URL must match one of them.</li
+      ><li
+      >Otherwise if no regexes are defined in either file, the URL is rejected.</li
+      ></ul
+    ><p
+    >Multiple regexes can be specified in those config files by adding multiple properties:</p
+    ><pre
+    ><code
+      >project.resources.allowedURL.0=^http://myserver:9090/resources/.*$
+project.resources.allowedURL.1=^http://server2:9090/resources/.*$
+</code
+      ></pre
+    ></div
+  ><div id="listing-history"
+  ><h3
+    ><a href="#TOC"
+      >Listing History</a
+      ></h3
+    ><p
+    >List the event history for a project.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/history
+</code
+      ></pre
+    ><p
+    >Required Parameters:</p
+    ><ul
+    ><li
+      ><code
+	>project</code
+	> : project name</li
+      ></ul
+    ><p
+    >Optional Parameters:</p
+    ><ul
+    ><li
+      >History query parameters:<ul
+	><li
+	  ><code
+	    >jobIdFilter</code
+	    >: include events for a job ID.</li
+	  ><li
+	  ><code
+	    >reportIdFilter</code
+	    >: include events for an event Name.</li
+	  ><li
+	  ><code
+	    >userFilter</code
+	    >: include events created by a user</li
+	  ><li
+	  ><code
+	    >statFilter</code
+	    >: include events based on result status. this can be 'succeed','fail', or 'cancel'.</li
+	  ><li
+	  ><code
+	    >jobListFilter</code
+	    >: include events for the job by name, format: 'group/name'. To use multiple values, include this parameter multiple times. (Since <em
+	    >API v5</em
+	    >)</li
+	  ><li
+	  ><code
+	    >excludeJobListFilter</code
+	    >: exclude events for the job by name, format: 'group/name'. To use multiple values, include this parameter multiple times. (Since <em
+	    >API v5</em
+	    >)</li
+	  ></ul
+	></li
+      ><li
+      >Date query parameters:<ul
+	><li
+	  ><code
+	    >recentFilter</code
+	    >: Use a simple text format to filter events that occurred within a period of time. The format is &quot;XY&quot; where X is an integer, and &quot;Y&quot; is one of:<ul
+	    ><li
+	      ><code
+		>h</code
+		>: hour</li
+	      ><li
+	      ><code
+		>d</code
+		>: day</li
+	      ><li
+	      ><code
+		>w</code
+		>: week</li
+	      ><li
+	      ><code
+		>m</code
+		>: month</li
+	      ><li
+	      ><code
+		>y</code
+		>: year So a value of &quot;2w&quot; would return events within the last two weeks.</li
+	      ></ul
+	    ></li
+	  ><li
+	  ><code
+	    >begin</code
+	    >: Specify exact date for earliest result.</li
+	  ><li
+	  ><code
+	    >end</code
+	    >: Specify exact date for latest result.</li
+	  ></ul
+	></li
+      ><li
+      >Paging parameters:<ul
+	><li
+	  ><code
+	    >max</code
+	    >: indicate the maximum number of events to return. The default maximum to return is 20.</li
+	  ><li
+	  ><code
+	    >offset</code
+	    >: indicate the 0-indexed offset for the first event to return.</li
+	  ></ul
+	></li
+      ></ul
+    ><p
+    >The format for the <code
+      >end</code
+      >, and <code
+      >begin</code
+      > filters is either: a unix millisecond timestamp, or a W3C dateTime string in the format &quot;yyyy-MM-ddTHH:mm:ssZ&quot;.</p
+    ><p
+    >The format for the <code
+      >jobListFilter</code
+      > and <code
+      >excludeJobListFilter</code
+      > is the job's group and name separated by a '/' character, such as: &quot;group1/job name&quot;, or &quot;my job&quot; if there is no group.</p
+    ><p
+    >Result: an Item List of <code
+      >events</code
+      >. Each <code
+      >event</code
+      > has this form:</p
+    ><pre
+    ><code
+      >&lt;event starttime=&quot;[unixtime]&quot; endtime=&quot;[unixtime]&quot;&gt;
+  &lt;title&gt;[job title, or &quot;adhoc&quot;]&lt;/title&gt;
+  &lt;status&gt;[status]&lt;/status&gt;
+  &lt;summary&gt;[summary text]&lt;/summary&gt;
+  &lt;node-summary succeeded=&quot;[X]&quot; failed=&quot;[Y]&quot; total=&quot;[Z]&quot;/&gt;
+  &lt;user&gt;[user]&lt;/user&gt;
+  &lt;project&gt;[project]&lt;/project&gt;
+  &lt;date-started&gt;[start date]&lt;/date-started&gt;
+  &lt;date-ended&gt;[end date]&lt;/date-ended&gt;
+  &lt;!-- if the execution was aborted, the username who aborted it: --&gt;
+  &lt;abortedby&gt;[username]&lt;/abortedby&gt;
+  &lt;!-- if associated with an Execution, include the execution id: --&gt;
+  &lt;execution id=&quot;[execid]&quot;/&gt;
+  &lt;!-- if associated with a Job, include the Job ID: --&gt;
+  &lt;job id=&quot;[jobid]&quot;/&gt;
+&lt;/event&gt;
+</code
+      ></pre
+    ><p
+    >The <code
+      >events</code
+      > element will also have <code
+      >max</code
+      >, <code
+      >offset</code
+      >, and <code
+      >total</code
+      > attributes, to indicate the state of paged results. E.G:</p
+    ><pre
+    ><code
+      >&lt;events count=&quot;8&quot; total=&quot;268&quot; max=&quot;20&quot; offset=&quot;260&quot;&gt;
+...
+&lt;/events&gt;
+</code
+      ></pre
+    ><p
+    ><code
+      >total</code
+      > is the total number of events matching the query parameters. <code
+      >count</code
+      > is the number of events included in the results. <code
+      >max</code
+      > is the paging size as specified in the request, or with the default value of 20. <code
+      >offset</code
+      > is the offset specified, or default value of 0.</p
+    ></div
+  ><div id="creating-history-event-reports"
+  ><h3
+    ><a href="#TOC"
+      >Creating History Event Reports</a
+      ></h3
+    ><p
+    >Create a history event report for any external process.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/report/create
+</code
+      ></pre
+    ><p
+    >Required Parameters:</p
+    ><ul
+    ><li
+      ><code
+	>project</code
+	> : project name</li
+      ><li
+      ><code
+	>status</code
+	> : report status, one of &quot;succeeded&quot;, &quot;failed&quot; or &quot;aborted&quot;</li
+      ><li
+      ><code
+	>title</code
+	> : Title of the report. This should be a short string identifying the process that was run. E.g. Rundeck jobs use the Job Group and Job Name, and adhoc commands use the string &quot;adhoc&quot;.</li
+      ><li
+      ><code
+	>summary</code
+	> : A descriptive summary of the result.</li
+      ><li
+      ><code
+	>nodesuccesscount</code
+	>: number of successful nodes: how many nodes the process succeeded on.</li
+      ><li
+      ><code
+	>nodefailedcount</code
+	>: number of failed nodes: how many nodes the process failed on.</li
+      ></ul
+    ><p
+    >Optional Parameters:</p
+    ><ul
+    ><li
+      ><code
+	>start</code
+	>: Specify exact date for beginning of the process (defaults to the same as end).</li
+      ><li
+      ><code
+	>end</code
+	>: Specify exact date for end of the process (defaults to time the report is received).</li
+      ><li
+      ><code
+	>script</code
+	>: Full adhoc command or script that was run, if applicable.</li
+      ><li
+      ><code
+	>jobID</code
+	>: Any associated Rundeck Job ID</li
+      ><li
+      ><code
+	>execID</code
+	>: Any associated Rundeck Execution ID.</li
+      ></ul
+    ><p
+    >The format for the <code
+      >end</code
+      >, and <code
+      >start</code
+      > values is either: a unix millisecond timestamp, or a W3C dateTime string in the format &quot;yyyy-MM-ddTHH:mm:ssZ&quot;.</p
+    ></div
+  ><div id="listing-resources"
+  ><h3
+    ><a href="#TOC"
+      >Listing Resources</a
+      ></h3
+    ><p
+    >List or query the resources for a project.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/resources
+</code
+      ></pre
+    ><p
+    >Required Parameters:</p
+    ><ul
+    ><li
+      ><code
+	>project</code
+	> : project name</li
+      ></ul
+    ><p
+    >Optional Parameters:</p
+    ><ul
+    ><li
+      ><code
+	>format</code
+	> : Result format.<ul
+	><li
+	  >for <strong
+	    >API Version 2 or earlier</strong
+	    >: One of &quot;xml&quot; or &quot;yaml&quot;.</li
+	  ><li
+	  >for <strong
+	    >API Version 3</strong
+	    >: any supported Resource Format Parser format name.</li
+	  ><li
+	  >Default is &quot;xml&quot;.</li
+	  ></ul
+	></li
+      ><li
+      >Node Filter parameters: You can select resources to include and exclude in the result set, see <a href="#using-node-filters"
+	>Using Node Filters</a
+	> below.</li
+      ></ul
+    ><p
+    ><strong
+      >Note:</strong
+      > If no query parameters are included, the result set will include all Node resources for the project.</p
+    ><p
+    >Result: Depending on the <code
+      >format</code
+      > parameter, a value of &quot;xml&quot; will return <a href="resources-v10.html"
+      >resources-v10(5)</a
+      > and &quot;yaml&quot; will return <a href="resources-v10-yaml.html"
+      >resources-v10-yaml(5)</a
+      > formatted results. Any other supported format value will return content in the specified format.</p
+    ><div id="using-node-filters"
+    ><h4
+      ><a href="#TOC"
+	>Using Node Filters</a
+	></h4
+      ><p
+      >To include certain resources, specify the inclusion filters:</p
+      ><ul
+      ><li
+	><code
+	  >hostname</code
+	  >, <code
+	  >tags</code
+	  >, <code
+	  >os-[name,family,arch,version]</code
+	  >, <code
+	  >name</code
+	  ></li
+	></ul
+      ><p
+      >To exclude certain resources, specify the exclusion filters as above but with <code
+	>exclude-</code
+	> prepended:</p
+      ><ul
+      ><li
+	><code
+	  >exclude-hostname</code
+	  >, <code
+	  >exclude-tags</code
+	  >, etc..</li
+	></ul
+      ><p
+      >To specify which type of filter (inclusion or exclusion) takes precedence, specify:</p
+      ><ul
+      ><li
+	><code
+	  >exclude-precedence</code
+	  > : Whether exclusion filters take precedence. &quot;true&quot;/&quot;false&quot; (default is &quot;true&quot;).</li
+	></ul
+      ><p
+      >If using only inclusion filters, the result set will be only those resources which <em
+	>do</em
+	> match the filters.</p
+      ><p
+      >If using only exclusion filters, the result set will be only those resources which <em
+	>do not</em
+	> match the filters.</p
+      ><p
+      >When using both types of filters, the result will depend on the <code
+	>exclude-precedence</code
+	> value (default true).</p
+      ><ul
+      ><li
+	>When <code
+	  >exclude-precedence</code
+	  > is true:<ol style="list-style-type: decimal;"
+	  ><li
+	    >First select the resources which <em
+	      >do not</em
+	      > match the <strong
+	      >exclusion</strong
+	      > filters.</li
+	    ><li
+	    >Then select from those the resources which <em
+	      >do</em
+	      > match the <strong
+	      >inclusion</strong
+	      > filters.</li
+	    ></ol
+	  ></li
+	><li
+	>When <code
+	  >exclude-precedence</code
+	  > is false:<ol style="list-style-type: decimal;"
+	  ><li
+	    >First select all resources.</li
+	    ><li
+	    >Then remove the resources which <em
+	      >do not</em
+	      > match the <strong
+	      >exclusion</strong
+	      > filters.</li
+	    ><li
+	    >Then add the resources which <em
+	      >do</em
+	      > match the <strong
+	      >inclusion</strong
+	      > filters.</li
+	    ></ol
+	  ></li
+	></ul
+      ><p
+      >The difference between these results is apparent when you have resources which are matched by both the exclusion and the inclusion filters. The precedence determines whether those resources are included or not.</p
+      ><p
+      >Using set logic, if &quot;A&quot; is the set of all resources, &quot;X&quot; is the set of all resources matching the exclusion filters, and &quot;I&quot; is the set of all resources matching the inclusion filters, then:</p
+      ><ul
+      ><li
+	>when <code
+	  >exclude-precedence=true</code
+	  > then the result is:<ul
+	  ><li
+	    ><span class="math"
+	      >(<em
+		>A</em
+		>-<em
+		>X</em
+		>) ∩ <em
+		>I</em
+		></span
+	      ></li
+	    ><li
+	    >which is also <span class="math"
+	      ><em
+		>I</em
+		>-<em
+		>X</em
+		></span
+	      ></li
+	    ></ul
+	  ></li
+	><li
+	>when <code
+	  >exclude-precedence=false</code
+	  > then the result is:<ul
+	  ><li
+	    ><span class="math"
+	      >(<em
+		>A</em
+		>-<em
+		>X</em
+		>) ∪ <em
+		>I</em
+		></span
+	      ></li
+	    ></ul
+	  ></li
+	></ul
+      ></div
+    ></div
+  ><div id="getting-resource-info"
+  ><h3
+    ><a href="#TOC"
+      >Getting Resource Info</a
+      ></h3
+    ><p
+    >Get a specific resource within a project.</p
+    ><p
+    >URL:</p
+    ><pre
+    ><code
+      >/api/1/resource/[NAME]
+</code
+      ></pre
+    ><p
+    >Required Parameters:</p
+    ><ul
+    ><li
+      ><code
+	>project</code
+	> : project name</li
+      ></ul
+    ><p
+    >Optional Parameters:</p
+    ><ul
+    ><li
+      ><code
+	>format</code
+	> : Result format. One of &quot;xml&quot; or &quot;yaml&quot;. Default is &quot;xml&quot;.</li
+      ></ul
+    ><p
+    >Result: Depending on the <code
+      >format</code
+      > parameter, a value of &quot;xml&quot; will return <a href="resources-v10.html"
+      >resources-v10(5)</a
+      > and &quot;yaml&quot; will return <a href="resources-v10-yaml.html"
+      >resources-v10-yaml(5)</a
+      > formatted results.</p
+    ><p
+    >The result will contain a single item for the specified resource.</p
+    ></div
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="index.html">API Reference | Version 5</a></li>
+        
+        
+        
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

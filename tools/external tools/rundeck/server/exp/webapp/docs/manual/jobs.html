@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jobs</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Alex Honor" />
+  <meta name="author" content="Greg Schueler" />
+  <meta name="date" content="November 20, 2010" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="jobs.html">Jobs</a></li>
+        <li class="toc"><a href="index.html">User Manual</a></li>
+        <li class="prev"><a href="rundeck-basics.html">Rundeck Basics</a></li>
+        <li class="next"><a href="job-workflows.html">Job Workflows</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">Jobs</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#job-groups"
+      >Job groups</a
+      ></li
+    ><li
+    ><a href="#job-uuids"
+      >Job UUIDs</a
+      ></li
+    ><li
+    ><a href="#listing-and-filtering-jobs"
+      >Listing and filtering Jobs</a
+      ><ul
+      ><li
+	><a href="#filtering-jobs"
+	  >Filtering Jobs</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#viewing-job-detail"
+      >Viewing Job detail</a
+      ></li
+    ><li
+    ><a href="#running-a-job"
+      >Running a Job</a
+      ><ul
+      ><li
+	><a href="#choose-execution-options"
+	  >Choose execution options</a
+	  ></li
+	><li
+	><a href="#following-running-jobs"
+	  >Following Running Jobs</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#creating-jobs"
+      >Creating Jobs</a
+      ><ul
+      ><li
+	><a href="#temporary-jobs"
+	  >Temporary Jobs</a
+	  ></li
+	><li
+	><a href="#saved-jobs"
+	  >Saved Jobs</a
+	  ></li
+	><li
+	><a href="#simple-saved-job"
+	  >Simple saved job</a
+	  ></li
+	><li
+	><a href="#multiple-executions"
+	  >Multiple Executions</a
+	  ></li
+	><li
+	><a href="#node-dispatching-and-filtering"
+	  >Node dispatching and filtering</a
+	  ><ul
+	  ><li
+	    ><a href="#filters"
+	      >Filters</a
+	      ></li
+	    ><li
+	    ><a href="#threadcount"
+	      >Threadcount</a
+	      ></li
+	    ><li
+	    ><a href="#rank-order"
+	      >Rank order</a
+	      ></li
+	    ><li
+	    ><a href="#keepgoing"
+	      >Keepgoing</a
+	      ></li
+	    ><li
+	    ><a href="#dynamic-node-filters"
+	      >Dynamic node filters</a
+	      ></li
+	    ></ul
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#scheduled-jobs"
+      >Scheduled Jobs</a
+      ></li
+    ><li
+    ><a href="#job-notifications"
+      >Job Notifications</a
+      ><ul
+      ><li
+	><a href="#webhooks"
+	  >Webhooks</a
+	  ><ul
+	  ><li
+	    ><a href="#execution-notification-content"
+	      >Execution Notification Content</a
+	      ></li
+	    ><li
+	    ><a href="#execution-notification-headers"
+	      >Execution Notification Headers</a
+	      ></li
+	    ><li
+	    ><a href="#execution-notification-url-token-expansion"
+	      >Execution Notification URL Token Expansion</a
+	      ></li
+	    ></ul
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#job-history"
+      >Job history</a
+      ></li
+    ><li
+    ><a href="#killing-jobs"
+      >Killing Jobs</a
+      ></li
+    ><li
+    ><a href="#deleting-jobs"
+      >Deleting Jobs</a
+      ></li
+    ><li
+    ><a href="#updating-and-copying-jobs"
+      >Updating and copying Jobs</a
+      ></li
+    ><li
+    ><a href="#exporting-job-definitions"
+      >Exporting Job definitions</a
+      ></li
+    ><li
+    ><a href="#importing-job-definitions"
+      >Importing Job definitions</a
+      ></li
+    ><li
+    ><a href="#summary"
+      >Summary</a
+      ></li
+    ></ul
+  ></div
+>
+<p
+>In previous sections of this manual, you learned how to execute ad-hoc commands across a filtered set of Node resources. This chapter introduces a fundamental Rundeck feature, <em
+  >Jobs</em
+  >. But first, one might ask why introduce another layer over ad-hoc command execution.</p
+><p
+>Here are some issues that might arise over time:</p
+><ul
+><li
+  >One might find certain ad-hoc command executions are repeated, and perhaps, represent what has become a routine procedure.</li
+  ><li
+  >Another user in your group needs a simple self-service interface to run a procedure across a set of nodes.</li
+  ><li
+  >Routine procedures need to be encapsulated and become the basis for other routine procedures.</li
+  ></ul
+><p
+>Jobs provide a means to encapsulate a procedure in a logically named Job. A <em
+  >Job</em
+  > is a configuration representing the steps in a procedure, a Node filter specification, and dispatcher execution control parameters. Jobs access is governed by an access control policy that describes how users are granted authorization to use Jobs.</p
+><p
+>Rundeck lets you organize and execute Jobs, and observe the output as the Job is running. You can view a list of the currently running Jobs that is dynamically updated as the Jobs progress. Jobs can also be killed if they need to be stopped.</p
+><p
+>Each Job has a record of every time it has been executed, and the output from those executions can be viewed.</p
+><p
+>The next sections describes how to navigate and run existing Jobs. In later sections, the topic of Job creation will be covered.</p
+><p
+>If you want to skip ahead, you can go straight to <a href="jobs.html#creating-jobs"
+  >Creating Jobs</a
+  >.</p
+><div id="job-groups"
+><h2
+  ><a href="#TOC"
+    >Job groups</a
+    ></h2
+  ><p
+  >As many jobs will accumulate over time, it is useful to organize Jobs into groups. A group is a logical set of jobs, and one job group can exist inside another. Rundeck displays job lists as a set of folders corresponding to the group structure your jobs define.</p
+  ><p
+  >Beyond organizing jobs, groups assist in defining access control policy, as we'll cover later in the Authorization chapter.</p
+  ></div
+><div id="job-uuids"
+><h2
+  ><a href="#TOC"
+    >Job UUIDs</a
+    ></h2
+  ><p
+  >When created, each new job will be assigned a unique UUID. If you are writing the Job definition using one of the supported formats you can assign the UUID yourself.</p
+  ><p
+  >You can use the UUID to make sure that when you rename or change the group for your job in your job definition, it will modify the correct job in the server.</p
+  ><p
+  >The UUID is also useful when porting Job definitions between Rundeck instances.</p
+  ><p
+  >(Note: Rundeck also assigns each Job an internal &quot;ID&quot; value, although this value is not portable between Rundeck instances. As of Rundeck 1.3+ the UUID should be used in lieu of ID.)</p
+  ></div
+><div id="listing-and-filtering-jobs"
+><h2
+  ><a href="#TOC"
+    >Listing and filtering Jobs</a
+    ></h2
+  ><p
+  >All Job activity begins on the main &quot;Jobs&quot; page inside Rundeck. After logging in, press the &quot;Jobs&quot; button in the top navigation bar and any Jobs you are authorized to see will be displayed.</p
+  ><p
+  >If the Jobs were defined inside groups, you will see the listing grouped into a folder like structure. These folders represent the Job groups described earlier. You can navigate these folders by pressing the folder icon to reveal its contents.</p
+  ><p
+  >Once you have navigated to a Job, you will see its name, possibly its description and a summary total of how many times it has been executed.</p
+  ><p
+  >Clicking on the job name will will expand the window to show the Job detail. You will see a button bar containing icons representing the actions you are able to perform. Other Job detail will include what command(s) it will run, filter expressions and other dispatcher options.</p
+  ><div id="filtering-jobs"
+  ><h3
+    ><a href="#TOC"
+      >Filtering Jobs</a
+      ></h3
+    ><p
+    >The Job page lets you search for Jobs using the Filter option.</p
+    ><p
+    >Click the &quot;Filter&quot; link to show the filter options:</p
+    ><div class="figure"
+    ><img src="../figures/fig0317.png" alt="Job filter form"
+       /><p class="caption"
+      >Job filter form</p
+      ></div
+    ><p
+    >This will show the Filter fields. Enter a value in any of the filter fields:</p
+    ><ul
+    ><li
+      >Job Name: the name of the job</li
+      ><li
+      >Group: the name of the job group</li
+      ><li
+      >Description: Job description text</li
+      ></ul
+    ><p
+    >You can type a substring or a regular expression in any of these fields.</p
+    ><p
+    >After pressing the &quot;Filter&quot; button, the Job list will be filtered to include only the matching jobs.</p
+    ><div class="figure"
+    ><img src="../figures/fig0318.png" alt="Job filtered list"
+       /><p class="caption"
+      >Job filtered list</p
+      ></div
+    ><p
+    >To refine the filter, click on the blue-outlined Filter description, and change the filter fields.</p
+    ><p
+    >To reset the filter and go back to the full job page, click the &quot;Clear&quot; button in the Filter fields.</p
+    ></div
+  ></div
+><div id="viewing-job-detail"
+><h2
+  ><a href="#TOC"
+    >Viewing Job detail</a
+    ></h2
+  ><p
+  >From a filtered job listing, a Job's detail can be previewed by hovering the mouse pointer over the Job's name. A popup view contains the Job's detail. Click outside the popup to close it.</p
+  ><div class="figure"
+  ><img src="../figures/fig0320.png" alt="Job detail popup"
+     /><p class="caption"
+    >Job detail popup</p
+    ></div
+  ><p
+  >Pressing the link for the Job name will navigate to a separate page where job detail and a button control bar is displayed. These buttons enable users to delete, copy, edit export or run the Job.</p
+  ><div class="figure"
+  ><img src="../figures/fig0321.png" alt="Job detail page"
+     /><p class="caption"
+    >Job detail page</p
+    ></div
+  ><p
+  >The buttons displayed on the control bar reflect the <a href="getting-started.html#authorization"
+    >authorization policy</a
+    > enforced for the user.</p
+  ><p
+  >The information in the Job detail view includes:</p
+  ><ul
+  ><li
+    >Name, description and group</li
+    ><li
+    >Execution statistics like when the job was last run, it's average success rate, and duration</li
+    ><li
+    >Details including project name and workflow steps, and log level</li
+    ></ul
+  ><p
+  >Pressing the &quot;Show Matches&quot; link will display the list of Nodes where the Job will run.</p
+  ></div
+><div id="running-a-job"
+><h2
+  ><a href="#TOC"
+    >Running a Job</a
+    ></h2
+  ><p
+  >Jobs can be run from the shell or from the graphical console.</p
+  ><p
+  >From the command line, use the <a href="../manpages/man1/run.html"
+    >run</a
+    > shell tool. Here's an example that starts a hypothetical job named &quot;restart&quot; belonging in the &quot;apps/web&quot; Job group in project &quot;myproject&quot;:</p
+  ><pre
+  ><code
+    >$ run -j apps/web/restart -p myproject
+Job execution started:
+[51] restart &lt;http://strongbad:4440/execution/follow/51&gt;
+</code
+    ></pre
+  ><p
+  >From the graphical console, any stored job can be started from the Jobs page. Navigate to the desired Job from the filtered listing and then press the green &quot;Run&quot; icon to immediately queue and run the Job. If you do not see the Run icon, it means your login does not have &quot;run&quot; privileges.</p
+  ><div class="figure"
+  ><img src="../figures/fig0319.png" alt="Job run button"
+     /><p class="caption"
+    >Job run button</p
+    ></div
+  ><p
+  >If you navigated to the Job's detail page, you press the &quot;Run&quot; button from there.</p
+  ><div class="figure"
+  ><img src="../figures/fig0319-b.png" alt="Job run button"
+     /><p class="caption"
+    >Job run button</p
+    ></div
+  ><p
+  >After the Run button has been pressed, a dialog will open where you can choose execution options.</p
+  ><div id="choose-execution-options"
+  ><h3
+    ><a href="#TOC"
+      >Choose execution options</a
+      ></h3
+    ><p
+    >Jobs can be defined to prompt the user for options. This page contains a form presenting any of these Job options.</p
+    ><p
+    >Some options will have default values while others may present you with a menu of choices. Some options are optional while others are required. Lastly, their might be a pattern governing what values are acceptable.</p
+    ><p
+    >If there are any such Job options, you can change them here before proceeding with the execution.</p
+    ><p
+    >When you are ready, press &quot;Run Job Now&quot;. The job will enter the execution queue and you can track its execution in the <a href="rundeck-basics.html#now-running"
+      >Now running</a
+      > section.</p
+    ></div
+  ><div id="following-running-jobs"
+  ><h3
+    ><a href="#TOC"
+      >Following Running Jobs</a
+      ></h3
+    ><p
+    >Once you have started running a Job, you can follow the Job's output in the Execution Follow page.</p
+    ><p
+    >On the Jobs page, look in the &quot;Now running&quot; section and click the &quot;output &gt;&gt;&quot; link in the row with the desired Job name.</p
+    ><p
+    >If you pressed the &quot;run&quot; button from the Job's detail page, your browser will already have been directed to the Execution Follow page.</p
+    ></div
+  ></div
+><div id="creating-jobs"
+><h2
+  ><a href="#TOC"
+    >Creating Jobs</a
+    ></h2
+  ><p
+  >Rundeck allows you to define two kinds of Jobs.</p
+  ><ul
+  ><li
+    >Temporary: A <em
+      >temporary Job</em
+      > defines a set of commands to execute and a node filter configuration.</li
+    ><li
+    >Saved: A <em
+      >saved job</em
+      > also defines a set of commands to execute and dispatcher options but can be given a name and stored in a group. Additionally, saved Jobs can be given an execution schedule.</li
+    ></ul
+  ><p
+  >From the Jobs, page press the &quot;New Job&quot; button to begin creating a Job.</p
+  ><div class="figure"
+  ><img src="../figures/fig0301.png" alt="New Job button"
+     /><p class="caption"
+    >New Job button</p
+    ></div
+  ><div id="temporary-jobs"
+  ><h3
+    ><a href="#TOC"
+      >Temporary Jobs</a
+      ></h3
+    ><p
+    >A temporary job is a bit like an ad-hoc command except you get more control over how the commands will execute plus the execution can be better tracked within the Rundeck webapp.</p
+    ><p
+    >To create a temporary job, begin by logging in to the Rundeck graphical console, and press the &quot;Jobs&quot; tab.</p
+    ><ol style="list-style-type: decimal;"
+    ><li
+      >Locate the &quot;New Job&quot; button in the right hand corner and press it to display the &quot;Create New Job&quot; form.</li
+      ><li
+      >A job is defined in terms of one or more workflow steps. In the Workflows area, click the &quot;Add a step&quot; link.</li
+      ><li
+      >Workflow steps can be one of several types. Click the &quot;Script&quot; workflow step type.</li
+      ><li
+      >A script type can be any script that can be executed on the target hosts. Type in the &quot;info&quot; shell script we executed earlier using dispatch.</li
+      ><li
+      >At the bottom of the form, push the &quot;Run and Forget&quot; button to begin execution.</li
+      ><li
+      >Execution output can be followed on the subsequent page.</li
+      ></ol
+    ><div class="figure"
+    ><img src="../figures/fig0302.png" alt="Temporary job form"
+       /><p class="caption"
+      >Temporary job form</p
+      ></div
+    ></div
+  ><div id="saved-jobs"
+  ><h3
+    ><a href="#TOC"
+      >Saved Jobs</a
+      ></h3
+    ><p
+    >Running ad hoc commands and temporary jobs are a typical part of day to day administrative work. Occasionally, ad-hoc commands become routine procedures and if were reusable, would become more valuable. These jobs could be handed off to others in the team or invoked from within other Jobs. Rundeck provides an interface to declare and save jobs, both graphically or declared with an XML file.</p
+    ></div
+  ><div id="simple-saved-job"
+  ><h3
+    ><a href="#TOC"
+      >Simple saved job</a
+      ></h3
+    ><p
+    >For the first saved Job example, create a Job that calls the info script.</p
+    ><ol style="list-style-type: decimal;"
+    ><li
+      >Like in the earlier example, begin by pressing the &quot;New Job&quot; button.</li
+      ><li
+      >Within the new job form:<ul
+	><li
+	  >Select &quot;Yes&quot; for the &quot;Save this job?&quot; prompt. Pressing Yes reveals a form to define a name, group and description for the job.</li
+	  ><li
+	  >For &quot;Job Name&quot;, enter &quot;info&quot; and for the &quot;Group&quot;, enter &quot;adm/resources&quot;.</li
+	  ><li
+	  >If you want to specify your own UUID you can enter it in the field. Otherwise a unique value will be set for you.</li
+	  ><li
+	  >Providing a description will be come helpful to other users to understand the intent and purpose for the Job.</li
+	  ><li
+	  >Check the box for &quot;Dispatch to Nodes&quot;</li
+	  ><li
+	  >Choose the &quot;Node Exclude Filters&quot; and enter the name of your Rundeck server. This will cause the job to run on just the remote Nodes (eg., centos54 and ubuntu).</li
+	  ><li
+	  >Type in and info script</li
+	  ><li
+	  >Save the Workflow step</li
+	  ><li
+	  >Press the &quot;Create&quot; button at the bottom of the page. <img src="../figures/fig0303.png" alt="Simple saved job form"
+	     /></li
+	  ></ul
+	></li
+      ><li
+      >After the the job is created, the browser is directed to the Jobs page. The folder structure reflecting the group naming will show one Job.<ul
+	><li
+	  >Navigate through the folders buttons to the new job</li
+	  ></ul
+	></li
+      ><li
+      >Notice the green arrow button.<ul
+	><li
+	  >Press the button to run the Job. <img src="../figures/fig0304.png" alt="Simple saved job"
+	     /></li
+	  ></ul
+	></li
+      ><li
+      >Press the &quot;Run Job Now&quot; button to begin execution.<ul
+	><li
+	  >The job will be queued and executed.</li
+	  ></ul
+	></li
+      ><li
+      >Look in the &quot;Now running&quot; section.<ul
+	><li
+	  >Press the &quot;output &gt;&gt;&quot; link to go to the execution follow page. <img src="../figures/fig0305.png" alt="Simple saved job output"
+	     /></li
+	  ></ul
+	></li
+      ></ol
+    ></div
+  ><div id="multiple-executions"
+  ><h3
+    ><a href="#TOC"
+      >Multiple Executions</a
+      ></h3
+    ><p
+    >By default, a saved job is &quot;Single Execution&quot;: it can only have a single execution running at a time. This is useful if the steps the Job performs might be interfered with if another separate process was also performing them on the same Node(s).</p
+    ><p
+    >However, in some cases it is useful to allow a Job to be executed more than once simultaneously.</p
+    ><p
+    >You can make a job allow &quot;Multiple Executions&quot; by toggling the value to Yes in the Job editor field shown below:</p
+    ><div class="figure"
+    ><img src="../figures/fig-manual-jobs-multiexec.png" alt="Multiple executions"
+       /><p class="caption"
+      >Multiple executions</p
+      ></div
+    ></div
+  ><div id="node-dispatching-and-filtering"
+  ><h3
+    ><a href="#TOC"
+      >Node dispatching and filtering</a
+      ></h3
+    ><p
+    >When you create a job you can choose between either running the job only locally (on the Rundeck server), or dispatching it to multiple nodes (including the Rundeck server if you want).</p
+    ><p
+    >In the GUI, the &quot;Dispatch to Nodes&quot; checkbox lets you enable node dispatching. When you click this box you are presented with the Node Filtering interface:</p
+    ><div class="figure"
+    ><img src="../figures/fig0305-b.png" alt="Node Filtering interface"
+       /><p class="caption"
+      >Node Filtering interface</p
+      ></div
+    ><div id="filters"
+    ><h4
+      ><a href="#TOC"
+	>Filters</a
+	></h4
+      ><p
+      >You can click the different filter fields &quot;Name&quot;, and &quot;Tags&quot; to enter filter values for those fields. As you update the values you will see the &quot;Matched Nodes&quot; section updated to reflect the list of nodes that will match the inputs. You can click &quot;More&quot; to see more of the available inclusion filters, and you can click &quot;Extended Filters&quot; to enter exclusion filters for the same fields.</p
+      ></div
+    ><div id="threadcount"
+    ><h4
+      ><a href="#TOC"
+	>Threadcount</a
+	></h4
+      ><p
+      >You can set the maximum number of simultaneous threads to use by changing the &quot;Thread Count&quot; box. A value of 1 means all node dispatches happen sequentially, and any greater value means that the node dispatches will happen in parallel.</p
+      ></div
+    ><div id="rank-order"
+    ><h4
+      ><a href="#TOC"
+	>Rank order</a
+	></h4
+      ><p
+      >You can change the order in which nodes are executed on by setting the &quot;Rank Attribute&quot; and &quot;Rank Order&quot;. By default nodes are ordered by name (&quot;nodename&quot; attribute) in ascending order. You can change the node attribute to sort on by entering it here, for example &quot;rank&quot;, and you can change the order to descending to sort in reverse.</p
+      ><p
+      >If the attribute you use has an integer number value, then the nodes will be sorted numerically by that attribute, rather than lexically. Otherwise the sort is based on the string value rather than the integer value.</p
+      ><p
+      >Any nodes without the specified attribute will then be sorted by their names.</p
+      ></div
+    ><div id="keepgoing"
+    ><h4
+      ><a href="#TOC"
+	>Keepgoing</a
+	></h4
+      ><p
+      >If you set &quot;Keep going on error?&quot; to &quot;Yes&quot;, then if any node dispatches fail for any reason, the rest will continue to be executed until all have been executed. At the end of the workflow for all nodes, the Job Execution will fail if any of the nodes had failed.</p
+      ><p
+      >If you leave it at the default value of &quot;No&quot;, then if any node dispatches fail for any reason, no further dispatches will be executed and the Job Execution will fail immediately.</p
+      ></div
+    ><div id="dynamic-node-filters"
+    ><h4
+      ><a href="#TOC"
+	>Dynamic node filters</a
+	></h4
+      ><p
+      >In addition to entering static values that match the nodes, you can also use more dynamic values.</p
+      ><p
+      >If you have defined Options for the Job (see <a href="#job-options"
+	>Job Options</a
+	>), you can use the values submitted by the user when the job is executed as part of the node filtering.</p
+      ><p
+      >Simply set the filter value to <code
+	>${option.name}</code
+	>, where &quot;name&quot; is the name of the option.</p
+      ><p
+      >When the job is executed, the user will be prompted to enter the value of the option, and that will then be used in the node filter to determine the nodes to dispatch to.</p
+      ><p
+      ><strong
+	>Note</strong
+	>: Since the dynamic option value is not set yet, the &quot;Matched Nodes&quot; shown in the node filtering input may indicate that there are &quot;None&quot; matched. Also, when the Job is executed, you may see a message saying &quot;Warning: The Node filters specified for this Job do not match any nodes, execution may fail.&quot; The nodes matched will be determined after the user enters the option values.</p
+      ></div
+    ></div
+  ></div
+><div id="scheduled-jobs"
+><h2
+  ><a href="#TOC"
+    >Scheduled Jobs</a
+    ></h2
+  ><p
+  >Saved jobs can be configured to run on a periodic basis. If you want to create a Scheduled Job, select Yes under &quot;Schedule to run repeatedly?&quot;</p
+  ><div class="figure"
+  ><img src="../figures/fig0306.png" alt="Scheduled job simple form"
+     /><p class="caption"
+    >Scheduled job simple form</p
+    ></div
+  ><p
+  >The schedule can be defined in a simple graphical chooser or Unix crontab format.</p
+  ><p
+  >To use the simple chooser, choose an hour and minute. You can then choose &quot;Every Day&quot; (default), or uncheck that option and select individual days of the week. You can select &quot;Every Month&quot; (default) or unselect that option and choose specific months of the year:</p
+  ><p
+  >If the crontab time and date format is preferred, enter a cron expression.</p
+  ><div class="figure"
+  ><img src="../figures/fig0307.png" alt="Scheduled job crontab form"
+     /><p class="caption"
+    >Scheduled job crontab form</p
+    ></div
+  ><p
+  >Use the crontab syntax referenced here: <a href="http://www.quartz-scheduler.org/docs/api/1.8.1/org/quartz/CronExpression.html"
+    >CronExpression</a
+    ></p
+  ><p
+  >After the Job has been updated to include a schedule, a clock icon will be displayed when the Job is listed:</p
+  ><div class="figure"
+  ><img src="../figures/fig0308.png" alt="Scheduled job icon"
+     /><p class="caption"
+    >Scheduled job icon</p
+    ></div
+  ></div
+><div id="job-notifications"
+><h2
+  ><a href="#TOC"
+    >Job Notifications</a
+    ></h2
+  ><p
+  >You can configure notifications to occur when a Job Execution finishes with either success or failure.</p
+  ><p
+  >If you want to receive notifications, click Yes under &quot;Send Notification?&quot;.</p
+  ><div class="figure"
+  ><img src="../figures/fig0322.png" alt="Notification form"
+     /><p class="caption"
+    >Notification form</p
+    ></div
+  ><p
+  >You can enable notifications for either Success or Failure, and either notification by email, or by webhooks. Click the checkbox next to the type of notification to enable.</p
+  ><div class="figure"
+  ><img src="../figures/fig0323.png" alt="Notifications enabled"
+     /><p class="caption"
+    >Notifications enabled</p
+    ></div
+  ><p
+  >Enter either comma-separated email addresses for email notification, or comma-separated URLs for webhook notification.</p
+  ><p
+  >When the Job finishes executing, all &quot;success&quot; notifications will be triggered if the Job is successful. Otherwise, all &quot;failure&quot; notifications will be triggered if the Job fails or is cancelled.</p
+  ><div id="webhooks"
+  ><h3
+    ><a href="#TOC"
+      >Webhooks</a
+      ></h3
+    ><p
+    >Rundeck Jobs can be configured to POST data to a webhook URL when they succeed or fail.</p
+    ><ul
+    ><li
+      >For more info about configuring jobs to use webhook notifications, see the chapter <a href="jobs.html#job-notifications"
+	>Jobs - Job Notifications</a
+	>.</li
+      ><li
+      >For more info about webhooks in general see: <a href="http://webhooks.pbwiki.com/"
+	><code
+	  >http://webhooks.pbwiki.com/</code
+	  ></a
+	></li
+      ></ul
+    ><p
+    >When a Rundeck Job webhook notification is triggered, the server will send a POST request to one or more configured URLs. The request will contain XML content containing information about the Execution that has finished. The request will also contain special HTTP Headers to include some information about the notification and the Execution. You can also configure your URLs to have property tokens that will be replaced with specific details about the Job, Execution or Notification prior to the webhook request being submitted.</p
+    ><div id="execution-notification-content"
+    ><h4
+      ><a href="#TOC"
+	>Execution Notification Content</a
+	></h4
+      ><p
+      >The content of the POST request will be XML, with a single <code
+	>&lt;notification&gt;</code
+	> root element. This element will contain <code
+	>&lt;executions..&gt;&lt;execution&gt;...&lt;/execution&gt;&lt;/executions&gt;</code
+	> content. This inner content is of the same format as the XML returned from the Web API for Execution information. See the chapter <a href="../api/index.html#listing-running-executions"
+	>API - Listing Running Executions</a
+	> for more information.</p
+      ><p
+      >Attributes of the <code
+	>notification</code
+	> element will include:</p
+      ><dl
+      ><dt
+	><code
+	  >trigger</code
+	  ></dt
+	><dd
+	><p
+	  >The type of notification trigger. Either &quot;success&quot; or &quot;failure&quot;.</p
+	  ></dd
+	><dt
+	><code
+	  >executionId</code
+	  ></dt
+	><dd
+	><p
+	  >The ID of the Execution</p
+	  ></dd
+	><dt
+	><code
+	  >status</code
+	  ></dt
+	><dd
+	><p
+	  >The result status of the Execution. Either &quot;succeeded&quot;, &quot;failed&quot; or &quot;aborted&quot;.</p
+	  ></dd
+	></dl
+      ><p
+      ><em
+	>Example</em
+	></p
+      ><pre
+      ><code
+	>&lt;notification trigger=&quot;success&quot; executionId=&quot;[ID]&quot; status=&quot;[STATUS]&quot;&gt;
+    &lt;executions count=&quot;1&quot;&gt;
+        &lt;execution ...&gt;
+            ...
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/notification&gt;
+</code
+	></pre
+      ></div
+    ><div id="execution-notification-headers"
+    ><h4
+      ><a href="#TOC"
+	>Execution Notification Headers</a
+	></h4
+      ><p
+      >The POST request will also contain several custom HTTP headers, providing another way to receive some of the webhook information:</p
+      ><dl
+      ><dt
+	><code
+	  >X-Rundeck-Notification-Trigger</code
+	  ></dt
+	><dd
+	><p
+	  >The notification trigger type, either &quot;success&quot; or &quot;failure&quot;.</p
+	  ></dd
+	><dt
+	><code
+	  >X-Rundeck-Notification-Execution-ID</code
+	  ></dt
+	><dd
+	><p
+	  >The Execution ID</p
+	  ></dd
+	><dt
+	><code
+	  >X-Rundeck-Notification-Execution-Status</code
+	  ></dt
+	><dd
+	><p
+	  >The status of the execution, either &quot;succeeded&quot;, &quot;failed&quot;, or &quot;aborted&quot;.</p
+	  ></dd
+	></dl
+      ></div
+    ><div id="execution-notification-url-token-expansion"
+    ><h4
+      ><a href="#TOC"
+	>Execution Notification URL Token Expansion</a
+	></h4
+      ><p
+      >As well, the URLs configured for the webhook notification may contain tokens that will be expanded with values taken from the associated job and execution, such as <code
+	>${job.name}</code
+	>.</p
+      ><p
+      >Available tokens for expansion are:</p
+      ><dl
+      ><dt
+	><code
+	  >job.PROPERTY</code
+	  ></dt
+	><dd
+	><p
+	  >Properties about the Job, including:</p
+	  ><dl
+	  ><dt
+	    ><code
+	      >name</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >the Job name</p
+	      ></dd
+	    ><dt
+	    ><code
+	      >group</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >The Job group, or a blank string</p
+	      ></dd
+	    ><dt
+	    ><code
+	      >id</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >the Job Id</p
+	      ></dd
+	    ><dt
+	    ><code
+	      >project</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >the Project name</p
+	      ></dd
+	    ></dl
+	  ></dd
+	><dt
+	><code
+	  >execution.PROPERTY</code
+	  ></dt
+	><dd
+	><p
+	  >Properties about the Execution, including:</p
+	  ><dl
+	  ><dt
+	    ><code
+	      >id</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >The Execution ID</p
+	      ></dd
+	    ><dt
+	    ><code
+	      >user</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >The user who executed the job</p
+	      ></dd
+	    ><dt
+	    ><code
+	      >status</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >The execution status, one of &quot;succeeded&quot;,&quot;failed&quot;,or &quot;aborted&quot;</p
+	      ></dd
+	    ></dl
+	  ></dd
+	><dt
+	><code
+	  >notification.trigger</code
+	  ></dt
+	><dd
+	><p
+	  >The trigger associated with the notification, one of &quot;success&quot; or &quot;failure&quot;.</p
+	  ></dd
+	></dl
+      ><p
+      >So for example, this URL:</p
+      ><pre
+      ><code
+	>http://server/callback?id=${execution.id}&amp;status=${execution.status}&amp;trigger=${notification.trigger}
+</code
+	></pre
+      ><p
+      >Will have the tokens replaced with the appropriate values prior to making the webhook request.</p
+      ></div
+    ></div
+  ></div
+><div id="job-history"
+><h2
+  ><a href="#TOC"
+    >Job history</a
+    ></h2
+  ><p
+  >In the Jobs page, you can see the outcome of previous executions of Jobs by clicking the &quot;Executions&quot; link for the Job.</p
+  ><div class="figure"
+  ><img src="../figures/fig0309.png" alt="Job executions link"
+     /><p class="caption"
+    >Job executions link</p
+    ></div
+  ><p
+  >This returns a filtered history pertaining to that Job. You can click on any past execution in the list to see the full execution state.</p
+  ><div class="figure"
+  ><img src="../figures/fig0310.png" alt="Job executions matches"
+     /><p class="caption"
+    >Job executions matches</p
+    ></div
+  ><p
+  >From the Job detail page, one can also see previous execution history.</p
+  ></div
+><div id="killing-jobs"
+><h2
+  ><a href="#TOC"
+    >Killing Jobs</a
+    ></h2
+  ><p
+  >Jobs that are currently running can be Killed immediately.</p
+  ><p
+  >WARNING: This feature should be used with caution, as it forcibly kills the Java Thread that the Job is running on. It may result in the Rundeck server becoming flaky. It is a deprecated feature of Java that is not recommended to be used, so do so only when extremely necessary.</p
+  ><p
+  >From the History view Now Running section, or in the Job execution follow page, click on the &quot;Kill Job Now&quot; button for the running Job.</p
+  ><p
+  >When prompted &quot;Really kill this job?&quot; Click the &quot;Yes&quot; button.</p
+  ><p
+  >The Job will terminate with a &quot;Killed&quot; completion status.</p
+  ><p
+  >See also: <a href="../manpages/man1/rd-queue.html"
+    >rd-queue</a
+    >.</p
+  ></div
+><div id="deleting-jobs"
+><h2
+  ><a href="#TOC"
+    >Deleting Jobs</a
+    ></h2
+  ><p
+  >In the Job detail page, click the red &quot;X&quot; icon for to delete the Job.</p
+  ><div class="figure"
+  ><img src="../figures/fig0311.png" alt="Job delete button"
+     /><p class="caption"
+    >Job delete button</p
+    ></div
+  ><p
+  >Click &quot;Yes&quot; when it says &quot;Really delete this Job?&quot;</p
+  ></div
+><div id="updating-and-copying-jobs"
+><h2
+  ><a href="#TOC"
+    >Updating and copying Jobs</a
+    ></h2
+  ><p
+  >All of the data you set when creating a job can be modified (except UUID). To edit a Job, you can click the Pencil icon:</p
+  ><div class="figure"
+  ><img src="../figures/fig0312.png" alt="Job edit button"
+     /><p class="caption"
+    >Job edit button</p
+    ></div
+  ><p
+  >Similarly, to Copy a Job definition to a new Job, press the Copy button.</p
+  ><div class="figure"
+  ><img src="../figures/fig0313.png" alt="Job copy button"
+     /><p class="caption"
+    >Job copy button</p
+    ></div
+  ></div
+><div id="exporting-job-definitions"
+><h2
+  ><a href="#TOC"
+    >Exporting Job definitions</a
+    ></h2
+  ><p
+  >Job definitions created inside the Rundeck graphical console can be exported to XML or YAML file formats and be used for later import.</p
+  ><p
+  >Two methods exist to retrieve the Job definitions: via Rundeck's graphical interface, and via the <code>rd-jobs</code> shell tool.</p
+  ><p
+  >In the Job detail page, locate the icon with a document symbol in the toolbar. It is labeled &quot;Download Job definition file&quot; in the mouse tool tip. Clicking on the icon will let you choose either XML or YAML format to download the definition.</p
+  ><div class="figure"
+  ><img src="../figures/fig0314.png" alt="Job export button"
+     /><p class="caption"
+    >Job export button</p
+    ></div
+  ><p
+  >Click the preferred format to initiate the file download to your browser.</p
+  ><p
+  >If you prefer to use the command line, open a shell on the Rundeck server. Run the <code
+    >rd-jobs</code
+    > command to write it to disk. By default, rd-jobs will dump all Job definitions to one file. To limit it to just a single Job specify its name with <code
+    >-n</code
+    > or its ID with <code
+    >-i</code
+    >:</p
+  ><pre
+  ><code
+    >rd-jobs -p project -n &quot;job-name&quot; -f job.xml
+</code
+    ></pre
+  ><p
+  >This will store the results in the &quot;job.xml&quot; file.</p
+  ><p
+  >To export it in YAML format, specify the <code
+    >-F</code
+    > option:</p
+  ><pre
+  ><code
+    >rd-jobs -p project -n &quot;job-name&quot; -F yaml -f job.yaml
+</code
+    ></pre
+  ><p
+  >This will export in the YAML document format file.</p
+  ><p
+  >The XML and YAML document formats are described here:</p
+  ><ul
+  ><li
+    >XML: <a href="../manpages/man5/job-v20.html"
+      >job-v20(5)</a
+      ></li
+    ><li
+    >YAML: <a href="../manpages/man5/job-yaml-v12.html"
+      >job-yaml-v12(5)</a
+      ></li
+    ></ul
+  ><p
+  >Consult the <a href="../manpages/man1/rd-jobs.html"
+    >rd-jobs(1)</a
+    > manual page for additional command usage.</p
+  ></div
+><div id="importing-job-definitions"
+><h2
+  ><a href="#TOC"
+    >Importing Job definitions</a
+    ></h2
+  ><p
+  >If you have a &quot;job.xml&quot; file (See above) and want to upload it via the GUI web interface, you can do so.</p
+  ><p
+  >Click on the New Job&quot; button in the Job list.</p
+  ><p
+  >In the &quot;Create New Job&quot; form, click on the button that says &quot;Upload Definition...&quot; on the right side:</p
+  ><div class="figure"
+  ><img src="../figures/fig0315.png" alt="Job import button"
+     /><p class="caption"
+    >Job import button</p
+    ></div
+  ><p
+  >Click the Choose File button and choose your job.xml file to upload.</p
+  ><div class="figure"
+  ><img src="../figures/fig0316.png" alt="Job import form"
+     /><p class="caption"
+    >Job import form</p
+    ></div
+  ><p
+  >Choose an option where it says &quot;When a job with the same name already exists:&quot;:</p
+  ><ul
+  ><li
+    >Update - this means that a job defined in the xml will overwrite any existing job with the same name<br
+       /></li
+    ><li
+    >Skip - this means that a job defined in the xml will be skipped over if there is an existing job with the same name<br
+       /></li
+    ><li
+    >Create - this means that the job defined in the xml will be used to create a new job if there is an existing job with the same name.</li
+    ></ul
+  ><p
+  >Click the Upload button. If there are any errors with the Job definitions in the XML file, they will show up on the page.</p
+  ></div
+><div id="summary"
+><h2
+  ><a href="#TOC"
+    >Summary</a
+    ></h2
+  ><p
+  >After reading this chapter, you should be familiar with Rundeck Jobs and able to find and run them. You should understand how to create temporary and saved jobs and understand how to find their history. Finally, you should be aware of how to export and import Job definitions as XML documents.</p
+  ><p
+  >Next, we'll cover how to create multi-step procedures using Job Workflows.</p
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="jobs.html">Jobs</a></li>
+        <li class="toc"><a href="index.html">User Manual</a></li>
+        <li class="prev"><a href="rundeck-basics.html">Rundeck Basics</a></li>
+        <li class="next"><a href="job-workflows.html">Job Workflows</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

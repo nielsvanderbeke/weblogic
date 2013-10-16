@@ -1,0 +1,3 @@
+^^^09:53:37|SEVERE|pp||1-exec|badaboum||Authentication failure connecting to node: "badaboum". Make sure your resource definitions and credentials are up to date.^^^
+^^^09:53:37|SEVERE|Execution failed on the following 1 nodes: {badaboum=[Workflow : exception: com.dtolabs.rundeck.core.execution.workflow.WorkflowStepFailureException: Step 1 of the workflow threw exception: Execution failed on the following 1 nodes: {badaboum=[jsch-ssh] result was failure, resultcode: -1: Authentication failure connecting to node: "badaboum". Make sure your resource definitions and credentials are up to date.}]}^^^
+^^^END^^^

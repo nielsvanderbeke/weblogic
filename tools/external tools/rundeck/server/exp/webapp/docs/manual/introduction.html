@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introduction</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Alex Honor" />
+  <meta name="author" content="Greg Schueler" />
+  <meta name="date" content="November 20, 2010" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="introduction.html">Introduction</a></li>
+        <li class="toc"><a href="index.html">User Manual</a></li>
+        
+        <li class="next"><a href="getting-started.html">Getting Started</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">Introduction</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#what-is-this-manual-about"
+      >What is this manual about?</a
+      ></li
+    ><li
+    ><a href="#what-is-rundeck"
+      >What is Rundeck?</a
+      ><ul
+      ><li
+	><a href="#who-makes-the-rundeck-software"
+	  >Who makes the Rundeck software?</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#getting-help"
+      >Getting help</a
+      ></li
+    ><li
+    ><a href="#rundeck-from-30000-feet"
+      >Rundeck from 30,000 feet</a
+      ><ul
+      ><li
+	><a href="#rundeck-features"
+	  >Rundeck features</a
+	  ></li
+	><li
+	><a href="#rundeck-in-context"
+	  >Rundeck in context</a
+	  ></li
+	><li
+	><a href="#rundeck-architecture"
+	  >Rundeck architecture</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#feedback"
+      >Feedback</a
+      ></li
+    ><li
+    ><a href="#whats-next"
+      >What's next?</a
+      ></li
+    ></ul
+  ></div
+>
+<div id="what-is-this-manual-about"
+><h2
+  ><a href="#TOC"
+    >What is this manual about?</a
+    ></h2
+  ><p
+  >Welcome to the Rundeck user manual. This manual was written to help administrators quickly become productive with the Rundeck server and tools.</p
+  ></div
+><div id="what-is-rundeck"
+><h2
+  ><a href="#TOC"
+    >What is Rundeck?</a
+    ></h2
+  ><p
+  >Rundeck is open source software that helps you automate ad-hoc and routine procedures in data center or cloud environments. Rundeck provides a number of features that will alleviate time-consuming grunt work and make it easy for you to scale up your scripting efforts.</p
+  ><p
+  >Rundeck allows you to run tasks on any number of nodes from a web-based or command-line interface. Rundeck also includes other features that make it easy to scale up your scripting efforts including: access control, workflow building, scheduling, logging, and integration with external sources for node and option data.</p
+  ><p
+  >Already itching to install it? Jump ahead to <a href="getting-started.html#installing-rundeck"
+    >Installing Rundeck</a
+    >.</p
+  ><div id="who-makes-the-rundeck-software"
+  ><h3
+    ><a href="#TOC"
+      >Who makes the Rundeck software?</a
+      ></h3
+    ><p
+    >Rundeck is developed on GitHub as a project called <a href="https://github.com/dtolabs/rundeck"
+      >dtolabs/rundeck</a
+      >. Many ideas for Rundeck come from <a href="http://www.dtosolutions.com"
+      >DTO Solutions</a
+      > consultants working in the field, however all are welcome to join the project and contribute.</p
+    ><p
+    >Rundeck is free software and is public under the <a href="http://www.apache.org/licenses/LICENSE-2.0.html"
+      >Apache Software License</a
+      >.</p
+    ></div
+  ></div
+><div id="getting-help"
+><h2
+  ><a href="#TOC"
+    >Getting help</a
+    ></h2
+  ><ul
+  ><li
+    >Mailing list: <a href="http://groups.google.com/group/rundeck-discuss"
+      >http://groups.google.com/group/rundeck-discuss</a
+      ><br
+       /></li
+    ><li
+    >IRC: irc://irc.freenode.net/rundeck</li
+    ><li
+    >Unix manual pages: Rundeck installation includes a set of Unix manual pages describing the shell tools. <code>man -k rundeck</code></li
+    ></ul
+  ></div
+><div id="rundeck-from-30000-feet"
+><h2
+  ><a href="#TOC"
+    >Rundeck from 30,000 feet</a
+    ></h2
+  ><div id="rundeck-features"
+  ><h3
+    ><a href="#TOC"
+      >Rundeck features</a
+      ></h3
+    ><ul
+    ><li
+      >distributed command execution</li
+      ><li
+      >pluggable execution system uses SSH by default</li
+      ><li
+      >multi-step workflows</li
+      ><li
+      >job definition and on demand or scheduled runs</li
+      ><li
+      >graphical console for command and job execution</li
+      ><li
+      >role-based access control policy with support for LDAP/ActiveDirectory</li
+      ><li
+      >history and auditing logs</li
+      ><li
+      >open integration to external host inventory tools</li
+      ><li
+      >command line interface</li
+      ><li
+      >Web API</li
+      ></ul
+    ></div
+  ><div id="rundeck-in-context"
+  ><h3
+    ><a href="#TOC"
+      >Rundeck in context</a
+      ></h3
+    ><p
+    >Rundeck is meant to compliment the tools you already use (including frameworks like Puppet, Chef, and Rightscale) and is geared towards helping you automate actions across them. If you currently manage your servers by running commands from the terminal or through scripts that SSH commands in a loop, Rundeck is a more user friendly alternative. Instead of managing node lists in a spreadsheet or wiki page and then having to transcribe the list to where you execute commands, Rundeck acts as a command and control portal that lets you execute commands using features like node filtering and parallel execution.</p
+    ><p
+    >Rundeck also works well for managing virtual servers, be they from a cloud provider or from locally hosted virtualization software. The node abstraction enabled by the Rundeck command dispatcher helps you cope with managing dynamic environments.</p
+    ><p
+    >Many automation tasks cross the boundaries of tool sets. For example, deploying software or maintaining an application often involves using tools up and down the management tool chain. Rundeck has a simple to use interface to create multi-step workflows that might call a package manager, configuration management tool, system utilities, or your own scripts. Rundeck is really meant to help glue tools together and in return enable a push button interface you can hand off to others.</p
+    ></div
+  ><div id="rundeck-architecture"
+  ><h3
+    ><a href="#TOC"
+      >Rundeck architecture</a
+      ></h3
+    ><p
+    >Rundeck is a server application you host on a system you designate a central administrative control point. Internally, Rundeck stores job definitions and execution history in a relational database. Output from command and job executions is saved on disk.</p
+    ><p
+    >Rundeck distributed command execution is performed using SSH. SSH connections are made using key-based authentication. Rundeck server configuration includes settings to define the outbound user allowed by the remote hosts. Remote machines are not required to make SSH connections back to the server.</p
+    ><div class="figure"
+    ><img src="../figures/fig0001.png" alt="Rundeck architecture"
+       /><p class="caption"
+      >Rundeck architecture</p
+      ></div
+    ><p
+    >The Rundeck application itself is a Java-based webapp that runs in its own embedded servlet container. The application provides both graphical interface and network interfaces used by the Rundeck shell tools.</p
+    ><p
+    >Access to the Rundeck application requires a login and password. The default Rundeck installation uses a flat file user directory containing a set of default logins. Logins are defined in terms of a username and password as well as one or more user groups. An alternative configuration to the flat file user directory, is LDAP (e.g., ActiveDirectory). Users must also be authorized to perform actions like command and job execution. This is controlled by an access control facility that reads policy files defined by the Rundeck administrator. Privilege is granted if a user's group membership meets the requirements of the policy.</p
+    ><p
+    >Two installation methods are supported:</p
+    ><ul
+    ><li
+      ><p
+	>RPM: The RPM is intended for managed installation and provides robust tools that integrate with your environment, man pages, shell tool set in your path, init.d startup and shutdown</p
+	></li
+      ><li
+      ><p
+	>Launcher: The launcher is intended for quick setup, to get you running right away. Perfect for bootstrapping a project or trying a new feature.</p
+	></li
+      ></ul
+    ></div
+  ></div
+><div id="feedback"
+><h2
+  ><a href="#TOC"
+    >Feedback</a
+    ></h2
+  ><p
+  >If you find problems with Rundeck, or if you have questions, remarks, or ideas about it, please send an email to the Rundeck mailing list, <script type="text/javascript"
+    >
+<!--
+h='&#x67;&#114;&#x6f;&#x75;&#112;&#x73;&#46;&#x67;&#x6f;&#x6f;&#x67;&#108;&#x65;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#114;&#x75;&#110;&#100;&#x65;&#x63;&#x6b;&#x2d;&#100;&#x69;&#x73;&#x63;&#x75;&#x73;&#x73;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'<code>'+e+'</code>'+'<\/'+'a'+'>');
+// -->
+</script
+    ><noscript
+    >&#114;&#x75;&#110;&#100;&#x65;&#x63;&#x6b;&#x2d;&#100;&#x69;&#x73;&#x63;&#x75;&#x73;&#x73;&#32;&#x61;&#116;&#32;&#x67;&#114;&#x6f;&#x75;&#112;&#x73;&#32;&#100;&#x6f;&#116;&#32;&#x67;&#x6f;&#x6f;&#x67;&#108;&#x65;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#x6d;</noscript
+    >.</p
+  ></div
+><div id="whats-next"
+><h2
+  ><a href="#TOC"
+    >What's next?</a
+    ></h2
+  ><p
+  >The remainder of the manual will give you a quick conceptual overview, and take you through installation and setup. After you are set up, you will learn about the distributed command dispatcher and how to use it to run ad-hoc commands. From there, you will learn about Jobs, defining multi-step procedures with Job workflows and how to parameterize them with options.</p
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="introduction.html">Introduction</a></li>
+        <li class="toc"><a href="index.html">User Manual</a></li>
+        
+        <li class="next"><a href="getting-started.html">Getting Started</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

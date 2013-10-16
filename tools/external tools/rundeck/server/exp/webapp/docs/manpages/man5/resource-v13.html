@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RESOURCE-V13(5) Rundeck User Manuals | Version 1.3</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Alex Honor" />
+  <meta name="date" content="November 20, 2010" />
+  <link rel="stylesheet" href="../../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../../index.html">Rundeck Documentation (1.4.4)</a></li>
+    
+        <li><a href="../index.html">Man Pages</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="resource-v13.html">RESOURCE-V13(5) Rundeck User Manuals | Version 1.3</a></li>
+        <li class="toc"><a href="index.html">Formats | Man(5)</a></li>
+        <li class="prev"><a href="job-yaml-v12.html">JOB-YAML-V12(5) Rundeck User Manuals | Version 1.2</a></li>
+        <li class="next"><a href="resource-yaml-v13.html">RESOURCE-YAML-V13(5) Rundeck User Manuals | Version 1.3</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">RESOURCE-V13(5) Rundeck User Manuals | Version 1.3</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#name"
+      >NAME</a
+      ></li
+    ><li
+    ><a href="#elements"
+      >Elements</a
+      ><ul
+      ><li
+	><a href="#project"
+	  >project</a
+	  ></li
+	><li
+	><a href="#node"
+	  >node</a
+	  ></li
+	><li
+	><a href="#attribute"
+	  >attribute</a
+	  ></li
+	><li
+	><a href="#examples"
+	  >Examples</a
+	  ></li
+	></ul
+      ></li
+    ></ul
+  ></div
+>
+<div id="name"
+><h1
+  ><a href="#TOC"
+    >NAME</a
+    ></h1
+  ><p
+  >resource-v13 - describes the Rundeck resource model document</p
+  ><p
+  >The Resource Model XML document declares a resource model that can also be uploaded to a project hosted on the Rundeck server. This document describes the format and necessary elements.</p
+  ></div
+><div id="elements"
+><h1
+  ><a href="#TOC"
+    >Elements</a
+    ></h1
+  ><p
+  >The root (aka &quot;top-level&quot;) element of the resource file is called <code
+    >project</code
+    >.</p
+  ><div id="project"
+  ><h2
+    ><a href="#TOC"
+      >project</a
+      ></h2
+    ><p
+    >Project defines all the resources.</p
+    ><p
+    >Can contain the following elements:</p
+    ><dl
+    ><dt
+      ><a href="#node"
+	>node</a
+	></dt
+      ><dd
+      >A node resource element.</dd
+      ></dl
+    ><p
+    ><em
+      >Example</em
+      ></p
+    ><pre
+    ><code
+      >&lt;project&gt;
+  &lt;node .../&gt;
+&lt;/project&gt;
+</code
+      ></pre
+    ></div
+  ><div id="node"
+  ><h2
+    ><a href="#TOC"
+      >node</a
+      ></h2
+    ><p
+    >The node element defines a Node resource.</p
+    ><p
+    ><em
+      >Attributes</em
+      ></p
+    ><dl
+    ><dt
+      >name</dt
+      ><dd
+      ><p
+	>The node name. This is a logical identifier from the node. (required)</p
+	></dd
+      ><dt
+      >description</dt
+      ><dd
+      ><p
+	>A brief description about the node. (optional)</p
+	></dd
+      ><dt
+      >hostname</dt
+      ><dd
+      ><p
+	>The hostname or IP address of the remote host. (required)</p
+	></dd
+      ><dt
+      >osArch</dt
+      ><dd
+      ><p
+	>The operating system architecture. (optional)</p
+	></dd
+      ><dt
+      >osFamily</dt
+      ><dd
+      ><p
+	>The operating system family, such as unix or windows. (optional)</p
+	></dd
+      ><dt
+      >osName</dt
+      ><dd
+      ><p
+	>The operating system name such as Linux or Mac OS X. (optional)</p
+	></dd
+      ><dt
+      >tags</dt
+      ><dd
+      ><p
+	>Comma separated list of filtering tags. (optional)</p
+	></dd
+      ><dt
+      >username</dt
+      ><dd
+      ><p
+	>The username used for the remote connection. (required)</p
+	></dd
+      ><dt
+      >editUrl</dt
+      ><dd
+      ><p
+	>URL to an external resource model editor service (optional)</p
+	></dd
+      ><dt
+      >remoteUrl</dt
+      ><dd
+      ><p
+	>URL to an external resource model service. (optional)</p
+	></dd
+      ><dt
+      ><em
+	>anything</em
+	></dt
+      ><dd
+      ><p
+	>Any user-supplied attributes can be specified to add additional metadata about a node.</p
+	></dd
+      ></dl
+    ><p
+    ><em
+      >Nested Elements</em
+      ></p
+    ><dl
+    ><dt
+      ><a href="#attribute"
+	>attribute</a
+	></dt
+      ><dd
+      >Further user defined attributes.</dd
+      ></dl
+    ></div
+  ><div id="attribute"
+  ><h2
+    ><a href="#TOC"
+      >attribute</a
+      ></h2
+    ><p
+    >Defines a single metadata attribute for the node, as an alternative to specifying it as a XML attribute on the <code
+      >&lt;node&gt;</code
+      > element itself.</p
+    ><p
+    ><em
+      >Attributes</em
+      ></p
+    ><dl
+    ><dt
+      >name</dt
+      ><dd
+      ><p
+	>The name of the attribute</p
+	></dd
+      ><dt
+      >value</dt
+      ><dd
+      ><p
+	>The value of the attribute</p
+	></dd
+      ></dl
+    ><p
+    >Alternatively, the value can be specified as nested text content.</p
+    ><p
+    >Examples:</p
+    ><pre
+    ><code
+      >&lt;attribute name=&quot;server-path&quot; value=&quot;/var/myapp&quot;/&gt;
+
+&lt;attribute name=&quot;server-port&quot;&gt;9010&lt;/attribute&gt;
+</code
+      ></pre
+    ></div
+  ><div id="examples"
+  ><h2
+    ><a href="#TOC"
+      >Examples</a
+      ></h2
+    ><p
+    >Define a node named &quot;strongbad&quot;:</p
+    ><pre
+    ><code
+      >&lt;node name=&quot;strongbad&quot; type=&quot;Node&quot;
+    description=&quot;a development host&quot;
+    hostname=&quot;strongbad.local&quot;
+    osArch=&quot;i386&quot; osFamily=&quot;unix&quot; osName=&quot;Darwin&quot; osVersion=&quot;9.2.2&quot;
+    username=&quot;alexh&quot;/&gt;
+</code
+      ></pre
+    ><p
+    >Define a node of the type LinuxNode that has a <code
+      >https-port</code
+      > attribute:</p
+    ><pre
+    ><code
+      >&lt;node type=&quot;LinuxNode&quot; name=&quot;centos54&quot; hostname=&quot;centos54.local&quot;
+      description=&quot;Sample Linux node&quot; tags=&quot;sample,linux&quot;
+      &gt;
+    &lt;attribute name=&quot;https-port&quot; value=&quot;435&quot;/&gt;
+&lt;/node&gt;
+</code
+      ></pre
+    ><p
+    >Define a node named that uses a non standard SSH port. The &quot;hostname&quot; value is overloaded to include the port (192.168.1.106:4022):</p
+    ><pre
+    ><code
+      >&lt;node name=&quot;centos54&quot; type=&quot;Node&quot;
+    description=&quot;a centos host&quot;
+    hostname=&quot;192.168.1.106:4022&quot;
+    username=&quot;deploy&quot;
+    /&gt;
+</code
+      ></pre
+    ><p
+    >An example using just the required attributes:</p
+    ><pre
+    ><code
+      >&lt;node name=&quot;centos54&quot; type=&quot;Node&quot;
+    hostname=&quot;192.168.1.106:4022&quot;
+    username=&quot;deploy&quot;/&gt;
+</code
+      ></pre
+    ><p
+    >An example with a custom attribute &quot;appname&quot; specified in the <code
+      >&lt;node&gt;</code
+      > element:</p
+    ><pre
+    ><code
+      >&lt;node name=&quot;centos54&quot; type=&quot;Node&quot;
+    hostname=&quot;192.168.1.106:4022&quot;
+    username=&quot;deploy&quot;
+    appname=&quot;CoolApp&quot;
+    /&gt;
+</code
+      ></pre
+    ><p
+    >The Rundeck source code and all documentation may be downloaded from <a href="https://github.com/dtolabs/rundeck/"
+      ><code
+	>https://github.com/dtolabs/rundeck/</code
+	></a
+      >.</p
+    ></div
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="resource-v13.html">RESOURCE-V13(5) Rundeck User Manuals | Version 1.3</a></li>
+        <li class="toc"><a href="index.html">Formats | Man(5)</a></li>
+        <li class="prev"><a href="job-yaml-v12.html">JOB-YAML-V12(5) Rundeck User Manuals | Version 1.2</a></li>
+        <li class="next"><a href="resource-yaml-v13.html">RESOURCE-YAML-V13(5) Rundeck User Manuals | Version 1.3</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../../index.html">Rundeck Documentation (1.4.4)</a></li>
+    
+        <li><a href="../index.html">Man Pages</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

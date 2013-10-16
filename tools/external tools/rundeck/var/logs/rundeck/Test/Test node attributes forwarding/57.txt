@@ -1,0 +1,131 @@
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ . /opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/bin/setWLSEnv.sh ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||WL_HOME=/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ export WL_HOME ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ . /opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/bin/commEnv.sh ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||BEA_HOME=/opt/oracle/fmw/fmw11gR1PS2^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||MW_HOME=/opt/oracle/fmw/fmw11gR1PS2^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||WL_HOME=/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||MODULES_DIR=/opt/oracle/fmw/fmw11gR1PS2/modules^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||FEATURES_DIR=/opt/oracle/fmw/fmw11gR1PS2/modules/features^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||ANT_HOME=/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||ANT_CONTRIB=/opt/oracle/fmw/fmw11gR1PS2/modules/net.sf.antcontrib_1.1.0.0_1-0b2^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [  = BEA -o  = Oracle ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||SUN_ARCH_DATA_MODEL=32^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||JAVA_USE_64BIT=false^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ -z  -o -z  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||JAVA_HOME=/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||JAVA_VENDOR=Oracle^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||PRODUCTION_MODE=^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ export BEA_HOME MW_HOME WL_HOME MODULES_DIR FEATURES_DIR ANT_HOME ANT_CONTRIB JAVA_HOME JAVA_VENDOR PRODUCTION_MODE JAVA_USE_64BIT ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [  = true ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||JAVA_VM=-jrockit^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||MEM_ARGS=-Xms128m -Xmx256m^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||JAVA_OPTIONS= -Xverify:none^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ export JAVA_VM MEM_ARGS JAVA_OPTIONS ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ uname -s ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [  =  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||CLASSPATHSEP=:^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [  =  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||PATHSEP=:^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ export PATHSEP CLASSPATHSEP ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ -f /opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/bin/setPatchEnv.sh ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ . /opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/bin/setPatchEnv.sh ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||WLS1033_PATCH_CLASSPATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/sys_manifest_classpath/weblogic_patch.jar^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||WLS1033_PATCH_EXT_DIR=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/sysext_manifest_classpath^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||WLS1033_PATCH_LIBPATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/native^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||WLS1033_PATCH_PATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/native^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ export WLS1033_PATCH_CLASSPATH WLS1033_PATCH_EXT_DIR WLS1033_PATCH_LIBPATH WLS1033_PATCH_PATH ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [  =  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||PATCH_CLASSPATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/sys_manifest_classpath/weblogic_patch.jar^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [  =  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||WEBLOGIC_EXTENSION_DIRS=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/sysext_manifest_classpath^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [  =  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||PATCH_LIBPATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/native^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [  =  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||PATCH_PATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/native^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ export PATCH_CLASSPATH WEBLOGIC_EXTENSION_DIRS PATCH_LIBPATH PATCH_PATH ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ uname -s ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ uname -m ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||arch=sun4v^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ -n  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ sun4v = i86pc ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ 32 = 64 ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||LD_LIBRARY_PATH=/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/native/solaris/sparc:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/native/solaris/sparc/oci920_8^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [  = true ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||LD_LIBRARY_PATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/native:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/native/solaris/sparc:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/native/solaris/sparc/oci920_8^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ export LD_LIBRARY_PATH ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ false = true ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||WEBLOGIC_CLASSPATH=/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/lib/tools.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic_sp.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/features/weblogic.server.modules_10.3.3.0.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/webservices.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ export WEBLOGIC_CLASSPATH ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||FMWCONFIG_CLASSPATH=/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/lib/tools.jar:/opt/oracle/fmw/fmw11gR1PS2/utils/config/10.3/config-launch.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic_sp.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/features/weblogic.server.modules_10.3.3.0.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/webservices.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ export FMWCONFIG_CLASSPATH ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||FMWLAUNCH_CLASSPATH=/opt/oracle/fmw/fmw11gR1PS2/utils/config/10.3/config-launch.jar^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ export FMWLAUNCH_CLASSPATH ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ /opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/sys_manifest_classpath/weblogic_patch.jar !=  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||WEBLOGIC_CLASSPATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/lib/tools.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic_sp.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/features/weblogic.server.modules_10.3.3.0.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/webservices.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ export WEBLOGIC_CLASSPATH ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||FMWCONFIG_CLASSPATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/lib/tools.jar:/opt/oracle/fmw/fmw11gR1PS2/utils/config/10.3/config-launch.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic_sp.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/features/weblogic.server.modules_10.3.3.0.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/webservices.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ export FMWCONFIG_CLASSPATH ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [  = true ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||DERBY_HOME=/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/derby^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||DERBY_CLIENT_CLASSPATH=/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/derby/lib/derbyclient.jar^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||DERBY_CLASSPATH=:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/derby/lib/derbynet.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/derby/lib/derbyclient.jar^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||DERBY_TOOLS=/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/derby/lib/derbytools.jar^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||DERBY_SYSTEM_HOME=/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/derby/demo/databases^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||DERBY_OPTS=-Dderby.system.home=/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/derby/demo/databases^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [  !=  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [  !=  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ export DERBY_HOME DERBY_CLASSPATH DERBY_TOOLS DERBY_SYSTEM_HOME DERBY_OPTS ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ -d /opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/eval/pointbase ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ uname -s ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ SunOS = CYGWIN32/NT ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ grep -i cygwin_ ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ uname -s ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ -n  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||PATH=/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/bin:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/bin:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre/bin:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/bin:/usr/bin:/bin:/usr/local/bin^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ grep -i windows_nt ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ uname -s ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ -n  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ export PATH ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ resetFd ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ grep -i cygwin ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ uname -s ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ grep -i windows_nt ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ uname -s ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ + grep -iuname  HP-UX-s  ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ ! -n  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ ulimit -S -n ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||ofiles=256^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ ulimit -H -n ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||maxfiles=65536^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ expr 65536 : [0-9][0-9]*$ ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ expr 256 : [0-9][0-9]*$ ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ 0 = 0 -a 5 -eq 0 -a 3 -eq 0 ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ ! -f /opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic.jar ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ ! -d /opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/bin ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||CLASSPATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/lib/tools.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic_sp.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/features/weblogic.server.modules_10.3.3.0.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/webservices.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ export CLASSPATH ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ -f extEnv.sh ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ ! -z  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ ! -z  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ ! -z  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ ! -z  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ ! -z  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ ! -z  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ ! -z  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ [ ! -z  ] ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ echo CLASSPATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/lib/tools.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic_sp.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/features/weblogic.server.modules_10.3.3.0.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/webservices.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar: ^^^
+^^^10:02:32|INFO|pp||1-exec|egovacc||CLASSPATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/lib/tools.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic_sp.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/features/weblogic.server.modules_10.3.3.0.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/webservices.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ echo ^^^
+^^^10:02:32|INFO|pp||1-exec|egovacc||PATH=/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/bin:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/bin:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre/bin:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/bin:/usr/bin:/bin:/usr/local/bin^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ echo PATH=/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/bin:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/bin:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre/bin:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/bin:/usr/bin:/bin:/usr/local/bin ^^^
+^^^10:02:32|INFO|pp||1-exec|egovacc||Your environment has been set.^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ echo ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ echo Your environment has been set. ^^^
+^^^10:02:32|SEVERE|pp||1-exec|egovacc||+ java weblogic.Admin -adminurl t3://skywalker.smals-mvm.be:10004/ -username system -password fisherman LIST ^^^
+^^^10:02:47|INFO|pp||1-exec|egovacc||Contents of InitialContext^^^
+^^^10:02:47|INFO|pp||1-exec|egovacc||weblogic: weblogic.jndi.internal.ServerNamingNode^^^
+^^^10:02:47|INFO|pp||1-exec|egovacc||ejb: weblogic.jndi.internal.ServerNamingNode^^^
+^^^10:02:47|INFO|pp||1-exec|egovacc||javax: weblogic.jndi.internal.ServerNamingNode^^^
+^^^10:02:47|INFO|pp||1-exec|egovacc||mejbmejb_jarMejb_EO: weblogic.rmi.cluster.ClusterableRemoteObject^^^
+^^^END^^^

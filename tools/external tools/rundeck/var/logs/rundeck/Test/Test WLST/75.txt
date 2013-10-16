@@ -1,0 +1,89 @@
+^^^02:10:14|WARNING|pp||1-exec|skywalker||+ set^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||+ numargs=3^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||+ '[' 3 -lt 2 ']'^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||+ scripturl = 'http://svn01.smals-mvm.be/viewvc/ea/trunk/rundeck/rundeck_scripts/getDatasourceList.py?view=co'^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||/export/home/weblogic/pp/rundeck/projects/Test/scripts/wlstWrapper.sh: line 9: scripturl: command not found^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||+ RD_SCRIPTS=/export/home/weblogic/pp/rundeck/projects/Test/scripts^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||++ mktemp -p /var/tmp^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||+ TMP_SCRIPT=/var/tmp/tmp.gUaazg^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||+ wget -O /var/tmp/tmp.gUaazg ''^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||http://: Invalid host name.^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||+ /opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/bin/wlst.sh /var/tmp/tmp.gUaazg acc-userconfig.properties acc-userkey.properties^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||BASH=/bin/bash^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||BASH_ARGC=([0]="3")^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||BASH_ARGV=([0]="acc-userkey.properties" [1]="acc-userconfig.properties" [2]="http://svn01.smals-mvm.be/viewvc/ea/trunk/rundeck/rundeck_scripts/getDatasourceList.py?view=co")^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||BASH_LINENO=([0]="0")^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||BASH_SOURCE=([0]="/export/home/weblogic/pp/rundeck/projects/Test/scripts/wlstWrapper.sh")^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||BASH_VERSINFO=([0]="3" [1]="2" [2]="51" [3]="1" [4]="release" [5]="sparc-sun-solaris2.10")^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||BASH_VERSION='3.2.51(1)-release'^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||CLI_CP=:/export/home/weblogic/pp/rundeck/tools/lib/ant-1.7.1.jar:/export/home/weblogic/pp/rundeck/tools/lib/ant-jsch-1.7.1.jar:/export/home/weblogic/pp/rundeck/tools/lib/ant-launcher-1.7.1.jar:/export/home/weblogic/pp/rundeck/tools/lib/commons-beanutils-1.8.0.jar:/export/home/weblogic/pp/rundeck/tools/lib/commons-cli-1.0.jar:/export/home/weblogic/pp/rundeck/tools/lib/commons-codec-1.5.jar:/export/home/weblogic/pp/rundeck/tools/lib/commons-collections-3.2.1.jar:/export/home/weblogic/pp/rundeck/tools/lib/commons-httpclient-3.0.1.jar:/export/home/weblogic/pp/rundeck/tools/lib/commons-lang-2.4.jar:/export/home/weblogic/pp/rundeck/tools/lib/commons-logging-1.1.jar:/export/home/weblogic/pp/rundeck/tools/lib/dom4j-1.6.1.jar:/export/home/weblogic/pp/rundeck/tools/lib/jaxen-1.1.jar:/export/home/weblogic/pp/rundeck/tools/lib/jsch-0.1.45.jar:/export/home/weblogic/pp/rundeck/tools/lib/log4j-1.2.16.jar:/export/home/weblogic/pp/rundeck/tools/lib/rundeck-core-1.4.4.jar:/export/home/weblogic/pp/rundeck/tools/lib/snakeyaml-1.9.jar:/export/home/weblogic/pp/rundeck/tools/lib/xercesImpl-2.6.0.jar^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||DIRSTACK=()^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||DISPLAY=localhost:11.0^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||EUID=3486^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||GROUPS=()^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||HOME=/export/home/weblogic/pp^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||HOSTNAME=skywalker^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||HOSTTYPE=sparc^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||IFS=$' \t\n'^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||JAVA_CMD=/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre/bin/java^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||JAVA_HOME=/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||LD_LIBRARY_PATH=/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre/lib/sparcv9/jrockit:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre/lib/sparcv9:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre/../lib/sparcv9^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||LOGNAME=pp^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||MACHTYPE=sparc-sun-solaris2.10^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||MAIL=/usr/mail/pp^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||MANPATH=/usr/share/man:/usr/sfw/man:/opt/sfw/bin:/opt/csw/man^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||NLSPATH=/usr/dt/lib/nls/msg/%L/%N.cat^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||OPTERR=1^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||OPTIND=1^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||OSTYPE=solaris2.10^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||PATH=/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre/bin:/export/home/weblogic/pp/rundeck/tools/bin:/usr/sbin:/usr/bin:/usr/openwin/bin:/usr/sfw/bin:/opt/sfw/bin:/opt/csw/bin:/usr/ucb:/opt/smals/bin:/usr/local/bin^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||PIPESTATUS=([0]="0")^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||PPID=3269^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||PS4='+ '^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||PWD=/export/home/weblogic/pp/rundeck^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RDECK_BASE=/export/home/weblogic/pp/rundeck^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RDECK_HOME=/export/home/weblogic/pp/rundeck^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RDECK_JVM=' -Xmx1024m -Xms256m -Dloginmodule.conf.name=jaas-ldap.conf     -Dloginmodule.name=ldapsmals'^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RDECK_SSL_OPTS='-Djavax.net.ssl.trustStore=/export/home/weblogic/pp/rundeck/etc/truststore -Djavax.net.ssl.trustStoreType=jks -Djava.protocol.handler.pkgs=com.sun.net.ssl.internal.www.protocol'^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RD_JOB_EXECID=75^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RD_JOB_ID=ac6fb37b-a02c-43d3-8df5-7c8613be4f04^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RD_JOB_NAME='Test WLST'^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RD_JOB_PROJECT=Test^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RD_JOB_USERNAME=admin^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RD_NODE_DESCRIPTION='Rundeck server node'^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RD_NODE_HOSTNAME=skywalker^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RD_NODE_NAME=skywalker^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RD_NODE_OS_ARCH=sparcv9^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RD_NODE_OS_FAMILY=unix^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RD_NODE_OS_NAME=SunOS^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RD_NODE_OS_VERSION=5.10^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RD_NODE_TAGS=^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RD_NODE_USERNAME=pp^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||RUNDECK_CLI_TERSE=true^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||SHELL=/bin/bash^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||SHELLOPTS=braceexpand:hashall:interactive-comments:xtrace^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||SHLVL=3^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||SSH_CLIENT='10.4.141.100 63154 22'^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||SSH_CONNECTION='10.4.141.100 63154 10.6.103.157 22'^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||SSH_TTY=/dev/pts/1^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||TERM=xterm^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||TZ=Europe/Brussels^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||UID=3486^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||USER=pp^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||_=-x^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||CLASSPATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/lib/tools.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic_sp.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/features/weblogic.server.modules_10.3.3.0.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/webservices.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||PATH=/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/bin:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/bin:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre/bin:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/bin:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre/bin:/export/home/weblogic/pp/rundeck/tools/bin:/usr/sbin:/usr/bin:/usr/openwin/bin:/usr/sfw/bin:/opt/sfw/bin:/opt/csw/bin:/usr/ucb:/opt/smals/bin:/usr/local/bin^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||Your environment has been set.^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||^^^
+^^^02:10:14|WARNING|pp||1-exec|skywalker||CLASSPATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/lib/tools.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic_sp.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/features/weblogic.server.modules_10.3.3.0.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/webservices.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar::/opt/oracle/fmw/fmw11gR1PS2/utils/config/10.3/config-launch.jar::/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/derby/lib/derbynet.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/derby/lib/derbyclient.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/derby/lib/derbytools.jar::^^^
+^^^02:10:20|WARNING|pp||1-exec|skywalker||^^^
+^^^02:10:20|WARNING|pp||1-exec|skywalker||Initializing WebLogic Scripting Tool (WLST) ...^^^
+^^^02:10:20|WARNING|pp||1-exec|skywalker||^^^
+^^^02:10:36|WARNING|pp||1-exec|skywalker||Welcome to WebLogic Server Administration Scripting Shell^^^
+^^^02:10:36|WARNING|pp||1-exec|skywalker||^^^
+^^^02:10:37|WARNING|pp||1-exec|skywalker||Type help() for help on available commands^^^
+^^^02:10:37|WARNING|pp||1-exec|skywalker||^^^
+^^^END^^^

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>rd-project(1) | Version 1.4.4</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Greg Schueler" />
+  <meta name="date" content="August 17, 2011" />
+  <link rel="stylesheet" href="../../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../../index.html">Rundeck Documentation (1.4.4)</a></li>
+    
+        <li><a href="../index.html">Man Pages</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="rd-project.html">rd-project(1)</a></li>
+        <li class="toc"><a href="index.html">Commands | Man(1)</a></li>
+        <li class="prev"><a href="rd-options.html">rd-options(1)</a></li>
+        <li class="next"><a href="rd-queue.html">rd-queue(1)</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">rd-project(1) | Version 1.4.4</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#name"
+      >NAME</a
+      ></li
+    ><li
+    ><a href="#synopsis"
+      >SYNOPSIS</a
+      ></li
+    ><li
+    ><a href="#description"
+      >DESCRIPTION</a
+      ></li
+    ><li
+    ><a href="#options"
+      >OPTIONS</a
+      ></li
+    ><li
+    ><a href="#environment-variables"
+      >ENVIRONMENT VARIABLES</a
+      ></li
+    ><li
+    ><a href="#execution"
+      >EXECUTION</a
+      ></li
+    ><li
+    ><a href="#see-also"
+      >SEE ALSO</a
+      ></li
+    ></ul
+  ></div
+>
+<div id="name"
+><h1
+  ><a href="#TOC"
+    >NAME</a
+    ></h1
+  ><p
+  >rd-project - Create projects.</p
+  ></div
+><div id="synopsis"
+><h1
+  ><a href="#TOC"
+    >SYNOPSIS</a
+    ></h1
+  ><p
+  >rd-project [-vh] -a create -p projectname [ --property=value ]...</p
+  ></div
+><div id="description"
+><h1
+  ><a href="#TOC"
+    >DESCRIPTION</a
+    ></h1
+  ><p
+  >The rd-project command is used to create projects in the Rundeck base directory.</p
+  ><p
+  >The command will create the necessary directory structure and configuration files, and can be used to configure the project's properties.</p
+  ></div
+><div id="options"
+><h1
+  ><a href="#TOC"
+    >OPTIONS</a
+    ></h1
+  ><dl
+  ><dt
+    ><code
+      >-h</code
+      ></dt
+    ><dd
+    ><p
+      >displays the usage information presented above.</p
+      ></dd
+    ><dt
+    ><code
+      >-v</code
+      ></dt
+    ><dd
+    ><p
+      >run verbose.</p
+      ></dd
+    ><dt
+    ><code
+      >-a</code
+      ></dt
+    ><dd
+    ><p
+      >The action name. Only &quot;create&quot; is supported.</p
+      ></dd
+    ><dt
+    ><code
+      >-p</code
+      ></dt
+    ><dd
+    ><p
+      >The project name</p
+      ></dd
+    ><dt
+    ><code
+      >--property=value</code
+      ></dt
+    ><dd
+    ><p
+      >Specify property values for the project's configuration file. Include one or more --property=value combinations.</p
+      ></dd
+    ></dl
+  ></div
+><div id="environment-variables"
+><h1
+  ><a href="#TOC"
+    >ENVIRONMENT VARIABLES</a
+    ></h1
+  ><p
+  >The following environment variables are assumed during the execution of rd-setup:</p
+  ><ul
+  ><li
+    ><p
+      >JAVA_HOME :Java installation directory</p
+      ></li
+    ><li
+    ><p
+      >RDECK_BASE : Rundeck framework instance directory</p
+      ></li
+    ></ul
+  ></div
+><div id="execution"
+><h1
+  ><a href="#TOC"
+    >EXECUTION</a
+    ></h1
+  ><p
+  ><em
+    >Examples</em
+    ></p
+  ><p
+  >Create a new project named &quot;production&quot;:</p
+  ><pre
+  ><code
+    >rd-project -a create -p production
+</code
+    ></pre
+  ><p
+  >Create a new project and specify the &quot;project.ssh-keypath&quot; value as well as a URL for the &quot;project.resources.url&quot;</p
+  ><pre
+  ><code
+    >rd-project -a create -p production --project.ssh-keypath=/path/to/keyfile \
+--project.resources.url=http://example.com/nodes
+</code
+    ></pre
+  ></div
+><div id="see-also"
+><h1
+  ><a href="#TOC"
+    >SEE ALSO</a
+    ></h1
+  ><p
+  ><a href="rd-setup.html"
+    ><code
+      >rd-setup</code
+      > (1)</a
+    >.</p
+  ><p
+  >The Rundeck source code and all documentation may be downloaded from <a href="https://github.com/dtolabs/rundeck/"
+    ><code
+      >https://github.com/dtolabs/rundeck/</code
+      ></a
+    >.</p
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="rd-project.html">rd-project(1)</a></li>
+        <li class="toc"><a href="index.html">Commands | Man(1)</a></li>
+        <li class="prev"><a href="rd-options.html">rd-options(1)</a></li>
+        <li class="next"><a href="rd-queue.html">rd-queue(1)</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../../index.html">Rundeck Documentation (1.4.4)</a></li>
+    
+        <li><a href="../index.html">Man Pages</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Backup and Recovery</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="backup-and-recovery.html">Backup and Recovery</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        <li class="prev"><a href="logs.html">Logs</a></li>
+        <li class="next"><a href="relational-database.html">Relational Database</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">Backup and Recovery</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#backup"
+      >Backup</a
+      ></li
+    ><li
+    ><a href="#recovery"
+      >Recovery</a
+      ></li
+    ><li
+    ><a href="#project-import-and-export"
+      >Project Import and Export</a
+      ><ul
+      ><li
+	><a href="#export-an-archive"
+	  >Export an archive</a
+	  ></li
+	><li
+	><a href="#import-an-archive"
+	  >Import an archive</a
+	  ></li
+	></ul
+      ></li
+    ></ul
+  ></div
+>
+<div id="backup"
+><h2
+  ><a href="#TOC"
+    >Backup</a
+    ></h2
+  ><p
+  >While running, export the Job definitions if you do not have these in source control:</p
+  ><ol style="list-style-type: decimal;"
+  ><li
+    ><p
+      >Export the jobs. You will have to do this for each project</p
+      ><pre
+      ><code
+	>rd-jobs list -f /path/to/backup/dir/project1/jobs.xml -p project1
+rd-jobs list -f /path/to/backup/dir/project2/jobs.xml -p project2
+...
+</code
+	></pre
+      ></li
+    ><li
+    ><p
+      >Stop the server. See: <a href="#startup-and-shtudown"
+	>startup and shutdown</a
+	>. (Rundeck data file backup should only be done with the server down.)</p
+      ><pre
+      ><code
+	>rundeckd stop
+</code
+	></pre
+      ></li
+    ><li
+    ><p
+      >Copy the data files. (Assumes file datastore configuration). The location of the data directory depends on the installation method:</p
+      ><ul
+      ><li
+	>RPM install: <code
+	  >/var/lib/rundeck/data</code
+	  ></li
+	><li
+	><p
+	  >Launcher install: <code
+	    >$RDECK_BASE/server/data</code
+	    ></p
+	  ><pre
+	  ><code
+	    >cp -r data /path/to/backup/dir
+</code
+	    ></pre
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><p
+      >Copy the log (execution output) files.</p
+      ><ul
+      ><li
+	>RPM install: <code
+	  >/var/lib/rundeck/logs</code
+	  ></li
+	><li
+	><p
+	  >Launcher install: <code
+	    >$RDECK_BASE/var/logs</code
+	    ></p
+	  ><pre
+	  ><code
+	    >cp -r logs /path/to/backup/dir
+</code
+	    ></pre
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><p
+      >Start the server</p
+      ><pre
+      ><code
+	> rundeckd start
+</code
+	></pre
+      ></li
+    ></ol
+  ></div
+><div id="recovery"
+><h2
+  ><a href="#TOC"
+    >Recovery</a
+    ></h2
+  ><ol style="list-style-type: decimal;"
+  ><li
+    ><p
+      >Stop the server. See: <a href="#startup-and-shtudown"
+	>startup and shutdown</a
+	>. (Rundeck recovery should only be done with the server down.)</p
+      ><pre
+      ><code
+	>rundeckd stop
+</code
+	></pre
+      ></li
+    ><li
+    ><p
+      >Restore data/logs dir from backup (Refer to above for appropriate log/data path):</p
+      ><pre
+      ><code
+	>cp -r /path/to/backup/logs logspath
+cp -r /path/to/backup/data datapath
+</code
+	></pre
+      ></li
+    ><li
+    ><p
+      >Start the server:</p
+      ><pre
+      ><code
+	>rundeckd start
+</code
+	></pre
+      ></li
+    ><li
+    ><p
+      >Reload the Job definitions. You will have to do this for each project:</p
+      ><pre
+      ><code
+	>rd-jobs load -f /path/to/backup/dir/project1/jobs.xml -p project1
+rd-jobs load -f /path/to/backup/dir/project2/jobs.xml -p project2
+</code
+	></pre
+      ></li
+    ></ol
+  ></div
+><div id="project-import-and-export"
+><h2
+  ><a href="#TOC"
+    >Project Import and Export</a
+    ></h2
+  ><p
+  >As of Rundeck 1.4.4, you can export a Project's database contents into an archive file, and later import it into another project.</p
+  ><p
+  >You can use this mechanism for:</p
+  ><ul
+  ><li
+    >backup</li
+    ><li
+    >migration from one database backend to another</li
+    ><li
+    >upgrading from one rundeck version to another</li
+    ></ul
+  ><div id="export-an-archive"
+  ><h3
+    ><a href="#TOC"
+      >Export an archive</a
+      ></h3
+    ><p
+    >To export, visit the &quot;Admin&quot; link in the Rundeck page header.</p
+    ><p
+    >Click on the link under &quot;Export Archive&quot; to download an archive containing the project Jobs, Executions and History.</p
+    ><p
+    >This archive can be imported into any other Rundeck project.</p
+    ><p
+    >The archive will contain:</p
+    ><ul
+    ><li
+      >All Job definitions from the project</li
+      ><li
+      >All Executions from the project (both Job and Adhoc executions)</li
+      ><li
+      >All Execution log files (output logs)</li
+      ><li
+      >All History reports from the project</li
+      ></ul
+    ><p
+    >Note that the archive <strong
+      >will not contain</strong
+      >:</p
+    ><ul
+    ><li
+      >The Project config file <code
+	>project.properties</code
+	> located under your <code
+	>$RDECK_BASE/projects/[name]/etc</code
+	></li
+      ><li
+      >Resource definitions (such as <code
+	>resources.xml</code
+	> or resources received from external providers.)</li
+      ></ul
+    ><p
+    >You should back up those contents separately if necessary.</p
+    ></div
+  ><div id="import-an-archive"
+  ><h3
+    ><a href="#TOC"
+      >Import an archive</a
+      ></h3
+    ><p
+    >To import the contents of an exported archive, visit the &quot;Admin&quot; link in the Rundeck page header.</p
+    ><p
+    >Click on &quot;Import Archive&quot; to display the import form.</p
+    ><p
+    >Choose the rundeck archive file to import (should end with &quot;.rdproject.jar&quot;).</p
+    ><p
+    >Click &quot;Import&quot;.</p
+    ><p
+    >The import process:</p
+    ><ul
+    ><li
+      >Creates any Jobs in the archive not found in this project with a new unique UUID</li
+      ><li
+      >Updates any Jobs in the archive that match Jobs found in the project (group and name match)</li
+      ><li
+      >Creates new Executions for the imported Jobs, and creates the output log files on disk</li
+      ><li
+      >Creates new History reports for imported Executions and Jobs</li
+      ></ul
+    ><p
+    >Note that because the archive does not contain the project configuration or resource definitions, you will have to configure those separately for the new or updated project.</p
+    ></div
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="backup-and-recovery.html">Backup and Recovery</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        <li class="prev"><a href="logs.html">Logs</a></li>
+        <li class="next"><a href="relational-database.html">Relational Database</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

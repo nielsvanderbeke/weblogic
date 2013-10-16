@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rundeck by Example</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Alex Honor" />
+  <meta name="author" content="Greg Schueler" />
+  <meta name="date" content="November 20, 2010" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="rundeck-by-example.html">Rundeck by Example</a></li>
+        <li class="toc"><a href="index.html">User Manual</a></li>
+        <li class="prev"><a href="job-options.html">Job Options</a></li>
+        <li class="next"><a href="plugins.html">Plugins</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">Rundeck by Example</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#acme-anvils"
+      >Acme Anvils</a
+      ></li
+    ><li
+    ><a href="#rundeck-set-up"
+      >Rundeck set up</a
+      ></li
+    ><li
+    ><a href="#tag-classification-and-command-dispatching"
+      >Tag classification and command dispatching</a
+      ></li
+    ><li
+    ><a href="#jobs"
+      >Jobs</a
+      ><ul
+      ><li
+	><a href="#job-structure"
+	  >Job structure</a
+	  ></li
+	><li
+	><a href="#job-grouping"
+	  >Job grouping</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#job-option"
+      >Job option</a
+      ><ul
+      ><li
+	><a href="#allowed-values"
+	  >Allowed values</a
+	  ></li
+	><li
+	><a href="#script-access-to-option-data"
+	  >Script access to option data</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#job-workflow-composition"
+      >Job workflow composition</a
+      ></li
+    ><li
+    ><a href="#running-the-job"
+      >Running the job</a
+      ></li
+    ><li
+    ><a href="#job-access-control"
+      >Job access control</a
+      ></li
+    ><li
+    ><a href="#resource-model-source-examples"
+      >Resource model source examples</a
+      ></li
+    ><li
+    ><a href="#resource-editor-examples"
+      >Resource editor examples</a
+      ></li
+    ><li
+    ><a href="#option-model-provider-examples"
+      >Option model provider examples</a
+      ></li
+    ></ul
+  ></div
+>
+<p
+>This chapter presents working examples reflecting a variety of solutions you can create with Rundeck. Helping you apply concepts and features introduced in earlier chapters is the focus of these examples. Rather than make the examples abstract, they are set in the context of Acme Anvils, a fictitious organization that manages an online application.</p
+><div id="acme-anvils"
+><h2
+  ><a href="#TOC"
+    >Acme Anvils</a
+    ></h2
+  ><p
+  >Acme Anvils is a hypothetical start up selling new and used anvils from their web site. Two teams inside the company are involved with the development and support of the anvil sales application. Being a new company, there isn't much control over access to the live environment. Either team can make changes to systems which has led to mistakes and outages. Because the senior management is so enthusiastic, they push the teams to deliver new features as frequently as possible. Unfortunately, this has led to another problem: the Acme Anvil web site is an unstable memory hog and requires occasional restarts.</p
+  ><p
+  >There are actually two methods to the restart procedure depending on the problem: &quot;kill&quot; versus &quot;normal&quot;. The &quot;kill&quot; restart is required when the application becomes totally unresponsive. The &quot;normal&quot; restart occurs when the application needs to free memory.</p
+  ><p
+  >Depending on the urgency or the staff on hand, either a developer or an administrator conducts the restart, albeit differently. Because the developers write the software, they understand the restart requirements from an application perspective. The administrators on the other hand, are not always informed of these requirements but are well versed in restarting the application from a systems perspective. This has led to a divergence in procedures and has become the main source of problems that affect their customers.</p
+  ><p
+  >An administrator, tired of the late night calls to restart the application, and frustrated by the knowledge gap between operations and development has decided to take the initiative come up with a better approach.</p
+  ></div
+><div id="rundeck-set-up"
+><h2
+  ><a href="#TOC"
+    >Rundeck set up</a
+    ></h2
+  ><p
+  >The administrator chooses a machine with access to the servers in the live environment and installs the Rundeck software there.</p
+  ><p
+  >A project called &quot;anvils&quot; is created to manage the application support activities.</p
+  ><p
+  >The administrator creates the project using the <a href="../manpages/man1/rd-project.html"
+    >rd-project</a
+    > shell tool though this could be done with the Rundeck GUI (see (<a href="rundeck-basics.html#project-setup"
+    >project setup</a
+    >). After logging into the Rundeck server, the command is run:</p
+  ><pre
+  ><code
+    >rd-project -p anvils -a create
+</code
+    ></pre
+  ><p
+  >This initialized the &quot;anvils&quot; project in Rundeck so it only contains information about the server node. Adding information about the nodes deployed in the live environment is the next step (see <a href="getting-started.html#resource-model"
+    >resource model</a
+    >).</p
+  ><p
+  >The environment has five nodes: anv1-anv5. Anvils is a three tier application and has web, application and database components installed across the five nodes.</p
+  ><p
+  >Additionally, the administrator decides to incorporate a recent convention to use different system logins to execute SSH commands to control running application components. The web component are run as the &quot;www&quot; user while the app and database components run as user &quot;anvils&quot;.</p
+  ><p
+  >With this information in hand, the administrator prepares the project resource model using the <a href="../manpages/man5/resource-v13.html"
+    >resource-v13(5) XML</a
+    > or <a href="../manpages/man5/resource-yaml-v13.html"
+    >resource-v13(5) YAML</a
+    > document format. The file listing below contains the node definitions for the five nodes -- anv1, anv2, anv3, anv4, anv5:</p
+  ><p
+  >File listing: resources.xml</p
+  ><pre
+  ><code
+    >&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;project&gt;
+  &lt;node name=&quot;anv1&quot; type=&quot;Node&quot;
+     description=&quot;an anvils web server&quot; 
+     hostname=&quot;anv1.acme.com&quot;  username=&quot;www&quot; tags=&quot;web&quot;/&gt;
+  &lt;node name=&quot;anv2&quot; type=&quot;Node&quot; 
+     description=&quot;an anvils web server&quot; 
+     hostname=&quot;anv2.acme.com&quot;  username=&quot;www&quot; tags=&quot;web&quot;/&gt;
+  &lt;node name=&quot;anv3&quot; type=&quot;Node&quot; 
+     description=&quot;an avnils app server&quot; 
+     hostname=&quot;anv3.acme.com&quot;  username=&quot;anvils&quot; tags=&quot;app&quot;/&gt;
+  &lt;node name=&quot;anv4&quot; type=&quot;Node&quot; 
+     description=&quot;an anvils app server&quot; 
+     hostname=&quot;anv4.acme.com&quot;  username=&quot;anvils&quot; tags=&quot;app&quot;/&gt;
+  &lt;node name=&quot;anv5&quot; type=&quot;Node&quot; 
+     description=&quot;the anvils database server&quot; 
+     hostname=&quot;anv5.acme.com&quot;  username=&quot;anvils&quot; tags=&quot;db&quot;/&gt; 
+&lt;/project&gt;
+</code
+    ></pre
+  ><p
+  >Reviewing the XML content one sees the XML tag set represent the host information described above. A logical name for each node is defined with the <code
+    >name</code
+    > attribute (eg name=&quot;anv1&quot;). The address used by SSH is set with <code
+    >hostname</code
+    > (eg hostname=&quot;anv1.acme.com&quot;) while the login used to execute SSH commands has been specified with the <code
+    >username</code
+    > attribute (username=&quot;www&quot; vs username=&quot;anvils&quot;). The value for the <code
+    >tags</code
+    > attribute reflects the node function (tags=&quot;web&quot; vs tags=&quot;app&quot;).</p
+  ><p
+  >The administrator saves the file and places it in a path of his choice. To make Rundeck aware of it, the administrator modifies the project configuration file, $RDECK_BASE/projects/anvils/etc/project.properties, modifying the <code
+    >project.resources.file</code
+    > setting :</p
+  ><pre
+  ><code
+    >project.resources.file = /etc/rundeck/projects/anvils/resources.xml
+</code
+    ></pre
+  ><p
+  >With the resources file in place and the project configuration updated, the administrator has finished with the resource model preparation and can begin dispatching commands.</p
+  ><p
+  >List all the nodes in the anvils project by opening the Filter and typing <code
+    >.*</code
+    > in the <em
+    >Name</em
+    > field and then press &quot;Filter&quot;. You should see a listing of 6 nodes.</p
+  ><div class="figure"
+  ><img src="../figures/fig0601.png" alt="Anvils resources"
+     /><p class="caption"
+    >Anvils resources</p
+    ></div
+  ></div
+><div id="tag-classification-and-command-dispatching"
+><h2
+  ><a href="#TOC"
+    >Tag classification and command dispatching</a
+    ></h2
+  ><p
+  >With tags that describe application role, commands can be targeted to specific sub sets of nodes without hard coding any hostnames. The <a href="../manpages/man1/dispatch.html"
+    >dispatch</a
+    > command's listing feature illustrates how tag filtering selects particular node sets in the shell:</p
+  ><p
+  >Use the <code
+    >tags</code
+    > keyword to list the web nodes:</p
+  ><pre
+  ><code
+    >dispatch -p anvils -I tags=web
+anv1 anv2
+</code
+    ></pre
+  ><p
+  >List the app nodes:</p
+  ><pre
+  ><code
+    >dispatch -p anvils -I tags=app
+anv3 anv4
+</code
+    ></pre
+  ><p
+  >List the db nodes:</p
+  ><pre
+  ><code
+    >dispatch -p anvils -I tags=db
+anv5
+</code
+    ></pre
+  ><p
+  >Use the &quot;+&quot; (AND) operator to list the web and app nodes:</p
+  ><pre
+  ><code
+    >dispatch -p anvils -I tags=web+app
+anv1 anv2 anv3 anv4
+</code
+    ></pre
+  ><p
+  >Exclude the web and app nodes:</p
+  ><pre
+  ><code
+    >dispatch -p anvils -X tags=web+app
+anv5
+</code
+    ></pre
+  ><p
+  >Using a wildcard for node name, list all the nodes:</p
+  ><pre
+  ><code
+    >dispatch -p anvils -I '.*' 
+anv1 anv2 anv3 anv4 anv5 
+</code
+    ></pre
+  ><p
+  >Here's an example using filters in the graphical console:</p
+  ><div class="figure"
+  ><img src="../figures/fig0602.png" alt="Anvils filtered list"
+     /><p class="caption"
+    >Anvils filtered list</p
+    ></div
+  ><p
+  >Filtering with tags provides an abstraction over hostnames and lets the administrator think about scripting process using loose classifications. New nodes can be added, others decommissioned while others given new purpose, and the procedures stay unchanged because they are bound to the filtering criteria.</p
+  ><p
+  >This simple classification scheme will allow the developers and administrators to share a common vocabulary when talking about the kinds of nodes supporting the Anvils application.</p
+  ></div
+><div id="jobs"
+><h2
+  ><a href="#TOC"
+    >Jobs</a
+    ></h2
+  ><p
+  >Jobs are a convenient method to establish a library of routine procedures. By its nature, a saved Job encapsulates a process into a logically named interface. Jobs can begin as a single item workflow that calls a small or large shell script but evolve into a multi-step workflow. One job can also call another job as a step in its workflow. Using this approach one can view each Job as a reusable building block upon which more complex automation can be built.</p
+  ><p
+  >The administrator decides Jobs can be used to encapsulate procedures to manage the restart process. Both developers and administrators can collaborate on their definition and evolution and maintenance.</p
+  ><p
+  >Two sets of scripts are already in use to manage the startup and shutdown procedures. Rather than force the issue as to which one is correct or superior, the administrator focuses on creating a skeleton to more easily present how scripts can be encapsulated by the job workflow. After demonstrating this simple framework, the administrator can discuss how to incorporate the best of both script implementations into the Job definitions.</p
+  ><p
+  >For the skeleton, the administrator creates simple placeholder scripts that merely echo their intent and the arguments passed to the them. Two scripts - start.sh and stop.sh - represent the two steps of the restart process.</p
+  ><p
+  >Scripts:</p
+  ><p
+  >File listing: start.sh</p
+  ><pre
+  ><code
+    >#!/bin/sh
+# Usage: $0 
+echo Web started.
+</code
+    ></pre
+  ><p
+  >File listing: stop.sh</p
+  ><pre
+  ><code
+    >#!/bin/sh
+# Usage: $0 [normal|kill]
+echo Web stopped with method: $1.
+</code
+    ></pre
+  ><p
+  >Because either the normal or kill can be specified for the &quot;method&quot; option, the Jobs will need to pass the user's choice as an argument to the script.</p
+  ><p
+  >There is no script for the restart process itself since that will be defined as a Job workflow.</p
+  ><div id="job-structure"
+  ><h3
+    ><a href="#TOC"
+      >Job structure</a
+      ></h3
+    ><p
+    >With an idea of the restart scripts in mind, the next step is to define a job to encapsulate the restart procedure. Though the overall goal is to provide a single restart procedure, for the sake of reusability, it might be preferred to break each step of the process into separate jobs.</p
+    ><p
+    >Using this approach the administrator imagines the following jobs:</p
+    ><ul
+    ><li
+      >start: call the start.sh script to start the web service</li
+      ><li
+      >stop: call the stop.sh script to stop the web service</li
+      ><li
+      >Restart: calls the jobs: stop, start</li
+      ></ul
+    ><p
+    >Since the restart procedure is the primary focus, it is capitalized for distinction.</p
+    ><p
+    >The extra complexity from defining a job for every individual step can pay off later, if those steps can be recombined with future jobs to serve later management needs. How far a process is decomposed into individual jobs is a judgement balancing maintenance requirements and the desire for job reuse.</p
+    ></div
+  ><div id="job-grouping"
+  ><h3
+    ><a href="#TOC"
+      >Job grouping</a
+      ></h3
+    ><p
+    >Though not a requirement, it is helpful to use job groups and have a convention for naming them. A good convention assists others with a navigation scheme that helps them remember and find the desired procedure.</p
+    ><p
+    >The administrator chooses to create a top level group named &quot;/anvils/web/&quot; where the web restart related jobs will be organized.</p
+    ><pre
+    ><code
+      >anvils/
+`-- web/
+    |-- Restart
+    |-- start
+    `-- stop
+</code
+      ></pre
+    ><p
+    >After choosing the &quot;anvils&quot; project users will see this grouping of jobs.</p
+    ><div class="figure"
+    ><img src="../figures/fig0604.png" alt="Anvils job group"
+       /><p class="caption"
+      >Anvils job group</p
+      ></div
+    ></div
+  ></div
+><div id="job-option"
+><h2
+  ><a href="#TOC"
+    >Job option</a
+    ></h2
+  ><p
+  >To support specifying the restart method to the scripts, the the three jobs will declare an option named &quot;method&quot;. Without such a parameter, the administrator would be forced to duplicate restart Jobs for both the kill and normal stop methods.</p
+  ><p
+  >Another benefit from defining the job option is the ability to display a menu of choices to the user running the job. Once chosen, the value selected by the menu is then passed to the script.</p
+  ><div id="allowed-values"
+  ><h3
+    ><a href="#TOC"
+      >Allowed values</a
+      ></h3
+    ><p
+    >An option can be defined to only allow values from a specified list. This places safe guards on how a Job can be run by limiting choices to those the scripts can safely handle.</p
+    ><p
+    >The administrator takes advantage of this by limiting the &quot;method&quot; option values to just &quot;normal&quot; or &quot;kill&quot; choices.</p
+    ><p
+    >The screenshot below contains the Option edit form for the &quot;method&quot; option. The form includes elements to define description and default value, as well as, Allowed Values and Restrictions.</p
+    ><div class="figure"
+    ><img src="../figures/fig0605.png" alt="Option editor for method"
+       /><p class="caption"
+      >Option editor for method</p
+      ></div
+    ><p
+    >Allowed values can be specified as a comma separated list as seen above but can also be requested from an external source using a &quot;remote URL&quot;.</p
+    ><p
+    >Option choices can be controlled using the &quot;Enforced from values&quot; restriction. When set &quot;true&quot;, the Rundeck UI will only present a popup menu. If set &quot;false&quot;, a text field will also be presented. Use the &quot;Match Regular Expression&quot; form to validate the input option.</p
+    ><p
+    >Here's a screenshot of how Rundeck will display the menu choices:</p
+    ><div class="figure"
+    ><img src="../figures/fig0606.png" alt="Option menu for method"
+       /><p class="caption"
+      >Option menu for method</p
+      ></div
+    ></div
+  ><div id="script-access-to-option-data"
+  ><h3
+    ><a href="#TOC"
+      >Script access to option data</a
+      ></h3
+    ><p
+    >Option values can be passed to scripts as an argument or referenced inside the script using a named token. For example, the value for the &quot;method&quot; option selection can be accessed in one of several ways:</p
+    ><p
+    >Value referenced as an environment variable:</p
+    ><ul
+    ><li
+      >Bash: $CT_OPTION_METHOD</li
+      ></ul
+    ><p
+    >Value passed in the argument vector to the executed script or command via the <code
+      >scriptargs</code
+      > tag:</p
+    ><ul
+    ><li
+      >Commandline Arguments: ${option.method}</li
+      ></ul
+    ><p
+    >Value represented as a named token inside the script and replaced before execution:</p
+    ><ul
+    ><li
+      >Script Content: @option.method@</li
+      ></ul
+    ></div
+  ></div
+><div id="job-workflow-composition"
+><h2
+  ><a href="#TOC"
+    >Job workflow composition</a
+    ></h2
+  ><p
+  >With an understanding of the scripts and the option needed to control the restart operation, the final step is to compose the Job definitions.</p
+  ><p
+  >While each job can be defined graphically in Rundeck, each can succinctly be defined using an XML file conforming to the <a href="../manpages/man5/job-v20.html"
+    >job-v20(5)</a
+    > document format. This document contains a set of tags corresponding to the choices seen in the Rundeck GUI form.</p
+  ><p
+  >Below are the XML definitions for the jobs. One or more jobs can be defined inside a single XML file but your convention will dictate how to organize the definitions. The files can be named any way desired and do not have to correspond to the Job name or its group.</p
+  ><p
+  >File listing: stop.xml</p
+  ><pre
+  ><code
+    >&lt;joblist&gt;   
+    &lt;job&gt; 
+       &lt;name&gt;stop&lt;/name&gt;  
+       &lt;description&gt;the web stop procedure&lt;/description&gt;  
+       &lt;loglevel&gt;INFO&lt;/loglevel&gt;  
+       &lt;group&gt;anvils/web&lt;/group&gt;  
+       &lt;context&gt; 
+           &lt;project&gt;anvils&lt;/project&gt;  
+             &lt;options&gt; 
+               &lt;option name=&quot;method&quot; enforcedvalues=&quot;true&quot;
+                       required=&quot;true&quot; 
+                   values=&quot;normal,kill&quot;/&gt; 
+               &lt;/options&gt; 
+       &lt;/context&gt;  
+       &lt;sequence threadcount=&quot;1&quot; keepgoing=&quot;false&quot; strategy=&quot;node-first&quot;&gt; 
+         &lt;command&gt; 
+           &lt;script&gt;&lt;![CDATA[#!/bin/sh
+echo Web stopped with method: $1.]]&gt;&lt;/script&gt;  
+            &lt;scriptargs&gt;${option.method}&lt;/scriptargs&gt; 
+         &lt;/command&gt; 
+       &lt;/sequence&gt;  
+       &lt;nodefilters excludeprecedence=&quot;true&quot;&gt; 
+         &lt;include&gt; 
+          &lt;tags&gt;web&lt;/tags&gt; 
+          &lt;/include&gt; 
+       &lt;/nodefilters&gt;  
+       &lt;dispatch&gt; 
+         &lt;threadcount&gt;1&lt;/threadcount&gt;  
+         &lt;keepgoing&gt;false&lt;/keepgoing&gt; 
+       &lt;/dispatch&gt; 
+     &lt;/job&gt;
+&lt;/joblist&gt;
+</code
+    ></pre
+  ><p
+  >Defines Job, /anvils/web/stop, and executes the shell script to Nodes tagged &quot;web&quot;. Using the <code
+    >scriptargs</code
+    > tag, the shell script is passed a single argument, <code
+    >${option.method}</code
+    >, containing the value chosen in the Job run form.</p
+  ><p
+  >File listing: start.xml</p
+  ><pre
+  ><code
+    >&lt;joblist&gt;   
+   &lt;job&gt; 
+     &lt;name&gt;start&lt;/name&gt;  
+     &lt;description&gt;the web start procedure&lt;/description&gt;  
+     &lt;loglevel&gt;INFO&lt;/loglevel&gt;  
+     &lt;group&gt;anvils/web&lt;/group&gt;  
+    &lt;context&gt; 
+      &lt;project&gt;anvils&lt;/project&gt;  
+    &lt;/context&gt;  
+    &lt;sequence threadcount=&quot;1&quot; keepgoing=&quot;false&quot; strategy=&quot;node-first&quot;&gt; 
+     &lt;command&gt; 
+      &lt;script&gt;&lt;![CDATA[#!/bin/sh
+ echo Web started.]]&gt;&lt;/script&gt;
+     &lt;/command&gt; 
+  &lt;/sequence&gt;  
+    &lt;nodefilters excludeprecedence=&quot;true&quot;&gt; 
+      &lt;include&gt; 
+        &lt;tags&gt;web&lt;/tags&gt; 
+      &lt;/include&gt; 
+   &lt;/nodefilters&gt;  
+   &lt;dispatch&gt; 
+     &lt;threadcount&gt;1&lt;/threadcount&gt;  
+     &lt;keepgoing&gt;false&lt;/keepgoing&gt; 
+   &lt;/dispatch&gt; 
+  &lt;/job&gt;
+&lt;/joblist&gt;
+</code
+    ></pre
+  ><p
+  >Defines Job, /anvils/web/start, that also executes a shell script to Nodes tagged &quot;web&quot;.</p
+  ><p
+  >File listing: restart.xml</p
+  ><pre
+  ><code
+    >&lt;joblist&gt;   
+   &lt;job&gt; 
+     &lt;name&gt;Restart&lt;/name&gt;  
+     &lt;description&gt;restart the web server&lt;/description&gt;  
+     &lt;loglevel&gt;INFO&lt;/loglevel&gt;  
+     &lt;group&gt;anvils/web&lt;/group&gt;  
+     &lt;context&gt; 
+       &lt;project&gt;anvils&lt;/project&gt;  
+         &lt;options&gt; 
+           &lt;option name=&quot;method&quot; enforcedvalues=&quot;true&quot; required=&quot;false&quot; 
+          values=&quot;normal,kill&quot; /&gt; 
+        &lt;/options&gt; 
+     &lt;/context&gt;  
+     &lt;sequence threadcount=&quot;1&quot; keepgoing=&quot;false&quot; strategy=&quot;node-first&quot;&gt; 
+      &lt;command&gt; 
+        &lt;jobref name=&quot;stop&quot; group=&quot;anvils/web&quot;&gt;
+          &lt;arg line=&quot;-method ${option.method}&quot;/&gt; 
+        &lt;/jobref&gt; 
+      &lt;/command&gt;  
+      &lt;command&gt; 
+        &lt;jobref name=&quot;start&quot; group=&quot;anvils/web&quot;&gt;
+        &lt;/jobref&gt; 
+      &lt;/command&gt; 
+    &lt;/sequence&gt;
+   &lt;/job&gt;   
+&lt;/joblist&gt;
+</code
+    ></pre
+  ><p
+  >Defines Job, /anvils/web/Restart, that executes a sequence of Job calls, using the <code
+    >jobref</code
+    > tag.</p
+  ><p
+  >Note that we don't define a <code
+    >&lt;nodefilters&gt;</code
+    > or <code
+    >&lt;dispatch&gt;</code
+    > section, because we only want this sequence to execute <strong
+    >once</strong
+    >, on the server node. The Job references will each be called once, and the &quot;start&quot; and &quot;stop&quot; Jobs will each be dispatched to the nodes they define.</p
+  ><p
+  >Saving the XML definitions files located on the Rundeck server, one can load them using the <a href="../manpages/man1/rd-jobs.html"
+    >rd-jobs</a
+    > command.</p
+  ><p
+  >Run the <code
+    >rd-jobs load</code
+    > command for each job definition file:</p
+  ><pre
+  ><code
+    >rd-jobs load -f start.xml
+rd-jobs load -f stop.xml
+rd-jobs load -f restart.xml
+</code
+    ></pre
+  ><p
+  >The <code
+    >rd-jobs list</code
+    > command queries Rundeck and prints out the list of defined jobs:</p
+  ><pre
+  ><code
+    >rd-jobs list -p anvils
+Found 3 jobs:
+- Restart - 'the web restart procedure'
+- start - 'the web start procedure'
+- stop - 'the web stop procedure'
+</code
+    ></pre
+  ><p
+  >Of course, the jobs can be viewed inside the Rundeck graphical console by going to the Jobs page. Hovering over the &quot;Restart&quot; job name reveals job detail.</p
+  ><div class="figure"
+  ><img src="../figures/fig0607.png" alt="Anvils restart jobs"
+     /><p class="caption"
+    >Anvils restart jobs</p
+    ></div
+  ><p
+  >You will see the composition of the &quot;Restart&quot; job as a workflow calling the jobs: stop and start. The &quot;Restart&quot; job passes the <code
+    >-method</code
+    > option value to the lower level stop Job.</p
+  ></div
+><div id="running-the-job"
+><h2
+  ><a href="#TOC"
+    >Running the job</a
+    ></h2
+  ><p
+  >The Jobs can be run from the Rundeck graphical console by going to the &quot;Jobs&quot; page. From there, navigate to the &quot;Anvils/web&quot; job group to display the three stored Jobs.</p
+  ><p
+  >Clicking the &quot;Run&quot; button for the Restart job, will display the options selection page. The menu for the &quot;method&quot; option displays the two choices: &quot;normal&quot; and &quot;kill&quot;. No other choices can be made, nor a textfield for free form entry, because the &quot;method&quot; option was defined with the restriction &quot;enforced from allowed values&quot;.</p
+  ><div class="figure"
+  ><img src="../figures/fig0608.png" alt="Restart run page"
+     /><p class="caption"
+    >Restart run page</p
+    ></div
+  ><p
+  >The jobs can also be started from the command line using the <a href="../manpages/man1/run.html"
+    >run</a
+    > shell tool. The job group and name are specified using the &quot;-j&quot; parameter. Any options the Job supports are supplied after the &quot;--&quot; (double dash) parameter. (The &quot;-p&quot; parameter specifies the project, but it can be left out if there is only one project available.)</p
+  ><p
+  >Run Restart specifying the method, &quot;normal&quot;:</p
+  ><pre
+  ><code
+    >run -j &quot;anvils/web/Restart&quot; -p anvils -- -method normal
+</code
+    ></pre
+  ><p
+  >Run Restart specifying the method, &quot;kill&quot;:</p
+  ><pre
+  ><code
+    >run -j &quot;anvils/web/Restart&quot; -p anvils -- -method kill
+</code
+    ></pre
+  ></div
+><div id="job-access-control"
+><h2
+  ><a href="#TOC"
+    >Job access control</a
+    ></h2
+  ><p
+  >Access to running or modifying Jobs is managed in an access control policy defined using the aclpolicy document format (<a href="../manpages/man5/aclpolicy-v10.html"
+    >aclpolicy-v10(5)</a
+    >). This file contains a number of policy elements that describe what user group is allowed to perform which actions. The <a href="../administration/authorization.html"
+    >Authorization</a
+    > Chapter of the Administration Guide covers this in detail.</p
+  ><p
+  >The administrator wants to use the aclpolicy to define two levels of access. The first level, has limited privilege and allows for just running jobs. The second level, is administrative and can modify job definitions.</p
+  ><p
+  >Policies can be organized into more than one file to help organize access by group or pattern of use. The normal Rundeck install will define two user groups: &quot;admin&quot; and &quot;user&quot; and have a generated a policy for the &quot;admin&quot; group.</p
+  ><p
+  >The Acme administrator decides to create a policy that allows users in the &quot;user&quot; group to run commands just in the &quot;anvils&quot; and &quot;anvils/web&quot; Job groups. We can employ the &quot;user&quot; login and group as it was also included in the normal install.</p
+  ><p
+  >To create the aclpolicy file for the &quot;user&quot; group:</p
+  ><pre
+  ><code
+    >cp $RDECK_BASE/etc/admin.aclpolicy $RDECK_BASE/etc/user.aclpolicy
+</code
+    ></pre
+  ><p
+  >Modify the <code
+    >&lt;command&gt;</code
+    > and <code
+    >&lt;group&gt;</code
+    > elements as shown in the example below. Notice that just workflow_read,workflow_run actions are allowed.</p
+  ><pre class="sourceCode xml"
+  ><code
+    ><span class="Normal NormalText"
+      >$ cat $RDECK_BASE/etc/user.aclpolicy</span
+      ><br
+       /><span class="Keyword Element"
+      >&lt;policies&gt;</span
+      ><br
+       /><span class="Normal NormalText"
+      >  </span
+      ><span class="Keyword Element"
+      >&lt;policy</span
+      ><span class="Others Attribute"
+      > description=</span
+      ><span class="String Value"
+      >&quot;User group access policy.&quot;</span
+      ><span class="Keyword Element"
+      >&gt;</span
+      ><br
+       /><span class="Normal NormalText"
+      >    </span
+      ><span class="Keyword Element"
+      >&lt;context</span
+      ><span class="Others Attribute"
+      > project=</span
+      ><span class="String Value"
+      >&quot;*&quot;</span
+      ><span class="Keyword Element"
+      >&gt;</span
+      ><br
+       /><span class="Normal NormalText"
+      >      </span
+      ><span class="Keyword Element"
+      >&lt;command</span
+      ><span class="Others Attribute"
+      > group=</span
+      ><span class="String Value"
+      >&quot;anvils&quot;</span
+      ><span class="Others Attribute"
+      > job=</span
+      ><span class="String Value"
+      >&quot;*&quot;</span
+      ><span class="Others Attribute"
+      > actions=</span
+      ><span class="String Value"
+      >&quot;workflow_read,workflow_run&quot;</span
+      ><span class="Keyword Element"
+      >/&gt;</span
+      ><br
+       /><span class="Normal NormalText"
+      >      </span
+      ><span class="Keyword Element"
+      >&lt;command</span
+      ><span class="Others Attribute"
+      > group=</span
+      ><span class="String Value"
+      >&quot;anvils/web&quot;</span
+      ><span class="Others Attribute"
+      > job=</span
+      ><span class="String Value"
+      >&quot;*&quot;</span
+      ><span class="Others Attribute"
+      > actions=</span
+      ><span class="String Value"
+      >&quot;workflow_read,workflow_run&quot;</span
+      ><span class="Keyword Element"
+      >/&gt;</span
+      ><br
+       /><span class="Normal NormalText"
+      >    </span
+      ><span class="Keyword Element"
+      >&lt;/context&gt;</span
+      ><br
+       /><span class="Normal NormalText"
+      >    </span
+      ><span class="Keyword Element"
+      >&lt;by&gt;</span
+      ><br
+       /><span class="Normal NormalText"
+      >      </span
+      ><span class="Keyword Element"
+      >&lt;group</span
+      ><span class="Others Attribute"
+      > name=</span
+      ><span class="String Value"
+      >&quot;user&quot;</span
+      ><span class="Keyword Element"
+      >/&gt;</span
+      ><br
+       /><span class="Normal NormalText"
+      >    </span
+      ><span class="Keyword Element"
+      >&lt;/by&gt;</span
+      ><br
+       /><span class="Normal NormalText"
+      >  </span
+      ><span class="Keyword Element"
+      >&lt;/policy&gt;</span
+      ><br
+       /><span class="Keyword Element"
+      >&lt;/policies&gt;</span
+      ><br
+       /></code
+    ></pre
+  ><p
+  >Restart Rundeck to load the new policy file (see <a href="../administration/startup-and-shutdown.html"
+    >Administration - Startup and Shutdown</a
+    >).</p
+  ><pre
+  ><code
+    >rundeckd restart
+</code
+    ></pre
+  ><p
+  >Once the Rundeck webapp has started, login as the &quot;user&quot; user (the password is probably &quot;user&quot;). Just the Jobs in the &quot;anvils&quot; group are displayed in the Jobs page. The &quot;user&quot; user does is not allowed to access jobs outside of &quot;/anvils group.</p
+  ><p
+  >Notice the absence of the &quot;New Job&quot; button that would be displayed if logged in as &quot;admin&quot;. Job creation is an action not granted to &quot;user&quot;. Notice also, that the button bar for the listed Jobs does not include icons for editing or deleting the Job. Only workflow_read and workflow_actions were allowed in the <code
+    >user.aclpolicy</code
+    > file.</p
+  ></div
+><div id="resource-model-source-examples"
+><h2
+  ><a href="#TOC"
+    >Resource model source examples</a
+    ></h2
+  ><p
+  >See <a href="../administration/node-resource-sources.html#resource-model-source"
+    >Administration - Node Resource Sources - Resource Model Source</a
+    >.</p
+  ></div
+><div id="resource-editor-examples"
+><h2
+  ><a href="#TOC"
+    >Resource editor examples</a
+    ></h2
+  ><p
+  >See <a href="../administration/node-resource-sources.html#resource-editor"
+    >Administration - Node Resource Sources - Resource Editor</a
+    >.</p
+  ></div
+><div id="option-model-provider-examples"
+><h2
+  ><a href="#TOC"
+    >Option model provider examples</a
+    ></h2
+  ><p
+  >See <a href="job-options.html#option-model-provider"
+    >Job Options - Option Model Provider</a
+    >.</p
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="rundeck-by-example.html">Rundeck by Example</a></li>
+        <li class="toc"><a href="index.html">User Manual</a></li>
+        <li class="prev"><a href="job-options.html">Job Options</a></li>
+        <li class="next"><a href="plugins.html">Plugins</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

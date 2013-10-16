@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SSL</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="ssl.html">SSL</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        <li class="prev"><a href="authorization.html">Authorization</a></li>
+        <li class="next"><a href="gui-customization.html">GUI Customization</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">SSL</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#securing-passwords"
+      >Securing passwords</a
+      ></li
+    ><li
+    ><a href="#troubleshooting-keystore"
+      >Troubleshooting keystore</a
+      ></li
+    ><li
+    ><a href="#optional-pem-export"
+      >Optional PEM export</a
+      ></li
+    ></ul
+  ></div
+>
+<p
+>This document describes how to configure Rundeck for SSL/HTTPS support, and assumes you are using the rundeck-launcher standalone launcher.</p
+><ol style="list-style-type: decimal;"
+><li
+  ><p
+    >Before beginning, do a first-run of the launcher, as it will create the base directory for Rundeck and generate configuration files.</p
+    ><pre
+    ><code
+      >cd $RDECK_BASE;  java -jar rundeck-launcher-1.1.0.jar
+</code
+      ></pre
+    ></li
+  ></ol
+><p
+>This will start the server and generate necessary config files. Press control-c to shut down the server.</p
+><ol start="2" style="list-style-type: decimal;"
+><li
+  ><p
+    >Using the <a href="http://linux.die.net/man/1/keytool-java-1.6.0-openjdk"
+      >keytool</a
+      > command, generate a keystore for use as the server cert and client truststore. Specify passwords for key and keystore:</p
+    ><pre
+    ><code
+      >keytool -keystore etc/keystore -alias rundeck -genkey -keyalg RSA -keypass admin -storepass admin
+</code
+      ></pre
+    ></li
+  ></ol
+><p
+>Be sure to specify the correct hostname of the server as the response to the question &quot;What is your first and last name?&quot;. Answer &quot;yes&quot; to the final question.</p
+><p
+>You can pass all the answers to the tool on the command-line by using a HERE document.</p
+><p
+>Replace the first line &quot;Venkman.local&quot; with the hostname for your server, and use any other organizational values you like:</p
+><pre
+><code
+  >    keytool -keystore etc/keystore -alias rundeck -genkey -keyalg RSA -keypass adminadmin -storepass adminadmin  &lt;&lt;!
+    Venkman.local
+    devops
+    My org
+    my city
+    my state
+    US
+    yes
+    !
+</code
+  ></pre
+><ol start="3" style="list-style-type: decimal;"
+><li
+  ><p
+    >CLI tools that communicate to the Rundeck server need to trust the SSL certificate provided by the server. They are preconfigured to look for a truststore at the location: <code
+      >$RDECK_BASE/etc/truststore</code
+      >. Copy the keystore as the truststore for CLI tools:</p
+    ><pre
+    ><code
+      >cp etc/keystore etc/truststore
+</code
+      ></pre
+    ></li
+  ><li
+  ><p
+    >Modify the ssl.properties file to specify the location of the keystore and the appropriate passwords:</p
+    ><pre
+    ><code
+      >vi server/config/ssl.properties
+</code
+      ></pre
+    ></li
+  ></ol
+><p
+>An example ssl.properties file (from the RPM package).</p
+><pre
+><code
+  >    keystore=/etc/rundeck/ssl/keystore
+    keystore.password=adminadmin
+    key.password=adminadmin
+    truststore=/etc/rundeck/ssl/truststore
+    truststore.password=adminadmin
+</code
+  ></pre
+><ol start="5" style="list-style-type: decimal;"
+><li
+  ><p
+    >Configure client properties. Modify the file <code
+      >$RDECK_BASE/etc/framework.properties</code
+      > and change these properties:</p
+    ><ul
+    ><li
+      ><code
+	>framework.server.url</code
+	></li
+      ><li
+      ><code
+	>framework.rundeck.url</code
+	></li
+      ><li
+      ><code
+	>framework.server.port</code
+	></li
+      ></ul
+    ></li
+  ></ol
+><p
+>Set them to the appropriate https protocol, and change the port to 4443, or to the value of your <code
+  >-Dserver.https.port</code
+  > runtime configuration property.</p
+><ol start="6" style="list-style-type: decimal;"
+><li
+  ><p
+    >Launch the rundeck launcher and tell it where to read the ssl.properties</p
+    ><pre
+    ><code
+      >java -Drundeck.ssl.config=$RDECK_BASE/server/config/ssl.properties -jar rundeck-launcher-1.1.0.jar
+</code
+      ></pre
+    ></li
+  ></ol
+><p
+>You can change port by adding <code
+  >-Dserver.https.port</code
+  >:</p
+><pre
+><code
+  >    java -Drundeck.ssl.config=$RDECK_BASE/server/config/ssl.properties -Dserver.https.port=1234 rundeck-launcher-1.1.0.jar
+</code
+  ></pre
+><p
+>If successful, you will see a line indicating the SSl connector has started:</p
+><pre
+><code
+  >Started SslSocketConnector@0.0.0.0:4443
+</code
+  ></pre
+><div id="securing-passwords"
+><h3
+  ><a href="#TOC"
+    >Securing passwords</a
+    ></h3
+  ><p
+  >Passwords do not have to be stored in the ssl.config. If they are not set, then the server will prompt on the console for a user to enter the passwords.</p
+  ><p
+  >If you want the server to start without prompting then you need to set the passwords in the config file.</p
+  ><p
+  >The passwords stored in ssl.properties can be obfuscated so they are not in plaintext:</p
+  ><p
+  >Run the jetty &quot;Password&quot; utility:</p
+  ><pre
+  ><code
+    >$ java -cp server/lib/jetty-6.1.21.jar:server/lib/jetty-util-6.1.21.jar org.mortbay.jetty.security.Password &lt;password&gt;
+</code
+    ></pre
+  ><p
+  >This will produce two lines, one starting with &quot;OBF:&quot;</p
+  ><p
+  >Use the entire OBF: output as the password in the ssl.properties file, eg:</p
+  ><pre
+  ><code
+    >key.password=OBF:1lk2j1lkj321lj13lj
+</code
+    ></pre
+  ></div
+><div id="troubleshooting-keystore"
+><h3
+  ><a href="#TOC"
+    >Troubleshooting keystore</a
+    ></h3
+  ><p
+  >Some common error messages and causes:</p
+  ><dl
+  ><dt
+    >java.io.IOException: Keystore was tampered with, or password was incorrect</dt
+    ><dd
+    ><p
+      >A password specified in the file was incorrect.</p
+      ></dd
+    ><dt
+    >2010-12-02 10:07:29.958::WARN: failed SslSocketConnector@0.0.0.0:4443: java.io.FileNotFoundException: /Users/greg/rundeck/etc/keystore (No such file or directory)</dt
+    ><dd
+    ><p
+      >The keystore/truststore file specified in ssl.properties doesn't exist</p
+      ></dd
+    ></dl
+  ></div
+><div id="optional-pem-export"
+><h3
+  ><a href="#TOC"
+    >Optional PEM export</a
+    ></h3
+  ><p
+  >You can export the PEM formatted server certificate for use by HTTPS clients (web browsers or e.g. curl).</p
+  ><p
+  >Export pem cacert for use by e.g. curl:</p
+  ><pre
+  ><code
+    >keytool -export -keystore etc/keystore -rfc -alias rundeck &gt; rundeck.server.pem
+</code
+    ></pre
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="ssl.html">SSL</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        <li class="prev"><a href="authorization.html">Authorization</a></li>
+        <li class="next"><a href="gui-customization.html">GUI Customization</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

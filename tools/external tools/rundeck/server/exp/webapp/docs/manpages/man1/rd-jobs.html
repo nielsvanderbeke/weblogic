@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>rd-jobs(1) | Version 1.4.4</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Greg Schueler" />
+  <meta name="author" content="Alex Honor" />
+  <meta name="date" content="November 20, 2010" />
+  <link rel="stylesheet" href="../../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../../index.html">Rundeck Documentation (1.4.4)</a></li>
+    
+        <li><a href="../index.html">Man Pages</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="rd-jobs.html">rd-jobs(1)</a></li>
+        <li class="toc"><a href="index.html">Commands | Man(1)</a></li>
+        <li class="prev"><a href="dispatch.html">dispatch(1)</a></li>
+        <li class="next"><a href="rd-options.html">rd-options(1)</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">rd-jobs(1) | Version 1.4.4</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#name"
+      >NAME</a
+      ></li
+    ><li
+    ><a href="#synopsis"
+      >SYNOPSIS</a
+      ></li
+    ><li
+    ><a href="#description"
+      >DESCRIPTION</a
+      ></li
+    ><li
+    ><a href="#options"
+      >OPTIONS</a
+      ><ul
+      ><li
+	><a href="#list-action-options"
+	  >LIST ACTION OPTIONS</a
+	  ></li
+	><li
+	><a href="#load-action-options"
+	  >LOAD ACTION OPTIONS</a
+	  ></li
+	><li
+	><a href="#purge-action-options"
+	  >PURGE ACTION OPTIONS</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#list-action"
+      >LIST ACTION</a
+      ></li
+    ><li
+    ><a href="#load-action"
+      >LOAD ACTION</a
+      ></li
+    ><li
+    ><a href="#purge-action"
+      >PURGE ACTION</a
+      ></li
+    ><li
+    ><a href="#see-also"
+      >SEE ALSO</a
+      ></li
+    ></ul
+  ></div
+>
+<div id="name"
+><h1
+  ><a href="#TOC"
+    >NAME</a
+    ></h1
+  ><p
+  >rd-jobs - List, load or delete jobs from the Rundeck server</p
+  ></div
+><div id="synopsis"
+><h1
+  ><a href="#TOC"
+    >SYNOPSIS</a
+    ></h1
+  ><p
+  >rd-jobs [<em
+    >action</em
+    >] [<em
+    >action options</em
+    >]...</p
+  ></div
+><div id="description"
+><h1
+  ><a href="#TOC"
+    >DESCRIPTION</a
+    ></h1
+  ><p
+  >The rd-jobs command lists Jobs stored on the server and optionally downloads them as XML or Yaml, or uploads Job XML/Yaml to the server from a file.</p
+  ><p
+  >The tool works in one of two <em
+    >ACTION</em
+    > modes:</p
+  ><ul
+  ><li
+    ><p
+      >list : list the stored Jobs on the server (default action)</p
+      ></li
+    ><li
+    ><p
+      >load : upload job definitions up to the server</p
+      ></li
+    ><li
+    ><p
+      >purge : delete job definitions on the server</p
+      ></li
+    ></ul
+  ></div
+><div id="options"
+><h1
+  ><a href="#TOC"
+    >OPTIONS</a
+    ></h1
+  ><p
+  >-h, --help : Print usage message.</p
+  ><p
+  >-v : Run verbosely.</p
+  ><div id="list-action-options"
+  ><h2
+    ><a href="#TOC"
+      >LIST ACTION OPTIONS</a
+      ></h2
+    ><p
+    >-g, --group <em
+      >GROUP</em
+      > : Group name. List jobs within this group or sub-group</p
+    ><p
+    >-i, --idlist <em
+      >ID</em
+      > : Job ID List. List Jobs with these IDs explicitly. Comma-separated, e.g.: 1,2,3.</p
+    ><p
+    >-n, --name <em
+      >NAME</em
+      > : Job Name. List jobs matching this name.</p
+    ><p
+    >-p, --project <em
+      >PROJECT</em
+      > : Project name. List jobs within this project.</p
+    ><p
+    >-f, --file <em
+      >FILE</em
+      > : File path. For list action, path to store the job definitions found in XML/Yaml.</p
+    ><p
+    >-F, --format <em
+      >FORMAT</em
+      > : File Format. For list action, format for the output document. Values: &quot;xml&quot; or &quot;yaml&quot;. Default: &quot;xml&quot;.</p
+    ></div
+  ><div id="load-action-options"
+  ><h2
+    ><a href="#TOC"
+      >LOAD ACTION OPTIONS</a
+      ></h2
+    ><p
+    >-d, --duplicate <em
+      >update|skip|create</em
+      > : Duplicate job behavior option. When loading jobs, treat definitions that already exist on the server in the given manner: 'update' existing jobs,'skip' the uploaded definitions, or 'create' them anyway. (load action. default: update)</p
+    ><p
+    >-f, --file <em
+      >FILE</em
+      > : File path. For load action, path to a FILE to upload.</p
+    ><p
+    >-F, --format <em
+      >FORMAT</em
+      > : File Format. For load action, format for the input document. Values: &quot;xml&quot; or &quot;yaml&quot;. Default: &quot;xml&quot;.</p
+    ></div
+  ><div id="purge-action-options"
+  ><h2
+    ><a href="#TOC"
+      >PURGE ACTION OPTIONS</a
+      ></h2
+    ><p
+    >The purge action uses the same set of options as the <em
+      >list</em
+      > action.</p
+    ></div
+  ></div
+><div id="list-action"
+><h1
+  ><a href="#TOC"
+    >LIST ACTION</a
+    ></h1
+  ><p
+  >The List action queries the server for a list of matching jobs, and displays the result list. Optionally the definitions of the matching jobs can be stored in a file if <code
+    >-f</code
+    > is specified.</p
+  ><p
+  >The jobs can be specified explicitly by ID using the <code
+    >-i/--idlist</code
+    > option. Otherwise they are searched using the options as filter criteria, and all matching Jobs are returned.</p
+  ><p
+  >If no options to the list action are supplied, then all Jobs on the server are returned.</p
+  ><p
+  >If no <code
+    >-p/--project</code
+    > option is specified, and only one project exists, the single project is used. Otherwise the option is required.</p
+  ><p
+  ><em
+    >Examples</em
+    ></p
+  ><p
+  >List all jobs on the server for the only project:</p
+  ><pre
+  ><code
+    >rd-jobs
+</code
+    ></pre
+  ><p
+  >List all jobs in the project &quot;demo&quot;</p
+  ><pre
+  ><code
+    >rd-jobs -p demo
+</code
+    ></pre
+  ><p
+  >List only a single job by ID:</p
+  ><pre
+  ><code
+    >rd-jobs -i 123 -p demo
+</code
+    ></pre
+  ><p
+  >List a set of jobs by ID and store them in a XML file:</p
+  ><pre
+  ><code
+    >rd-jobs -i 1,23,4 --file out.xml -p demo
+</code
+    ></pre
+  ><p
+  >List a set of jobs by ID and store them in a Yaml file:</p
+  ><pre
+  ><code
+    >rd-jobs -i 1,23,4 --file out.yaml --format yaml -p demo
+</code
+    ></pre
+  ><p
+  >Output from the command will list the job name, ID number in brackets, and the URL to view the Job in the server.</p
+  ><pre
+  ><code
+    >Found 5 jobs:
+   1: Build all [38] &lt;http://localhost:8080/rundeck/scheduledExecution/show/38&gt;
+   2: Build and Update Server0 [31] &lt;http://localhost:8080/rundeck/scheduledExecution/show/31&gt;
+   3: Build and Update Server1 [17] &lt;http://localhost:8080/rundeck/scheduledExecution/show/17&gt;
+   4: Build and Update Server2 [45] &lt;http://localhost:8080/rundeck/scheduledExecution/show/45&gt;
+   5: Deploy Server4 [46] &lt;http://localhost:8080/rundeck/scheduledExecution/show/46&gt;
+</code
+    ></pre
+  ></div
+><div id="load-action"
+><h1
+  ><a href="#TOC"
+    >LOAD ACTION</a
+    ></h1
+  ><p
+  >The Load action uploads the specified file to the server, and the list of loaded jobs are displayed. If any Jobs cannot be stored (e.g. the user is unauthorized to run a certain command), the list of unsuccessfully created jobs are also displayed.</p
+  ><p
+  >The <code
+    >-d,--duplicate</code
+    > option lets you specify what should happen if any of the Job definitions have the same Name and Group of an existing Job on the server. The default option is &quot;update&quot;, which means to overwrite the existing definitions with the new version. &quot;skip&quot; means to ignore the uploaded definition. &quot;create&quot; means to create a new Job with the uploaded definition (hence making the Group+Name non-unique).</p
+  ><p
+  ><em
+    >Examples</em
+    ></p
+  ><p
+  >Load a file to the server in XML or Yaml format:</p
+  ><pre
+  ><code
+    >rd-jobs load -f jobs.xml
+rd-jobs load -f jobs.yaml -F yaml
+</code
+    ></pre
+  ><p
+  >Output:</p
+  ><pre
+  ><code
+    >Total Jobs Uploaded: 2 jobs
+Succeeded creating/updating 2  Jobs:
+   1: Build and Update Server2 [45] &lt;http://localhost:8080/rundeck/scheduledExecution/show/45&gt;
+   2: Deploy Server4 [46] &lt;http://localhost:8080/rundeck/scheduledExecution/show/46&gt;
+</code
+    ></pre
+  ><p
+  >If a Job was not successfully created, you will see it mentioned along with a message about why it failed. The number next to the Job name indicates the index of the definition in the uploaded XML:</p
+  ><pre
+  ><code
+    >rd-jobs load -f jobs.xml
+</code
+    ></pre
+  ><p
+  >Output:</p
+  ><pre
+  ><code
+    >Total Jobs Uploaded: 3 jobs
+Failed to add 1 Jobs:
+   3: Build Server1 : Project was not found: north
+Project was not found: north
+Succeeded creating/updating 2  Jobs:
+   1: Build and Update Server2 [45] &lt;http://localhost:8080/rundeck/scheduledExecution/show/45&gt;
+   2: Deploy Server4 [46] &lt;http://localhost:8080/rundeck/scheduledExecution/show/46&gt;
+</code
+    ></pre
+  ><p
+  >If the -d skip is specified, then any jobs definitions that were skipped will be listed:</p
+  ><pre
+  ><code
+    >rd-jobs load -f jobs.xml -d skip
+</code
+    ></pre
+  ><p
+  >Output:</p
+  ><pre
+  ><code
+    >Total Jobs Uploaded: 2 jobs
+Skipped 2 Jobs:
+   1: Build and Update Server2 [45] &lt;http://localhost:8080/rundeck/scheduledExecution/show/45&gt;
+   2: Deploy Server4 [46] &lt;http://localhost:8080/rundeck/scheduledExecution/show/46&gt;
+</code
+    ></pre
+  ></div
+><div id="purge-action"
+><h1
+  ><a href="#TOC"
+    >PURGE ACTION</a
+    ></h1
+  ><p
+  >The Purge action queries the server for a list of matching jobs, and then requests that the server delete those jobs. Optionally the definitions of the matching jobs can be stored in a file if <code
+    >-f</code
+    > is specified.</p
+  ><p
+  >The jobs can be specified explicitly by ID using the <code
+    >-i/--idlist</code
+    > option. Otherwise they are searched using the options as filter criteria, and all matching Jobs are deleted.</p
+  ><p
+  >If no <code
+    >-p/--project</code
+    > option is specified, and only one project exists, the single project is used. Otherwise the option is required.</p
+  ></div
+><div id="see-also"
+><h1
+  ><a href="#TOC"
+    >SEE ALSO</a
+    ></h1
+  ><p
+  ><a href="run.html"
+    ><code
+      >run</code
+      > (1)</a
+    >.</p
+  ><p
+  >The Rundeck source code and all documentation may be downloaded from <a href="https://github.com/dtolabs/rundeck/"
+    ><code
+      >https://github.com/dtolabs/rundeck/</code
+      ></a
+    >.</p
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="rd-jobs.html">rd-jobs(1)</a></li>
+        <li class="toc"><a href="index.html">Commands | Man(1)</a></li>
+        <li class="prev"><a href="dispatch.html">dispatch(1)</a></li>
+        <li class="next"><a href="rd-options.html">rd-options(1)</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../../index.html">Rundeck Documentation (1.4.4)</a></li>
+    
+        <li><a href="../index.html">Man Pages</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

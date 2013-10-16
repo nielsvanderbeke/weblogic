@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RESOURCE-YAML-V13(5) Rundeck User Manuals | Version 1.3</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Greg Schueler" />
+  <meta name="date" content="February 25, 2011" />
+  <link rel="stylesheet" href="../../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../../index.html">Rundeck Documentation (1.4.4)</a></li>
+    
+        <li><a href="../index.html">Man Pages</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="resource-yaml-v13.html">RESOURCE-YAML-V13(5) Rundeck User Manuals | Version 1.3</a></li>
+        <li class="toc"><a href="index.html">Formats | Man(5)</a></li>
+        <li class="prev"><a href="resource-v13.html">RESOURCE-V13(5) Rundeck User Manuals | Version 1.3</a></li>
+        
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">RESOURCE-YAML-V13(5) Rundeck User Manuals | Version 1.3</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#name"
+      >NAME</a
+      ><ul
+      ><li
+	><a href="#structure"
+	  >Structure</a
+	  ></li
+	><li
+	><a href="#node-definition"
+	  >Node Definition</a
+	  ></li
+	><li
+	><a href="#examples"
+	  >Examples</a
+	  ></li
+	></ul
+      ></li
+    ></ul
+  ></div
+>
+<div id="name"
+><h1
+  ><a href="#TOC"
+    >NAME</a
+    ></h1
+  ><p
+  >resource-yaml-v13 - describes the Rundeck resource model document Yaml format</p
+  ><p
+  >The <code
+    >resource</code
+    > YAML document declares a resource model used by a Rundeck Project to define the set of Nodes that are available.</p
+  ><p
+  >See <a href="http://yaml.org"
+    ><code
+      >http://yaml.org</code
+      ></a
+    > for more information about YAML.</p
+  ><div id="structure"
+  ><h2
+    ><a href="#TOC"
+      >Structure</a
+      ></h2
+    ><p
+    >The resource format supports two structures: either a Yaml Sequence of <a href="#node-definition"
+      >Node definitions</a
+      >, or a Yaml Map of node names with <a href="#node-definition"
+      >Node definitions</a
+      > as values.</p
+    ><p
+    >Example:</p
+    ><pre
+    ><code
+      >- somenode: ...
+  ...
+- somenode2: ...
+</code
+      ></pre
+    ><p
+    >OR</p
+    ><pre
+    ><code
+      >somenode:
+   hostname: ...
+   ...
+somenode2:
+   hostname: ...
+</code
+      ></pre
+    ><p
+    >In the second case, the <code
+      >nodename</code
+      > entry is not required.</p
+    ></div
+  ><div id="node-definition"
+  ><h2
+    ><a href="#TOC"
+      >Node Definition</a
+      ></h2
+    ><p
+    >A Node definition consists of a Map with some required and some optional entries.</p
+    ><p
+    >Required Entries:</p
+    ><dl
+    ><dt
+      ><code
+	>nodename</code
+	></dt
+      ><dd
+      ><p
+	>Name of the node, this must be a unique Identifier across nodes within a project</p
+	></dd
+      ><dt
+      ><code
+	>hostname</code
+	></dt
+      ><dd
+      ><p
+	>Hostname of the node. This can be any IP Address or hostname to address the node. Since hostname is used to make SSH connections, it is possible to overload the value to include port number. (eg, hostname:port).</p
+	></dd
+      ><dt
+      ><code
+	>username</code
+	></dt
+      ><dd
+      ><p
+	>User name to connect to the node via SSH.</p
+	></dd
+      ></dl
+    ><p
+    >Optional Entries:</p
+    ><dl
+    ><dt
+      ><code
+	>description</code
+	></dt
+      ><dd
+      ><p
+	>A description of the Node</p
+	></dd
+      ><dt
+      ><code
+	>tags</code
+	></dt
+      ><dd
+      ><p
+	>A literal with comma-separated tag strings, or a Sequence of literals</p
+	></dd
+      ><dt
+      ><code
+	>osFamily</code
+	></dt
+      ><dd
+      ><p
+	>OS Family</p
+	></dd
+      ><dt
+      ><code
+	>osArch</code
+	></dt
+      ><dd
+      ><p
+	>OS Architecture</p
+	></dd
+      ><dt
+      ><code
+	>osName</code
+	></dt
+      ><dd
+      ><p
+	>OS Name</p
+	></dd
+      ><dt
+      ><code
+	>osVersion</code
+	></dt
+      ><dd
+      ><p
+	>OS Version</p
+	></dd
+      ><dt
+      ><code
+	>editUrl</code
+	></dt
+      ><dd
+      ><p
+	>URL to an external resource model service.</p
+	></dd
+      ><dt
+      ><code
+	>remoteUrl</code
+	></dt
+      ><dd
+      ><p
+	>URL to an external resource model editor service.</p
+	></dd
+      ><dt
+      ><em
+	>Anything</em
+	></dt
+      ><dd
+      ><p
+	>Specify any custom attributes about node using a string value.</p
+	></dd
+      ></dl
+    ><ul
+    ><li
+      >For more information about using the <code
+	>editUrl</code
+	>/<code
+	>remoteUrl</code
+	> see the <a href="administration/node-resource-sources.html#resource-editor"
+	>Rundeck User Manual</a
+	>.</li
+      ></ul
+    ></div
+  ><div id="examples"
+  ><h2
+    ><a href="#TOC"
+      >Examples</a
+      ></h2
+    ><pre
+    ><code
+      >Venkman.local:
+  description: Rundeck server node
+  hostname: Venkman.local
+  nodename: Venkman.local
+  osArch: x86_64
+  osFamily: unix
+  osName: Mac OS X
+  osVersion: 10.6.6
+  tags: ''
+  username: greg
+</code
+      ></pre
+    ><p
+    >Specify some custom attributes:</p
+    ><pre
+    ><code
+      >bartholemew:
+  description: Webapp node
+  hostname: bartholemew
+  nodename: bartholemew
+  tags: 'web,app'
+  username: greg
+  app-port: 550
+  https-port: 553
+</code
+      ></pre
+    ><p
+    >The Rundeck source code and all documentation may be downloaded from <a href="https://github.com/dtolabs/rundeck/"
+      ><code
+	>https://github.com/dtolabs/rundeck/</code
+	></a
+      >.</p
+    ></div
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="resource-yaml-v13.html">RESOURCE-YAML-V13(5) Rundeck User Manuals | Version 1.3</a></li>
+        <li class="toc"><a href="index.html">Formats | Man(5)</a></li>
+        <li class="prev"><a href="resource-v13.html">RESOURCE-V13(5) Rundeck User Manuals | Version 1.3</a></li>
+        
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../../index.html">Rundeck Documentation (1.4.4)</a></li>
+    
+        <li><a href="../index.html">Man Pages</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

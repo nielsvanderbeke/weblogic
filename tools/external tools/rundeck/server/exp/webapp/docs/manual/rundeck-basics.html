@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rundeck Basics</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Alex Honor" />
+  <meta name="author" content="Greg Schueler" />
+  <meta name="date" content="November 20, 2010" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="rundeck-basics.html">Rundeck Basics</a></li>
+        <li class="toc"><a href="index.html">User Manual</a></li>
+        <li class="prev"><a href="getting-started.html">Getting Started</a></li>
+        <li class="next"><a href="jobs.html">Jobs</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">Rundeck Basics</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#rundeck-interfaces"
+      >Rundeck Interfaces</a
+      ><ul
+      ><li
+	><a href="#graphical-console"
+	  >Graphical Console</a
+	  ><ul
+	  ><li
+	    ><a href="#navigation"
+	      >Navigation</a
+	      ></li
+	    ><li
+	    ><a href="#now-running"
+	      >Now running</a
+	      ></li
+	    ></ul
+	  ></li
+	><li
+	><a href="#shell-tools"
+	  >Shell Tools</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#project-setup"
+      >Project Setup</a
+      ><ul
+      ><li
+	><a href="#resource-model"
+	  >Resource model</a
+	  ></li
+	><li
+	><a href="#resource-model-document-formats"
+	  >Resource Model Document formats</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#pluggable-resource-model-sources"
+      >Pluggable Resource Model Sources</a
+      ></li
+    ><li
+    ><a href="#command-execution"
+      >Command Execution</a
+      ><ul
+      ><li
+	><a href="#dispatcher-options"
+	  >Dispatcher options</a
+	  ><ul
+	  ><li
+	    ><a href="#filtering-nodes-graphically"
+	      >Filtering nodes graphically</a
+	      ></li
+	    ><li
+	    ><a href="#filtering-nodes-in-the-shell"
+	      >Filtering nodes in the shell</a
+	      ></li
+	    ></ul
+	  ></li
+	><li
+	><a href="#ad-hoc-commands"
+	  >Ad-hoc commands</a
+	  ><ul
+	  ><li
+	    ><a href="#shell-tool-command-execution"
+	      >Shell tool command execution</a
+	      ></li
+	    ><li
+	    ><a href="#graphical-command-shell-execution"
+	      >Graphical command shell execution</a
+	      ><ul
+	      ><li
+		><a href="#following-execution-output"
+		  >Following execution output</a
+		  ><ul
+		  ><li
+		    ><a href="#separate-execution-follow-page"
+		      >Separate execution follow page</a
+		      ></li
+		    ></ul
+		  ></li
+		></ul
+	      ></li
+	    ></ul
+	  ></li
+	><li
+	><a href="#controlling-command-execution"
+	  >Controlling command execution</a
+	  ></li
+	><li
+	><a href="#queuing-commands-to-rundeck"
+	  >Queuing commands to Rundeck</a
+	  ></li
+	><li
+	><a href="#tracking-execution"
+	  >Tracking execution</a
+	  ></li
+	><li
+	><a href="#plugins"
+	  >Plugins</a
+	  ><ul
+	  ><li
+	    ><a href="#ssh-plugin"
+	      >SSH Plugin</a
+	      ></li
+	    ><li
+	    ><a href="#included-plugins"
+	      >Included Plugins</a
+	      ></li
+	    ></ul
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#history"
+      >History</a
+      ><ul
+      ><li
+	><a href="#filtering-event-history"
+	  >Filtering event history</a
+	  ></li
+	><li
+	><a href="#event-view"
+	  >Event view</a
+	  ></li
+	><li
+	><a href="#rss-link"
+	  >RSS link</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#tips-and-tricks"
+      >Tips and Tricks</a
+      ><ul
+      ><li
+	><a href="#saving-filters"
+	  >Saving filters</a
+	  ></li
+	><li
+	><a href="#auto-completion"
+	  >Auto-Completion</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#summary"
+      >Summary</a
+      ></li
+    ></ul
+  ></div
+>
+<p
+>This chapter covers the basics for using Rundeck. The chapter begins by describing the Rundeck user interfaces, both its graphical and command line. From there it will show you how to set up a project and learn about command execution. You will learn more about using the command dispatcher to control execution and finally, how to find and use history.</p
+><div id="rundeck-interfaces"
+><h2
+  ><a href="#TOC"
+    >Rundeck Interfaces</a
+    ></h2
+  ><p
+  >Rundeck provides two primary user interfaces:</p
+  ><ul
+  ><li
+    >An HTML-based graphical console</li
+    ><li
+    >A suite of shell tools</li
+    ></ul
+  ><p
+  >Both interfaces allow you to view resources, dispatch commands, as well as, store and run jobs.</p
+  ><p
+  >In addition Rundeck provides a Web API which can be used to interact with the server programattically. See <a href="../api/index.html"
+    >Rundeck API</a
+    >.</p
+  ><div id="graphical-console"
+  ><h3
+    ><a href="#TOC"
+      >Graphical Console</a
+      ></h3
+    ><p
+    >To get started, go to the URL for your Rundeck server. Login to the web app with the credentials defined by the Rundeck user directory configuration.</p
+    ><p
+    >The default port for the web interface is <code
+      >4440</code
+      >, so try this URL:</p
+    ><p
+    ><a href="http://localhost:4440"
+      ><code
+	>http://localhost:4440</code
+	></a
+      ></p
+    ><p
+    >You will be shown the Login page. The default username and password are <code
+      >admin</code
+      >/<code
+      >admin</code
+      >, so enter those in the fields.</p
+    ><div id="navigation"
+    ><h4
+      ><a href="#TOC"
+	>Navigation</a
+	></h4
+      ><p
+      >The Rundeck page header contains global navigation control to move between tabbed pages: Run, Jobs and History. It also has links to logout, view your user profile and a link to this online help.</p
+      ><div class="figure"
+      ><img src="../figures/fig0201.png" alt="Top navigation bar"
+	 /><p class="caption"
+	>Top navigation bar</p
+	></div
+      ><dl
+      ><dt
+	>Run</dt
+	><dd
+	><p
+	  >The Run page is used to execute ad hoc commands. It displays filtered Node resources configured in your Project resource model. A filter control can be used to limit the listing to just the Node resources matching the filter criteria.</p
+	  ></dd
+	><dt
+	>Jobs</dt
+	><dd
+	><p
+	  >From the Jobs page, one can list, create and run Jobs. A configurable filter allows a user to limit the Job listing to those Jobs matching the filtering criteria. These filter settings can be saved to a Users profile. Only authorized jobs will be visible.</p
+	  ></dd
+	><dt
+	>History</dt
+	><dd
+	><p
+	  >From the History page, one can view currently executing commands in the &quot;Now Running&quot; area or browse execution history. The execution history can be filtered based on user selected parameters. Once the filter has been set, the matching history is displayed. The current filter settings also configure an RSS link, found in the top right of the page.</p
+	  ></dd
+	><dt
+	>Project menu</dt
+	><dd
+	><p
+	  >The top navigation bar contains a menu to select the desired project. If only one project exists, the menu will automatically be defaulted.</p
+	  ></dd
+	><dt
+	>Admin</dt
+	><dd
+	><p
+	  >If your login belongs to the &quot;admin&quot; group and therefore granted &quot;admin&quot; privileges, a wrench icon will be displayed next to your login name. This page allows the admin to view group memberships for all users, as well as, edit their profile data.</p
+	  ></dd
+	><dt
+	>User profile</dt
+	><dd
+	><p
+	  >Shows a page showing group memberships.</p
+	  ></dd
+	><dt
+	>Logout</dt
+	><dd
+	><p
+	  >Pressing this link ends the login session and will require a subsequent login.</p
+	  ></dd
+	><dt
+	>Help</dt
+	><dd
+	><p
+	  >Opens a page to the online help system.</p
+	  ></dd
+	></dl
+      ></div
+    ><div id="now-running"
+    ><h4
+      ><a href="#TOC"
+	>Now running</a
+	></h4
+      ><p
+      >The &quot;Now running&quot; section appears at the top of the Run and Jobs pages and provides a view into the execution queue. Any currently executing ad hoc command or Job will be listed and include information like the name of the job, when it started, who ran it, and a link to the execution output.</p
+      ><div class="figure"
+      ><img src="../figures/fig0215.png" alt="Now running"
+	 /><p class="caption"
+	>Now running</p
+	></div
+      ><p
+      >Jobs that have been run before also have a progress bar approximating duration.</p
+      ></div
+    ></div
+  ><div id="shell-tools"
+  ><h3
+    ><a href="#TOC"
+      >Shell Tools</a
+      ></h3
+    ><p
+    >Rundeck includes a number of shell tools to dispatch commands, load and run Job definitions and interact with the dispatcher queue. These command tools are an alternative to functions accessible in the graphical console.</p
+    ><dl
+    ><dt
+      ><a href="dispatch.html"
+	>dispatch</a
+	></dt
+      ><dd
+      >Execute ad hoc commands and scripts</dd
+      ><dt
+      ><a href="rd-queue.html"
+	>rd-queue</a
+	></dt
+      ><dd
+      >Query the dispatcher for currently running Jobs and possibly kill them<br
+	 /></dd
+      ><dt
+      ><a href="rd-jobs.html"
+	>rd-jobs</a
+	></dt
+      ><dd
+      >List defined jobs as well as load them from text file definitions</dd
+      ><dt
+      ><a href="run.html"
+	>run</a
+	></dt
+      ><dd
+      >Invoke the execution of a stored Job</dd
+      ><dt
+      ><a href="rd-project.html"
+	>rd-project</a
+	></dt
+      ><dd
+      >Setup a new Rundeck project</dd
+      ><dt
+      ><a href="rd-setup.html"
+	>rd-setup</a
+	></dt
+      ><dd
+      >(Re-)configure an instance of Rundeck</dd
+      ></dl
+    ><p
+    >Consult the online manual pages for options and usage information.</p
+    ></div
+  ></div
+><div id="project-setup"
+><h2
+  ><a href="#TOC"
+    >Project Setup</a
+    ></h2
+  ><p
+  >A Rundeck <em
+    >Project</em
+    > provides a space to manage related management activities.</p
+  ><p
+  >A Project can be set up either from the graphical console or using the <code
+    >rd-project</code
+    > shell tool.</p
+  ><p
+  >After logging into the graphical console, you will notice a Project menu in the top navigation bar. If no projects exist, you will be prompted to create a new project.</p
+  ><div class="figure"
+  ><img src="../figures/fig0203-a.png" alt="Create project prompt"
+     /><p class="caption"
+    >Create project prompt</p
+    ></div
+  ><p
+  >To start with, the only field you need to enter is the Project Name. You can change the other values later from the <a href="../administration/configuration.html#gui-admin-page"
+    >GUI Admin Page</a
+    >.</p
+  ><p
+  >After entering your project name, Rundeck initializes it and returns you to the &quot;Run&quot; page.</p
+  ><p
+  >Projects can be created at any time by going back to the Project menu and selecting the &quot;Create a new project...&quot; item.</p
+  ><div class="figure"
+  ><img src="../figures/fig0203.png" alt="Create project menu"
+     /><p class="caption"
+    >Create project menu</p
+    ></div
+  ><p
+  >The <code
+    >rd-project</code
+    > shell tool can also be used to create a project.</p
+  ><p
+  >On the Rundeck server, execute the <code
+    >rd-project</code
+    > command and specify a project name, here we use &quot;examples&quot;:</p
+  ><pre
+  ><code
+    >rd-project -a create -p examples
+</code
+    ></pre
+  ><p
+  >After running this command, you can login into the graphical console and see the new project in the project menu.</p
+  ><p
+  >You can also add configuration properties when you create the project, for example:</p
+  ><pre
+  ><code
+    >rd-project -a create -p examples --project.ssh-keypath=/private/ssh.key
+</code
+    ></pre
+  ><p
+  >The project setup process generates Project configuration in the server, and a bootstrap resource model.</p
+  ><div class="figure"
+  ><img src="../figures/fig0204.png" alt="Run page after new project"
+     /><p class="caption"
+    >Run page after new project</p
+    ></div
+  ><p
+  >One node will be listed, the Rundeck server host. The server host is distinguished with the word &quot;server&quot; in red text.</p
+  ><div id="resource-model"
+  ><h3
+    ><a href="#TOC"
+      >Resource model</a
+      ></h3
+    ><p
+    >The Resource Model is the set of available Nodes that Rundeck can dispatch commands to, and their associated metadata. Each Rundeck Project has its own Resource Model.</p
+    ><p
+    >The initial resource model will contain information just about the Rundeck server host and is useful just for running local commands on the Rundeck server. You can browse the project resource model by going to the &quot;Run&quot; page.</p
+    ><p
+    >In the shell, you can list the Node resources in a resource model using the shell tool, <code
+      >dispatch</code
+      >. Specify project name using the <code
+      >-p project</code
+      > option.</p
+    ><p
+    >Here the <code
+      >dispatch</code
+      > command lists the registered server for the &quot;examples&quot; project after the project setup. The <code
+      >-v</code
+      > gives a verbose listing that includes more detail:</p
+    ><pre
+    ><code
+      >$ dispatch -p examples -v   
+ strongbad:
+    hostname: strongbad
+    osArch: x86_64
+    osFamily: unix
+    osName: Mac OS X
+    osVersion: 10.6.2
+    tags: ''
+</code
+      ></pre
+    ><p
+    >Node resources have standard properties, such as &quot;hostname&quot; but these can be extended via attributes. One of the more useful properties is the &quot;tags&quot; property. A <em
+      >tag</em
+      > is a text label that you give to the Node, perhaps denoting a classification, a role the node plays in the environment, or group membership. Multiple tags can be defined for a given node.</p
+    ><p
+    >The output above shows the &quot;strongbad&quot; node currently has an empty tags property: <code
+      >tags: ''</code
+      >.</p
+    ><p
+    >It is important to start thinking about node tagging for the nodes you manage because you will use them later when specifying filtering options to drive distributed command dispatch.</p
+    ><p
+    >Each Project has a configuration file called <a href="../administration/configuration.html#project.properties"
+      >project.properties</a
+      >, located at this path: <code
+      >$RDECK_BASE/projects/</code
+      ><em
+      >project</em
+      ><code
+      >/etc/project.properties</code
+      >.</p
+    ><p
+    >This configuration file contains two basic properties for accessing and storing resource model data:</p
+    ><ul
+    ><li
+      ><code
+	>project.resources.file</code
+	>: A local file path to read a resource model document</li
+      ><li
+      ><code
+	>project.resources.url</code
+	>: URL to an external resource model source (optional)</li
+      ></ul
+    ><p
+    >In addition, multiple pluggable &quot;Resource Model Sources&quot; can be configured for a project to retrieve additional Resource Model content from other sources. See <a href="plugins.html#resource-model-sources"
+      >Resource Model Sources</a
+      >.</p
+    ><p
+    >You can configure Rundeck to retrieve and store resource model data from any source, so long as it can produce one of the Rundeck resource model document formats. (See <a href="rundeck-basics.html#resource-model-document-formats"
+      >Resource Model Document formats</a
+      >.) Set the <code
+      >project.resource.url</code
+      > to the URL resource model source of your choice.</p
+    ><p
+    >Here's the XML document stored for the &quot;examples&quot; project that corresponds to the output printed by the <code
+      >dispatch -v</code
+      > shown earlier:</p
+    ><pre
+    ><code
+      >&lt;project&gt;
+    &lt;node name=&quot;strongbad&quot; type=&quot;Node&quot; 
+      description=&quot;the Rundeck server host&quot; tags=&quot;&quot; 
+      hostname=&quot;strongbad&quot; 
+      osArch=&quot;x86_64&quot; osFamily=&quot;unix&quot; osName=&quot;Mac OS X&quot; osVersion=&quot;10.6.2&quot;
+      username=&quot;alexh&quot; 
+      editUrl=&quot;&quot; remoteUrl=&quot;&quot;/&gt;
+&lt;/project&gt;
+</code
+      ></pre
+    ><p
+    >You'll notice the root node is called <code
+      >project</code
+      > and there is a single node descriptor for &quot;strongbad&quot;. The <code
+      >node</code
+      > tag has a number of required and optional attributes. Additional node descriptors can be added by defining new <code
+      >node</code
+      > elements inside the <code
+      >project</code
+      > tag.</p
+    ><p
+    >The strongbad host does not have any tags defined for it. One or more tags can be defined. Use comma for the delimiter (e.g, <code
+      >tags=&quot;tag1,tag2&quot;</code
+      >).</p
+    ><p
+    >Here's an example of a node called &quot;homestar&quot; with just the required attributes:</p
+    ><pre
+    ><code
+      >    &lt;node name=&quot;homestar&quot; type=&quot;Node&quot; 
+      hostname=&quot;192.168.1.02&quot; 
+      username=&quot;alexh&quot; /&gt;
+</code
+      ></pre
+    ><p
+    >The <code
+      >hostname</code
+      > and <code
+      >username</code
+      > values are used for the SSH connection while the <code
+      >name</code
+      > and <code
+      >type</code
+      > are used to define Node identity in the resource model. It is possible to overload the hostname value to include port information (eg, hostname=&quot;somehost:2022&quot;). This is useful if your run SSH on a different port.</p
+    ><p
+    >Chances are you maintain information about your hosts within another tool, perhaps Chef, Puppet, Nagios, Amazon EC2, RightScale or even an in-house database. One of these tools might be considered the authority of knowledge about the nodes deployed in your network. Therefore, it is best to create an interface to the authoritative tool and expose it as Rundeck URL resource model source. This can be done as a simple CGI script that does a transformation from the tool's format to the one Rundeck understands.</p
+    ><p
+    >Of course, a rudimentary alternative is to maintain this information as an XML document, storing it in a source repository that is periodically exported to Rundeck. This method could be practical if your host infrastructure infrequently changes.</p
+    ><p
+    >Check the Rundeck web site for URL resource model sources. If you are interested in creating your own, see the <a href="../administration/node-resource-sources.html#resource-model-source"
+      >Resource model source</a
+      > section in the <a href="#integration-with-external-data-providers"
+      >Integration with External Data Providers</a
+      > chapter.</p
+    ></div
+  ><div id="resource-model-document-formats"
+  ><h3
+    ><a href="#TOC"
+      >Resource Model Document formats</a
+      ></h3
+    ><p
+    >Rundeck currently has two resource model document formats built in:</p
+    ><ul
+    ><li
+      >XML: <a href="../manpages/man5/resource-v13.html"
+	>resource-v13(5) XML</a
+	>. Format name: <code
+	>resourcexml</code
+	>.</li
+      ><li
+      >Yaml: <a href="../manpages/man5/resource-yaml-v13.html"
+	>resource-v13(5) YAML</a
+	>. Format name: <code
+	>resourceyaml</code
+	>.</li
+      ></ul
+    ><p
+    >You can enable more formats using <a href="plugins.html#resource-format-plugins"
+      >Resource Format Plugins</a
+      >.</p
+    ></div
+  ></div
+><div id="pluggable-resource-model-sources"
+><h2
+  ><a href="#TOC"
+    >Pluggable Resource Model Sources</a
+    ></h2
+  ><p
+  >Each project can have multiple sources for Resource model information, and you can use or write plugins to enable new sources for entries in the Resource model.</p
+  ><p
+  >You can configure the sources via the GUI from the Admin page, see <a href="../administration/configuration.html#gui-admin-page"
+    >GUI Admin Page</a
+    >, or by modifying the project configuration file, see <a href="plugins.html#resource-model-sources"
+    >Resource Model Sources</a
+    >.</p
+  ></div
+><div id="command-execution"
+><h2
+  ><a href="#TOC"
+    >Command Execution</a
+    ></h2
+  ><p
+  >Rundeck supports two modes of execution: <em
+    >ad-hoc commands</em
+    > and <em
+    >Job</em
+    >.</p
+  ><p
+  >An <em
+    >ad-hoc command</em
+    > is any system command or shell script executed via the command dispatcher. Ad hoc commands can be executed via a command line utility named <code
+    >dispatch</code
+    > or run from the graphical console.</p
+  ><p
+  >A <em
+    >Job</em
+    > specifies a sequence of one or more command invocations that can be run once (i.e, is temporary) or named and stored for later use. Stored jobs can be started via the shell tool, <code
+    >run</code
+    >, and their progress checked with <code
+    >rd-queue</code
+    >.</p
+  ><div id="dispatcher-options"
+  ><h3
+    ><a href="#TOC"
+      >Dispatcher options</a
+      ></h3
+    ><p
+    >Dispatcher execution can be controlled by various types of options.</p
+    ><dl
+    ><dt
+      >Execution control</dt
+      ><dd
+      ><p
+	>Concurrency is controlled by setting the &quot;threadcount&quot;. Execution can continue even if some node fails if the &quot;keepgoing&quot; option is set to true.</p
+	></dd
+      ><dt
+      >Node Filters</dt
+      ><dd
+      ><p
+	>Filtering options specify include and exclude filters to determine which nodes from the project resource model to distribute commands to.</p
+	></dd
+      ><dt
+      >Filter Keywords</dt
+      ><dd
+      ><p
+	>Keywords are used within they include and exclude patterns. The &quot;tags&quot; keyword additionally can use a boolean operator to combine logical ORs and ANDs.</p
+	></dd
+      ><dt
+      >Filter combinations</dt
+      ><dd
+      ><p
+	>All keywords can be combined by specifying the include and exclude options multiple times on the command line.</p
+	></dd
+      ></dl
+    ><p
+    >One can experiment querying the resource model in the graphical console or with the <code
+      >dispatch</code
+      > tool.</p
+    ><div id="filtering-nodes-graphically"
+    ><h4
+      ><a href="#TOC"
+	>Filtering nodes graphically</a
+	></h4
+      ><p
+      >A project's Node resources are displayed in the Run page. Use the project menu in the navigation bar to change to the desired project. After choosing a project, the server node will be filtered by default.</p
+      ><p
+      >Nodes can be filtered using include and exclude patterns by using the Filter form. The form can be opened by pressing the &quot;Filter&quot; button. Press the triangular disclosure icon to display the form.</p
+      ><div class="figure"
+      ><img src="../figures/fig0205.png" alt="Resource filter link"
+	 /><p class="caption"
+	>Resource filter link</p
+	></div
+      ><p
+      >When the form opens, you will see it divided into an Include section where simple include expressions can be set, as well as, an &quot;Extended Filters...&quot; link where exclude expressions can be made.</p
+      ><div class="figure"
+      ><img src="../figures/fig0206.png" alt="Resource filter form"
+	 /><p class="caption"
+	>Resource filter form</p
+	></div
+      ><p
+      >After filling out the filter form, press &quot;Filter&quot; to generate a new listing. Pressing &quot;Clear&quot; resets the form.</p
+      ><p
+      >The Include and Exclude filters allow for filtering nodes based on the following keywords: Name, Tags, Hostname, OS Name, OS Family, OS Architecture, OS Version and Type.</p
+      ><p
+      >Regular expressions can be used for any of the keywords. The <code
+	>.*</code
+	> pattern will match any text.</p
+      ><p
+      >If more than 20 nodes match the filter, the UI will page the results.</p
+      ></div
+    ><div id="filtering-nodes-in-the-shell"
+    ><h4
+      ><a href="#TOC"
+	>Filtering nodes in the shell</a
+	></h4
+      ><p
+      ><code
+	>dispatch</code
+	> uses the commandline options -I (include) and -X (exclude) to specify which nodes to include and exclude from the base set of nodes. You can specify a single value, a list of values, or a regular expression as the argument to these options.</p
+      ><p
+      ><em
+	>Examples</em
+	></p
+      ><p
+      >List nodes with OS name, Linux:</p
+      ><pre
+      ><code
+	>dispatch -p examples -I os-name=Linux
+</code
+	></pre
+      ><p
+      >List Linux nodes but exclude ones with names prefixed &quot;web.&quot;:</p
+      ><pre
+      ><code
+	>dispatch -p examples -I os-name=Linux -X &quot;web.*&quot;
+</code
+	></pre
+      ><p
+      >List nodes that are tagged both &quot;web&quot; and &quot;prod&quot; :</p
+      ><pre
+      ><code
+	>dispatch -p examples -I tags=web+prod
+</code
+	></pre
+      ><p
+      >Here's an example that will execute the <code
+	>apachectl restart</code
+	> command in 10 threads across all nodes tagged &quot;web&quot; and keepgoing in case an error occurs :</p
+      ><pre
+      ><code
+	>dispatch -p examples -I tags=web -K -C 10 -- sudo apachectl restart 
+</code
+	></pre
+      ><p
+      >Consult the <a href="../manpages/man1/rd-options.html"
+	>rd-options(1)</a
+	> manual page for the complete reference on available dispatcher options.</p
+      ></div
+    ></div
+  ><div id="ad-hoc-commands"
+  ><h3
+    ><a href="#TOC"
+      >Ad-hoc commands</a
+      ></h3
+    ><p
+    >Typically, an ad-hoc command is a shell script or system executable that you run at an interactive terminal. Ad-hoc commands can be executed via the <code
+      >dispatch</code
+      > shell command or a graphical shell.</p
+    ><div id="shell-tool-command-execution"
+    ><h4
+      ><a href="#TOC"
+	>Shell tool command execution</a
+	></h4
+      ><p
+      >Use <code
+	>dispatch</code
+	> to execute individual commands or shell script files.</p
+      ><p
+      >Here <code
+	>dispatch</code
+	> is used to run the Unix <code
+	>uptime</code
+	> command to print system status:</p
+      ><pre
+      ><code
+	>$ dispatch -I os-family=unix -- uptime
+Succeeded queueing Workflow execution: Workflow:(threadcount:1){ [command( exec: uptime)] }
+Queued job ID: 7 &lt;http://strongbad:4440/execution/follow/7&gt;
+</code
+	></pre
+      ><p
+      >The <code
+	>uptime</code
+	> command is queued and executed. The output can be followed by going to the URL returned in the output (eg, http://strongbad:4440/execution/follow/7).</p
+      ><p
+      >Sometimes it is desirable to execute the command directly, and not queue it. Use the <code
+	>--noqueue</code
+	> option to execute and follow the output from the console.</p
+      ><pre
+      ><code
+	>$ dispatch -I os-family=unix  --noqueue -- uptime
+[ctier@centos54 dispatch][INFO]  10:34:54 up 46 min,  2 users,  load average: 0.00, 0.00, 0.00
+[alexh@strongbad dispatch][INFO] 10:34  up 2 days, 18:51, 2 users, load averages: 0.55 0.80 0.75
+[examples@ubuntu dispatch][INFO]  10:35:01 up 2 days, 18:40,  2 users,  load average: 0.00, 0.01, 0.00
+</code
+	></pre
+      ><p
+      ><strong
+	>Note</strong
+	>: The &quot;--noqueue&quot; flag is useful for testing and debugging execution but undermines visibility since execution is not managed through the central execution queue.</p
+      ><p
+      >Notice, the <code
+	>dispatch</code
+	> command prepends the message output with a header that helps understand from where the output originates. The header format includes the login and node where the <code
+	>dispatch</code
+	> execution occurred.</p
+      ><p
+      >Execute the Unix <code
+	>whomi</code
+	> command to see what user ID is used by that Node to run dispatched commands:</p
+      ><pre
+      ><code
+	>$ dispatch -I os-family=unix --noqueue -- whoami
+[ctier@centos54 dispatch][INFO] ctier
+[alexh@strongbad dispatch][INFO] alexh
+[examples@ubuntu dispatch][INFO] examples
+</code
+	></pre
+      ><p
+      >You can see that the resource model defines each Node to use a different login to execute <code
+	>dispatch</code
+	> commands. That feature can be handy when Nodes serve different roles and therefore, use different logins to manage processes. See the <code
+	>username</code
+	> attribute in <a href="../manpages/man5/resource-v13.html"
+	>resource-v13(5) XML</a
+	> or <a href="../manpages/man5/resource-yaml-v13.html"
+	>resource-v13(5) YAML</a
+	> manual page.</p
+      ><p
+      >The <code
+	>dispatch</code
+	> command can also execute shell scripts. Here's a trivial script that generates a bit of system info:</p
+      ><pre
+      ><code
+	>#!/bin/sh
+echo &quot;info script&quot;
+echo uptime=`uptime`
+echo whoami=`whoami`
+echo uname=`uname -a`
+</code
+	></pre
+      ><p
+      >Use the -s option to specify the &quot;info.sh&quot; script file:</p
+      ><pre
+      ><code
+	>$ dispatch -I os-family=unix -s info.sh
+</code
+	></pre
+      ><p
+      >The <code
+	>dispatch</code
+	> command copies the &quot;info.sh&quot; script located on the server to each &quot;unix&quot; Node and then executes it.</p
+      ></div
+    ><div id="graphical-command-shell-execution"
+    ><h4
+      ><a href="#TOC"
+	>Graphical command shell execution</a
+	></h4
+      ><p
+      >The Rundeck graphical console also provides the ability to execute ad-hoc commands to a set of filtered Node resources. The command prompt can accept any ad-hoc command string you might run via an SSH command or via the <code
+	>dispatch</code
+	> shell tool.</p
+      ><p
+      >But before running any commands, you need to select the project containing the Nodes you wish to dispatch. Use the project menu to select the desired project name. After the project has been selected you will see a long horizontal textfield labeled &quot;Command&quot;. This is the Rundeck ad hoc command prompt.</p
+      ><div class="figure"
+      ><img src="../figures/fig0207.png" alt="Ad hoc command prompt"
+	 /><p class="caption"
+	>Ad hoc command prompt</p
+	></div
+      ><p
+      >To use the command prompt, type the desired ad-hoc command string into the textfield and press the &quot;Run&quot; button. The command will be dispatched to all the Node resources currently listed below the command prompt tool bar. The command prompt also becomes disabled until the execution completes. Output from the command execution will be shown below (see <a href="rundeck-basics.html#following-execution-output"
+	>output</a
+	>).</p
+      ><div class="figure"
+      ><img src="../figures/fig0208.png" alt="Ad hoc execution output"
+	 /><p class="caption"
+	>Ad hoc execution output</p
+	></div
+      ><p
+      >You will also notice the ad hoc execution listed in the &quot;Now running&quot; part of the page, located above the command prompt. All running executions are listed there. Each running execution is listed, showing the start time, the user running it, and a link to follow execution output on a separate page.</p
+      ><div class="figure"
+      ><img src="../figures/fig0207-b.png" alt="Now running ad hoc command"
+	 /><p class="caption"
+	>Now running ad hoc command</p
+	></div
+      ><p
+      >At the bottom of the page, you will see a &quot;History&quot; section containing all executions in the selected project for the last 24 hours. After the execution completes, a new event will be added to the history. A yellow highlight indicates when the command leaves the Now running section and enters the history table.</p
+      ><div class="figure"
+      ><img src="../figures/fig0207-c.png" alt="Run history"
+	 /><p class="caption"
+	>Run history</p
+	></div
+      ><p
+      >History is organized in summary form using a table layout. The &quot;Summary&quot; column shows the command or script executed. The &quot;Node Failure Count&quot; contains the number of nodes where an error in execution occurred. If no errors occurred, &quot;ok&quot; will be displayed. The &quot;User&quot; and &quot;Time&quot; columns show the user that executed the command and when.</p
+      ><div id="following-execution-output"
+      ><h5
+	><a href="#TOC"
+	  >Following execution output</a
+	  ></h5
+	><p
+	>Ad hoc command execution output is displayed below the command prompt.</p
+	><p
+	>This page section provides several views to read the output using different formats.</p
+	><dl
+	><dt
+	  >Tail Output</dt
+	  ><dd
+	  ><p
+	    >Displays output messages from the command execution as if you were running the Unix <code
+	      >tail -f</code
+	      > command on the output log file. By default, only the last 20 lines of output is displayed but this can be expanded or reduced by pressing the &quot;-&quot; or &quot;+&quot; buttons. You can also type in an exact number into the textfield. <img src="../figures/fig0208.png" alt="Ad hoc execution output"
+	       /></p
+	    ></dd
+	  ><dt
+	  >Annotated</dt
+	  ><dd
+	  ><p
+	    >The annotated mode displays the output messages in the order they are received but labels the each line with the Node from which the message originated. Through its additional controls each Node context can be expanded to show the output it produced, or completely collapsed to hide the textual detail.<br
+	       /><img src="../figures/fig0209.png" alt="Annotated output"
+	       /></p
+	    ></dd
+	  ><dt
+	  >Compact</dt
+	  ><dd
+	  ><p
+	    >Output messages are sorted into Node specific sections and are not interlaced. By default, the messages are collapsed but can be revealed by pressing the disclosure icon to the right. <img src="../figures/fig0210.png" alt="Node output"
+	       /></p
+	    ></dd
+	  ></dl
+	><div id="separate-execution-follow-page"
+	><h6
+	  ><a href="#TOC"
+	    >Separate execution follow page</a
+	    ></h6
+	  ><p
+	  >Sometimes it is useful to have a page where just the execution output is displayed separately. One purpose is to share a link to others interested in following the output messages. Click the &quot;output &gt;&gt;&quot; link in the &quot;Now running&quot; section to go to the execution follow page.</p
+	  ><p
+	  >Also, notice the URL in the location bar of your browser. This URL can be shared to others interested in the progress of execution. The URL contains the execution ID (EID) and has a form like:</p
+	  ><pre
+	  ><code
+	    > http://rundeckserver/execution/follow/{EID}
+</code
+	    ></pre
+	  ><p
+	  >After execution completes, the command will have a status:</p
+	  ><ul
+	  ><li
+	    >Successful: No errors occurred during execution of the command across the filtered Node set</li
+	    ><li
+	    >Failed: One or more errors occurred. A list of Nodes that incurred an error is displayed. The page will also contain a link &quot;Retry Failed Nodes...&quot; in case you would like to retry the command.</li
+	    ></ul
+	  ><p
+	  >You can download the entire output as a text file from this page. Press the &quot;Download&quot; link to retrieve the file to your desk top.</p
+	  ></div
+	></div
+      ></div
+    ></div
+  ><div id="controlling-command-execution"
+  ><h3
+    ><a href="#TOC"
+      >Controlling command execution</a
+      ></h3
+    ><p
+    >Parallel execution is managed using thread count via &quot;-C&quot; option. The &quot;-C&quot; option specifies the number of execution threads. Here's an example that runs the uptime command across the Linux hosts with two threads:</p
+    ><pre
+    ><code
+      >dispatch -I os-name=Linux -C 2 -- uptime
+</code
+      ></pre
+    ><p
+    >The keepgoing and retry flags control when to exit incase an error occurs. Use &quot;-K/-R&quot; flags. Here's an example script that checks if the host has port 4440 in the listening state. If it does not, it will exit with code 1.</p
+    ><pre
+    ><code
+      >#!/bin/sh
+netstat -an | grep 4440 | grep -q LISTEN
+if [ &quot;$?&quot; != 0 ]; then
+echo &quot;not listening on 4440&quot;
+exit 1;
+fi
+echo  listening port=4440, host=`hostname`;
+</code
+      ></pre
+    ><p
+    >Commands or scripts that exit with a non-zero exit code will cause the dispatch to fail unless the keepgoing flag is set.</p
+    ><pre
+    ><code
+      >$ dispatch -I os-family=unix -s /tmp/listening.sh --noqueue
+[alexh@strongbad dispatch][INFO] Connecting to centos54:22
+[alexh@strongbad dispatch][INFO] done.
+[ctier@centos54 dispatch][INFO] not listening on 4440
+error: Remote command failed with exit status 1
+</code
+      ></pre
+    ><p
+    >The script failed on centos54 and caused dispatch to error out immediately.</p
+    ><p
+    >Running the command again, but this time with the &quot;-K&quot; keepgoing flag will cause dispatch to continue and print on which nodes the script failed:</p
+    ><pre
+    ><code
+      >$ dispatch  --noqueue -K -I tags=web -s /tmp/listening.sh
+[alexh@strongbad dispatch][INFO] Connecting to centos54:22
+[alexh@strongbad dispatch][INFO] done.
+[ctier@centos54 dispatch][INFO] not listening on 4440
+[ctier@centos54 dispatch][ERROR] Failed execution for node: centos54: Remote command failed with exit status 1
+[alexh@strongbad dispatch][INFO] listening port=4440, host=strongbad
+[alexh@strongbad dispatch][INFO] Connecting to 172.16.167.211:22
+[alexh@strongbad dispatch][INFO] done.
+[examples@ubuntu dispatch][INFO] not listening on 4440
+[examples@ubuntu dispatch][ERROR] Failed execution for node: ubuntu: Remote command failed with exit status 1
+error: Execution failed on the following 2 nodes: [centos54, ubuntu]
+error: Execute this command to retry on the failed nodes:
+    dispatch -K -s /tmp/listening.sh -p examples -I
+    name=centos54,ubuntu
+</code
+      ></pre
+    ></div
+  ><div id="queuing-commands-to-rundeck"
+  ><h3
+    ><a href="#TOC"
+      >Queuing commands to Rundeck</a
+      ></h3
+    ><p
+    >By default, commands or scripts executed on the command line by <code
+      >dispatch</code
+      > are queued as temporary jobs in Rundeck. The <code
+      >dispatch</code
+      > command is equivalent to a &quot;Run and Forget&quot; action in the graphical console.</p
+    ><p
+    >The script below is a long running check that will conduct a check periodically waiting a set time between each pass. The script can be run with or without arguments as the parameters are defaulted inside the script:</p
+    ><pre
+    ><code
+      >$ cat ~/bin/checkagain.sh 
+#!/bin/bash
+iterations=$1 secs=$2 port=$3
+echo &quot;port ${port:=4440} will be checked ${iterations:=30} times waiting ${secs:=5}s between each iteration&quot; 
+i=0
+while [ $i -lt ${iterations} ]; do
+  echo &quot;iteration: #${i}&quot;
+  netstat -an | grep $port | grep LISTEN &amp;&amp; exit 0
+  echo ----
+  sleep ${secs}
+  i=$(($i+1))
+done
+echo &quot;Not listening on $port after $i checks&quot; ; exit 1
+</code
+      ></pre
+    ><p
+    >Running <code
+      >dispatch</code
+      > causes the execution to queue in Rundeck and controlled as temporary Job. The <code
+      >-I centos54</code
+      > limits execution to just the &quot;centos54&quot; node:</p
+    ><pre
+    ><code
+      >$ dispatch -I centos54 -s ~/bin/checkagain.sh 
+Succeeded queueing workflow: Workflow:(threadcount:1){ [command( scriptfile: /Users/alexh/bin/checkagain.sh)] }
+Queued job ID: 5 &lt;http://strongbad:4440/execution/follow/4&gt;
+</code
+      ></pre
+    ><p
+    >To pass arguments to the script pass them after the &quot;--&quot; (double dash):</p
+    ><pre
+    ><code
+      >$ iters=5 secs=60 port=4440
+$ dispatch -I centos54 -s ~/bin/checkagain.sh -- $iters $secs $ports
+</code
+      ></pre
+    ></div
+  ><div id="tracking-execution"
+  ><h3
+    ><a href="#TOC"
+      >Tracking execution</a
+      ></h3
+    ><p
+    >Queued ad-hoc command and temporary or saved Job executions can be tracked from the &quot;Run&quot; page in the &quot;<a href="rundeck-basics.html#now-running"
+      >Now Running</a
+      >&quot; area at the top of the page.</p
+    ><p
+    >Execution can also be tracked using the <a href="../manpages/man1/rd-queue.html"
+      >rd-queue</a
+      > shell tool.</p
+    ><pre
+    ><code
+      >$ rd-queue -p project
+Queue: 1 items
+[5] workflow: Workflow:(threadcount:1){[command( scriptfile: /Users/alexh/bin/checkagain.sh)]} &lt;http://strongbad:4440/execution/follow/5&gt;
+</code
+      ></pre
+    ><p
+    >Each job in the execution queue has an execution ID. The example above shows one item with the ID, 5.</p
+    ><p
+    >Running jobs can also be killed via <code
+      >rd-queue kill</code
+      >. Specify execution ID using the &quot;-e&quot; option:</p
+    ><pre
+    ><code
+      >$ rd-queue kill -e 5
+rd-queue kill: success. [5] Job status: killed
+</code
+      ></pre
+    ></div
+  ><div id="plugins"
+  ><h3
+    ><a href="#TOC"
+      >Plugins</a
+      ></h3
+    ><p
+    >Rundeck supports a plugin model for the execution service, which allows you to fully customize the way that a particular Node, Project or your entire Rundeck installation executes commands and scripts remotely (or locally).</p
+    ><p
+    >By default Rundeck uses an internal plugin to perform execution via SSH for remote nodes, and local execution on the Rundeck server itself.</p
+    ><p
+    >Plugins can be installed by copying them to the <code
+      >libext</code
+      > directory of your Rundeck installation.</p
+    ><p
+    >Plugins are used to add new &quot;providers&quot; for particular &quot;services&quot;. The services used for command execution on nodes are the &quot;node-executor&quot; and &quot;file-copier&quot; services.</p
+    ><p
+    >To use a particular plugin, it must be set as the provider for a service by configuring the <code
+      >framework.properties</code
+      > file, the <code
+      >project.properties</code
+      > file, or by adding attributes to Nodes in your project's resources definitions. For more about configuring the providers, see <a href="plugins.html#using-providers"
+      >Using Providers</a
+      >.</p
+    ><p
+    >The internal SSH command execution plugin is described below, and more information about plugins can be found in the <a href="#rundeck-plugins"
+      >Rundeck Plugins</a
+      > chapter.</p
+    ><div id="ssh-plugin"
+    ><h4
+      ><a href="#TOC"
+	>SSH Plugin</a
+	></h4
+      ><p
+      >Rundeck by default uses SSH to execute commands on remote nodes, SCP to copy scripts to remote nodes, and locally executes commands and scripts for the local (server) node.</p
+      ><p
+      >The SSH plugin expects each node definition to have the following properties in order to create the SSH connection:</p
+      ><ul
+      ><li
+	><code
+	  >hostname</code
+	  >: the hostname of the remote node. It can be in the format &quot;hostname:port&quot; to indicate that a non-default port should be used. The default port is 22.</li
+	><li
+	><code
+	  >username</code
+	  >: the username to connect to the remote node.</li
+	></ul
+      ><p
+      >When a Script is executed on a remote node, it is copied over via SCP first, and then executed. In addition to the SSH connection properties above, these node attributes can be configured for SCP:</p
+      ><ul
+      ><li
+	><code
+	  >file-copy-destination-dir</code
+	  >: The directory on the remote node to copy the script file to before executing it. The default value is <code
+	  >C:/WINDOWS/TEMP/</code
+	  > on Windows nodes, and <code
+	  >/tmp</code
+	  > for other nodes.</li
+	><li
+	><code
+	  >osFamily</code
+	  >: specify &quot;windows&quot; for windows nodes.</li
+	></ul
+      ><p
+      >In addition, for both SSH and SCP, you must either configure a public/private keypair for the remote node or configure the node for SSH Password authentication.</p
+      ><ul
+      ><li
+	>See <a href="../administration/ssh.html"
+	  >Administration - SSH</a
+	  > for more information on setting up your SSH server</li
+	><li
+	>See <a href="plugins.html#ssh-provider"
+	  >SSH Provider</a
+	  > for more information on the configuration of Nodes for SSH</li
+	></ul
+      ></div
+    ><div id="included-plugins"
+    ><h4
+      ><a href="#TOC"
+	>Included Plugins</a
+	></h4
+      ><p
+      >Two plugin files are included with the default Rundeck installation for your use in testing or development. (See <a href="plugins.html#pre-installed-plugins"
+	>Pre-Installed Plugins</a
+	>)</p
+      ><ul
+      ><li
+	><a href="plugins.html#stub-plugin"
+	  >Stub plugin</a
+	  >: simply prints the command or script instead of running it.</li
+	><li
+	><a href="plugins.html#script-plugin"
+	  >Script plugin</a
+	  >: executes an external script file to perform the command, useful for developing your own plugin with the <a href="../developer/plugin-development.html#script-plugin-development"
+	  >Script Plugin Development</a
+	  > model.</li
+	></ul
+      ></div
+    ></div
+  ></div
+><div id="history"
+><h2
+  ><a href="#TOC"
+    >History</a
+    ></h2
+  ><p
+  >History for queued ad-hoc commands, as well as, temporary and saved Job executions is stored by the Rundeck server. History data can be filtered and viewed inside the &quot;History&quot; page.</p
+  ><div class="figure"
+  ><img src="../figures/fig0211.png" alt="History page"
+     /><p class="caption"
+    >History page</p
+    ></div
+  ><div id="filtering-event-history"
+  ><h3
+    ><a href="#TOC"
+      >Filtering event history</a
+      ></h3
+    ><p
+    >By default, the History page will list history for the last day's executions. The page contains a filter control that can be used to expand or limit the executions.</p
+    ><p
+    >The filter form contains a number of fields to limit search:</p
+    ><ul
+    ><li
+      >Within: Time range. Choices include 1 day, 1 week, 1 month or other (given a start after/before to ended after/before).</li
+      ><li
+      >Name: Job title name.</li
+      ><li
+      >Project: Project name. This may be set if the project menu was used.</li
+      ><li
+      >User: User initiating action.</li
+      ><li
+      >Summary: Message text.</li
+      ><li
+      >Result: Success or failure status.</li
+      ></ul
+    ><div class="figure"
+    ><img src="../figures/fig0212.png" alt="History filter form"
+       /><p class="caption"
+      >History filter form</p
+      ></div
+    ><p
+    >After filling the form pressing the &quot;Filter&quot; button, the page will display events matching the search.</p
+    ><p
+    >Filters can be saved to a menu that makes repeating searches more convenient. Click the &quot;save this filter...&quot; link to save the filter configuration.</p
+    ></div
+  ><div id="event-view"
+  ><h3
+    ><a href="#TOC"
+      >Event view</a
+      ></h3
+    ><p
+    >History for each execution contains the command(s) executed, dispatcher options, success status and a link to a file containing all the output messages.</p
+    ><div class="figure"
+    ><img src="../figures/fig0213.png" alt="Event view"
+       /><p class="caption"
+      >Event view</p
+      ></div
+    ><p
+    >If any errors occurred, the &quot;Node Failure Count&quot; column will show the number of nodes in red text. A bar chart indicates the percent failed.</p
+    ><div class="figure"
+    ><img src="../figures/fig0216.png" alt="Event view"
+       /><p class="caption"
+      >Event view</p
+      ></div
+    ></div
+  ><div id="rss-link"
+  ><h3
+    ><a href="#TOC"
+      >RSS link</a
+      ></h3
+    ><p
+    >An RSS icon provides a link to an RSS view of the events that match the current filtering criteria.</p
+    ><div class="figure"
+    ><img src="../figures/fig0214.png" alt="RSS link"
+       /><p class="caption"
+      >RSS link</p
+      ></div
+    ></div
+  ></div
+><div id="tips-and-tricks"
+><h2
+  ><a href="#TOC"
+    >Tips and Tricks</a
+    ></h2
+  ><div id="saving-filters"
+  ><h3
+    ><a href="#TOC"
+      >Saving filters</a
+      ></h3
+    ><p
+    >Each of the filter controls provides the means to save the current filter configuration. Press the &quot;save this filter...&quot; link to give it a name. Each saved filter is added to a menu you can access the next time you want that filter configuration.</p
+    ></div
+  ><div id="auto-completion"
+  ><h3
+    ><a href="#TOC"
+      >Auto-Completion</a
+      ></h3
+    ><p
+    >If you use the Bash shell, Rundeck comes with a nice auto-completion script you can enable. Add this to your <code
+      >.bashrc</code
+      > file:</p
+    ><pre
+    ><code
+      >source $RDECK_BASE/etc/bash_completion.bash
+</code
+      ></pre
+    ><p
+    >Press the Tab key when you're writing a dispatch command, and it should return a set of suggestions for you to pick from:</p
+    ><pre
+    ><code
+      >$ dispatch &lt;tab&gt;&lt;tab&gt;
+</code
+      ></pre
+    ></div
+  ></div
+><div id="summary"
+><h2
+  ><a href="#TOC"
+    >Summary</a
+    ></h2
+  ><p
+  >At this point, you can do basic Rundeck operations - setup a project, define and query the project resource model, execute ad-hoc commands, run and save Jobs and view history.</p
+  ><p
+  >Next, we'll cover one of Rundeck's core features: Jobs.</p
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="rundeck-basics.html">Rundeck Basics</a></li>
+        <li class="toc"><a href="index.html">User Manual</a></li>
+        <li class="prev"><a href="getting-started.html">Getting Started</a></li>
+        <li class="next"><a href="jobs.html">Jobs</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

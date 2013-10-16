@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+  <node name="skywalker" description="Rundeck server node" tags="" hostname="skywalker" osArch="sparcv9" osFamily="unix" osName="SunOS" osVersion="5.10" username="pp"/>
+</project>

@@ -1,0 +1,23 @@
+badaboum:
+  username: pp
+  hostname: badaboum.smals-mvm.be
+  tags: production,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+  ssh-authentication: privateKey
+  ssh-keypath: /export/home/weblogic/pp/.ssh/id_rsa_unencrypted
+  ssh-key-passphrase-option: option.sshKeyPassphrase
+podboudin:
+  username: pp
+  hostname: podboudin.smals-mvm.be
+  tags: production,weblogic
+  osArch: T2+
+  osFamily: unix
+  osName: Solaris
+  osVersion: '5.10'
+  ssh-authentication: privateKey
+  ssh-keypath: /export/home/weblogic/pp/.ssh/id_rsa_unencrypted
+  ssh-key-passphrase-option: option.sshKeyPassphrase
+

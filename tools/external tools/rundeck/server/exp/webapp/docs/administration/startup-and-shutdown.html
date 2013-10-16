@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Startup and Shutdown</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="startup-and-shutdown.html">Startup and Shutdown</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        <li class="prev"><a href="installation.html">Installation</a></li>
+        <li class="next"><a href="configuration.html">Configuration</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">Startup and Shutdown</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#rpm"
+      >RPM</a
+      ><ul
+      ><li
+	><a href="#setting-java_home"
+	  >Setting JAVA_HOME</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#launcher"
+      >Launcher</a
+      ></li
+    ></ul
+  ></div
+>
+<p
+>Rundeck installation includes a control script used for starting and stopping the Rundeck server process. The control script provides a number of actions:</p
+><pre
+><code
+  >rundeckd [start|stop|restart|condrestart|status]
+</code
+  ></pre
+><div id="rpm"
+><h3
+  ><a href="#TOC"
+    >RPM</a
+    ></h3
+  ><p
+  >The RPM installation includes the placement of the boot control script that will automatically start Rundeck when the system boots.</p
+  ><p
+  >The script is located here: <code
+    >/etc/init.d/rundeckd</code
+    ></p
+  ><p
+  ><em
+    >Startup</em
+    ></p
+  ><pre
+  ><code
+    >/etc/init.d/rundeckd start
+</code
+    ></pre
+  ><p
+  ><em
+    >Shutdown</em
+    ></p
+  ><pre
+  ><code
+    >/etc/initd./rundeckd stop
+</code
+    ></pre
+  ><div id="setting-java_home"
+  ><h4
+    ><a href="#TOC"
+      >Setting JAVA_HOME</a
+      ></h4
+    ><p
+    >When using the RPM, by default rundeck will use <em
+      >java</em
+      > found in your path. Various RPM based distributions provide ways of managing which version of java is found. CentOS uses <em
+      >/usr/sbin/alternatives</em
+      > and the processing of setting alternatives can be found here: <a href="http://wiki.centos.org/HowTos/JavaOnCentO"
+      >http://wiki.centos.org/HowTos/JavaOnCentOS</a
+      >.</p
+    ><p
+    >If you have installed a JDK or JRE in a unique directory and do not want to alter the global system configuration, then simply setting JAVA_HOME before running any command will use the version of java found in JAVA_HOME/bin. Updating /etc/rundeck/profile with JAVA_HOME is another option as well.</p
+    ></div
+  ></div
+><div id="launcher"
+><h3
+  ><a href="#TOC"
+    >Launcher</a
+    ></h3
+  ><p
+  >The Launcher installation generates the script into the RDECK_BASE directory.</p
+  ><p
+  >The script is located here: <code
+    >$RDECK_BASE/server/sbin/rundeckd</code
+    >.</p
+  ><p
+  ><em
+    >Startup</em
+    ></p
+  ><pre
+  ><code
+    >$RDECK_BASE/server/sbin/rundeckd start
+</code
+    ></pre
+  ><p
+  ><em
+    >Shutdown</em
+    ></p
+  ><pre
+  ><code
+    >$RDECK_BASE/server/sbin/rundeckd stop
+</code
+    ></pre
+  ><p
+  >You may choose to incorporate this script into your server's operating system specific boot process.</p
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="startup-and-shutdown.html">Startup and Shutdown</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        <li class="prev"><a href="installation.html">Installation</a></li>
+        <li class="next"><a href="configuration.html">Configuration</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

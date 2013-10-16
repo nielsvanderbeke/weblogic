@@ -1,0 +1,974 @@
+^^^11:46:17|INFO|pp||1-exec|Intramuros||Starting jython^^^
+^^^11:46:20|SEVERE|pp||2-script-url|Intramuros||+ set^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||BASH=/bin/bash^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||BASH_ARGC=([0]="3")^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||BASH_ARGV=([0]="t3://lasmaadm099a.smals-mvm.be:10014" [1]="/export/home/weblogic/pp/rundeck/projects/Test/scripts/acc-userkey.properties" [2]="/export/home/weblogic/pp/rundeck/projects/Test/scripts/acc-userconfig.properties")^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||BASH_LINENO=([0]="0")^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||BASH_SOURCE=([0]="/tmp/1360838777921-Intramuros-933796e33d4581d1376dad3c3cb9236c64d57772.temp.sh")^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||BASH_VERSINFO=([0]="3" [1]="2" [2]="51" [3]="1" [4]="release" [5]="sparc-sun-solaris2.10")^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||BASH_VERSION='3.2.51(1)-release'^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||DIRSTACK=()^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||EUID=3486^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||GROUPS=()^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||HOME=/export/home/weblogic/pp^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||HOSTNAME=skywalker^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||HOSTTYPE=sparc^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||IFS=$' \t\n'^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||LOGNAME=pp^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||MACHTYPE=sparc-sun-solaris2.10^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||MAIL=/var/mail//pp^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||OPTERR=1^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||OPTIND=1^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||OSTYPE=solaris2.10^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||PATH=/usr/bin:/bin:/usr/local/bin^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||PIPESTATUS=([0]="0")^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||PPID=4486^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||PS4='+ '^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||PWD=/export/home/weblogic/pp^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||SHELL=/bin/bash^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||SHELLOPTS=braceexpand:hashall:interactive-comments:xtrace^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||SHLVL=2^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||SSH_CLIENT='10.6.103.157 42162 22'^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||SSH_CONNECTION='10.6.103.157 42162 10.6.103.157 22'^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||TERM=dumb^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||TZ=Europe/Brussels^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||UID=3486^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||USER=pp^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||_=-x^^^
+^^^11:46:20|SEVERE|pp||2-script-url|Intramuros||+ numargs=3^^^
+^^^11:46:20|SEVERE|pp||2-script-url|Intramuros||+ '[' 3 -lt 1 ']'^^^
+^^^11:46:20|SEVERE|pp||2-script-url|Intramuros||++ mktemp -t embedded.XXXXX^^^
+^^^11:46:20|SEVERE|pp||2-script-url|Intramuros||+ TMP_SCRIPT=/tmp/embedded.UtGXi^^^
+^^^11:46:20|SEVERE|pp||2-script-url|Intramuros||+ expandScript /tmp/embedded.UtGXi^^^
+^^^11:46:20|SEVERE|pp||2-script-url|Intramuros||+ '[' -z /tmp/embedded.UtGXi ']'^^^
+^^^11:46:20|SEVERE|pp||2-script-url|Intramuros||+ cat^^^
+^^^11:46:20|SEVERE|pp||2-script-url|Intramuros||+ /opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/bin/wlst.sh /tmp/embedded.UtGXi /export/home/weblogic/pp/rundeck/projects/Test/scripts/acc-userconfig.properties /export/home/weblogic/pp/rundeck/projects/Test/scripts/acc-userkey.properties t3://lasmaadm099a.smals-mvm.be:10014^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||CLASSPATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/lib/tools.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic_sp.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/features/weblogic.server.modules_10.3.3.0.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/webservices.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||PATH=/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/bin:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/bin:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre/bin:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/bin:/usr/bin:/bin:/usr/local/bin^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||Your environment has been set.^^^
+^^^11:46:20|INFO|pp||2-script-url|Intramuros||CLASSPATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/lib/tools.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic_sp.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/features/weblogic.server.modules_10.3.3.0.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/webservices.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar::/opt/oracle/fmw/fmw11gR1PS2/utils/config/10.3/config-launch.jar::/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/derby/lib/derbynet.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/derby/lib/derbyclient.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/common/derby/lib/derbytools.jar::^^^
+^^^11:46:28|INFO|pp||2-script-url|Intramuros||Initializing WebLogic Scripting Tool (WLST) ...^^^
+^^^11:46:44|INFO|pp||2-script-url|Intramuros||Welcome to WebLogic Server Administration Scripting Shell^^^
+^^^11:46:44|INFO|pp||2-script-url|Intramuros||Type help() for help on available commands^^^
+^^^11:46:47|INFO|pp||2-script-url|Intramuros||Connecting to t3://lasmaadm099a.smals-mvm.be:10014 with userid system ...^^^
+^^^11:46:57|INFO|pp||2-script-url|Intramuros||Successfully connected to Admin Server 'AdminServer' that belongs to domain 'intramurosaccV10domain'.^^^
+^^^11:46:57|INFO|pp||2-script-url|Intramuros||Warning: An insecure protocol was used to connect to the ^^^
+^^^11:46:57|INFO|pp||2-script-url|Intramuros||server. To ensure on-the-wire security, the SSL port or ^^^
+^^^11:46:57|INFO|pp||2-script-url|Intramuros||Admin port should be used instead.^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   ComLog^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   ComLogShutDown^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   DemecoFileStore1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   DemecoFileStore2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   DemecoJMSServer1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   DemecoJMSServer2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   DmfAWebSP7Bridge^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   DmfaFileStore1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   DmfaFileStore2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   DmfaJMSServer1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   DmfaJMSServer2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   EboxV5MessagingBridge^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   GototinFileStore1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   GototinFileStore2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   GototinServer1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   GototinServer2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   H30bisJMSFileStore1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   H30bisJMSFileStore2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   H30bisJMSServer1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   H30bisJMSServer2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   LimosaFileStore1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   LimosaFileStore2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   LimosaJMSServer1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   LimosaJMSServer2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   LimosaMpSendBridge^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   LimosaReceptSP7AccBridge^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   LimosaReceptSP7SimBridge^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   LimosaSendSP7Bridge^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   ModrepEBoxAckBridge^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   ModrepEBoxSendBridge^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   ModrepFileStore1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   ModrepFileStore2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   ModrepJMSServer1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   ModrepJMSServer2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   PrintManagerFileStore1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   PrintManagerFileStore2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   PrintManagerServer_1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   PrintManagerServer_2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   RRNFileStore1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   RRNFileStore2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   RRNJmsServer1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   RRNJmsServer2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   RRNWebReceptSP7Bridge^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   RRNWebSendSP7Bridge^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   SAMLStartup^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   Smr3startup^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   SmrStartup^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   SourceStartup^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   Ticket^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.SqNbr^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.a4modrep^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.agap^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.aqdb^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.atce_phoenix^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.authenticatorumoe^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.authenticatorumoe_node1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.authenticatorumoe_node2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.authenticatorumoeexp^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.authenticatorumoeexp_node1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.authenticatorumoeexp_node2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.baseservice.country^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.beware2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.beware2_node1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.beware2_node2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.birsz^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.birsz_node1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.birsz_rac1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.birsz_rac2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.clc^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.clc_node1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.clc_node2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.countrybean^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.countrybean_node1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.countrybean_node2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.dbhistoric_node1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.dbhistoric_node2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.dmfa^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.dmfa2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.dmfaQ1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.dmfa_Q1_2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.drsrequest^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.drsrequest_rac1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.duc^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.employer^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.employer.acdb^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.expeditor^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.expeditor_node1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.expeditor_node2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.fas^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.genesis.cadastre.frontend^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.genesis.cadastre.frontend_node1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.genesis.cadastre.frontend_node2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.gototgt_node1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.gototgt_node2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.gototin^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.gototin_node1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.gototin_node2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.gum^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.h30bis^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.iboss^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.limosa_cadastre^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.limosa_cadastre_node1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.limosa_cadastre_node2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.limosa_staging^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.limosa_staging_node1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.limosa_staging_node2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.limosacadv3^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.limosacadv3_node1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.limosacadv3_node2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.maya^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.onssdirectory^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.phoenix_node1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.phoenix_node2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.printmanager^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.repertoire.offident^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.rrn^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.securitylog^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.suivi^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.tickets^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.timereg^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.trillium^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.uam.pep^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.uam.pep_node1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.uam.pep_node2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.updatable.gum^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.datasource.useraccess_data^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.multipool.authenticatorumoe^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.multipool.authenticatorumoeexp^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.multipool.beware2^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.multipool.birsz^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.multipool.clc^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.multipool.countrybean^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.multipool.dbhistoric^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.multipool.dmfa^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.multipool.dmfaQ1^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.multipool.expeditor^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.multipool.genesis.cadastre.frontend^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.multipool.gototgt^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.multipool.gototin^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.multipool.limosa_cadastre^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.multipool.limosa_staging^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.multipool.limosacadv3^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.multipool.phoenix^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.multipool.uam.pep^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   db.pool.officeidentifer^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   mail.beware^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   mail.dmfa^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   mail.iboss.mailpr^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   mail.mailpr^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   remoteCheckpoint^^^
+^^^11:46:58|INFO|pp||2-script-url|Intramuros||dr--   sp7mail.mailpr^^^
+^^^11:47:25|INFO|pp||2-script-url|Intramuros||['db.datasource.SqNbr', 'db.datasource.a4modrep', 'db.datasource.agap', 'db.datasource.aqdb', 'db.datasource.atce_phoenix', 'db.datasource.authenticatorumoe', 'db.datasource.authenticatorumoe_node1', 'db.datasource.authenticatorumoe_node2', 'db.datasource.authenticatorumoeexp', 'db.datasource.authenticatorumoeexp_node1', 'db.datasource.authenticatorumoeexp_node2', 'db.datasource.baseservice.country', 'db.datasource.beware2', 'db.datasource.beware2_node1', 'db.datasource.beware2_node2', 'db.datasource.birsz', 'db.datasource.birsz_node1', 'db.datasource.birsz_rac1', 'db.datasource.birsz_rac2', 'db.datasource.clc', 'db.datasource.clc_node1', 'db.datasource.clc_node2', 'db.datasource.countrybean', 'db.datasource.countrybean_node1', 'db.datasource.countrybean_node2', 'db.datasource.dbhistoric_node1', 'db.datasource.dbhistoric_node2', 'db.datasource.dmfa', 'db.datasource.dmfa2', 'db.datasource.dmfaQ1', 'db.datasource.dmfa_Q1_2', 'db.datasource.drsrequest_rac1', 'db.datasource.duc', 'db.datasource.employer', 'db.datasource.employer.acdb', 'db.datasource.expeditor', 'db.datasource.expeditor_node1', 'db.datasource.expeditor_node2', 'db.datasource.fas', 'db.datasource.genesis.cadastre.frontend', 'db.datasource.genesis.cadastre.frontend_node1', 'db.datasource.genesis.cadastre.frontend_node2', 'db.datasource.gototgt_node1', 'db.datasource.gototgt_node2', 'db.datasource.gototin', 'db.datasource.gototin_node1', 'db.datasource.gototin_node2', 'db.datasource.gum', 'db.datasource.h30bis', 'db.datasource.iboss', 'db.datasource.limosa_cadastre', 'db.datasource.limosa_cadastre_node1', 'db.datasource.limosa_cadastre_node2', 'db.datasource.limosa_staging', 'db.datasource.limosa_staging_node1', 'db.datasource.limosa_staging_node2', 'db.datasource.limosacadv3', 'db.datasource.limosacadv3_node1', 'db.datasource.limosacadv3_node2', 'db.datasource.maya', 'db.datasource.onssdirectory', 'db.datasource.phoenix_node1', 'db.datasource.phoenix_node2', 'db.datasource.printmanager', 'db.datasource.repertoire.offident', 'db.datasource.rrn', 'db.datasource.securitylog', 'db.datasource.suivi', 'db.datasource.tickets', 'db.datasource.timereg', 'db.datasource.trillium', 'db.datasource.uam.pep', 'db.datasource.uam.pep_node1', 'db.datasource.uam.pep_node2', 'db.datasource.updatable.gum', 'db.datasource.useraccess_data']^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||db.datasource.SqNbr^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4SUIVI)))^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||Properties : {user=SP7_PRD}^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||passwoord : ves3559REL^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||db.datasource.a4modrep^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//catwoman:2003/A4MODREP^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||Properties : {user=MODREP_PRD}^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||passwoord : anapurna^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||db.datasource.agap^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//starbuck:2003/A4UMOE^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||Properties : {user=AGAP_PRD}^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||passwoord : philips^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:26|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||db.datasource.aqdb^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4OCCUP)))^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||Properties : {user=twnr_prd}^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||passwoord : woc7354SAG^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||db.datasource.atce_phoenix^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@orwell:1521:AADB^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||Properties : {user=phoenix_svc}^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||passwoord : ref7964DEN^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||db.datasource.authenticatorumoe^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=STARBUCK)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=STARBUCK)(PORT=2004))(ADDRESS=(PROTOCOL=TCP)(HOST=STARBUCK)(PORT=2005))(LOAD_BALANCE=on))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||Properties : {user=umoe_prd}^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||passwoord : zomoe^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:27|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||db.datasource.authenticatorumoe_node1^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||Properties : {user=umoe_prd}^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||passwoord : mem6233VEV^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||db.datasource.authenticatorumoe_node2^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||Properties : {user=umoe_prd}^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||passwoord : mem6233VEV^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||db.datasource.authenticatorumoeexp^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=STARBUCK)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=STARBUCK)(PORT=2004))(ADDRESS=(PROTOCOL=TCP)(HOST=STARBUCK)(PORT=2005))(LOAD_BALANCE=on))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||Properties : {user=exped_clt}^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||passwoord : proposition^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:28|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||db.datasource.authenticatorumoeexp_node1^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||Properties : {user=exped_clt}^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||passwoord : gan6034JEK^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||db.datasource.authenticatorumoeexp_node2^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||Properties : {user=exped_clt}^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||passwoord : gan6034JEK^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||db.datasource.baseservice.country^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//orwell.smals-mvm.be:1521/AADB^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||Properties : {user=atce}^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||passwoord : luc^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:29|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||db.datasource.beware2^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4BEWARE)))^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||Properties : {user=beware_prd}^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||passwoord : hic9078HAV^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||InitalCapacity : 5^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||db.datasource.beware2_node1^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4BEWARE_1)))^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||Properties : {user=beware_prd}^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||passwoord : hic9078HAV^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||InitalCapacity : 3^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||MaxCapacity : 10^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||db.datasource.beware2_node2^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4BEWARE_2)))^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||Properties : {user=beware_prd}^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||passwoord : hic9078HAV^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||InitalCapacity : 3^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||MaxCapacity : 10^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||db.datasource.birsz^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//houros.smals-mvm.be:2003/A4BIRSZ1^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||Properties : {user=BI_SECURITY_UAT}^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||passwoord : bi5000^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:30|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||db.datasource.birsz_node1^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4TOSTAT)))^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||Properties : {user=BI_SECURITY_UAT}^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||passwoord : bi5000^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||db.datasource.birsz_rac1^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4TOSTAT)))^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||Properties : {user=BI_SECURITY_UAT}^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||passwoord : bi5000^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||db.datasource.birsz_rac2^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4TOSTAT)))^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||Properties : {user=BI_SECURITY_UAT}^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||passwoord : bi5000^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:31|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||db.datasource.clc^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=starbuck.smals-mvm.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=starbuck.smals-mvm.be)(PORT=2004))(ADDRESS=(PROTOCOL=TCP)(HOST=starbuck.smals-mvm.be)(PORT=2005))(LOAD_BALANCE=on))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||Properties : {user=umoe_clt}^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||passwoord : nietmoe^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||db.datasource.clc_node1^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||Properties : {user=umoe_clt}^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||passwoord : noy3952TIH^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||db.datasource.clc_node2^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||Properties : {user=umoe_clt}^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||passwoord : noy3952TIH^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:32|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||db.datasource.countrybean^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//denver.smals-mvm.be:1521/JAD2^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||Properties : {user=frontend}^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||passwoord : stagfront_acc^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||db.datasource.countrybean_node1^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4GENESIS_1)))^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||Properties : {user=GENESIS_STA_PRD}^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||passwoord : yow8281LEJ^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||InitalCapacity : 3^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||db.datasource.countrybean_node2^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4GENESIS_2)))^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||Properties : {user=GENESIS_STA_PRD}^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||passwoord : yow8281LEJ^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||InitalCapacity : 3^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:33|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||db.datasource.dbhistoric_node1^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4DMFA)))^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||Properties : {user=DMFA_PRD}^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||passwoord : qos3041PUT^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||InitalCapacity : 3^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||db.datasource.dbhistoric_node2^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4DMFA)))^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||Properties : {user=DMFA_PRD}^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||passwoord : qos3041PUT^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||InitalCapacity : 3^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||db.datasource.dmfa^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST =CRSACC1-SCAN.DATASERV.BE)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.DATASERV.BE)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4DMFA_1)))^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||Properties : {user=DMFA_PRD}^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||passwoord : qos3041PUT^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||db.datasource.dmfa2^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST =CRSACC1-SCAN.DATASERV.BE)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.DATASERV.BE)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4DMFA)))^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||Properties : {user=DMFA_PRD}^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||passwoord : qos3041PUT^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:34|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||db.datasource.dmfaQ1^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST =CRSACC1-SCAN.DATASERV.BE)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.DATASERV.BE)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4DMFA)))^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||Properties : {user=DMFA_PRD}^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||passwoord : qos3041PUT^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||db.datasource.dmfa_Q1_2^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST =CRSACC1-SCAN.DATASERV.BE)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.DATASERV.BE)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4DMFA)))^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||Properties : {user=DMFA_PRD}^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||passwoord : qos3041PUT^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||db.datasource.drsrequest_rac1^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4DRSREQ)))^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||Properties : {user=DRSREQ_PRD}^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||passwoord : ces5888CEX^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:35|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||db.datasource.duc^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//orwell:1521/AADB^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||Properties : {user=duc}^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||passwoord : chantier^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||db.datasource.employer^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//orwell.smals-mvm.be:1521/AADB^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||Properties : {user=atce}^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||passwoord : luc^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||db.datasource.employer.acdb^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//federer:2003/acdb^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||Properties : {user=consult}^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||passwoord : twist^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:36|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||db.datasource.expeditor^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=starbuck.smals-mvm.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=starbuck.smals-mvm.be)(PORT=2004))(ADDRESS=(PROTOCOL=TCP)(HOST=starbuck.smals-mvm.be)(PORT=2005))(LOAD_BALANCE=on))(CONNECT_DATA=(SERVICE_NAME=A4UMOE)))^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||Properties : {user=exped_prd}^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||passwoord : recorded^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||MaxCapacity : 25^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||db.datasource.expeditor_node1^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE_1)))^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||Properties : {user=exped_prd}^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||passwoord : bat8754VAR^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||MaxCapacity : 25^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||db.datasource.expeditor_node2^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UMOE_2)))^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||Properties : {user=exped_prd}^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||passwoord : bat8754VAR^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||MaxCapacity : 25^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||db.datasource.fas^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//rosalind:2003/DADB^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||Properties : {user=drsparam_prd}^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||passwoord : wlsticket^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:37|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||db.datasource.genesis.cadastre.frontend^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//mercury.smals-mvm.be:1521/JAD1^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||Properties : {user=frontend}^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||passwoord : cadfront_acc^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||db.datasource.genesis.cadastre.frontend_node1^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4GENESIS_1)))^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||Properties : {user=GENESIS_CAD_PRD}^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||passwoord : yoc2905XAC^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||InitalCapacity : 3^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:38|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||db.datasource.genesis.cadastre.frontend_node2^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4GENESIS_2)))^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||Properties : {user=GENESIS_CAD_PRD}^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||passwoord : yoc2905XAC^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||InitalCapacity : 3^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||db.datasource.gototgt_node1^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4GOTOTGT_1)))^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||Properties : {user=GOTOTGT_PRD}^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||passwoord : cod2275WID^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||db.datasource.gototgt_node2^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=a4gototgt_2)))^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||Properties : {user=GOTOTGT_PRD}^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||passwoord : cod2275WID^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||db.datasource.gototin^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//mercury.smals-mvm.be:1521/MADB^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||Properties : {serverName=mercury.smals-mvm.be, SID=MADB, portNumber=1521, user=gototin_prd}^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||passwoord : gototin_maj^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:39|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||db.datasource.gototin_node1^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4GOTOTIN_1)))^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||Properties : {user=GOTOTIN_PRD}^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||passwoord : cem9182VUF^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||InitalCapacity : 3^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||db.datasource.gototin_node2^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4GOTOTIN_2)))^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||Properties : {user=GOTOTIN_PRD}^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||passwoord : cem9182VUF^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||InitalCapacity : 3^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||db.datasource.gum^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@orwell:1521:AADB^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||Properties : {user=consult}^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||passwoord : maria^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:40|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||db.datasource.h30bis^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//orwell:1521/AADB^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||Properties : {user=duc}^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||passwoord : chantier^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||db.datasource.iboss^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//rosalind.smals-mvm.be:2003/BADB^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||Properties : {user=iboss_1_iboss_prd}^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||passwoord : marcus^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||db.datasource.limosa_cadastre^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//mercury:1521/A4LIMOCA^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||Properties : {user=CA_PRD}^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||passwoord : lotto01^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||db.datasource.limosa_cadastre_node1^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4LIMOCA_1)))^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||Properties : {user=CA_PRD}^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||passwoord : pew9773GET^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:41|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||db.datasource.limosa_cadastre_node2^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4LIMOCA_2)))^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||Properties : {user=CA_PRD}^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||passwoord : pew9773GET^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||db.datasource.limosa_staging^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//denver:1521/A4LIMOST^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||Properties : {user=ST_PRD}^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||passwoord : foxtail^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||db.datasource.limosa_staging_node1^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4LIMOST_1)))^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||Properties : {user=ST_PRD}^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||passwoord : wew5484XEQ^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:42|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||db.datasource.limosa_staging_node2^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4LIMOST_2)))^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||Properties : {user=ST_PRD}^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||passwoord : wew5484XEQ^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||db.datasource.limosacadv3^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//mercury:1521/a4limoca^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||Properties : {user=ca_prd}^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||passwoord : lotto01^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||db.datasource.limosacadv3_node1^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=a4limoca)))^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||Properties : {user=ca_prd}^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||passwoord : pew9773GET^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||db.datasource.limosacadv3_node2^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=a4limoca)))^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||Properties : {user=ca_prd}^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||passwoord : pew9773GET^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:43|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||db.datasource.maya^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//pollux.smals-mvm.be:1521/A4MAYA^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||Properties : {user=simmaya_adm}^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||passwoord : simadmin^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||db.datasource.onssdirectory^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@orwell:1521/AADB^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||Properties : {user=CONSULT}^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||passwoord : maria^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||db.datasource.phoenix_node1^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-SCAN.DATASERV.BE)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.DATASERV.BE)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4PHOENIX_1)))^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||Properties : {user=phoenix_prd}^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||passwoord : did9383ZEW^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||InitalCapacity : 3^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:44|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||db.datasource.phoenix_node2^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-SCAN.DATASERV.BE)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC2-SCAN.DATASERV.BE)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4PHOENIX_2)))^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||Properties : {user=phoenix_prd}^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||passwoord : did9383ZEW^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||InitalCapacity : 3^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||db.datasource.printmanager^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4PRINTMGR)))^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||Properties : {user=printmgr_prd}^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||passwoord : misty^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||InitalCapacity : 3^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||MaxCapacity : 10^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||db.datasource.repertoire.offident^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//orwell.smals-mvm.be:1521/AADB^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||Properties : {user=OFFIDENT}^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||passwoord : identifier^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:45|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||db.datasource.rrn^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//rosalind:2003/A4DB1^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||Properties : {user=RRNWEB_PRD}^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||passwoord : rrn500^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||db.datasource.securitylog^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//rosalind.smals-mvm.be:2003/WADB^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||Properties : {user=secure_clt}^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||passwoord : looksecure^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||db.datasource.suivi^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4SUIVI)))^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||Properties : {user=suivi_prd}^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||passwoord : zer4969YIM^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||db.datasource.tickets^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//rosalind.smals-mvm.be:2003/DADB^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.driver.OracleDriver^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||Properties : {user=drsparam_prd}^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||passwoord : wlsticket^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:46|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||db.datasource.timereg^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc1-scan.dataserv.be)(PORT=2003))(ADDRESS=(PROTOCOL=TCP)(HOST=crsacc2-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4TIMEREG)))^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||Properties : {user=timereg_prd}^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||passwoord : timereg_prd_acc^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||db.datasource.trillium^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//rosalind.smals-mvm.be:2003/ASA4TRIL^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.xa.client.OracleXADataSource^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||Properties : {user=trillium_web}^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||passwoord : tritri^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||db.datasource.uam.pep^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//rosalind.smals-mvm.be:2003/A4UAM^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||Properties : {user=mapper_prd}^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||passwoord : candyman^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:47|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||db.datasource.uam.pep_node1^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UAM)))^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||Properties : {user=PEP3_PRD}^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||passwoord : vuj5120YAB^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||db.datasource.uam.pep_node2^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=CRSACC1-scan.dataserv.be)(PORT=2003)))(CONNECT_DATA=(SERVICE_NAME=A4UAM)))^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||Properties : {user=PEP3_PRD}^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||passwoord : vuj5120YAB^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||db.datasource.updatable.gum^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@//orwell.smals-mvm.be:1521/AADB^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||Properties : {user=GDAUT}^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||passwoord : peace^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||InitalCapacity : 0^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 1^^^
+^^^11:47:48|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:49|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:49|INFO|pp||2-script-url|Intramuros||db.datasource.useraccess_data^^^
+^^^11:47:49|INFO|pp||2-script-url|Intramuros||URL : jdbc:oracle:thin:@orwell.smals-mvm.be:1521:AADB^^^
+^^^11:47:49|INFO|pp||2-script-url|Intramuros||DriverName : oracle.jdbc.OracleDriver^^^
+^^^11:47:49|INFO|pp||2-script-url|Intramuros||Properties : {user=CONSULT}^^^
+^^^11:47:49|INFO|pp||2-script-url|Intramuros||passwoord : maria^^^
+^^^11:47:49|INFO|pp||2-script-url|Intramuros||InitalCapacity : 1^^^
+^^^11:47:49|INFO|pp||2-script-url|Intramuros||MaxCapacity : 15^^^
+^^^11:47:49|INFO|pp||2-script-url|Intramuros||TestConnectionsOnReserve : 0^^^
+^^^11:47:49|INFO|pp||2-script-url|Intramuros||==============================================^^^
+^^^11:47:49|SEVERE|pp||2-script-url|Intramuros||+ RET=0^^^
+^^^11:47:49|SEVERE|pp||2-script-url|Intramuros||+ '[' 0 -eq 0 ']'^^^
+^^^11:47:49|SEVERE|pp||2-script-url|Intramuros||+ /bin/rm /tmp/embedded.UtGXi^^^
+^^^11:47:50|SEVERE|pp||2-script-url|Intramuros||+ exit 0^^^
+^^^END^^^

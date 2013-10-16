@@ -1,0 +1,25 @@
+egovacc:
+  username: pp
+  hostname: skywalker.smals-mvm.be
+  tags: acceptation,weblogic
+  adminurl: t3://skywalker.smals-mvm.be:10004
+  description: Admin egov domain  
+logindomain:
+  username: pp
+  hostname: skywalker.smals-mvm.be
+  tags: acceptation,weblogic
+  adminurl: t3://skywalker.smals-mvm.be:10006
+  description: Admin login domain
+uamdomain:
+  username: pp
+  hostname: skywalker.smals-mvm.be
+  tags: acceptation,weblogic
+  adminurl: t3://skywalker.smals-mvm.be:10008
+  description: Admin uamdomain domain
+Intramuros:
+  username: pp
+  hostname: skywalker.smals-mvm.be
+  tags: acceptation,weblogic
+  adminurl: t3://lasmaadm099a.smals-mvm.be:10014
+  description: Admin Intramuros domain
+

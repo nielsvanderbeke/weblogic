@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JOB-YAML-V12(5) Rundeck User Manuals | Version 1.2</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Greg Schueler" />
+  <meta name="date" content="February 25, 2011" />
+  <link rel="stylesheet" href="../../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../../index.html">Rundeck Documentation (1.4.4)</a></li>
+    
+        <li><a href="../index.html">Man Pages</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="job-yaml-v12.html">JOB-YAML-V12(5) Rundeck User Manuals | Version 1.2</a></li>
+        <li class="toc"><a href="index.html">Formats | Man(5)</a></li>
+        <li class="prev"><a href="job-v20.html">JOB-V20(5) Rundeck User Manuals | Version 2.0</a></li>
+        <li class="next"><a href="resource-v13.html">RESOURCE-V13(5) Rundeck User Manuals | Version 1.3</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">JOB-YAML-V12(5) Rundeck User Manuals | Version 1.2</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#name"
+      >NAME</a
+      ><ul
+      ><li
+	><a href="#loading-and-unloading"
+	  >Loading and unloading</a
+	  ></li
+	><li
+	><a href="#structure"
+	  >Structure</a
+	  ></li
+	><li
+	><a href="#job-map-contents"
+	  >Job Map Contents</a
+	  ><ul
+	  ><li
+	    ><a href="#sequence"
+	      >Sequence</a
+	      ></li
+	    ><li
+	    ><a href="#command"
+	      >Command</a
+	      ><ul
+	      ><li
+		><a href="#simple-command-entry"
+		  >Simple Command Entry</a
+		  ></li
+		><li
+		><a href="#script-execution-entry"
+		  >Script Execution Entry</a
+		  ></li
+		><li
+		><a href="#script-file-execution-entry"
+		  >Script File Execution Entry</a
+		  ></li
+		><li
+		><a href="#script-url-execution-entry"
+		  >Script URL Execution Entry</a
+		  ></li
+		><li
+		><a href="#job-reference-entry"
+		  >Job Reference Entry</a
+		  ></li
+		></ul
+	      ></li
+	    ><li
+	    ><a href="#options"
+	      >Options</a
+	      ></li
+	    ><li
+	    ><a href="#option"
+	      >Option</a
+	      ><ul
+	      ><li
+		><a href="#valuesurl-json"
+		  >valuesUrl JSON</a
+		  ></li
+		></ul
+	      ></li
+	    ><li
+	    ><a href="#schedule"
+	      >Schedule</a
+	      ></li
+	    ><li
+	    ><a href="#nodefilters"
+	      >Nodefilters</a
+	      ></li
+	    ><li
+	    ><a href="#notification"
+	      >Notification</a
+	      ></li
+	    ></ul
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#see-also"
+      >SEE ALSO</a
+      ></li
+    ></ul
+  ></div
+>
+<div id="name"
+><h1
+  ><a href="#TOC"
+    >NAME</a
+    ></h1
+  ><p
+  >job-yaml-v12 - The 'job' YAML file declares job entries for Rundeck.</p
+  ><div id="loading-and-unloading"
+  ><h2
+    ><a href="#TOC"
+      >Loading and unloading</a
+      ></h2
+    ><p
+    >This file can be batch loaded via <em
+      >rd-jobs</em
+      > load command:</p
+    ><pre
+    ><code
+      >rd-jobs load --file /path/to/jobs.yaml -F yaml
+</code
+      ></pre
+    ><p
+    >Rundeck job definitions can be dumped and saved to a file via rd-jobs list command:</p
+    ><pre
+    ><code
+      >rd-jobs list --file /tmp/jobs.yaml -F yaml
+</code
+      ></pre
+    ></div
+  ><div id="structure"
+  ><h2
+    ><a href="#TOC"
+      >Structure</a
+      ></h2
+    ><p
+    >The YAML document can contain multiple Job definitions, in a sequence:</p
+    ><pre
+    ><code
+      >- # job 1
+  name: ...
+- # job 2
+  name: ...
+</code
+      ></pre
+    ><p
+    >Each Job definition is a Map consisting of some required and some optional entries, as listed below.</p
+    ></div
+  ><div id="job-map-contents"
+  ><h2
+    ><a href="#TOC"
+      >Job Map Contents</a
+      ></h2
+    ><p
+    >Each Job definition requires these values:</p
+    ><dl
+    ><dt
+      ><code
+	>name</code
+	></dt
+      ><dd
+      ><p
+	>the job name</p
+	></dd
+      ><dt
+      ><code
+	>uuid</code
+	></dt
+      ><dd
+      ><p
+	>Unique UUID</p
+	></dd
+      ><dt
+      ><code
+	>description</code
+	></dt
+      ><dd
+      ><p
+	>the job description (can be blank)</p
+	></dd
+      ><dt
+      ><code
+	>project</code
+	></dt
+      ><dd
+      ><p
+	>the Project name</p
+	></dd
+      ><dt
+      ><code
+	>loglevel</code
+	></dt
+      ><dd
+      ><p
+	>the loglevel to use for the job, the value must be one of:</p
+	><ul
+	><li
+	  ><code
+	    >DEBUG</code
+	    ></li
+	  ><li
+	  ><code
+	    >VERBOSE</code
+	    ></li
+	  ><li
+	  ><code
+	    >INFO</code
+	    ></li
+	  ><li
+	  ><code
+	    >WARN</code
+	    ></li
+	  ><li
+	  ><code
+	    >ERR</code
+	    ></li
+	  ></ul
+	></dd
+      ><dt
+      ><a href="#sequence"
+	><code
+	  >sequence</code
+	  ></a
+	></dt
+      ><dd
+      ><p
+	>The workflow sequence definition</p
+	></dd
+      ></dl
+    ><p
+    >A minimal job definition example:</p
+    ><pre
+    ><code
+      >name: job name
+description: ''
+project: project1
+loglevel: INFO
+sequence: 
+  - exec: a command
+</code
+      ></pre
+    ><p
+    >In addition, these optional entries can be present:</p
+    ><dl
+    ><dt
+      ><code
+	>group</code
+	></dt
+      ><dd
+      ><p
+	>Job group name</p
+	></dd
+      ><dt
+      ><code
+	>multipleExecutions</code
+	></dt
+      ><dd
+      ><p
+	>'true/false': if true, the job can have more than one execution at once.</p
+	></dd
+      ><dt
+      ><a href="#options"
+	><code
+	  >options</code
+	  ></a
+	></dt
+      ><dd
+      ><p
+	>Set of Options for the Job</p
+	></dd
+      ><dt
+      ><a href="#schedule"
+	><code
+	  >schedule</code
+	  ></a
+	></dt
+      ><dd
+      ><p
+	>Job schedule</p
+	></dd
+      ><dt
+      ><a href="#nodefilters"
+	><code
+	  >nodefilters</code
+	  ></a
+	></dt
+      ><dd
+      ><p
+	>Node filter definition</p
+	></dd
+      ><dt
+      ><a href="#notification"
+	><code
+	  >notification</code
+	  ></a
+	></dt
+      ><dd
+      ><p
+	>Job result notifications</p
+	></dd
+      ></dl
+    ><p
+    ><em
+      >Note:</em
+      > The UUID can be set manually (if you are writing the job definition from scratch), or will be assigned at job creation time by the Rundeck server using a random UUID. This string should be as unique as possible if you set it manually.</p
+    ><p
+    >This identifier is used to uniquely identify jobs when ported between Rundeck instances.</p
+    ><div id="sequence"
+    ><h3
+      ><a href="#TOC"
+	>Sequence</a
+	></h3
+      ><p
+      >This defines the Workflow options and execution sequence.</p
+      ><p
+      >Example:</p
+      ><pre
+      ><code
+	>sequence:
+  keepgoing: true
+  strategy: node-first
+  commands: 
+  - exec: ...
+  - script: ...
+    args: ...
+  - scriptfile: ...
+    args:
+  - scripturl: ...
+    args:
+  - jobref:
+      name: jobname
+      group: group
+      args: args
+</code
+	></pre
+      ><p
+      >The sequence has these required entries:</p
+      ><dl
+      ><dt
+	><code
+	  >keepgoing</code
+	  ></dt
+	><dd
+	><p
+	  >&quot;true/false&quot; - whether the sequence should keep going if an error occurs</p
+	  ></dd
+	><dt
+	><code
+	  >strategy</code
+	  ></dt
+	><dd
+	><p
+	  >&quot;node-first&quot; or &quot;step-first&quot;. Determines the strategy for executing the sequence across a set of nodes. See the <a href="manual/job-workflows.html#workflow-control-settings"
+	    >Rundeck User Manual</a
+	    > for more info.</p
+	  ></dd
+	><dt
+	><code
+	  >commands</code
+	  ></dt
+	><dd
+	><p
+	  >This is a Sequence of: * One or more <a href="#command"
+	    >Command Definitions</a
+	    ></p
+	  ></dd
+	></dl
+      ></div
+    ><div id="command"
+    ><h3
+      ><a href="#TOC"
+	>Command</a
+	></h3
+      ><p
+      >Each command in the <a href="#sequence"
+	>Sequence</a
+	> can be of these different types:</p
+      ><ul
+      ><li
+	><a href="#simple-command-entry"
+	  >Simple command execution entry</a
+	  ></li
+	><li
+	><a href="#script-execution-entry"
+	  >Script execution entry</a
+	  ></li
+	><li
+	><a href="#script-file-execution-entry"
+	  >Script file execution entry</a
+	  ></li
+	><li
+	><a href="#job-reference-entry"
+	  >Job Reference entry</a
+	  ></li
+	></ul
+      ><div id="simple-command-entry"
+      ><h4
+	><a href="#TOC"
+	  >Simple Command Entry</a
+	  ></h4
+	><p
+	>This <a href="#command"
+	  >Command</a
+	  > consists of a single entry:</p
+	><dl
+	><dt
+	  ><code
+	    >exec</code
+	    ></dt
+	  ><dd
+	  >the command to execute</dd
+	  ></dl
+	></div
+      ><div id="script-execution-entry"
+      ><h4
+	><a href="#TOC"
+	  >Script Execution Entry</a
+	  ></h4
+	><p
+	>This <a href="#command"
+	  >Command</a
+	  > executes the script content specified.</p
+	><dl
+	><dt
+	  ><code
+	    >script</code
+	    ></dt
+	  ><dd
+	  ><p
+	    >The script content. It is useful to use the YAML &quot;literal&quot; scalar syntax shown below</p
+	    ></dd
+	  ><dt
+	  ><code
+	    >args</code
+	    ></dt
+	  ><dd
+	  ><p
+	    >Optional string defining arguments to pass to the script.</p
+	    ></dd
+	  ></dl
+	><p
+	>Example:</p
+	><pre
+	><code
+	  > - script: |-
+    #!/bin/bash
+
+    echo this is a script
+    echo this is option value: @option.test@
+  args: arguments passed to the script
+</code
+	  ></pre
+	></div
+      ><div id="script-file-execution-entry"
+      ><h4
+	><a href="#TOC"
+	  >Script File Execution Entry</a
+	  ></h4
+	><p
+	>This <a href="#command"
+	  >Command</a
+	  > executes a script file stored on the server.</p
+	><dl
+	><dt
+	  ><code
+	    >scriptfile</code
+	    ></dt
+	  ><dd
+	  ><p
+	    >path to the script file</p
+	    ></dd
+	  ><dt
+	  ><code
+	    >args</code
+	    ></dt
+	  ><dd
+	  ><p
+	    >optional arguments to the script</p
+	    ></dd
+	  ></dl
+	><p
+	>Example:</p
+	><pre
+	><code
+	  >- scriptfile: /path/to/script
+  args: arguments to script
+</code
+	  ></pre
+	></div
+      ><div id="script-url-execution-entry"
+      ><h4
+	><a href="#TOC"
+	  >Script URL Execution Entry</a
+	  ></h4
+	><p
+	>This <a href="#command"
+	  >Command</a
+	  > downloads a script file from a URL and executes it.</p
+	><dl
+	><dt
+	  ><code
+	    >scripturl</code
+	    ></dt
+	  ><dd
+	  ><p
+	    >URL to the script file</p
+	    ></dd
+	  ><dt
+	  ><code
+	    >args</code
+	    ></dt
+	  ><dd
+	  ><p
+	    >optional arguments to the script</p
+	    ></dd
+	  ></dl
+	><p
+	>Example:</p
+	><pre
+	><code
+	  >- scripturl: http://example.com/path/to/script
+  args: arguments to script
+</code
+	  ></pre
+	></div
+      ><div id="job-reference-entry"
+      ><h4
+	><a href="#TOC"
+	  >Job Reference Entry</a
+	  ></h4
+	><p
+	>This <a href="#command"
+	  >Command</a
+	  > executes another Rundeck Job.</p
+	><dl
+	><dt
+	  ><code
+	    >jobref</code
+	    ></dt
+	  ><dd
+	  ><p
+	    >map consisting of these entries:</p
+	    ><dl
+	    ><dt
+	      ><code
+		>name</code
+		></dt
+	      ><dd
+	      ><p
+		>Name of the Job</p
+		></dd
+	      ><dt
+	      ><code
+		>group</code
+		></dt
+	      ><dd
+	      ><p
+		>Group of the Job (optional)</p
+		></dd
+	      ><dt
+	      ><code
+		>args</code
+		></dt
+	      ><dd
+	      ><p
+		>Arguments to pass to the job when executed</p
+		></dd
+	      ></dl
+	    ></dd
+	  ></dl
+	><p
+	>Example:</p
+	><pre
+	><code
+	  >- jobref:
+    group: test
+    name: simple job test
+    args: args for the job
+</code
+	  ></pre
+	></div
+      ></div
+    ><div id="options"
+    ><h3
+      ><a href="#TOC"
+	>Options</a
+	></h3
+      ><p
+      >Options for a job can be specified with a map. Each map key is the name of the option, and the content is a map defining the <a href="#option"
+	>Option</a
+	>.</p
+      ><pre
+      ><code
+	>options:
+  optname1:
+    [definition..]
+  optname2:
+    [definition..]
+</code
+	></pre
+      ></div
+    ><div id="option"
+    ><h3
+      ><a href="#TOC"
+	>Option</a
+	></h3
+      ><p
+      >An option definition has no required entries, so it could be empty:</p
+      ><pre
+      ><code
+	>myoption: {}
+</code
+	></pre
+      ><p
+      >Optional map entries are:</p
+      ><dl
+      ><dt
+	><code
+	  >description</code
+	  ></dt
+	><dd
+	><p
+	  >description of the option</p
+	  ></dd
+	><dt
+	><code
+	  >value</code
+	  ></dt
+	><dd
+	><p
+	  >a default value for the option</p
+	  ></dd
+	><dt
+	><code
+	  >values</code
+	  ></dt
+	><dd
+	><p
+	  >A set of possible values for the option. This must be a YAML Sequence of strings.</p
+	  ></dd
+	><dt
+	><code
+	  >required</code
+	  ></dt
+	><dd
+	><p
+	  >&quot;true/false&quot; - whether the option is required or not</p
+	  ></dd
+	><dt
+	><code
+	  >enforced</code
+	  ></dt
+	><dd
+	><p
+	  >&quot;true/false&quot; - whether the option value must be one of the specified possible values</p
+	  ></dd
+	><dt
+	><code
+	  >regex</code
+	  ></dt
+	><dd
+	><p
+	  >A regular expression defining what option values are acceptable</p
+	  ></dd
+	><dt
+	><code
+	  >valuesUrl</code
+	  ></dt
+	><dd
+	><p
+	  >A URL to an endpoint that will return a JSON-formatted set of values for the option.</p
+	  ></dd
+	><dt
+	><code
+	  >multivalued</code
+	  ></dt
+	><dd
+	><p
+	  >&quot;true/false&quot; - whether the option supports multiple input values</p
+	  ></dd
+	><dt
+	><code
+	  >delimiter</code
+	  ></dt
+	><dd
+	><p
+	  >A string used to conjoin multiple input values. (Required if <code
+	    >multivalued</code
+	    > is &quot;true&quot;)</p
+	  ></dd
+	><dt
+	><code
+	  >secure</code
+	  ></dt
+	><dd
+	><p
+	  >&quot;true/false&quot; - whether the option is a secure input option. Not compatible with &quot;multivalued&quot;</p
+	  ></dd
+	></dl
+      ><p
+      >Example:</p
+      ><pre
+      ><code
+	>test:
+  required: true
+  description: a test option
+  value: dvalue
+  regex: ^[abcd]value$
+  values:
+  - avalue
+  - bvalue
+  - cvalue
+  multivalued: true
+  delimiter: ','
+</code
+	></pre
+      ><div id="valuesurl-json"
+      ><h4
+	><a href="#TOC"
+	  >valuesUrl JSON</a
+	  ></h4
+	><p
+	>The data returned from the valuesUrl can be formatted as a list of values:</p
+	><pre
+	><code
+	  >[&quot;x value&quot;,&quot;y value&quot;]
+</code
+	  ></pre
+	><p
+	>or as Name-value list:</p
+	><pre
+	><code
+	  >[
+  {name:&quot;X Label&quot;, value:&quot;x value&quot;},
+  {name:&quot;Y Label&quot;, value:&quot;y value&quot;},
+  {name:&quot;A Label&quot;, value:&quot;a value&quot;}
+] 
+</code
+	  ></pre
+	><ul
+	><li
+	  >See the <a href="manual/job-options.html#remote-option-values"
+	    >Rundeck Guide</a
+	    > for more info.</li
+	  ></ul
+	></div
+      ></div
+    ><div id="schedule"
+    ><h3
+      ><a href="#TOC"
+	>Schedule</a
+	></h3
+      ><p
+      >Define a schedule for repeated execution of the Job. The schedule can be defined as a Crontab formatted string, or as individual components. The individual components support Crontab syntax.</p
+      ><ul
+      ><li
+	><code
+	  >crontab</code
+	  >: The crontab string, e.g. <code
+	  >&quot;0 30 */6 ? Jan Mon *&quot;</code
+	  ></li
+	></ul
+      ><p
+      >Or use a structure of explicit components. All of these are optional, but likely you want to change them:</p
+      ><dl
+      ><dt
+	><code
+	  >time</code
+	  ></dt
+	><dd
+	><p
+	  >a map containing:</p
+	  ><dl
+	  ><dt
+	    ><code
+	      >seconds</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >seconds value (default: &quot;0&quot;)</p
+	      ></dd
+	    ><dt
+	    ><code
+	      >minute</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >minutes value (default: &quot;0&quot;)</p
+	      ></dd
+	    ><dt
+	    ><code
+	      >hour</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >hour value (default: &quot;0&quot;)</p
+	      ></dd
+	    ></dl
+	  ></dd
+	><dt
+	><code
+	  >month</code
+	  ></dt
+	><dd
+	><p
+	  >Month value (default: &quot;*&quot;)</p
+	  ></dd
+	><dt
+	><code
+	  >year</code
+	  ></dt
+	><dd
+	><p
+	  >Year value (default &quot;*&quot;)</p
+	  ></dd
+	><dt
+	><code
+	  >dayofmonth</code
+	  ></dt
+	><dd
+	><p
+	  >day of month value. (mutually exclusive with <code
+	    >weekday</code
+	    >)</p
+	  ></dd
+	><dt
+	><code
+	  >weekday</code
+	  ></dt
+	><dd
+	><p
+	  >Map containing:</p
+	  ><dl
+	  ><dt
+	    ><code
+	      >day</code
+	      ></dt
+	    ><dd
+	    >Weekday value. (mutually exclusive with <code
+	      >dayofmonth</code
+	      >) (default: &quot;*&quot;) Numerical values are 1-7 for Sunday-Saturday.</dd
+	    ></dl
+	  ></dd
+	></dl
+      ><p
+      >Example using crontab string:</p
+      ><pre
+      ><code
+	>schedule:
+  crontab: '0 30 */6 ? Jan Mon *'
+</code
+	></pre
+      ><p
+      >Example using structure:</p
+      ><pre
+      ><code
+	>schedule:
+  time:
+    hour: '05'
+    minute: '01'
+    seconds: '0'
+  month: APR,MAR,MAY
+  year: '*'
+  weekday:
+    day: FRI,MON,TUE
+</code
+	></pre
+      ></div
+    ><div id="nodefilters"
+    ><h3
+      ><a href="#TOC"
+	>Nodefilters</a
+	></h3
+      ><p
+      >Specifies the Nodes to use for the job, and the node-dispatch options. Contains the following entries:</p
+      ><dl
+      ><dt
+	><code
+	  >dispatch</code
+	  ></dt
+	><dd
+	><p
+	  >a Map containing:</p
+	  ><dl
+	  ><dt
+	    ><code
+	      >keepgoing</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >&quot;true/false&quot; - whether to keepgoing on remaining nodes if a node fails</p
+	      ></dd
+	    ><dt
+	    ><code
+	      >excludePrecedence</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >&quot;true/false&quot; (default &quot;true&quot;) - determines precedence for filters</p
+	      ></dd
+	    ><dt
+	    ><code
+	      >threadcount</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >Number of threads to use for parallel dispatch (default &quot;1&quot;)</p
+	      ></dd
+	    ><dt
+	    ><code
+	      >rankAttribute</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >Name of the Node attribute to use for ordering the sequence of nodes (default is the node name)</p
+	      ></dd
+	    ><dt
+	    ><code
+	      >rankOrder</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >Order direction for node ranking. Either &quot;ascending&quot; or &quot;descending&quot; (default &quot;ascending&quot;)</p
+	      ></dd
+	    ></dl
+	  ></dd
+	></dl
+      ><p
+      >The <code
+	>nodefilters</code
+	> must also contain ONE of <code
+	>include</code
+	> or <code
+	>exclude</code
+	> filter specifiers.</p
+      ><dl
+      ><dt
+	><code
+	  >include</code
+	  >/<code
+	  >exclude</code
+	  ></dt
+	><dd
+	><p
+	  >A Map containing filter entries:</p
+	  ><dl
+	  ><dt
+	    ><code
+	      >hostname</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >Hostname filter</p
+	      ></dd
+	    ><dt
+	    ><code
+	      >name</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >Node name filter</p
+	      ></dd
+	    ><dt
+	    ><code
+	      >tags</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >Tags filter. Supports boolean operators AND (&quot;+&quot;) and OR (&quot;,&quot;).</p
+	      ></dd
+	    ><dt
+	    ><code
+	      >os-name</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >OS name filter</p
+	      ></dd
+	    ><dt
+	    ><code
+	      >os-family</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >OS Family filter</p
+	      ></dd
+	    ><dt
+	    ><code
+	      >os-arch</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >OS Arch filter</p
+	      ></dd
+	    ><dt
+	    ><code
+	      >os-version</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >OS Version filter</p
+	      ></dd
+	    ></dl
+	  ></dd
+	></dl
+      ><p
+      >Example:</p
+      ><pre
+      ><code
+	>nodefilters:
+  dispatch:
+    threadcount: 1
+    keepgoing: false
+    excludePrecedence: true
+    rankAttribute: rank
+    rankOrder: descending
+  include:
+    tags: web
+    name: web-.*
+  exclude:
+    os-family: windows
+</code
+	></pre
+      ></div
+    ><div id="notification"
+    ><h3
+      ><a href="#TOC"
+	>Notification</a
+	></h3
+      ><p
+      >Defines result notification for the job. You can include one or both of <code
+	>onsuccess</code
+	> or <code
+	>onfailure</code
+	> notifications. Each type of notification can include a list of email addresses and/or a list of URLs to use as a webhook.</p
+      ><dl
+      ><dt
+	><code
+	  >onsuccess</code
+	  >/<code
+	  >onfailure</code
+	  ></dt
+	><dd
+	><p
+	  >A Map containing either or both of:</p
+	  ><dl
+	  ><dt
+	    ><code
+	      >recipients</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >A comma-separated list of Email addresses</p
+	      ></dd
+	    ><dt
+	    ><code
+	      >urls</code
+	      ></dt
+	    ><dd
+	    ><p
+	      >A comma-separated list of URLs to use as webhooks</p
+	      ></dd
+	    ></dl
+	  ></dd
+	></dl
+      ><p
+      >Example:</p
+      ><pre
+      ><code
+	>notification:
+  onfailure:
+    recipients: tom@example.com,shirley@example.com
+  onsuccess:
+    urls: 'http://server/callback?id=${execution.id}&amp;status=${execution.status}&amp;trigger=${notification.trigger}'
+</code
+	></pre
+      ><ul
+      ><li
+	>For more information about the Webhook mechanism used, see the chapter <a href="manual/jobs.html#webhooks"
+	  >Integration - Webhooks</a
+	  >.</li
+	></ul
+      ></div
+    ></div
+  ></div
+><div id="see-also"
+><h1
+  ><a href="#TOC"
+    >SEE ALSO</a
+    ></h1
+  ><p
+  ><code
+    >rd-jobs</code
+    > (1).</p
+  ><p
+  ><a href="http://yaml.org/"
+    ><code
+      >http://yaml.org/</code
+      ></a
+    ></p
+  ><p
+  >The Rundeck source code and all documentation may be downloaded from <a href="https://github.com/dtolabs/rundeck/"
+    ><code
+      >https://github.com/dtolabs/rundeck/</code
+      ></a
+    >.</p
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="job-yaml-v12.html">JOB-YAML-V12(5) Rundeck User Manuals | Version 1.2</a></li>
+        <li class="toc"><a href="index.html">Formats | Man(5)</a></li>
+        <li class="prev"><a href="job-v20.html">JOB-V20(5) Rundeck User Manuals | Version 2.0</a></li>
+        <li class="next"><a href="resource-v13.html">RESOURCE-V13(5) Rundeck User Manuals | Version 1.3</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../../index.html">Rundeck Documentation (1.4.4)</a></li>
+    
+        <li><a href="../index.html">Man Pages</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

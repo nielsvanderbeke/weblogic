@@ -1,0 +1,96 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<title>Oracle WebLogic Server Administration Console</title>
+<link rel="stylesheet" type="text/css" href="/console/framework/skins/wlsconsole/css/general.css" >
+<link rel="stylesheet" type="text/css" href="/console/framework/skins/wlsconsole/css/window.css" >
+<link rel="stylesheet" type="text/css" href="/console/css/login.css" >
+
+<script type="text/javascript">
+  // Disable frame hijacking  
+  if (top != self) top.location.href = location.href;
+</script>
+
+<style type="text/css">
+html {
+    background-color: #185E87;
+}
+</style>
+</head>
+<body onload="document.loginData.j_username.focus();">
+  <div id="top">
+    <div id="login-header">
+      <div id="logo">
+        
+        <img src="/console/framework/skins/wlsconsole/images/Branding_Login_WeblogicConsole.gif" alt="Oracle WebLogic Server Administration Console ">
+      </div>
+    </div>
+    <div id="content">
+      <div id="sidebar">
+        <img src="/console/framework/skins/wlsconsole/images/Login_11gLogo1.gif" alt="">
+      </div>
+      <div id="login">
+        <div id="title">
+          Welcome
+        </div>
+        <div id="login-form">
+
+    <form id="loginData" name="loginData" method="post" action="/console/j_security_check">
+      <div class="message-row">
+        <noscript><p class="loginFailed">JavaScript is required. Enable JavaScript to use WebLogic Administration Console.</p></noscript>
+        
+        
+        
+          <p>Log in to work with the WebLogic Server domain</p>
+        
+        
+      </div>
+      <div class="input-row">
+        <label for="j_username">
+        Username:</label>
+        <span class="ctrl">
+          <input class="textinput" type="text" autocomplete="on" name="j_username" id="j_username">
+        </span>
+      </div>
+      <div class="input-row">
+        <label for="j_password">
+          Password:</label>
+        <span class="ctrl">
+          <input class="textinput" type="password" autocomplete="on" name="j_password" id="j_password">
+        </span>
+      </div>
+      <div class="button-row">
+        <span class="ctrl">
+          <input class="formButton" type="submit" 
+            onclick="form.submit();this.disabled=true;document.body.style.cursor = 'wait'; this.className='formButton-disabled';"
+            value='Log In'>
+        </span>
+        <input type="hidden" name="j_character_encoding" value="UTF-8">
+      </div>
+    </form>
+        </div>
+      </div>
+    </div>
+    <div id="info">
+    </div>
+  </div>
+
+  <div class="login-footer">
+    <div class="info">
+      
+      <p id="footerVersion">WebLogic Server Version: 10.3.3.0</p>
+      <p id="copyright">Copyright &copy; 1996,2010, Oracle and/or its affiliates. All rights reserved.</p>
+      <p id="trademark">Oracle is a registered trademark of Oracle Corporation and/or its affiliates. Other names may be trademarks of their respective owners.</p>
+    </div>
+  </div>
+</body>
+</html>

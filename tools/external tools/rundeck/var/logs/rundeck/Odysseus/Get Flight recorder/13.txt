@@ -1,0 +1,4 @@
+^^^01:53:05|SEVERE|pp||1-script|badaboum||bash: /tmp/1349265181083-badaboum-get_jfr.sh: /bin/sh^^^
+^^^01:53:05|SEVERE|admin|||skywalker||: bad interpreter: No such file or directory^^^
+^^^01:53:05|SEVERE|pp||1-script|badaboum||Remote command failed with exit status 126^^^
+^^^END^^^

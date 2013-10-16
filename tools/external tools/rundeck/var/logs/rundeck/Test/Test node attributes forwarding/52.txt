@@ -1,0 +1,51 @@
+^^^09:42:57|CONFIG|admin|||skywalker||[workflow] Begin execution: rundeck-workflow-node-first^^^
+^^^09:42:57|CONFIG|admin|||skywalker||preparing for sequential execution on 2 nodes^^^
+^^^09:42:57|CONFIG|admin|||skywalker||Executing command on node: egovacc, NodeEntryImpl{tags=[weblogic, acceptation], attributes={port=10004, osFamily=unix, tags=acceptation, weblogic, username=pp, osVersion=5.10, osArch=T2+, nodename=egovacc, hostname=skywalker.smals-mvm.be, osName=Solaris}, project='null'}^^^
+^^^09:42:57|CONFIG|admin|||skywalker||NodeSet: SingleNodeSelector{nodename='egovacc'}^^^
+^^^09:42:57|CONFIG|admin|||skywalker||Workflow: com.dtolabs.rundeck.core.execution.workflow.StepFirstWorkflowStrategy$stepFirstWrapper@daa579f2^^^
+^^^09:42:57|CONFIG|admin|||skywalker||data context: {job={id=97a82396-fcf6-4789-a140-dc6454df3857, project=Test, username=admin, name=Test node attributes forwarding, group=null, execid=52}, option={}}^^^
+^^^09:42:57|CONFIG|||1-exec|||[workflow] Begin step: 1,exec^^^
+^^^09:42:57|CONFIG|||1-exec|||1: com.dtolabs.rundeck.execution.ExecutionItemFactory$4@18dbd055^^^
+^^^09:42:57|CONFIG|||1-exec|||ExecutionItem created, executing: com.dtolabs.rundeck.execution.ExecutionItemFactory$4@18dbd055^^^
+^^^09:42:57|CONFIG|||1-exec|||preparing for sequential execution on 1 nodes^^^
+^^^09:42:57|CONFIG|||1-exec|||Executing command on node: egovacc, NodeEntryImpl{tags=[weblogic, acceptation], attributes={port=10004, osFamily=unix, tags=acceptation, weblogic, username=pp, osVersion=5.10, osArch=T2+, nodename=egovacc, hostname=skywalker.smals-mvm.be, osName=Solaris}, project='null'}^^^
+^^^09:42:57|CONFIG|pp||1-exec|egovacc||beginInterpretCommand(egovacc): exec: com.dtolabs.rundeck.execution.ExecutionItemFactory$4@18dbd055^^^
+^^^09:42:57|CONFIG|pp||1-exec|egovacc||Using ssh keyfile: /export/home/weblogic/pp/.ssh/id_rsa^^^
+^^^09:42:57|CONFIG|pp||1-exec|egovacc||Starting SSH Connection: pp@skywalker.smals-mvm.be (egovacc)^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||Set timeout to 0^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||Connecting to skywalker.smals-mvm.be:22^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||Connecting to skywalker.smals-mvm.be port 22^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||Connection established^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||Remote version string: SSH-2.0-Sun_SSH_1.1.4^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||Local version string: SSH-2.0-JSCH-0.1.45^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||CheckCiphers: aes256-ctr,aes192-ctr,aes128-ctr,aes256-cbc,aes192-cbc,aes128-cbc,3des-ctr,arcfour,arcfour128,arcfour256^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||CheckKexes: diffie-hellman-group14-sha1^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||SSH_MSG_KEXINIT sent^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||SSH_MSG_KEXINIT received^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||kex: server->client aes128-ctr hmac-md5 none^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||kex: client->server aes128-ctr hmac-md5 none^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||SSH_MSG_KEXDH_INIT sent^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||expecting SSH_MSG_KEXDH_REPLY^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||ssh_rsa_verify: signature true^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||Permanently added 'skywalker.smals-mvm.be' (RSA) to the list of known hosts.^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||SSH_MSG_NEWKEYS sent^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||SSH_MSG_NEWKEYS received^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||SSH_MSG_SERVICE_REQUEST sent^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||SSH_MSG_SERVICE_ACCEPT received^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||Authentications that can continue: gssapi-with-mic,publickey,keyboard-interactive,password^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||Next authentication method: gssapi-with-mic^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||Authentications that can continue: publickey,keyboard-interactive,password^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||Next authentication method: publickey^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||Authentications that can continue: keyboard-interactive,password^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||Next authentication method: keyboard-interactive^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||Authentications that can continue: password^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||Next authentication method: password^^^
+^^^09:42:57|WARNING|pp||1-exec|egovacc||Disconnecting from skywalker.smals-mvm.be port 22^^^
+^^^09:42:57|CONFIG|pp||1-exec|egovacc||Adding reference: ant.PropertyHelper^^^
+^^^09:42:57|CONFIG|pp||1-exec|egovacc||Setting project property: sshexec.output -> ^^^
+^^^09:42:57|SEVERE|pp||1-exec|egovacc||Authentication failure connecting to node: "egovacc". Make sure your resource definitions and credentials are up to date.^^^
+^^^09:42:57|CONFIG|||1-exec|||finishInterpretCommand(egovacc): exec: [jsch-ssh] result was failure, resultcode: -1: Authentication failure connecting to node: "egovacc". Make sure your resource definitions and credentials are up to date.^^^
+^^^09:42:57|CONFIG|admin|||skywalker||[workflow] Finish step: 1,exec^^^
+^^^09:42:57|CONFIG|admin|||skywalker||[workflow] Finish execution:  rundeck-workflow-node-first: [Workflow results: {egovacc=[]}, failures: {egovacc=[[jsch-ssh] result was failure, resultcode: -1: Authentication failure connecting to node: "egovacc". Make sure your resource definitions and credentials are up to date., [jsch-ssh] result was failure, resultcode: -1: Authentication failure connecting to node: "egovacc". Make sure your resource definitions and credentials are up to date., Step 1 of the workflow failed with result: DispatcherResult{status=false, results={egovacc=[jsch-ssh] result was failure, resultcode: -1: Authentication failure connecting to node: "egovacc". Make sure your resource definitions and credentials are up to date.}}]}]^^^
+^^^09:42:57|SEVERE|[Workflow results: {egovacc=[]}, failures: {egovacc=[[jsch-ssh] result was failure, resultcode: -1: Authentication failure connecting to node: "egovacc". Make sure your resource definitions and credentials are up to date., [jsch-ssh] result was failure, resultcode: -1: Authentication failure connecting to node: "egovacc". Make sure your resource definitions and credentials are up to date., Step 1 of the workflow failed with result: DispatcherResult{status=false, results={egovacc=[jsch-ssh] result was failure, resultcode: -1: Authentication failure connecting to node: "egovacc". Make sure your resource definitions and credentials are up to date.}}]}]^^^
+^^^END^^^

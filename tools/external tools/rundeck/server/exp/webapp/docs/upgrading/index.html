@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upgrade Guide</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Greg Schueler" />
+  <meta name="date" content="September 12, 2011" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="index.html">Upgrade Guide</a></li>
+        
+        
+        
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">Upgrade Guide</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#important-changes-in-rundeck-1.4.1"
+      >Important Changes in Rundeck 1.4.1</a
+      ></li
+    ><li
+    ><a href="#important-changes-in-rundeck-1.4"
+      >Important Changes in Rundeck 1.4</a
+      ></li
+    ><li
+    ><a href="#upgrade-procedure"
+      >Upgrade procedure</a
+      ><ul
+      ><li
+	><a href="#system-packaging"
+	  >System packaging</a
+	  ></li
+	><li
+	><a href="#launcher-jar"
+	  >Launcher Jar</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#database-changes"
+      >Database changes</a
+      ></li
+    ><li
+    ><a href="#acl-policy-changes"
+      >ACL Policy changes</a
+      ><ul
+      ><li
+	><a href="#shortest-path"
+	  >Shortest Path</a
+	  ></li
+	><li
+	><a href="#authorization-and-acl-policy-changes"
+	  >Authorization and Acl Policy changes</a
+	  ></li
+	><li
+	><a href="#managing-acl-policy-files"
+	  >Managing ACL Policy files</a
+	  ></li
+	><li
+	><a href="#format"
+	  >Format</a
+	  ></li
+	><li
+	><a href="#action-names"
+	  >Action names</a
+	  ></li
+	><li
+	><a href="#converting-xml-aclpolicy-files"
+	  >Converting XML aclpolicy files</a
+	  ></li
+	><li
+	><a href="#converting-older-yaml-files"
+	  >Converting older YAML files</a
+	  ></li
+	><li
+	><a href="#adding-the-new-authorizations"
+	  >Adding the new Authorizations</a
+	  ></li
+	><li
+	><a href="#converting-mapped-roles"
+	  >Converting Mapped Roles</a
+	  ></li
+	><li
+	><a href="#example-admin.aclpolicy"
+	  >Example admin.aclpolicy</a
+	  ></li
+	></ul
+      ></li
+    ></ul
+  ></div
+>
+<div id="important-changes-in-rundeck-1.4.1"
+><h2
+  ><a href="#TOC"
+    >Important Changes in Rundeck 1.4.1</a
+    ></h2
+  ><p
+  >In Rundeck 1.4.0.x, the new ACL Policy format used an incorrect property key (&quot;job&quot;) to check Job Authorizations by name. The correct key was used in all documentation, but not in the underlying code. The correct key is &quot;name&quot;.</p
+  ><p
+  >This issue has been fixed in Rundeck 1.4.1, however if you were using the incorrect key previously, you will have to change your aclpolicy files to the correct key.</p
+  ><p
+  >The <a href="../administration/authorization.html#project-scope-resources-and-actions"
+    >Project Scope Resources and Actions</a
+    > section shows the correct way to authorize Job resources by name:</p
+  ><pre
+  ><code
+    >for:
+  job:
+    - equals:
+        name: bob
+      allow: [run]
+</code
+    ></pre
+  ></div
+><div id="important-changes-in-rundeck-1.4"
+><h2
+  ><a href="#TOC"
+    >Important Changes in Rundeck 1.4</a
+    ></h2
+  ><p
+  >These changes in version 1.4 are important to note if you are upgrading an existing Rundeck installation.</p
+  ><ol style="list-style-type: decimal;"
+  ><li
+    ><a href="#database-changes"
+      >Database table and field name changes to support Mysql &amp; Oracle</a
+      ></li
+    ><li
+    ><a href="#acl-policy-changes"
+      >ACL Policy file format and behavior changes</a
+      ></li
+    ></ol
+  ><p
+  ><strong
+    >Note:</strong
+    > before upgrading, it is a good idea to back up your Rundeck installation using the instructions here: <a href="../administration/backup-and-recovery.html"
+    >Backup and Recovery</a
+    >.</p
+  ></div
+><div id="upgrade-procedure"
+><h2
+  ><a href="#TOC"
+    >Upgrade procedure</a
+    ></h2
+  ><div id="system-packaging"
+  ><h3
+    ><a href="#TOC"
+      >System packaging</a
+      ></h3
+    ><p
+    >If you are using RPM or Debian packaging, refer to the basic <a href="http://rundeck.org/downloads.html"
+      >Install Instructions</a
+      >, and simply upgrade the package.</p
+    ></div
+  ><div id="launcher-jar"
+  ><h3
+    ><a href="#TOC"
+      >Launcher Jar</a
+      ></h3
+    ><p
+    >For the Rundeck Launcher jar, you can follow this basic procedure:</p
+    ><ol style="list-style-type: decimal;"
+    ><li
+      >Stop the currently running Rundeck java process</li
+      ><li
+      >Copy the new <code
+	>rundeck-launcher-1.4x.jar</code
+	> file either to your <code
+	>$RDECK_BASE</code
+	> directory, or wherever you had your previous jar</li
+      ><li
+      >Remove these directories from your previous <code
+	>$RDECK_BASE</code
+	>:<ul
+	><li
+	  ><code
+	    >$RDECK_BASE/server/lib</code
+	    ></li
+	  ><li
+	  ><code
+	    >$RDECK_BASE/server/exp</code
+	    ></li
+	  ><li
+	  ><code
+	    >$RDECK_BASE/tools</code
+	    ></li
+	  ></ul
+	></li
+      ><li
+      >You can now start Rundeck with the new launcher jar, either specifying the <code
+	>-b basedir</code
+	> option, or leaving it off to use the directory the launcher jar is in.</li
+      ></ol
+    ></div
+  ></div
+><div id="database-changes"
+><h2
+  ><a href="#TOC"
+    >Database changes</a
+    ></h2
+  ><p
+  >Unfortunately, Rundeck 1.3 and earlier used domain class names that conflicted with some reserved words in Mysql and Oracle, specifically &quot;user&quot; and &quot;option&quot;.</p
+  ><p
+  >To fix this, we have changed the table/field mappings to &quot;rduser&quot; and &quot;rdoption&quot; for the domain classes that used these names.</p
+  ><p
+  >The new table/field names are only used if a new config value is set to <code
+    >true</code
+    > in the rundeck-config.properties file:</p
+  ><pre
+  ><code
+    >rundeck.v14.rdbsupport=true
+</code
+    ></pre
+  ><p
+  >This value is set to <code
+    >false</code
+    > by default on new installations, so if you have a previous 1.3 installation using the file-based datasource, upgrading to 1.4 should not cause any issues.</p
+  ><p
+  >To configure a relational database backend, you must set this to &quot;true&quot;. See the section in the Rundeck Guide Administration chapter: <a href="../administration/relational-database.html#enable-rdbsupport"
+    >Enable rdbsupport</a
+    >.</p
+  ></div
+><div id="acl-policy-changes"
+><h2
+  ><a href="#TOC"
+    >ACL Policy changes</a
+    ></h2
+  ><p
+  >NOTE: If you are installing Rundeck 1.4 from scratch, your installation will come with default aclpolicy files will get you up and running, this document is merely a guide for people upgrading from Rundeck 1.3 or earlier who have customized their aclpolicy files.</p
+  ><div id="shortest-path"
+  ><h3
+    ><a href="#TOC"
+      >Shortest Path</a
+      ></h3
+    ><p
+    >The simplest way to upgrade is to add or replace the &quot;admin.aclpolicy&quot; file with the <a href="#example-admin.aclpolicy"
+      >Example admin.aclpolicy</a
+      > at the end of this document.</p
+    ><p
+    >This will give full authorization to 'admin' role users.</p
+    ></div
+  ><div id="authorization-and-acl-policy-changes"
+  ><h3
+    ><a href="#TOC"
+      >Authorization and Acl Policy changes</a
+      ></h3
+    ><p
+    >The authorization system in Rundeck 1.4 has been updated. Previously some authorizations only for Job-related actions were declared in the &quot;*.aclpolicy&quot; files located in your <code
+      >etc</code
+      > directory for Rundeck, and some GUI layer authorizations were defined as &quot;Mapped Roles&quot; in your <code
+      >rundeck-config.properties</code
+      > file.</p
+    ><p
+    >We've removed the &quot;Mapped Roles&quot; completely, and revamped the ACL Policy code to support authorization of these types of Application-layer actions, as well as improved the ACL policy layer to support restricting access to resources other than just Jobs.</p
+    ><p
+    >The consequence of these changes is that if you upgrade from Rundeck 1.3 or earlier, your authorization configuration will have to change. If you don't modify your configuration, you will log into Rundeck and likely be told you don't have authorization to see certain resources or perform certain actions.</p
+    ><p
+    >These are the changes you will have to make when you upgrade</p
+    ><ul
+    ><li
+      >convert your old aclpolicy Job authorization rules to the new format</li
+      ><li
+      >add new authorizations rules for the new types of authorization checks in Rundeck 1.4</li
+      ><li
+      >translate any custom &quot;Mapped Role&quot; definitions into .aclpolicy files</li
+      ></ul
+    ><p
+    >Practically, this means you will have to:</p
+    ><ul
+    ><li
+      >convert any XML formatted .aclpolicy files to YAML</li
+      ><li
+      >update any YAML .aclpolicy files</li
+      ><li
+      >add new authorization rules for the new authorization checks</li
+      ><li
+      >add new authorization rules for the old &quot;Mapped Roles&quot;</li
+      ></ul
+    ><p
+    >Highlights of the benefits of the new authorization changes:</p
+    ><ul
+    ><li
+      >Acccess control on resources other than Jobs can now be declared</li
+      ><li
+      >Project level access control is now supported</li
+      ><li
+      >&quot;Deny&quot; rules can now be declared</li
+      ><li
+      >Application level access control is also supported, replacing the Role mapping</li
+      ><li
+      >The Rundeck server no longer uses role-mapping and instead defers to the aclpolicy for all authorizations</li
+      ></ul
+    ></div
+  ><div id="managing-acl-policy-files"
+  ><h3
+    ><a href="#TOC"
+      >Managing ACL Policy files</a
+      ></h3
+    ><p
+    >The <code
+      >*.aclpolicy</code
+      > files live in the Rundeck <code
+      >etc</code
+      > dir.</p
+    ><p
+    >Each file can contain multiple policy definitions, and there can be multiple files in the directory.</p
+    ><p
+    >So when upgrading you have a few options for how to manage the transition from old to new file formats:</p
+    ><ol start="2" style="list-style-type: decimal;"
+    ><li
+      >modify your files in place to convert them, and add the new authorizations to them</li
+      ><li
+      >leave your old files where they are, and create new aclpolicy files in the new format for job authorizations as well as all of the new authorizations</li
+      ><li
+      >modify your file simply to convert it to the new format, and add new files to support the new authorizations</li
+      ></ol
+    ><p
+    >Leaving your old aclpolicy files in place will not cause any problems, because even though they are read by the authorization code they will simply not grant the necessary authorizations until converted to the new format.</p
+    ><p
+    >Note: to add multiple policy definitions to a single file, use the YAML document separator &quot;---&quot; on a line by itself between the definitions.</p
+    ></div
+  ><div id="format"
+  ><h3
+    ><a href="#TOC"
+      >Format</a
+      ></h3
+    ><p
+    >The updated ACL Policy file format lets you allow and deny actions on particular resources for certain users and in certain contexts.</p
+    ><p
+    >It is a more expressive language than the previous formats, although this adds some complexity.</p
+    ><p
+    >The important new features are:</p
+    ><dl
+    ><dt
+      ><code
+	>Context</code
+	></dt
+      ><dd
+      ><p
+	>You now declare access control within a particular project or at the Application level. You specify this in the <code
+	  >context</code
+	  > section.</p
+	></dd
+      ><dt
+      ><code
+	>Actions</code
+	> and <code
+	>Resources</code
+	></dt
+      ><dd
+      ><p
+	>Actions are allowed or denied for a particular Resource. If an action is to be restricted on <em
+	  >all</em
+	  > resources of a certain type, or for example on creating <em
+	  >any</em
+	  > resource of a certain type, then we use a Generic Resource Type as the Resource.</p
+	></dd
+      ><dt
+      ><code
+	>Specific Resources</code
+	></dt
+      ><dd
+      ><p
+	>An example of this is: allow &quot;run&quot; action on a particular Job <code
+	  >[type: job, name: &quot;Test Job&quot;, group: &quot;my/group/path&quot;]</code
+	  >. All Resources have a particular &quot;type&quot; and some associated identifying properties.</p
+	></dd
+      ><dt
+      ><code
+	>Generic Resource Type</code
+	></dt
+      ><dd
+      ><p
+	>An example of this is: allow &quot;create&quot; action for jobs in general. The resource that would be tested is: <code
+	  >[type: resource, kind: job]</code
+	  >. In this example, the type is genericized as &quot;resource&quot;, and the identifying property is the &quot;kind&quot; which is &quot;job&quot;.</p
+	></dd
+      ><dt
+      ><code
+	>Resource Patterns</code
+	></dt
+      ><dd
+      ><p
+	>The Resource for the authorization request is matched against the Resource Patterns defined in the ACL Policy to find Rules defined for it. Each Resource Pattern is specified first by the value of the &quot;type&quot; of the resource, and subsequently by different matching patterns on the properties of the resource. All matching Resource Patterns are applied to the request, and depending on the rules, the specific action is allowed, denied or rejected.</p
+	></dd
+      ><dt
+      ><code
+	>Rules</code
+	></dt
+      ><dd
+      ><p
+	>Each Resource Pattern can declare the set of Actions that it allows and/or denies. If a matching resource pattern rule allows an action, the action is marked temporarily as &quot;allowed&quot;, but subsequent matching Resource Patterns and rules are still applied. If any matching rule Denies an action, the action is immediately denied. If no Resource Patterns match a resource, or no matching Patterns have a rule that allows the action, then the action is also denied.</p
+	></dd
+      ><dt
+      ><code
+	>Subject</code
+	></dt
+      ><dd
+      ><p
+	>The subject is the user or account to authorize the action for. They can be identified by name, or by group (role) membership in the <code
+	  >by</code
+	  > section.</p
+	></dd
+      ></dl
+    ></div
+  ><div id="action-names"
+  ><h3
+    ><a href="#TOC"
+      >Action names</a
+      ></h3
+    ><p
+    >Action names have changed from the previous formats.</p
+    ><p
+    >Instead of <code
+      >workflow_X</code
+      > and <code
+      >event_Y</code
+      > type action names, the actions have been simplified to this set, although not all actions are used by every kind of resource:</p
+    ><ul
+    ><li
+      ><code
+	>create</code
+	></li
+      ><li
+      ><code
+	>read</code
+	></li
+      ><li
+      ><code
+	>update</code
+	></li
+      ><li
+      ><code
+	>delete</code
+	></li
+      ><li
+      ><code
+	>run</code
+	></li
+      ><li
+      ><code
+	>kill</code
+	></li
+      ><li
+      ><code
+	>admin</code
+	></li
+      ><li
+      ><code
+	>refresh</code
+	></li
+      ></ul
+    ><p
+    >The actions are now specified directly on a resource or type in the aclpolicy definition.</p
+    ></div
+  ><div id="converting-xml-aclpolicy-files"
+  ><h3
+    ><a href="#TOC"
+      >Converting XML aclpolicy files</a
+      ></h3
+    ><p
+    >You may have the old XML format in your current installation.</p
+    ><p
+    >You can convert the XML to yaml:</p
+    ><pre
+    ><code
+      >&lt;policies&gt;
+  &lt;policy description=&quot;Administrative group that has access to execute all actions.&quot;&gt;
+    &lt;context project=&quot;*&quot;&gt;
+      &lt;command group=&quot;*&quot; job=&quot;*&quot; actions=&quot;*&quot;/&gt;
+    &lt;/context&gt;
+    &lt;by&gt;
+      &lt;group name=&quot;admin&quot;/&gt;
+    &lt;/by&gt;
+  &lt;/policy&gt;
+&lt;/policies&gt;
+</code
+      ></pre
+    ><p
+    >This would convert to:</p
+    ><pre
+    ><code
+      >description: Administrative group that has access to execute all actions.
+context:
+  project: '.*'
+for:
+  job:
+    - equals:
+        group: '.*'
+        name: '.*'
+      allow: '*'
+by:
+  group: admin
+</code
+      ></pre
+    ><p
+    >However, this YAML document merely allows access to certain Jobs, and it doesn't allow any access to application level resources, or other project level resources besides jobs. You must add that access as you see fit.</p
+    ><p
+    >Here is a <a href="http://xmlstar.sourceforge.net/"
+      >XMLStarlet</a
+      > command to convert your xml to the supported yaml format:</p
+    ><pre
+    ><code
+      >FILE=$RDECK_BASE/etc/role.aclpolicy
+NEWFILE=$RDECK_BASE/etc/role-new.aclpolicy
+xmlstarlet sel -t --match '//policy' -o '---' -n -o 'description: ' -v '@description' -n \
+    -o 'context: ' -n -o '  project: &amp;quot;' -v 'context/@project' -o '&amp;quot;' -n \
+    -o 'for:' -n \
+    -o '  job:' -n \
+    --match 'context/command' \
+    -o '    - equals: ' -n \
+    -o '        group: &amp;quot;' -v '@group' -o '&amp;quot;' -n \
+    -o '        name: &amp;quot;' -v '@job' -o '&amp;quot;' -n \
+    -o '      allow: &amp;quot;' -v '@actions' -o '&amp;quot;' -n \
+    -b \
+    -m 'by/group' \
+    -o 'by:' -n \
+    -o '  group: &amp;quot;' -v '@name' -o '&amp;quot;' -n $FILE &gt; $NEWFILE
+</code
+      ></pre
+    ></div
+  ><div id="converting-older-yaml-files"
+  ><h3
+    ><a href="#TOC"
+      >Converting older YAML files</a
+      ></h3
+    ><p
+    >Your yaml aclpolicy file may be out of date, and look like this:</p
+    ><pre
+    ><code
+      >description: Yaml Policy 1
+rules:
+  ^$:
+    actions: 'foobar'
+  /groupa/.*:
+    actions: 'exact_match'
+  .*/job1: 
+    actions: pattern_match
+  /listAction/.*:
+    actions: [action_list_1,action_list_2]
+by:
+    username: 'yml_usr_1'
+    group: 'yml_group_1'
+</code
+      ></pre
+    ><p
+    >You can convert each &quot;rules:&quot; entry to a job resource pattern. For example the rule value &quot;.*/job1&quot; matches only jobs named &quot;job1&quot;:</p
+    ><pre
+    ><code
+      >for:
+  job:
+    - equals: #use &quot;equals&quot; to match exactly
+        name: 'job1' # compare name property only, ignore group
+      allow: [read]
+</code
+      ></pre
+    ><p
+    >And a rule value of &quot;/groupa/.*&quot; matches any jobs in group &quot;matcha&quot; or a subgroup. The equivalent is:</p
+    ><pre
+    ><code
+      >for:
+  job:
+    - match: # use &quot;match&quot; to match via regular expression
+        group: '^groupa/.*$' # compare group property, ignore name
+      allow: [read,run]
+      deny: [delete,update,kill]
+</code
+      ></pre
+    ><p
+    >Note, if you need to authorize actions on adhoc executions, use the 'adhoc' resource type and allow/deny the &quot;run&quot; and &quot;kill&quot; actions:</p
+    ><pre
+    ><code
+      >for:
+  adhoc:
+    - allow: [run,kill]
+</code
+      ></pre
+    ></div
+  ><div id="adding-the-new-authorizations"
+  ><h3
+    ><a href="#TOC"
+      >Adding the new Authorizations</a
+      ></h3
+    ><p
+    >The old ACL Policies only defined authorizations on Job actions and some adhoc execution actions. If you converted an old file as described above you will now have give access to some actions on Jobs in one or more projects, but this is not sufficient to use all features of Rundeck.</p
+    ><p
+    >Authorizations you need to grant to run jobs:</p
+    ><ul
+    ><li
+      >'read' access to some of the projects, at the Application context</li
+      ><li
+      >This determines what projects a user can see, and is necessary for any access to jobs</li
+      ><li
+      >'read' access to node resources in a project context</li
+      ><li
+      >this allows the user to view the nodes for a project, and is necessary to run jobs or adhoc executions</li
+      ><li
+      >'read' and 'run' actions to specific nodes in a project context</li
+      ><li
+      >this allows the user to view specific nodes, and 'run' allows executing jobs or adhoc executions on the node</li
+      ></ul
+    ><p
+    >Other authorizations you may want to grant:</p
+    ><ul
+    ><li
+      >'read' access to events in the project context, to allow viewing the execution history of jobs and acho executions</li
+      ><li
+      >'create' access to generic resource type 'job' in the project context, to allow creating new jobs</li
+      ></ul
+    ><p
+    >Note: you must separate Project and Application context policies into separate policy definitions.</p
+    ><p
+    >For Application context: To grant read access to certain projects:</p
+    ><pre
+    ><code
+      >description: Allow 'user' group access to all projects
+context:
+  application: 'rundeck'
+for:
+  project:
+    - match:
+        name: '.*'
+      allow: [read] # allow view/admin of all projects
+      deny: [admin] # explicitly deny project configuration changes
+by:
+  group: 'user'
+</code
+      ></pre
+    ><p
+    >The following are all at Project context:</p
+    ><p
+    >To grant read access generic Node resources:</p
+    ><pre
+    ><code
+      >description: read access to nodes
+context:
+  project: '.*' # all projects
+for:
+  resource:
+    - equals:
+        kind: node
+      allow: [read] # view the nodes  
+      deny: [create,update,refresh] # deny modification of nodes
+by:
+  group: 'user'
+</code
+      ></pre
+    ><p
+    >To grant read and run access to all nodes:</p
+    ><pre
+    ><code
+      >description: read access to nodes
+context:
+  project: '.*' # all projects
+for:
+  node:
+    - allow: [read,run] # view the nodes  
+by:
+  group: 'user'
+</code
+      ></pre
+    ><p
+    >To grant read access to history events:</p
+    ><pre
+    ><code
+      >description: read access to history
+context:
+  project: '.*' # all projects
+for:
+  resource:
+    - equals:
+        kind: event
+      allow: [read] # view history events
+by:
+  group: 'user'
+</code
+      ></pre
+    ><p
+    >To allow Job creation:</p
+    ><pre
+    ><code
+      >description: grant job creation ability
+context:
+  project: '.*' # all projects
+for:
+  resource:
+    - equals:
+        kind: job
+      allow: [create] # allow create jobs
+by:
+  group: 'user'
+</code
+      ></pre
+    ><p
+    >You can add any or all of these policies, or combine them with your job policies.</p
+    ></div
+  ><div id="converting-mapped-roles"
+  ><h3
+    ><a href="#TOC"
+      >Converting Mapped Roles</a
+      ></h3
+    ><p
+    >Mapped roles defined in <code
+      >rundeck-config.properties</code
+      > were used to authorize actions in the Rundeck GUI in Rundeck 1.3 and earlier.</p
+    ><p
+    >Here is the list of old &quot;application roles&quot;, and how to translate them into the new aclpolicy format:</p
+    ><dl
+    ><dt
+      ><code
+	>mappedRoles.admin=[role list]</code
+	></dt
+      ><dd
+      ><p
+	>&quot;Admin&quot; is no longer a special role given any special access other than the access granted to it in aclpolicy.</p
+	></dd
+      ><dt
+      ><code
+	>mappedRoles.user_admin=[role list]</code
+	></dt
+      ><dd
+      ><p
+	>The &quot;admin&quot; action can be granted on generic resources of kind &quot;user&quot; at the application context level.</p
+	></dd
+      ><dt
+      ><code
+	>mappedRoles.workflow_create=[role list]</code
+	></dt
+      ><dd
+      ><p
+	>The &quot;create&quot; action can be granted on generic resources of kind &quot;job&quot; at the project level.</p
+	></dd
+      ><dt
+      ><code
+	>mappedRoles.workflow_\*=[role list]</code
+	></dt
+      ><dd
+      ><p
+	>For actions other than &quot;create&quot;, (&quot;read&quot;, &quot;update&quot;, &quot;delete&quot;, &quot;run&quot;, &quot;kill&quot;), you can grant them to specific &quot;job&quot; resources within a project context.</p
+	></dd
+      ></dl
+    ><p
+    ><code
+      >mappedRoles.events_read=[role list]</code
+      > <code
+      >mappedRoles.events_create=[role list]</code
+      ></p
+    ><p
+    >: You can grant &quot;read&quot; and &quot;create&quot; to generic resources of kind &quot;event&quot; at the project level.</p
+    ><p
+    ><code
+      >mappedRoles.resources_read=[role list]</code
+      > <code
+      >mappedRoles.resources_create=[role list]</code
+      > <code
+      >mappedRoles.resources_update=[role list]</code
+      > <code
+      >mappedRoles.resources_delete=[role list]</code
+      ></p
+    ><p
+    >: You can grant (&quot;read&quot;, &quot;create&quot;, &quot;update&quot;) to generic resources of kind &quot;node&quot; at the project level. You can also grant &quot;refresh&quot;, which allows refreshing the Node resources from a predefined URL.</p
+    ><dl
+    ><dt
+      ><code
+	>mappedRoles.job_view_unauthorized=[role list]</code
+	></dt
+      ><dd
+      >This is equivalent to allowing &quot;read&quot; action on a &quot;job&quot; resource. If &quot;read&quot; is not allowed for a job it is not shown in the GUI. If &quot;run&quot; is not allowed for a job but &quot;read&quot; is, it will be shown but not be runnable.</dd
+      ></dl
+    ></div
+  ><div id="example-admin.aclpolicy"
+  ><h3
+    ><a href="#TOC"
+      >Example admin.aclpolicy</a
+      ></h3
+    ><p
+    >This file grants all authorizations to 'admin' role, and explicitly enumerates the actions granted for each resource. It could be simplified into a much shorter file by allowing '*' and not explicitly matching the resources.</p
+    ><pre
+    ><code
+      >description: Admin project level access control. Applies to resources within a specific project.
+context:
+  project: '.*' # all projects
+for:
+  resource:
+    - equals:
+        kind: job
+      allow: [create] # allow create jobs
+    - equals:
+        kind: node
+      allow: [read,create,update,refresh] # allow refresh node sources
+    - equals:
+        kind: event
+      allow: [read,create] # allow read/create events
+  adhoc:
+    - allow: [run,kill] # allow running/killing adhoc jobs
+  job: 
+    - allow: [create,read,update,delete,run,kill] # allow create/read/write/delete/run/kill of all jobs
+  node:
+    - allow: [read,run] # allow read/run for nodes
+by:
+  group: admin
+
+---
+
+description: Admin Application level access control, applies to creating/deleting projects, admin of user profiles, viewing projects and reading system information.
+context:
+  application: 'rundeck'
+for:
+  resource:
+    - equals:
+        kind: project
+      allow: [create] # allow create of projects
+    - equals:
+        kind: system
+      allow: [read] # allow read of system info
+    - equals:
+        kind: user
+      allow: [admin] # allow modify user profiles
+  project:
+    - match:
+        name: '.*'
+      allow: [read,admin] # allow view/admin of all projects
+by:
+  group: admin
+</code
+      ></pre
+    ></div
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="index.html">Upgrade Guide</a></li>
+        
+        
+        
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

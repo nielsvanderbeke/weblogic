@@ -1,0 +1,2659 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Plugins</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Alex Honor" />
+  <meta name="author" content="Greg Schueler" />
+  <meta name="date" content="November 20, 2010" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="plugins.html">Plugins</a></li>
+        <li class="toc"><a href="index.html">User Manual</a></li>
+        <li class="prev"><a href="rundeck-by-example.html">Rundeck by Example</a></li>
+        
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">Plugins</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#installing-plugins"
+      >Installing Plugins</a
+      ></li
+    ><li
+    ><a href="#uninstalling-or-updating-plugins"
+      >Uninstalling or Updating Plugins</a
+      ></li
+    ><li
+    ><a href="#about-plugins"
+      >About Plugins</a
+      ></li
+    ><li
+    ><a href="#types-of-plugins"
+      >Types of Plugins</a
+      ><ul
+      ><li
+	><a href="#node-execution-plugins"
+	  >Node Execution Plugins</a
+	  ></li
+	><li
+	><a href="#resource-model-source-plugins"
+	  >Resource Model Source Plugins</a
+	  ></li
+	><li
+	><a href="#resource-format-plugins"
+	  >Resource Format Plugins</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#about-services-and-providers"
+      >About Services and Providers</a
+      ></li
+    ><li
+    ><a href="#using-providers"
+      >Using Providers</a
+      ><ul
+      ><li
+	><a href="#node-execution-services"
+	  >Node Execution Services</a
+	  ><ul
+	  ><li
+	    ><a href="#node-specific"
+	      >Node Specific</a
+	      ></li
+	    ><li
+	    ><a href="#project-or-framework-scope"
+	      >Project or Framework Scope</a
+	      ></li
+	    ></ul
+	  ></li
+	><li
+	><a href="#resource-model-sources"
+	  >Resource Model Sources</a
+	  ><ul
+	  ><li
+	    ><a href="#resource-model-source-configuration"
+	      >Resource Model Source configuration</a
+	      ></li
+	    ></ul
+	  ></li
+	><li
+	><a href="#resource-format-generators-and-parsers"
+	  >Resource Format Generators and Parsers</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#when-node-execution-service-providers-are-invoked"
+      >When Node Execution Service providers are invoked</a
+      ></li
+    ><li
+    ><a href="#built-in-providers"
+      >Built-in providers</a
+      ><ul
+      ><li
+	><a href="#node-execution-services-1"
+	  >Node Execution services</a
+	  ><ul
+	  ><li
+	    ><a href="#ssh-provider"
+	      >SSH Provider</a
+	      ><ul
+	      ><li
+		><a href="#configuring-scp-file-copier"
+		  >Configuring SCP File Copier</a
+		  ></li
+		><li
+		><a href="#configuring-ssh-authentication-type"
+		  >Configuring SSH Authentication type</a
+		  ></li
+		><li
+		><a href="#configuring-ssh-username"
+		  >Configuring SSH Username</a
+		  ></li
+		><li
+		><a href="#configuring-ssh-private-keys"
+		  >Configuring SSH private keys</a
+		  ></li
+		><li
+		><a href="#configuring-ssh-private-key-passphrase"
+		  >Configuring SSH Private Key Passphrase</a
+		  ></li
+		><li
+		><a href="#configuring-ssh-password-authentication"
+		  >Configuring SSH Password Authentication</a
+		  ></li
+		><li
+		><a href="#configuring-secondary-sudo-password-authentication"
+		  >Configuring Secondary Sudo Password Authentication</a
+		  ></li
+		><li
+		><a href="#configuring-multiple-sudo-password-authentication"
+		  >Configuring Multiple Sudo Password Authentication</a
+		  ></li
+		></ul
+	      ></li
+	    ></ul
+	  ></li
+	><li
+	><a href="#resource-model-sources-1"
+	  >Resource Model Sources</a
+	  ><ul
+	  ><li
+	    ><a href="#file-resource-model-source-configuration"
+	      >File Resource Model Source Configuration</a
+	      ></li
+	    ><li
+	    ><a href="#url-resource-model-source-configuration"
+	      >URL Resource Model Source Configuration</a
+	      ></li
+	    ><li
+	    ><a href="#directory-resource-model-source-configuration"
+	      >Directory Resource Model Source Configuration</a
+	      ></li
+	    ><li
+	    ><a href="#script-resource-model-source-configuration"
+	      >Script Resource Model Source Configuration</a
+	      ></li
+	    ></ul
+	  ></li
+	><li
+	><a href="#resource-format-services"
+	  >Resource Format services</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#pre-installed-plugins"
+      >Pre-installed plugins</a
+      ><ul
+      ><li
+	><a href="#script-plugin"
+	  >script-plugin</a
+	  ><ul
+	  ><li
+	    ><a href="#configuring-script-exec"
+	      >Configuring script-exec</a
+	      ></li
+	    ><li
+	    ><a href="#configuring-the-command-for-script-exec"
+	      >Configuring the command for script-exec</a
+	      ></li
+	    ><li
+	    ><a href="#configuring-the-working-directory"
+	      >Configuring the working directory</a
+	      ></li
+	    ><li
+	    ><a href="#configuring-the-shell"
+	      >Configuring the shell</a
+	      ></li
+	    ><li
+	    ><a href="#defining-the-script-exec-command"
+	      >Defining the script-exec command</a
+	      ></li
+	    ><li
+	    ><a href="#requirements-for-the-script-exec-command"
+	      >Requirements for the script-exec command</a
+	      ></li
+	    ><li
+	    ><a href="#configuring-script-copy"
+	      >Configuring script-copy</a
+	      ></li
+	    ><li
+	    ><a href="#configuring-the-command-for-script-copy"
+	      >Configuring the command for script-copy</a
+	      ></li
+	    ><li
+	    ><a href="#configuring-the-working-directory-1"
+	      >Configuring the working directory</a
+	      ></li
+	    ><li
+	    ><a href="#configuring-the-shell-1"
+	      >Configuring the shell</a
+	      ></li
+	    ><li
+	    ><a href="#configuring-the-remote-filepath"
+	      >Configuring the remote filepath</a
+	      ></li
+	    ><li
+	    ><a href="#defining-the-script-copy-command"
+	      >Defining the script-copy command</a
+	      ></li
+	    ><li
+	    ><a href="#defining-the-script-copy-filepath"
+	      >Defining the script-copy filepath</a
+	      ></li
+	    ><li
+	    ><a href="#requirements-of-script-copy-command"
+	      >Requirements of script-copy command</a
+	      ></li
+	    ><li
+	    ><a href="#example-scripts"
+	      >Example Scripts</a
+	      ></li
+	    ></ul
+	  ></li
+	><li
+	><a href="#stub-plugin"
+	  >stub-plugin</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#plugin-development"
+      >Plugin Development</a
+      ></li
+    ></ul
+  ></div
+>
+<p
+>Plugins for Rundeck contain new Providers for some of the Services used by the Rundeck core.</p
+><p
+>Rundeck comes with some built-in providers for these services, but Plugins let you write your own, or use third-party implementations.</p
+><p
+>Rundeck currently comes installed with a few useful plugins: script-plugin and stub-plugin. See <a href="plugins.html#pre-installed-plugins"
+  >Pre-installed plugins</a
+  > for more info.</p
+><div id="installing-plugins"
+><h2
+  ><a href="#TOC"
+    >Installing Plugins</a
+    ></h2
+  ><p
+  >Installation of plugins is simple:</p
+  ><p
+  >Put the plugin file, such as <code
+    >plugin.jar</code
+    > or <code
+    >some-plugin.zip</code
+    >, into the Rundeck server's libext dir:</p
+  ><pre
+  ><code
+    >cp some-plugin.zip $RDECK_BASE/libext
+</code
+    ></pre
+  ><p
+  >The plugin is now enabled, and any providers it defines can be used by nodes or projects.</p
+  ><p
+  >The Rundeck server does not have to be restarted.</p
+  ></div
+><div id="uninstalling-or-updating-plugins"
+><h2
+  ><a href="#TOC"
+    >Uninstalling or Updating Plugins</a
+    ></h2
+  ><p
+  >You can simply remove the plugin files from <code
+    >$RDECK_BASE/libext</code
+    > to uninstall them.</p
+  ><p
+  >You can overwrite an old plugin with a newer version to update it.</p
+  ></div
+><div id="about-plugins"
+><h2
+  ><a href="#TOC"
+    >About Plugins</a
+    ></h2
+  ><p
+  >Plugins are files that contain one or more Service Provider implementations. Each plugin file could contain multiple Providers for different types of services, however typically each plugin file would contain only providers related in some fashion.</p
+  ><p
+  >Rundeck includes a number of &quot;built-in&quot; providers, as well as a few &quot;included&quot; plugin files.</p
+  ><p
+  >In this document &quot;plugin&quot; and &quot;provider&quot; are used somewhat interchangably. When referring to an actual file containing the provider implementations we will say &quot;plugin file&quot;.</p
+  ><div class="figure"
+  ><img src="../figures/fig1102.png" alt="Rundeck Providers and Plugin Files"
+     /><p class="caption"
+    >Rundeck Providers and Plugin Files</p
+    ></div
+  ></div
+><div id="types-of-plugins"
+><h2
+  ><a href="#TOC"
+    >Types of Plugins</a
+    ></h2
+  ><p
+  >Rundeck supports several different types of plugins to perform different kinds of services.</p
+  ><div id="node-execution-plugins"
+  ><h3
+    ><a href="#TOC"
+      >Node Execution Plugins</a
+      ></h3
+    ><p
+    >These plugins define ways of executing commands on nodes, and copying files to nodes.</p
+    ><p
+    >More information:</p
+    ><ul
+    ><li
+      >Configuration: <a href="plugins.html#node-execution-services"
+	>Node Execution Services</a
+	></li
+      ><li
+      >Lifecycle: <a href="plugins.html#when-node-execution-service-providers-are-invoked"
+	>When Node Execution Service providers are invoked</a
+	></li
+      ><li
+      >Built-in Providers: <a href="plugins.html#node-execution-services-1"
+	>Node Execution services</a
+	></li
+      ><li
+      >Included Plugins: <a href="plugins.html#pre-installed-plugins"
+	>Pre-installed plugins</a
+	></li
+      ></ul
+    ></div
+  ><div id="resource-model-source-plugins"
+  ><h3
+    ><a href="#TOC"
+      >Resource Model Source Plugins</a
+      ></h3
+    ><p
+    >These plugins define mechanisms for retrieving Resource Model information from a specific kind of source (such as a URL, file, or set of files in a directory).</p
+    ><p
+    >More information:</p
+    ><ul
+    ><li
+      >Configuration: <a href="plugins.html#resource-model-sources"
+	>Resource Model Sources</a
+	></li
+      ><li
+      >Built-in Providers: <a href="plugins.html#resource-model-sources-1"
+	>Resource Model Sources</a
+	></li
+      ></ul
+    ></div
+  ><div id="resource-format-plugins"
+  ><h3
+    ><a href="#TOC"
+      >Resource Format Plugins</a
+      ></h3
+    ><p
+    >These plugins define parsers and generators for different document formats, and are used by the Resource Model Source Plugins, as well as other parts of the Rundeck system.</p
+    ><p
+    >More information:</p
+    ><ul
+    ><li
+      >Configuration: <a href="plugins.html#resource-format-generators-and-parsers"
+	>Resource Format Generators and Parsers</a
+	></li
+      ><li
+      >Built-in Providers: <a href="plugins.html#resource-format-services"
+	>Resource Format services</a
+	></li
+      ></ul
+    ></div
+  ></div
+><div id="about-services-and-providers"
+><h2
+  ><a href="#TOC"
+    >About Services and Providers</a
+    ></h2
+  ><p
+  >The Rundeck core makes use of several different &quot;Services&quot; that provide functionality for the different steps necessary to execute workflows, jobs, and commands across multiple nodes.</p
+  ><p
+  >Each Service makes use of &quot;Providers&quot;. Each Provider has a unique &quot;Provider Name&quot; that is used to identify it, and most Services have default Providers unless you specify different ones to use.</p
+  ><div class="figure"
+  ><img src="../figures/fig1101.png" alt="Rundeck Services and Providers"
+     /><p class="caption"
+    >Rundeck Services and Providers</p
+    ></div
+  ><p
+  >Services fall into different categories, which determine how and where they are used.</p
+  ><p
+  ><em
+    >Service Categories</em
+    >:</p
+  ><ol style="list-style-type: decimal;"
+  ><li
+    ><p
+      ><strong
+	>Node Execution services</strong
+	> - providers of these services operate in the context of a single Node definition, and can be configured at Node scope or higher:</p
+      ><ol style="list-style-type: decimal;"
+      ><li
+	>Node Executor - these providers define ways of executing a command on a Node (local or remote)</li
+	><li
+	>File Copier - these providers define ways of copying files to a Node.</li
+	></ol
+      ></li
+    ><li
+    ><p
+      ><strong
+	>Project services</strong
+	></p
+      ><ol style="list-style-type: decimal;"
+      ><li
+	>Resource Model Source - (aka &quot;Resource Providers&quot;) these define ways of retrieving Node resources for a Project</li
+	></ol
+      ></li
+    ><li
+    ><p
+      ><strong
+	>Global services</strong
+	> (framework level)</p
+      ><ol style="list-style-type: decimal;"
+      ><li
+	>Resource Format Parser - these define document format parsers</li
+	><li
+	>Resource Format Generators - these define document format generators</li
+	></ol
+      ></li
+    ></ol
+  ><p
+  >Specifics of how providers of these plugins work is listed below.</p
+  ><p
+  >Rundeck Plugins can contain more than one Provider.</p
+  ></div
+><div id="using-providers"
+><h2
+  ><a href="#TOC"
+    >Using Providers</a
+    ></h2
+  ><div id="node-execution-services"
+  ><h3
+    ><a href="#TOC"
+      >Node Execution Services</a
+      ></h3
+    ><p
+    >The two <em
+      >Node services</em
+      >, Node Executor and File Copier, are both configured similarly. They are configured for particular nodes on a node-specific basis, or set as a default provider for a project or for the system.</p
+    ><p
+    >If multiple providers are defined the most specific definition takes precedence in this order:</p
+    ><ol style="list-style-type: decimal;"
+    ><li
+      >Node specific</li
+      ><li
+      >Project scope</li
+      ><li
+      >Framework scope</li
+      ></ol
+    ><div id="node-specific"
+    ><h4
+      ><a href="#TOC"
+	>Node Specific</a
+	></h4
+      ><p
+      >To enable a provider for a node, add an attribute to the node definition.</p
+      ><p
+      ><em
+	>Node Executor provider attributes</em
+	>:</p
+      ><dl
+      ><dt
+	><code
+	  >node-executor</code
+	  ></dt
+	><dd
+	><p
+	  >specifies the provider name for a non-local node.</p
+	  ></dd
+	><dt
+	><code
+	  >local-node-executor</code
+	  ></dt
+	><dd
+	><p
+	  >specifies the provider name for the local (server) node.</p
+	  ></dd
+	></dl
+      ><p
+      ><em
+	>FileCopier provider attributes</em
+	>:</p
+      ><dl
+      ><dt
+	><code
+	  >file-copier</code
+	  ></dt
+	><dd
+	><p
+	  >specifies the provider by name for a non-local node.</p
+	  ></dd
+	><dt
+	><code
+	  >local-file-copier</code
+	  ></dt
+	><dd
+	><p
+	  >specifies the provider by name for the local (server) node.</p
+	  ></dd
+	></dl
+      ><p
+      >Example Node in YAML specifying <code
+	>stub</code
+	> NodeExecutor and FileCopier:</p
+      ><pre
+      ><code
+	>remotehost:
+    hostname: remotehost
+    node-executor: stub
+    file-copier: stub
+</code
+	></pre
+      ></div
+    ><div id="project-or-framework-scope"
+    ><h4
+      ><a href="#TOC"
+	>Project or Framework Scope</a
+	></h4
+      ><p
+      ><em
+	>Node Executor</em
+	></p
+      ><p
+      >You can define the default connection providers to use for nodes at either the Project or Framework scope (or both). To do so, configure any of the following properties in the <code
+	>project.properties</code
+	> or the <code
+	>framework.properties</code
+	> files.</p
+      ><dl
+      ><dt
+	><code
+	  >service.NodeExecutor.default.provider</code
+	  ></dt
+	><dd
+	><p
+	  >Specifies the default NodeExecutor provider for remote nodes</p
+	  ></dd
+	><dt
+	><code
+	  >service.NodeExecutor.default.local.provider</code
+	  ></dt
+	><dd
+	><p
+	  >Specifies the default Node Executor provider for the local node.</p
+	  ></dd
+	></dl
+      ><p
+      ><em
+	>File Copier</em
+	></p
+      ><dl
+      ><dt
+	><code
+	  >service.FileCopier.default.provider</code
+	  ></dt
+	><dd
+	><p
+	  >Specifies the default File Copier provider for remote nodes.</p
+	  ></dd
+	><dt
+	><code
+	  >service.FileCopier.default.local.provider</code
+	  ></dt
+	><dd
+	><p
+	  >Specifies the default File Copier provider for the local node.</p
+	  ></dd
+	></dl
+      ><p
+      >Example <code
+	>project.properties</code
+	> to set default local providers to <code
+	>stub</code
+	>:</p
+      ><pre
+      ><code
+	>service.NodeExecutor.default.local.provider=stub
+service.FileCopier.default.local.provider=stub
+</code
+	></pre
+      ></div
+    ></div
+  ><div id="resource-model-sources"
+  ><h3
+    ><a href="#TOC"
+      >Resource Model Sources</a
+      ></h3
+    ><p
+    >The <em
+      >Resource Model Sources</em
+      > providers can be configured for a single project in the <code
+      >project.properties</code
+      > file.</p
+    ><p
+    >You can define multiple Resource Model Sources for the project, and can mix and match the specific providers depending on your needs.</p
+    ><p
+    >When you define multiple Source providers in a project, then the resulting set of Nodes will effectively be a merge of all the sources, in the order in which they are declared. This means that if two or more Sources provide a definition of a node with the same name, then the definition from lowest Source in the list will be used.</p
+    ><p
+    >The order that the providers are loaded (and thus the nodes are merged) is:</p
+    ><ol style="list-style-type: decimal;"
+    ><li
+      ><code
+	>project.resources.file</code
+	>: A File Model Source with default configuration.</li
+      ><li
+      ><code
+	>project.resources.url</code
+	>: A URL Model Source with default configuration. (optional)</li
+      ><li
+      >All <code
+	>resources.source.N</code
+	> configurations in order starting at 1</li
+      ></ol
+    ><div id="resource-model-source-configuration"
+    ><h4
+      ><a href="#TOC"
+	>Resource Model Source configuration</a
+	></h4
+      ><p
+      >The <code
+	>project.properties</code
+	> file for each project allows you to configure the Resource Model Sources in these ways:</p
+      ><ul
+      ><li
+	>Define <code
+	  >project.resources.file</code
+	  > - this file path is used as a File Source path, with <em
+	  >autogeneration</em
+	  > and <em
+	  >includeServerNode</em
+	  > both true.</li
+	><li
+	>Define <code
+	  >project.resources.url</code
+	  > - this URL is used as a URL Source url, with caching enabled</li
+	></ul
+      ><p
+      >You may also define a list of more sources in this way:</p
+      ><p
+      >Starting at index <code
+	>1</code
+	>, define these properties for your Source numbered <code
+	>N</code
+	>:</p
+      ><pre
+      ><code
+	>resources.source.N.type=&lt;provider-name&gt;
+resources.source.N.config.&lt;property&gt;=&lt;value&gt;
+resources.source.N.config.&lt;property2&gt;=&lt;value2&gt;
+...
+</code
+	></pre
+      ><p
+      >Using one of the available Resource Model Source provider names for the <code
+	>&lt;provider-name&gt;</code
+	> value. For each Resource Model Source provider, you can specify the configuration properties for the source.</p
+      ><p
+      >Example project.properties configuration of a default File provider, and two other providers:</p
+      ><pre
+      ><code
+	>project.resources.file=/home/rundeck/projects/example/etc/resources.xml
+
+resources.source.1.type=url
+resources.source.1.url=http://server/nodes.yaml
+
+resources.source.2.type=directory
+resources.source.2.directory=/home/rundeck/projects/example/resources
+</code
+	></pre
+      ></div
+    ></div
+  ><div id="resource-format-generators-and-parsers"
+  ><h3
+    ><a href="#TOC"
+      >Resource Format Generators and Parsers</a
+      ></h3
+    ><p
+    >Resource Format Generators and Parsers define support for file formats that can be generated from or parsed into a set of Resource Node definitions.</p
+    ><p
+    >These are used by other parts of the system, such as the Resource Model Sources.</p
+    ><p
+    >There is no configuration necessary to use these providers, however the specific Provider Name that each generator and parser defines has to be known in order to make use of the provider. The specific Provider Name is used as the &quot;format name&quot; when you want to use the parser or generator.</p
+    ><p
+    >For example, to enable a particular Resource Format parser to be used by a File Resource Model Source (see <a href="plugins.html#file-resource-model-source-configuration"
+      >File Resource Model Source Configuration</a
+      >), you should specify the Provider Name for the parser as the format for the source:</p
+    ><pre
+    ><code
+      >resources.source.1.format=myformat
+</code
+      ></pre
+    ><p
+    >This would specify the use of &quot;myformat&quot; provider.</p
+    ><p
+    >In other cases, the exact name of the provider may not be known (for example when loading content from a remote URL). Each Generator and Parser must define a list of MIME Type strings and file extensions that they support. These are used to determine which parser/generator is to be used.</p
+    ></div
+  ></div
+><div id="when-node-execution-service-providers-are-invoked"
+><h2
+  ><a href="#TOC"
+    >When Node Execution Service providers are invoked</a
+    ></h2
+  ><p
+  >Rundeck executes Command items on Nodes. The command may be part of a Workflow as defined in a Job, and it may be executed multiple times on different nodes.</p
+  ><p
+  >Currently three &quot;kinds&quot; of Command items can be specified in Workflows:</p
+  ><ol style="list-style-type: decimal;"
+  ><li
+    >&quot;exec&quot; commands - simple system command strings</li
+    ><li
+    >&quot;script&quot; commands - either embedded script content, or server-local script files can be sent to the specified node and then executed with a set of input arguments.</li
+    ><li
+    >&quot;jobref&quot; commands - references to other Jobs by name that will be executed with a set of input arguments.</li
+    ></ol
+  ><p
+  >Rundeck uses the NodeExecutor and FileCopier services as part of the process of executing these command types.</p
+  ><p
+  >The procedure for executing an &quot;exec&quot; command is:</p
+  ><ol style="list-style-type: decimal;"
+  ><li
+    >load the NodeExecutor provider for the node and context</li
+    ><li
+    >call the NodeExecutor#executeCommand method</li
+    ></ol
+  ><p
+  >The procedure for executing a &quot;script&quot; command is:</p
+  ><ol style="list-style-type: decimal;"
+  ><li
+    >load the FileCopier provider for the node and context</li
+    ><li
+    >call the FileCopier#copy* method</li
+    ><li
+    >load the NodeExecutor provider for the node and context</li
+    ><li
+    >Possibly execute an intermediate command (such as &quot;chmod +x&quot; on the copied file)</li
+    ><li
+    >execute the NodeExecutor#executeCommand method, passing the filepath of the copied file, and any arguments to the script command.</li
+    ></ol
+  ></div
+><div id="built-in-providers"
+><h2
+  ><a href="#TOC"
+    >Built-in providers</a
+    ></h2
+  ><p
+  >Rundeck uses a few built-in providers to provide the default service:</p
+  ><div id="node-execution-services-1"
+  ><h3
+    ><a href="#TOC"
+      >Node Execution services</a
+      ></h3
+    ><p
+    >For NodeExecutor, these providers:</p
+    ><dl
+    ><dt
+      ><code
+	>local</code
+	></dt
+      ><dd
+      ><p
+	>local execution of a command</p
+	></dd
+      ><dt
+      ><code
+	>jsch-ssh</code
+	></dt
+      ><dd
+      ><p
+	>remote execution of a command via SSH, requiring the &quot;hostname&quot;, and &quot;username&quot; attributes on a node.</p
+	></dd
+      ></dl
+    ><p
+    >For FileCopier, these providers:</p
+    ><dl
+    ><dt
+      ><code
+	>local</code
+	></dt
+      ><dd
+      ><p
+	>creates a local temp file for a script</p
+	></dd
+      ><dt
+      ><code
+	>jsch-scp</code
+	></dt
+      ><dd
+      ><p
+	>remote copy of a command via SCP, requiring the &quot;hostname&quot; and &quot;username&quot; attributes on a node.</p
+	></dd
+      ></dl
+    ><div id="ssh-provider"
+    ><h4
+      ><a href="#TOC"
+	>SSH Provider</a
+	></h4
+      ><p
+      >The SSH Node Executor and File Copier are included as the default providers for Rundeck.</p
+      ><p
+      >Out of the box typical node configuration to make use of these is simple.</p
+      ><ul
+      ><li
+	>Set the <code
+	  >hostname</code
+	  > attribute for the nodes. It can be in the format &quot;hostname:port&quot; to indicate that a non-default port should be used. The default port is 22.</li
+	><li
+	>Set the <code
+	  >username</code
+	  > attribute for the nodes to the username to connect to the remote node.</li
+	><li
+	>set up public/private key authentication from the Rundeck server to the nodes</li
+	></ul
+      ><p
+      >This will allow remote command and script execution on the nodes.</p
+      ><p
+      >See below for more configuration options.</p
+      ><p
+      ><strong
+	>Sudo Password Authentication</strong
+	></p
+      ><p
+      >The SSH Provider also includes support for a secondary Sudo Password Authentication. This simulates a user writing a password to the terminal into a password prompt when invoking a &quot;sudo&quot; command that requires password authentication.</p
+      ><div id="configuring-scp-file-copier"
+      ><h5
+	><a href="#TOC"
+	  >Configuring SCP File Copier</a
+	  ></h5
+	><p
+	>In addition to the general SSH configuration mentioned for in this section, some additional configuration can be done for SCP.</p
+	><p
+	>When a Script is executed on a remote node, it is copied over via SCP first, and then executed. In addition to the SSH connection properties, these node attributes can be configured for SCP:</p
+	><ul
+	><li
+	  ><code
+	    >file-copy-destination-dir</code
+	    >: The directory on the remote node to copy the script file to before executing it. The default value is <code
+	    >C:/WINDOWS/TEMP/</code
+	    > on Windows nodes, and <code
+	    >/tmp</code
+	    > for other nodes.</li
+	  ><li
+	  ><code
+	    >osFamily</code
+	    >: specify &quot;windows&quot; for windows nodes.</li
+	  ></ul
+	></div
+      ><div id="configuring-ssh-authentication-type"
+      ><h5
+	><a href="#TOC"
+	  >Configuring SSH Authentication type</a
+	  ></h5
+	><p
+	>SSH authentication can be done in two ways, via password or public/private key.</p
+	><p
+	>By default, public/private key is used, but this can be changed on a node, project, or framework scope.</p
+	><p
+	>The mechanism used is determined by the <code
+	  >ssh-authentication</code
+	  > property. This property can have two different values:</p
+	><ul
+	><li
+	  ><code
+	    >password</code
+	    ></li
+	  ><li
+	  ><code
+	    >privateKey</code
+	    > (default)</li
+	  ></ul
+	><p
+	>When connecting to a particular Node, this sequence is used to determine the correct authentication mechanism:</p
+	><ol style="list-style-type: decimal;"
+	><li
+	  ><strong
+	    >Node level</strong
+	    >: <code
+	    >ssh-authentication</code
+	    > attribute on the Node. Applies only to the target node.</li
+	  ><li
+	  ><strong
+	    >Project level</strong
+	    >: <code
+	    >project.ssh-authentication</code
+	    > property in <code
+	    >project.properties</code
+	    >. Applies to any project node by default.</li
+	  ><li
+	  ><strong
+	    >Rundeck level</strong
+	    >: <code
+	    >framework.ssh-authentication</code
+	    > property in <code
+	    >framework.properties</code
+	    >. Applies to all projects by default.</li
+	  ></ol
+	><p
+	>If none of those values are set, then the default public/private key authentication is used.</p
+	></div
+      ><div id="configuring-ssh-username"
+      ><h5
+	><a href="#TOC"
+	  >Configuring SSH Username</a
+	  ></h5
+	><p
+	>The username used to connect via SSH is taken from the <code
+	  >username</code
+	  > Node attribute:</p
+	><ul
+	><li
+	  ><code
+	    >username=&quot;user1&quot;</code
+	    ></li
+	  ></ul
+	><p
+	>This value can also include a property reference if you want to dynamically change it, for example to the name of the current Rundeck user, or the username submitted as a Job Option value:</p
+	><ul
+	><li
+	  ><code
+	    >${job.username}</code
+	    > - uses the username of the user executing the Rundeck execution.</li
+	  ><li
+	  ><code
+	    >${option.someUsername}</code
+	    > - uses the value of a job option named &quot;someUsername&quot;.</li
+	  ></ul
+	><p
+	>If the <code
+	  >username</code
+	  > node attribute is not set, then the static value provided via project or framework configuration is used. The username for a node is determined by looking for a value in this order:</p
+	><ol style="list-style-type: decimal;"
+	><li
+	  ><strong
+	    >Node level</strong
+	    >: <code
+	    >username</code
+	    > node attribute. Can contain property references to dynamically set it from Option or Execution values.</li
+	  ><li
+	  ><strong
+	    >Project level</strong
+	    >: <code
+	    >project.ssh.user</code
+	    > property in <code
+	    >project.properties</code
+	    > file for the project.</li
+	  ><li
+	  ><strong
+	    >Rundeck level</strong
+	    >: <code
+	    >framework.ssh.user</code
+	    > property in <code
+	    >framework.properties</code
+	    > file for the Rundeck installation.</li
+	  ></ol
+	></div
+      ><div id="configuring-ssh-private-keys"
+      ><h5
+	><a href="#TOC"
+	  >Configuring SSH private keys</a
+	  ></h5
+	><p
+	>The default authentication mechanism is public/private key.</p
+	><p
+	>The built-in SSH connector allows the private key to be specified in several different ways. You can configure it per-node, per-project, or per-Rundeck instance.</p
+	><p
+	>When connecting to the remote node, Rundeck will look for a property/attribute specifying the location of the private key file, in this order, with the first match having precedence:</p
+	><ol style="list-style-type: decimal;"
+	><li
+	  ><strong
+	    >Node level</strong
+	    >: <code
+	    >ssh-keypath</code
+	    > attribute on the Node. Applies only to the target node.</li
+	  ><li
+	  ><strong
+	    >Project level</strong
+	    >: <code
+	    >project.ssh-keypath</code
+	    > property in <code
+	    >project.properties</code
+	    >. Applies to any project node by default.</li
+	  ><li
+	  ><strong
+	    >Rundeck level</strong
+	    >: <code
+	    >framework.ssh-keypath</code
+	    > property in <code
+	    >framework.properties</code
+	    >. Applies to all projects by default.</li
+	  ><li
+	  ><strong
+	    >Rundeck level</strong
+	    >: <code
+	    >framework.ssh.keypath</code
+	    > property in <code
+	    >framework.properties</code
+	    >. Applies to all projects by default (included for compatibility with Rundeck &lt; 1.3). (default value: <code
+	    >~/.ssh/id_rsa</code
+	    >).</li
+	  ></ol
+	><p
+	>If you private key is encrypted with a passphrase, then you can use a &quot;Secure Option&quot; to prompt the user to enter the passphrase when executing on the Node. See below.</p
+	></div
+      ><div id="configuring-ssh-private-key-passphrase"
+      ><h5
+	><a href="#TOC"
+	  >Configuring SSH Private Key Passphrase</a
+	  ></h5
+	><p
+	>Using a passphrase for privateKey authentication works in the following way:</p
+	><ul
+	><li
+	  >A Job must be defined specifying a Secure Option to prompt the user for the key's passphrase.</li
+	  ><li
+	  >Target nodes must be configured to use privateKey authentication.</li
+	  ><li
+	  >When the user executes the Job, they are prompted for the key's passphrase. The Secure Option value for the passphrase is not stored in the database, and is used only for that execution.</li
+	  ></ul
+	><p
+	>Therefore Private Key Passphrase authentication has several requirements and some limitations:</p
+	><ol style="list-style-type: decimal;"
+	><li
+	  >Private Key-authenticated nodes requiring passphrases can only be executed on via a defined Job, not via Ad-hoc commands (yet).</li
+	  ><li
+	  >Each Job that will execute on such Nodes must define a Secure Option to prompt the user for the key's passphrase before execution.</li
+	  ><li
+	  >All Nodes using passphrase protected private keys for a Job must have a matching Secure Option defined, or may use the same option name (or the default) if they share the key's passphrase (e.g. using the same private key).</li
+	  ></ol
+	><p
+	>Passphrases are input either via the GUI or arguments to the job if executed via CLI or API.</p
+	><p
+	>To enable SSH Private Key authentication, first make sure the <code
+	  >ssh-authentication</code
+	  > value is set as described in <a href="plugins.html#configuring-ssh-authentication-type"
+	  >Configuring SSH Authentication type</a
+	  >. Second, configure the path to the private key file, as described in <a href="plugins.html#configuring-ssh-private-keys"
+	  >Configuring SSH private keys</a
+	  >.</p
+	><p
+	>Next, configure a Job, and include an Option definition where <code
+	  >secureInput</code
+	  > is set to <code
+	  >true</code
+	  >. The name of this option can be anything you want, but the default value of <code
+	  >sshKeyPassphrase</code
+	  > assumed by the node configuration is easiest.</p
+	><p
+	>If the value is not <code
+	  >sshKeyPassphrase</code
+	  >, then make sure to set the following attribute on each Node for password authentication:</p
+	><ul
+	><li
+	  ><code
+	    >ssh-key-passphrase-option</code
+	    > = &quot;<code
+	    >option.NAME</code
+	    >&quot; where NAME is the name of the Job's secure option.</li
+	  ></ul
+	><p
+	>An example Node and Job option configuration are below:</p
+	><pre
+	><code
+	  >&lt;node name=&quot;egon&quot; description=&quot;egon&quot; osFamily=&quot;unix&quot;
+    username=&quot;rundeck&quot;
+    hostname=&quot;egon&quot;
+    ssh-keypath=&quot;/path/to/privatekey_rsa&quot;
+    ssh-authentication=&quot;privateKey&quot;
+    ssh-password-option=&quot;option.sshKeyPassphrase&quot; /&gt;
+</code
+	  ></pre
+	><p
+	>Job:</p
+	><pre
+	><code
+	  >&lt;joblist&gt;
+    &lt;job&gt;
+        ...
+        &lt;context&gt;
+          &lt;project&gt;project&lt;/project&gt;
+          &lt;options&gt;
+            &lt;option required='true' name='sshKeyPassphrase' secure='true'
+              description=&quot;Passphrase for SSH Private Key&quot;/&gt;
+          &lt;/options&gt;
+        &lt;/context&gt;
+        ...
+    &lt;/job&gt;
+&lt;/joblist&gt;
+</code
+	  ></pre
+	></div
+      ><div id="configuring-ssh-password-authentication"
+      ><h5
+	><a href="#TOC"
+	  >Configuring SSH Password Authentication</a
+	  ></h5
+	><p
+	>Password authentication works in the following way:</p
+	><ul
+	><li
+	  >A Job must be defined specifying a Secure Option to prompt the user for the password</li
+	  ><li
+	  >Target nodes must be configured for password authentication</li
+	  ><li
+	  >When the user executes the Job, they are prompted for the password. The Secure Option value for the password is not stored in the database, and is used only for that execution.</li
+	  ></ul
+	><p
+	>Therefore Password authentication has several requirements and some limitations:</p
+	><ol style="list-style-type: decimal;"
+	><li
+	  >Password-authenticated nodes can only be executed on via a defined Job, not via Ad-hoc commands (yet).</li
+	  ><li
+	  >Each Job that will execute on password-authenticated Nodes must define a Secure Option to prompt the user for the password before execution.</li
+	  ><li
+	  >All Nodes using password authentication for a Job must have an equivalent Secure Option defined, or may use the same option name (or the default) if they share authentication passwords.</li
+	  ></ol
+	><p
+	>Passwords for the nodes are input either via the GUI or arguments to the job if executed via CLI or API.</p
+	><p
+	>To enable SSH Password authentication, first make sure the <code
+	  >ssh-authentication</code
+	  > value is set as described in <a href="plugins.html#configuring-ssh-authentication-type"
+	  >Configuring SSH Authentication type</a
+	  >.</p
+	><p
+	>Next, configure a Job, and include an Option definition where <code
+	  >secureInput</code
+	  > is set to <code
+	  >true</code
+	  >. The name of this option can be anything you want, but the default value of <code
+	  >sshPassword</code
+	  > assumed by the node configuration is easiest.</p
+	><p
+	>If the value is not <code
+	  >sshPassword</code
+	  >, then make sure to set the following attribute on each Node for password authentication:</p
+	><ul
+	><li
+	  ><code
+	    >ssh-password-option</code
+	    > = &quot;<code
+	    >option.NAME</code
+	    >&quot; where NAME is the name of the Job's secure option.</li
+	  ></ul
+	><p
+	>An example Node and Job option configuration are below:</p
+	><pre
+	><code
+	  >&lt;node name=&quot;egon&quot; description=&quot;egon&quot; osFamily=&quot;unix&quot;
+    username=&quot;rundeck&quot;
+    hostname=&quot;egon&quot;
+    ssh-authentication=&quot;password&quot;
+    ssh-password-option=&quot;option.sshPassword1&quot; /&gt;
+</code
+	  ></pre
+	><p
+	>Job:</p
+	><pre
+	><code
+	  >&lt;joblist&gt;
+    &lt;job&gt;
+        ...
+        &lt;context&gt;
+          &lt;project&gt;project&lt;/project&gt;
+          &lt;options&gt;
+            &lt;option required='true' name='sshPassword1' secure='true' /&gt;
+          &lt;/options&gt;
+        &lt;/context&gt;
+        ...
+    &lt;/job&gt;
+&lt;/joblist&gt;
+</code
+	  ></pre
+	></div
+      ><div id="configuring-secondary-sudo-password-authentication"
+      ><h5
+	><a href="#TOC"
+	  >Configuring Secondary Sudo Password Authentication</a
+	  ></h5
+	><p
+	>The SSH provider supports a secondary authentication mechanism: Sudo password authentication. This is useful if your security requirements are such that you require the SSH connection to be under a specific user's account instead of a generic &quot;rundeck&quot; account, and you still need to allow &quot;sudo&quot; level commands to be executed requiring a password to be entered.</p
+	><p
+	>This works in the following way:</p
+	><ul
+	><li
+	  >On Job execution, the user is prompted to enter a Sudo password</li
+	  ><li
+	  >After connecting to the remote node via SSH, a command requiring &quot;sudo&quot; authentication is issued, such as &quot;sudo -u otheruser /sbin/some-command&quot;</li
+	  ><li
+	  >The remote node will prompt for a sudo password, expecting user input</li
+	  ><li
+	  >The SSH Provider will write the password to the remote node</li
+	  ><li
+	  >The sudo command will execute as if a user had entered the command</li
+	  ></ul
+	><p
+	>Similarly to SSH Password authentication, Sudo Password Authentication requires:</p
+	><ul
+	><li
+	  >A Job must be defined specifying a Secure Option to prompt the user for the password</li
+	  ><li
+	  >Target nodes must be configured for Sudo authentication</li
+	  ><li
+	  >When the user executes the Job, they are prompted for the password. The Secure Option value for the password is not stored in the database, and is used only for that execution.</li
+	  ></ul
+	><p
+	>Therefore Sudo Password Authentication has several requirements and some limitations:</p
+	><ol style="list-style-type: decimal;"
+	><li
+	  >Sudo Password authenticated nodes can only be executed on via a defined Job, not via Ad-hoc commands (yet).</li
+	  ><li
+	  >Each Job that will execute on Sudo Password Authenticated Nodes must define a Secure Option to prompt the user for the Sudo password before execution.</li
+	  ><li
+	  >All Nodes using Sudo password authentication for a Job must have an equivalent Secure Option defined, or may use the same option name (or the default) if they share sudo authentication passwords.</li
+	  ></ol
+	><p
+	>Passwords for the nodes are input either via the GUI or arguments to the job if executed via CLI or API.</p
+	><p
+	>To enable Sudo Password Authentication, set the <code
+	  >sudo-command-enabled</code
+	  > property/attribute to <code
+	  >true</code
+	  >.</p
+	><p
+	>You can configure the way the Sudo Password Authentication works by setting these properties at the Node, Project or Rundeck scopes. Simply set the attribute name on a Node, the <code
+	  >project.NAME</code
+	  > in project.properties, or <code
+	  >framework.NAME</code
+	  > in framework.properties:</p
+	><ul
+	><li
+	  ><code
+	    >sudo-command-enabled</code
+	    > - set to &quot;true&quot; to enable Sudo Password Authentication.</li
+	  ><li
+	  ><code
+	    >sudo-command-pattern</code
+	    > - a regular expression to detect when a command execution should expect to require Sudo authentication. Default pattern is <code
+	    >^sudo$</code
+	    >.</li
+	  ><li
+	  ><code
+	    >sudo-password-option</code
+	    > - an option reference (&quot;option.NAME&quot;) to define which secure option value to use as password. The default is <code
+	    >option.sudoPassword</code
+	    >.</li
+	  ><li
+	  ><code
+	    >sudo-prompt-pattern</code
+	    > - a regular expression to detect the password prompt for the Sudo authentication. The default pattern is <code
+	    >^\[sudo\] password for .+: .*</code
+	    ></li
+	  ><li
+	  ><code
+	    >sudo-failure-pattern</code
+	    > - a regular expression to detect the password failure response. The default pattern is <code
+	    >^.*try again.*</code
+	    >.</li
+	  ><li
+	  ><code
+	    >sudo-prompt-max-lines</code
+	    > - maximum lines to read when expecting the password prompt. (default: <code
+	    >12</code
+	    >).</li
+	  ><li
+	  ><code
+	    >sudo-prompt-max-timeout</code
+	    > - maximum milliseconds to wait for input when expecting the password prompt. (default <code
+	    >5000</code
+	    >)</li
+	  ><li
+	  ><code
+	    >sudo-response-max-lines</code
+	    > - maximum lines to read when looking for failure response. (default: <code
+	    >2</code
+	    >).</li
+	  ><li
+	  ><code
+	    >sudo-response-max-timeout</code
+	    > - maximum milliseconds to wait for response when detecting the failure response. (default <code
+	    >5000</code
+	    >)</li
+	  ><li
+	  ><code
+	    >sudo-fail-on-prompt-max-lines</code
+	    > - true/false. If true, fail execution if max lines are reached looking for password prompt. (default: <code
+	    >false</code
+	    >)</li
+	  ><li
+	  ><code
+	    >sudo-success-on-prompt-threshold</code
+	    > - true/false. If true, succeed (without writing password), if the input max lines are reached without detecting password prompt. (default: <code
+	    >true</code
+	    >).</li
+	  ><li
+	  ><code
+	    >sudo-fail-on-prompt-timeout</code
+	    > - true/false. If true, fail execution if timeout reached looking for password prompt. (default: <code
+	    >true</code
+	    >)</li
+	  ><li
+	  ><code
+	    >sudo-fail-on-response-timeout</code
+	    > - true/false. If true, fail on timeout looking for failure message. (default: <code
+	    >false</code
+	    >)</li
+	  ></ul
+	><p
+	>Note: the default values have been set for the unix &quot;sudo&quot; command, but can be overridden if you need to customize the interaction.</p
+	><p
+	>Next, configure a Job, and include an Option definition where <code
+	  >secureInput</code
+	  > is set to <code
+	  >true</code
+	  >. The name of this option can be anything you want, but the default value of <code
+	  >sudoPassword</code
+	  > recognized by the plugin can be used.</p
+	><p
+	>If the value is not <code
+	  >sudoPassword</code
+	  >, then make sure to set the following attribute on each Node for password authentication:</p
+	><ul
+	><li
+	  ><code
+	    >sudo-password-option</code
+	    > = &quot;<code
+	    >option.NAME</code
+	    >&quot; where NAME is the name of the Job's secure option.</li
+	  ></ul
+	><p
+	>An example Node and Job option configuration are below:</p
+	><pre
+	><code
+	  >&lt;node name=&quot;egon&quot; description=&quot;egon&quot; osFamily=&quot;unix&quot;
+    username=&quot;rundeck&quot;
+    hostname=&quot;egon&quot;
+    sudo-command-enabled=&quot;true&quot;
+    sudo-password-option=&quot;option.sudoPassword2&quot; /&gt;
+</code
+	  ></pre
+	><p
+	>Job:</p
+	><pre
+	><code
+	  >&lt;joblist&gt;
+    &lt;job&gt;
+         &lt;sequence keepgoing='false' strategy='node-first'&gt;
+          &lt;command&gt;
+            &lt;exec&gt;sudo apachectl restart&lt;/exec&gt;
+          &lt;/command&gt;
+        &lt;/sequence&gt;
+
+        &lt;context&gt;
+          &lt;project&gt;project&lt;/project&gt;
+          &lt;options&gt;
+            &lt;option required='true' name='sudoPassword2' secure='true' description=&quot;Sudo authentication password&quot;/&gt;
+          &lt;/options&gt;
+        &lt;/context&gt;
+        ...
+    &lt;/job&gt;
+&lt;/joblist&gt;
+</code
+	  ></pre
+	></div
+      ><div id="configuring-multiple-sudo-password-authentication"
+      ><h5
+	><a href="#TOC"
+	  >Configuring Multiple Sudo Password Authentication</a
+	  ></h5
+	><p
+	>You can enable a further level of sudo password support for a node. If you have the requirement of executing a chain of &quot;sudo&quot; commands, such as &quot;sudo -u user1 sudo -u user2 command&quot;, and need to enable password input for both levels of sudo. This is possible by configuring a secondary set of properties for your node/project/framework.</p
+	><p
+	>The configuration properties are the same as those for the first-level of sudo password authentication described in <a href="#configuring-secondary-sudo-password-authentication"
+	  >Configuring Secondary Sudo Password Authentication</a
+	  >, but with a prefix of &quot;sudo2-&quot; instead of &quot;sudo-&quot;, such as:</p
+	><pre
+	><code
+	  >sudo2-command-enabled=&quot;true&quot;
+sudo2-command-pattern=&quot;^sudo .+? sudo .*$&quot;
+</code
+	  ></pre
+	><p
+	>This would turn on a mechanism to expect and respond to another sudo password prompt when the command matches the given pattern.</p
+	><p
+	>If a value for &quot;sudo2-password-option&quot; is not set, then a default value of <code
+	  >option.sudo2Password</code
+	  > will be used.</p
+	><p
+	><strong
+	  >A note about the &quot;sudo2-command-pattern&quot;:</strong
+	  ></p
+	><p
+	>The sudo authentication mechanism uses two regular expressions to test whether it should be invoked.</p
+	><p
+	>For the first sudo authentication, the &quot;sudo-command-pattern&quot; value is matched against the <strong
+	  >first component of the command being executed</strong
+	  >. The default value for this pattern is <code
+	  >^sudo$</code
+	  >. So a command like &quot;sudo -u user1 some command&quot; will match correctly. You can modify the regular expression (e.g. to support &quot;su&quot;), but it will always only match against the first part of the command.</p
+	><p
+	>If &quot;sudo2-command-enabled&quot; is &quot;true&quot;, then the &quot;sudo2-command-pattern&quot; is also checked and if it matches then another sudo authentication is enabled. However this regular expression is tested against the <strong
+	  >entire command string</strong
+	  > to make it possible to determine whether it should be enabled. The default value is <code
+	  >^sudo .+? sudo .*$</code
+	  >. If necessary you should customize the value.</p
+	></div
+      ></div
+    ></div
+  ><div id="resource-model-sources-1"
+  ><h3
+    ><a href="#TOC"
+      >Resource Model Sources</a
+      ></h3
+    ><p
+    >Rundeck includes these built-in providers in the core installation:</p
+    ><dl
+    ><dt
+      ><code
+	>file</code
+	></dt
+      ><dd
+      ><p
+	>Uses a file on the file system, in any of the supported Resources formats.</p
+	></dd
+      ><dt
+      ><code
+	>url</code
+	></dt
+      ><dd
+      ><p
+	>GETs a URL, and expects one of the supported Resources formats.</p
+	></dd
+      ><dt
+      ><code
+	>directory</code
+	></dt
+      ><dd
+      ><p
+	>looks at all files in a directory for suppored file extensions, and internally uses the <code
+	  >file</code
+	  > provider for each file that matches.</p
+	></dd
+      ><dt
+      ><code
+	>script</code
+	></dt
+      ><dd
+      ><p
+	>Executes a script and parses the output as one of the supported formats</p
+	></dd
+      ></dl
+    ><p
+    >To configure these providers, refer to <a href="plugins.html#resource-model-source-configuration"
+      >Resource Model Source configuration</a
+      > and use the following configuration properties.</p
+    ><div id="file-resource-model-source-configuration"
+    ><h4
+      ><a href="#TOC"
+	>File Resource Model Source Configuration</a
+	></h4
+      ><p
+      >The <code
+	>file</code
+	> Resource Model Source provider reads a file in one of the supported <a href="rundeck-basics.html#resource-model-document-formats"
+	>Resource Model Document Formats</a
+	>.</p
+      ><table
+      ><caption
+	>Configuration properties for <code
+	  >file</code
+	  > Resource Model Source provider</caption
+	><thead
+	><tr class="header"
+	  ><th align="left"
+	    >Name</th
+	    ><th align="left"
+	    >Value</th
+	    ><th align="left"
+	    >Notes</th
+	    ></tr
+	  ></thead
+	><tbody
+	><tr class="odd"
+	  ><td align="left"
+	    ><code
+	      >file</code
+	      ></td
+	    ><td align="left"
+	    >file path</td
+	    ><td align="left"
+	    >Path to a file on disk.</td
+	    ></tr
+	  ><tr class="even"
+	  ><td align="left"
+	    ><code
+	      >format</code
+	      ></td
+	    ><td align="left"
+	    >format name</td
+	    ><td align="left"
+	    >Can be used to declare the format explicitly. Otherwise the format is determined from the <code
+	      >file</code
+	      >'s extension.</td
+	    ></tr
+	  ><tr class="odd"
+	  ><td align="left"
+	    ><code
+	      >requireFileExists</code
+	      ></td
+	    ><td align="left"
+	    >true/false</td
+	    ><td align="left"
+	    >If true and the file is missing, causes a failure to load the nodes. (Default: false)</td
+	    ></tr
+	  ><tr class="even"
+	  ><td align="left"
+	    ><code
+	      >includeServerNode</code
+	      ></td
+	    ><td align="left"
+	    >true/false</td
+	    ><td align="left"
+	    >If true, include the Project's server node automatically. (Default: false)</td
+	    ></tr
+	  ><tr class="odd"
+	  ><td align="left"
+	    ><code
+	      >generateFileAutomatically</code
+	      ></td
+	    ><td align="left"
+	    >true/false</td
+	    ><td align="left"
+	    >If true, create the file automatically if it is missing. (Default: false)</td
+	    ></tr
+	  ></tbody
+	></table
+      ><p
+      >The value of <code
+	>format</code
+	> must be one of the supported <a href="rundeck-basics.html#resource-model-document-formats"
+	>Resource Model Document Formats</a
+	>. The built-in formats are: <code
+	>resourcexml</code
+	> or <code
+	>resourceyaml</code
+	>, but any format provided by a <a href="plugins.html#resource-format-plugins"
+	>Resource Format Plugin</a
+	> can be specified as well.</p
+      ><p
+      ><em
+	>Example:</em
+	></p
+      ><pre
+      ><code
+	>resources.source.1.type=file
+resources.source.1.file=/home/rundeck/projects/example/etc/resources2.xml
+resources.source.1.format=resourcexml
+resources.source.1.requireFileExists=true
+resources.source.1.includeServerNode=true
+resources.source.1.generateFileAutomatically=true
+</code
+	></pre
+      ></div
+    ><div id="url-resource-model-source-configuration"
+    ><h4
+      ><a href="#TOC"
+	>URL Resource Model Source Configuration</a
+	></h4
+      ><p
+      >The <code
+	>url</code
+	> Resource Model Source provider performs a HTTP GET request to retrieve the Nodes definition.</p
+      ><p
+      >Configuration properties:</p
+      ><table
+      ><caption
+	>Configuration properties for <code
+	  >url</code
+	  > Resource Model Source provider</caption
+	><thead
+	><tr class="header"
+	  ><th align="left"
+	    >Name</th
+	    ><th align="left"
+	    >Value</th
+	    ><th align="left"
+	    >Notes</th
+	    ></tr
+	  ></thead
+	><tbody
+	><tr class="odd"
+	  ><td align="left"
+	    ><code
+	      >url</code
+	      ></td
+	    ><td align="left"
+	    >URL</td
+	    ><td align="left"
+	    >A valid URL, either <code
+	      >http:</code
+	      >, <code
+	      >https:</code
+	      > or <code
+	      >file:</code
+	      > protocol.</td
+	    ></tr
+	  ><tr class="even"
+	  ><td align="left"
+	    ><code
+	      >cache</code
+	      ></td
+	    ><td align="left"
+	    >true/false</td
+	    ><td align="left"
+	    >If true, use ETag/Last-Modified information from the server to only download new content if it has changed. If false, always download the content. (Default: true)</td
+	    ></tr
+	  ><tr class="odd"
+	  ><td align="left"
+	    ><code
+	      >timeout</code
+	      ></td
+	    ><td align="left"
+	    >seconds</td
+	    ><td align="left"
+	    >Number of seconds before request fails due to timeout. <code
+	      >0</code
+	      > means no timeout. (Default: 30)</td
+	    ></tr
+	  ></tbody
+	></table
+      ><p
+      >The <a href="rundeck-basics.html#resource-model-document-formats"
+	>Resource Model Document Format</a
+	> that is used is determined by the MIME type sent by the remote server. The built-in formats accept &quot;*/xml&quot; and &quot;*/yaml&quot; and &quot;*/x-yaml&quot;. See <a href="plugins.html#resource-format-plugins"
+	>Resource Format Plugin</a
+	>.</p
+      ><p
+      ><em
+	>Example:</em
+	></p
+      ><pre
+      ><code
+	>resources.source.1.type=url
+resources.source.1.url=file:/home/rundeck/projects/example/etc/resources2.xml
+resources.source.1.cache=true
+resources.source.1.timeout=0
+</code
+	></pre
+      ></div
+    ><div id="directory-resource-model-source-configuration"
+    ><h4
+      ><a href="#TOC"
+	>Directory Resource Model Source Configuration</a
+	></h4
+      ><p
+      >The <code
+	>directory</code
+	> Resource Model Source provider lists all files in a directory, and loads each one that has a supported file extension as File Resource Model Source with all default configuration options.</p
+      ><table
+      ><caption
+	>Configuration properties for <code
+	  >directory</code
+	  > Resource Model Source provider</caption
+	><thead
+	><tr class="header"
+	  ><th align="left"
+	    >Name</th
+	    ><th align="left"
+	    >Value</th
+	    ><th align="left"
+	    >Notes</th
+	    ></tr
+	  ></thead
+	><tbody
+	><tr class="odd"
+	  ><td align="left"
+	    ><code
+	      >directory</code
+	      ></td
+	    ><td align="left"
+	    >directory path</td
+	    ><td align="left"
+	    >All files in the directory that have a supported file extension will be loaded</td
+	    ></tr
+	  ></tbody
+	></table
+      ><p
+      ><em
+	>Example:</em
+	></p
+      ><pre
+      ><code
+	>resources.source.2.type=directory
+resources.source.2.directory=/home/rundeck/projects/example/resources
+</code
+	></pre
+      ></div
+    ><div id="script-resource-model-source-configuration"
+    ><h4
+      ><a href="#TOC"
+	>Script Resource Model Source Configuration</a
+	></h4
+      ><p
+      >The <code
+	>script</code
+	> Resource Model Source provider executes a script file and reads the output of the script as one of the supported <a href="rundeck-basics.html#resource-model-document-formats"
+	>Resource Model Document Formats</a
+	>.</p
+      ><table
+      ><caption
+	>Configuration properties for <code
+	  >script</code
+	  > Resource Model Source provider</caption
+	><thead
+	><tr class="header"
+	  ><th align="left"
+	    >Name</th
+	    ><th align="left"
+	    >Value</th
+	    ><th align="left"
+	    >Notes</th
+	    ></tr
+	  ></thead
+	><tbody
+	><tr class="odd"
+	  ><td align="left"
+	    ><code
+	      >file</code
+	      ></td
+	    ><td align="left"
+	    >Script file path</td
+	    ><td align="left"
+	    >If required by the <code
+	      >interpreter</code
+	      >, the file should be executable</td
+	    ></tr
+	  ><tr class="even"
+	  ><td align="left"
+	    ><code
+	      >interpreter</code
+	      ></td
+	    ><td align="left"
+	    >Command or interpreter to use</td
+	    ><td align="left"
+	    >e.g. &quot;bash -c&quot;</td
+	    ></tr
+	  ><tr class="odd"
+	  ><td align="left"
+	    ><code
+	      >args</code
+	      ></td
+	    ><td align="left"
+	    >Additional arguments to pass</td
+	    ><td align="left"
+	    >The arguments will be added after the script file name to the executed commandline</td
+	    ></tr
+	  ><tr class="even"
+	  ><td align="left"
+	    ><code
+	      >format</code
+	      ></td
+	    ><td align="left"
+	    >Format name</td
+	    ><td align="left"
+	    >Must be used to declare the format explicitly.</td
+	    ></tr
+	  ></tbody
+	></table
+      ><p
+      >The script will be executed in this way:</p
+      ><pre
+      ><code
+	>[interpreter] file [args]
+</code
+	></pre
+      ><p
+      >All output on STDOUT will be passed to a Resource Format Parser to parse. The format specified must be available.</p
+      ><p
+      ><em
+	>Example:</em
+	></p
+      ><pre
+      ><code
+	>resources.source.2.type=script
+resources.source.2.file=/home/rundeck/projects/example/etc/generate.sh
+resources.source.2.interpreter=bash -c
+resources.source.2.args=-project example
+resources.source.2.format=resourceyaml
+</code
+	></pre
+      ></div
+    ></div
+  ><div id="resource-format-services"
+  ><h3
+    ><a href="#TOC"
+      >Resource Format services</a
+      ></h3
+    ><p
+    >Resource Format services (Generators and Parsers) typically come in matched pairs, with both a parser and generator for the same format name.</p
+    ><p
+    >Rundeck includes these built-in providers in the core installation:</p
+    ><dl
+    ><dt
+      ><code
+	>resourcexml</code
+	></dt
+      ><dd
+      ><p
+	>Supports the Resource XML document format: <a href="../manpages/man5/resource-v13.html"
+	  >resource-v13(5) XML</a
+	  >.</p
+	><p
+	>Supported MIME types:</p
+	><ul
+	><li
+	  >Generator: &quot;text/xml&quot;</li
+	  ><li
+	  >Parser: &quot;*/xml&quot;</li
+	  ></ul
+	><p
+	>Supported File extensions:</p
+	><ul
+	><li
+	  >&quot;.xml&quot;</li
+	  ></ul
+	></dd
+      ><dt
+      ><code
+	>resourceyaml</code
+	></dt
+      ><dd
+      ><p
+	>Supports the Resource YAML document format: <a href="../manpages/man5/resource-yaml-v13.html"
+	  >resource-v13(5) YAML</a
+	  >.</p
+	><p
+	>Supported MIME types:</p
+	><ul
+	><li
+	  >Generator: &quot;text/yaml&quot;, &quot;text/x-yaml&quot;, &quot;application/yaml&quot;, &quot;application/x-yaml&quot;</li
+	  ><li
+	  >Parser: &quot;*/yaml&quot;, &quot;*/x-yaml&quot;</li
+	  ></ul
+	><p
+	>Supported File extensions:</p
+	><ul
+	><li
+	  >&quot;.yml&quot;, &quot;.yaml&quot;</li
+	  ></ul
+	></dd
+      ></dl
+    ></div
+  ></div
+><div id="pre-installed-plugins"
+><h2
+  ><a href="#TOC"
+    >Pre-installed plugins</a
+    ></h2
+  ><p
+  >Rundeck comes with two pre-installed plugins that may be useful, and also serve as examples of plugin development and usage.</p
+  ><div id="script-plugin"
+  ><h3
+    ><a href="#TOC"
+      >script-plugin</a
+      ></h3
+    ><p
+    >The <code
+      >script-plugin</code
+      > includes these providers:</p
+    ><ul
+    ><li
+      ><code
+	>script-exec</code
+	> for the NodeExecutor service</li
+      ><li
+      ><code
+	>script-copy</code
+	> for the FileCopier service</li
+      ></ul
+    ><p
+    >(Refer to <a href="plugins.html#using-providers"
+      >Using Providers</a
+      > to enable them.)</p
+    ><p
+    >This plugin provides the ability to specify an external script or command to perform a remote or local execution of a Rundeck command, and remote or local file copies.</p
+    ><p
+    >It can be a replacement for the built-in SSH-based remote execution and SCP-based file-copy mechanism to allow you to user whatever external mechanism you wish.</p
+    ><p
+    >Note: this plugin offers similar functionality to the <a href="../developer/plugin-development.html#script-plugin-development"
+      >Script Plugin Development</a
+      > model. You may want to use this plugin to test your scripts, and then later package them into a standalone plugin using that model.</p
+    ><div id="configuring-script-exec"
+    ><h4
+      ><a href="#TOC"
+	>Configuring script-exec</a
+	></h4
+      ><p
+      >To configure the plugin you must specify a commandline string to execute. Optionally you may specify a directory to be used as the working directory when executing the commandline string, and a shell to invoke the command.</p
+      ><p
+      >You can configure these across all projects (framework-wide), a single project (project-wide), or specifically for each node, with the most specific configuration value taking precedence.</p
+      ></div
+    ><div id="configuring-the-command-for-script-exec"
+    ><h4
+      ><a href="#TOC"
+	>Configuring the command for script-exec</a
+	></h4
+      ><p
+      >For Framework and Project-wide, configure a property in either the framework.properties or project.properties files:</p
+      ><dl
+      ><dt
+	><code
+	  >plugin.script-exec.default.command</code
+	  ></dt
+	><dd
+	>Specifies the default system command to run</dd
+	></dl
+      ><p
+      >For node-specific add an attribute named <code
+	>script-exec</code
+	> to the node.</p
+      ><dl
+      ><dt
+	><code
+	  >script-exec</code
+	  ></dt
+	><dd
+	>Specifies the system command to run</dd
+	></dl
+      ><p
+      >See <a href="plugins.html#defining-the-script-exec-command"
+	>Defining the script-exec command</a
+	> for what to specify for this property.</p
+      ></div
+    ><div id="configuring-the-working-directory"
+    ><h4
+      ><a href="#TOC"
+	>Configuring the working directory</a
+	></h4
+      ><p
+      >For Framework and Project-wide, configure a property in either the framework.properties or project.properties files:</p
+      ><dl
+      ><dt
+	><code
+	  >plugin.script-exec.default.dir</code
+	  ></dt
+	><dd
+	>Specifies the default working directory for the execution</dd
+	></dl
+      ><p
+      >For node-specific add an attribute named <code
+	>script-exec-dir</code
+	> to the node.</p
+      ><dl
+      ><dt
+	><code
+	  >script-exec-dir</code
+	  ></dt
+	><dd
+	>Specifies the default working directory for the execution (optional)</dd
+	></dl
+      ></div
+    ><div id="configuring-the-shell"
+    ><h4
+      ><a href="#TOC"
+	>Configuring the shell</a
+	></h4
+      ><p
+      >For Framework and Project-wide, configure a property in either the framework.properties or project.properties files:</p
+      ><dl
+      ><dt
+	><code
+	  >plugin.script-exec.default.shell</code
+	  ></dt
+	><dd
+	>Specifies the shell to use to interpret the command, e.g. &quot;bash -c&quot; or &quot;cmd.exe /c&quot;</dd
+	></dl
+      ><p
+      >For node-specific add an attribute named <code
+	>script-exec-shell</code
+	> to the node.</p
+      ><dl
+      ><dt
+	><code
+	  >script-exec-shell</code
+	  ></dt
+	><dd
+	>Specifies the shell to use to interpret the command, e.g. &quot;bash -c&quot; or &quot;cmd.exe /c&quot; (optional)</dd
+	></dl
+      ></div
+    ><div id="defining-the-script-exec-command"
+    ><h4
+      ><a href="#TOC"
+	>Defining the script-exec command</a
+	></h4
+      ><p
+      >The value of this property or attribute should be the complete commandline string to execute in an external system process.</p
+      ><p
+      >You can use <em
+	>Data context properties</em
+	> as you can in normal Rundeck command execution, such as <code
+	>${node.name}</code
+	> or <code
+	>${job.name}</code
+	>.</p
+      ><p
+      >In addition, the plugin provides these new data context properties:</p
+      ><dl
+      ><dt
+	><code
+	  >exec.command</code
+	  ></dt
+	><dd
+	><p
+	  >The command that the workflow/user has specified to run on the node</p
+	  ></dd
+	><dt
+	><code
+	  >exec.dir</code
+	  ></dt
+	><dd
+	><p
+	  >The working directory path if it is configured for the node or in a properties file</p
+	  ></dd
+	></dl
+      ><p
+      >Example:</p
+      ><p
+      >If you wanted to run some external remote connection command (&quot;/bin/execremote&quot;) in lieu of the built-in ssh command, you could specify these attributes for node:</p
+      ><pre
+      ><code
+	>mynode:
+    node-executor: script-exec
+    script-exec: /bin/execremote -host ${node.hostname} -user ${node.username} -- ${exec.command}
+</code
+	></pre
+      ><p
+      >If the command you want to run requires special handling (such as quoting or other interpretation) you may want to have a shell execute it. In which case you could specify the shell to use:</p
+      ><pre
+      ><code
+	>mynode:
+    node-executor: script-exec
+    script-exec-shell: bash -c
+    script-exec: ssh -o &quot;some quoted option&quot; ${node.username}@${node.hostname} ${exec.command}
+</code
+	></pre
+      ><p
+      >At run time, the properties specified would be expanded to the values for the specific node and command string to execute.</p
+      ><p
+      >OR, you could specify a default to apply to all nodes within the project.properties file located at <code
+	>$RDECK_BASE/projects/NAME/etc/project.properties</code
+	>.</p
+      ><pre
+      ><code
+	>script-exec.default.command= /bin/execremote -host ${node.hostname} \
+    -user ${node.username} -- ${exec.command}
+</code
+	></pre
+      ><p
+      >Similarly for the <code
+	>$RDECK_BASE/etc/framework.properties</code
+	> file to apply to all projects.</p
+      ></div
+    ><div id="requirements-for-the-script-exec-command"
+    ><h4
+      ><a href="#TOC"
+	>Requirements for the script-exec command</a
+	></h4
+      ><p
+      >The command run by by the script plugin is expected to behave in the following manner:</p
+      ><ul
+      ><li
+	>Exit with a system exit code of &quot;0&quot; in case of success.</li
+	><li
+	>Any other exit code indicates failure</li
+	></ul
+      ><p
+      >Note: all output from STDOUT and STDERR will be captured as part of the Rundeck job execution.</p
+      ></div
+    ><div id="configuring-script-copy"
+    ><h4
+      ><a href="#TOC"
+	>Configuring script-copy</a
+	></h4
+      ><p
+      >To configure script-copy you must specify a commandline string to execute. Optionally you may specify a directory to be used as the working directory when executing the commandline string, and a shell to use to interpret the command.</p
+      ><p
+      >You must also specify the filepath on the target node where the copied file will be placed, which can be done in two different ways.</p
+      ><p
+      >You can configure these across all projects (framework-wide), a single project (project-wide), or specifically for each node, with the most specific configuration value taking precedence.</p
+      ></div
+    ><div id="configuring-the-command-for-script-copy"
+    ><h4
+      ><a href="#TOC"
+	>Configuring the command for script-copy</a
+	></h4
+      ><p
+      >For Framework and Project-wide, configure these properties in either the framework.properties or project.properties files:</p
+      ><dl
+      ><dt
+	><code
+	  >plugin.script-copy.default.command</code
+	  ></dt
+	><dd
+	>Specifies the default system command to run</dd
+	></dl
+      ><p
+      >For node-specific add these attributes to the node.</p
+      ><dl
+      ><dt
+	><code
+	  >script-copy</code
+	  ></dt
+	><dd
+	>Specifies the system command to run</dd
+	></dl
+      ><p
+      >See <a href="plugins.html#defining-the-script-copy-command"
+	>Defining the script-copy command</a
+	> for what to specify for this property.</p
+      ></div
+    ><div id="configuring-the-working-directory-1"
+    ><h4
+      ><a href="#TOC"
+	>Configuring the working directory</a
+	></h4
+      ><p
+      >For Framework and Project-wide, configure a property in either the framework.properties or project.properties files:</p
+      ><dl
+      ><dt
+	><code
+	  >plugin.script-copy.default.dir</code
+	  ></dt
+	><dd
+	>Specifies the default working directory for the execution</dd
+	></dl
+      ><p
+      >For node-specific add an attribute named <code
+	>script-copy-dir</code
+	> to the node.</p
+      ><dl
+      ><dt
+	><code
+	  >script-copy-dir</code
+	  ></dt
+	><dd
+	>Specifies the default working directory for the execution (optional)</dd
+	></dl
+      ></div
+    ><div id="configuring-the-shell-1"
+    ><h4
+      ><a href="#TOC"
+	>Configuring the shell</a
+	></h4
+      ><p
+      >For Framework and Project-wide, configure a property in either the framework.properties or project.properties files:</p
+      ><dl
+      ><dt
+	><code
+	  >plugin.script-copy.default.shell</code
+	  ></dt
+	><dd
+	>Specifies the shell to run the command (optional)</dd
+	></dl
+      ><p
+      >For node-specific add an attribute named <code
+	>script-copy-shell</code
+	> to the node.</p
+      ><dl
+      ><dt
+	><code
+	  >script-copy-shell</code
+	  ></dt
+	><dd
+	>Specifies the shell to run the command (optional)</dd
+	></dl
+      ></div
+    ><div id="configuring-the-remote-filepath"
+    ><h4
+      ><a href="#TOC"
+	>Configuring the remote filepath</a
+	></h4
+      ><p
+      >For Framework and Project-wide, configure a property in either the framework.properties or project.properties files:</p
+      ><dl
+      ><dt
+	><code
+	  >plugin.script-copy.default.remote-filepath</code
+	  ></dt
+	><dd
+	>Specifies the full path of the copied file.</dd
+	></dl
+      ><p
+      >For node-specific add an attribute named <code
+	>script-copy-remote-filepath</code
+	> to the node.</p
+      ><dl
+      ><dt
+	><code
+	  >script-copy-remote-filepath</code
+	  ></dt
+	><dd
+	>Specifies the full path of the copied file.</dd
+	></dl
+      ><p
+      >See <a href="plugins.html#defining-the-script-copy-filepath"
+	>Defining the script-copy filepath</a
+	> for what to specify for this property.</p
+      ></div
+    ><div id="defining-the-script-copy-command"
+    ><h4
+      ><a href="#TOC"
+	>Defining the script-copy command</a
+	></h4
+      ><p
+      >The value of this property or attribute should be the complete commandline string to execute in an external system process.</p
+      ><p
+      >You can use <em
+	>Data context properties</em
+	> as you can in normal Rundeck command execution, such as <code
+	>${node.name}</code
+	> or <code
+	>${job.name}</code
+	>.</p
+      ><p
+      >In addition, the plugin provides these new data context properties:</p
+      ><dl
+      ><dt
+	><code
+	  >file-copy.file</code
+	  ></dt
+	><dd
+	><p
+	  >The local filepath that should be copied to the remote node</p
+	  ></dd
+	><dt
+	><code
+	  >file-copy.filename</code
+	  ></dt
+	><dd
+	><p
+	  >The name of the file without any path information.</p
+	  ></dd
+	></dl
+      ><p
+      >Example:</p
+      ><p
+      >If you wanted to run some external remote connection command (&quot;/bin/copyremote&quot;) in lieu of the built-in SCP command, you could specify these attributes for node:</p
+      ><pre
+      ><code
+	>mynode:
+    file-copier: script-copy
+    script-copy: /bin/copyremote -host ${node.hostname} -user ${node.username} -- ${file-copy.file} ${node.destdir}
+</code
+	></pre
+      ><p
+      >At run time, the properties specified would be expanded to the values for the specific node and command string to execute.</p
+      ><p
+      >OR, you could specify a default to apply to all nodes within the project.properties file located at <code
+	>$RDECK_BASE/projects/NAME/etc/project.properties</code
+	>.</p
+      ><pre
+      ><code
+	>script-copy.default.command= /bin/copyremote -host ${node.hostname} -user ${node.username} -- ${file-copy.file} ${node.destdir}
+</code
+	></pre
+      ><p
+      >Similarly for the <code
+	>$RDECK_BASE/etc/framework.properties</code
+	> file to apply to all projects.</p
+      ></div
+    ><div id="defining-the-script-copy-filepath"
+    ><h4
+      ><a href="#TOC"
+	>Defining the script-copy filepath</a
+	></h4
+      ><p
+      >The value of this property or attribute should be the complete filepath on the target node where the copied file is placed. This is to tell the FileCopier service where the remote file exists after your script copies it over, so that it can later be executed.</p
+      ><p
+      >You can do this in <em
+	>two</em
+	> ways, either as a configuration property as described here, or via output from your script, as described under <a href="plugins.html#requirements-of-script-copy-command"
+	>Requirements of script-copy command</a
+	>.</p
+      ><p
+      >You can use <em
+	>Data context properties</em
+	> as you can in normal Rundeck command execution, such as <code
+	>${node.name}</code
+	> or <code
+	>${job.name}</code
+	>.</p
+      ><p
+      >In addition, the plugin provides these new data context properties:</p
+      ><dl
+      ><dt
+	><code
+	  >file-copy.file</code
+	  ></dt
+	><dd
+	><p
+	  >The local filepath that should be copied to the remote node</p
+	  ></dd
+	><dt
+	><code
+	  >file-copy.filename</code
+	  ></dt
+	><dd
+	><p
+	  >The name of the file without any path information.</p
+	  ></dd
+	></dl
+      ><p
+      >Example:</p
+      ><p
+      >Using the &quot;/bin/copyremote&quot; example from above, we need to set the <code
+	>script-copy-remote-filepath</code
+	> to the location on the remote node where the file is copied. Our example copies <code
+	>${file-copy.file}</code
+	> to the location <code
+	>${node.destdir}</code
+	>. This is an attribute on the Node that we assume to be configured with a directory path.</p
+      ><p
+      >We need to set the <code
+	>script-copy-remote-filepath</code
+	> to the location on the remote node where the file will exist after being copied. We know the filename of the file is available as <code
+	>${file-copy.filename}</code
+	>, so we set it to <code
+	>${node.destdir}/${file-copy.filename}</code
+	>:</p
+      ><pre
+      ><code
+	>mynode:
+    file-copier: script-copy
+    script-copy: /bin/copyremote -host ${node.hostname} -user ${node.username} -- ${file-copy.file} ${node.destdir}
+    script-copy-remote-filepath: ${node.destdir}/${file-copy.filename}
+</code
+	></pre
+      ><p
+      >At run time, the properties specified would be expanded to the values for the specific node and command string to execute.</p
+      ><p
+      >OR, you could specify a default to apply to all nodes within the project.properties file located at <code
+	>$RDECK_BASE/projects/NAME/etc/project.properties</code
+	>.</p
+      ><pre
+      ><code
+	>script-copy.default.remote-filepath= ${node.destdir}/${file-copy.filename}
+</code
+	></pre
+      ><p
+      >Similarly for the <code
+	>$RDECK_BASE/etc/framework.properties</code
+	> file to apply to all projects.</p
+      ></div
+    ><div id="requirements-of-script-copy-command"
+    ><h4
+      ><a href="#TOC"
+	>Requirements of script-copy command</a
+	></h4
+      ><p
+      >The command executed by script-copy is expected to behave in the following manner:</p
+      ><ul
+      ><li
+	>Exit with an exit code of &quot;0&quot; to indicate success</li
+	><li
+	>Exit with any other exit code indicates failure</li
+	><li
+	><strong
+	  >Either</strong
+	  ><ul
+	  ><li
+	    >Output the filepath of the copied file on the target node as the first line of output on STDOUT OR</li
+	    ><li
+	    >Define the &quot;remote-filepath&quot; as described above</li
+	    ></ul
+	  ></li
+	></ul
+      ></div
+    ><div id="example-scripts"
+    ><h4
+      ><a href="#TOC"
+	>Example Scripts</a
+	></h4
+      ><p
+      >Here are some example scripts to show the some possible usage patterns.</p
+      ><p
+      ><strong
+	>Example script-exec</strong
+	>:</p
+      ><p
+      >Node definition:</p
+      ><pre
+      ><code
+	>mynode:
+    node-executor: script-exec
+</code
+	></pre
+      ><p
+      >Project config <code
+	>project.properties</code
+	> file:</p
+      ><pre
+      ><code
+	>plugin.script-exec.default.command: /tmp/myexec.sh ${node.hostname} ${node.username} -- ${exec.command}
+</code
+	></pre
+      ><p
+      >Contents of <code
+	>/tmp/myexec.sh</code
+	>:</p
+      ><pre
+      ><code
+	>#!/bin/bash
+
+# args are [hostname] [username] -- [command to exec...]
+
+host=$1
+shift
+user=$1
+shift
+command=&quot;$*&quot;
+
+REMOTECMD=ssh
+
+exec $REMOTECMD $user@$host $command
+</code
+	></pre
+      ><p
+      ><strong
+	>Example script-copy</strong
+	>:</p
+      ><p
+      >Node definition:</p
+      ><pre
+      ><code
+	>mynode:
+    file-copier: script-copy
+    destdir: /some/node/dir
+</code
+	></pre
+      ><p
+      >System-wide config in <code
+	>framework.properties</code
+	>:</p
+      ><pre
+      ><code
+	>plugin.script-copy.default.command: /tmp/mycopy.sh ${node.hostname} ${node.username} ${node.destdir} ${file-copy.file}
+</code
+	></pre
+      ><p
+      >Contents of <code
+	>/tmp/mycopy.sh</code
+	>:</p
+      ><pre
+      ><code
+	>#!/bin/bash
+
+# args are [hostname] [username] [destdir] [filepath]
+
+host=$1
+shift
+user=$1
+shift
+dir=$1
+shift
+file=$1
+
+name=`basename $file`
+
+# copy to node
+CPCMD=scp
+
+exec $CPCMD $file $user@$host:$dir/$name &gt; /dev/null || exit $?
+
+echo &quot;$dir/$name&quot;
+</code
+	></pre
+      ><p
+      ><strong
+	>Example system ssh replacement</strong
+	>:</p
+      ><p
+      >This example uses the system's &quot;ssh&quot; and &quot;scp&quot; commands to perform node execution and file copying, and doesn't make use of an external script file:</p
+      ><p
+      >Node-only configuration:</p
+      ><pre
+      ><code
+	>mynode:
+    hostname: mynode
+    username: user1
+    node-executor: script-exec
+    script-exec: ssh -o &quot;StrictHostKeyChecking no&quot; ${node.username}@${node.hostname} ${exec.command}
+    script-exec-shell: bash -c
+    file-copier: script-copy
+    destdir: /tmp
+    script-copy-shell: bash -c
+    script-copy: scp ${file-copy.file} ${node.username}@${node.hostname}:${node.destdir}
+    script-copy-remote-filepath: ${node.destdir}/${file-copy.filename}
+</code
+	></pre
+      ><p
+      >This could all be set as defaults in the project.properties file, such as:</p
+      ><pre
+      ><code
+	># set default node executor
+service.NodeExecutor.default.provider=script-exec
+
+# set script-exec defaults
+plugin.script-exec.default.command=ssh -o &quot;StrictHostKeyChecking no&quot; ${node.username}@${node.hostname} ${exec.command}
+plugin.script-exec.default.shell=bash -c
+
+#set default file copier
+service.FileCopier.default.provider=script-copy
+
+#set script-copy defaults
+plugin.script-copy.default.command=scp ${file-copy.file} ${node.username}@${node.hostname}:${node.destdir}
+plugin.script-copy.default.shell: bash -c
+plugin.script-copy.default.remote-filepath: ${node.destdir}/${file-copy.filename}
+</code
+	></pre
+      ><p
+      >In which case your node definitions could be as simple as:</p
+      ><pre
+      ><code
+	>mynode:
+    hostname: mynode
+    username: user1
+    destdir: /tmp
+</code
+	></pre
+      ></div
+    ></div
+  ><div id="stub-plugin"
+  ><h3
+    ><a href="#TOC"
+      >stub-plugin</a
+      ></h3
+    ><p
+    >The <code
+      >stub-plugin</code
+      > includes these providers:</p
+    ><ul
+    ><li
+      ><code
+	>stub</code
+	> for the NodeExecutor service</li
+      ><li
+      ><code
+	>stub</code
+	> for the FileCopier service</li
+      ></ul
+    ><p
+    >(Refer to <a href="plugins.html#using-providers"
+      >Using Providers</a
+      > to enable them.)</p
+    ><p
+    >This plugin does not actually perform any remote file copy or command execution, instead it simply echoes the command that was supposed to be executed, and pretends to have copied a file.</p
+    ><p
+    >This is intended for use in testing new Nodes, Jobs or Workflow sequences without affecting any actual runtime environment.</p
+    ><p
+    >You can also test some failure scenarios by configuring the following node attributes:</p
+    ><dl
+    ><dt
+      ><code
+	>stub-exec-success</code
+	>=&quot;true/false&quot;</dt
+      ><dd
+      ><p
+	>If set to false, the stub command execution will simulate command failure</p
+	></dd
+      ><dt
+      ><code
+	>stub-result-code</code
+	></dt
+      ><dd
+      ><p
+	>Simulate the return result code from execution</p
+	></dd
+      ></dl
+    ><p
+    >You could, for example, disable or test an entire project's workflows or jobs by simply setting the <code
+      >project.properties</code
+      > node executor provider to <code
+      >stub</code
+      >.</p
+    ></div
+  ></div
+><div id="plugin-development"
+><h2
+  ><a href="#TOC"
+    >Plugin Development</a
+    ></h2
+  ><p
+  >Plugins can be developed easily using scripts, or you can use Java.</p
+  ><p
+  >See more information in the <a href="../developer/plugin-development.html"
+    >Developer Guide - Plugin Development</a
+    > chapter.</p
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="plugins.html">Plugins</a></li>
+        <li class="toc"><a href="index.html">User Manual</a></li>
+        <li class="prev"><a href="rundeck-by-example.html">Rundeck by Example</a></li>
+        
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>

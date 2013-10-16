@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Configuration</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+
+<nav class="breadcrumb top">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+
+<nav class="page top">
+    <ul>
+        <li class="current"><a href="configuration.html">Configuration</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        <li class="prev"><a href="startup-and-shutdown.html">Startup and Shutdown</a></li>
+        <li class="next"><a href="node-resource-sources.html">Node Resource Sources</a></li>
+    </ul>
+</nav>
+<div id="docbody">
+<h1 class="title">Configuration</h1>
+<div id="TOC"
+><ul
+  ><li
+    ><a href="#configuration-layout"
+      >Configuration layout</a
+      ><ul
+      ><li
+	><a href="#rpm-layout"
+	  >RPM layout</a
+	  ></li
+	><li
+	><a href="#launcher-layout"
+	  >Launcher layout</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#configuration-files"
+      >Configuration files</a
+      ><ul
+      ><li
+	><a href="#admin.aclpolicy"
+	  >admin.aclpolicy</a
+	  ></li
+	><li
+	><a href="#framework.properties"
+	  >framework.properties</a
+	  ></li
+	><li
+	><a href="#log4j.properties"
+	  >log4j.properties</a
+	  ></li
+	><li
+	><a href="#profile"
+	  >profile</a
+	  ></li
+	><li
+	><a href="#project.properties"
+	  >project.properties</a
+	  ></li
+	><li
+	><a href="#jaas-loginmodule.conf"
+	  >jaas-loginmodule.conf</a
+	  ></li
+	><li
+	><a href="#realm.properties"
+	  >realm.properties</a
+	  ></li
+	><li
+	><a href="#rundeck-config.properties"
+	  >rundeck-config.properties</a
+	  ><ul
+	  ><li
+	    ><a href="#notification-email-settings"
+	      >Notification email settings</a
+	      ></li
+	    ></ul
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#gui-admin-page"
+      >GUI Admin Page</a
+      ><ul
+      ><li
+	><a href="#system-information-page"
+	  >System Information Page</a
+	  ></li
+	><li
+	><a href="#user-profiles-page"
+	  >User Profiles Page</a
+	  ></li
+	><li
+	><a href="#project-configuration"
+	  >Project Configuration</a
+	  ></li
+	><li
+	><a href="#resource-model-sources-configuration"
+	  >Resource Model Sources Configuration</a
+	  ><ul
+	  ><li
+	    ><a href="#file-resource-model-source"
+	      >File Resource Model Source</a
+	      ></li
+	    ><li
+	    ><a href="#directory-resource-model-source"
+	      >Directory Resource Model Source</a
+	      ></li
+	    ><li
+	    ><a href="#script-resource-model-source"
+	      >Script Resource Model Source</a
+	      ></li
+	    ><li
+	    ><a href="#url-resource-model-source"
+	      >URL Resource Model Source</a
+	      ></li
+	    ></ul
+	  ></li
+	><li
+	><a href="#default-node-executor-configuration"
+	  >Default Node Executor Configuration</a
+	  ></li
+	><li
+	><a href="#default-file-copier-configuration"
+	  >Default File Copier Configuration</a
+	  ></li
+	></ul
+      ></li
+    ></ul
+  ></div
+>
+<div id="configuration-layout"
+><h2
+  ><a href="#TOC"
+    >Configuration layout</a
+    ></h2
+  ><p
+  >Configuration file layout differs between the RPM and Launcher installation methods. See <a href="configuration.html#rpm-layout"
+    >RPM layout</a
+    > and <a href="configuration.html#launcher-layout"
+    >Launcher layout</a
+    > for details.</p
+  ><div id="rpm-layout"
+  ><h3
+    ><a href="#TOC"
+      >RPM layout</a
+      ></h3
+    ><pre
+    ><code
+      >/etc/rundeck
+|-- admin.aclpolicy
+|-- framework.properties
+|-- log4j.properties
+|-- profile
+|-- project.properties
+|-- jaas-loginmodule.conf
+|-- log4j.properties
+|-- realm.properties
+|-- rundeck-config.properties
+`-- ssl
+    |-- ssl.properties
+    |-- keystore (not packaged)
+    `-- truststore (not packaged)
+</code
+      ></pre
+    ></div
+  ><div id="launcher-layout"
+  ><h3
+    ><a href="#TOC"
+      >Launcher layout</a
+      ></h3
+    ><pre
+    ><code
+      >$RDECK_BASE/etc
+|-- admin.aclpolicy
+|-- framework.properties
+|-- log4j.properties
+|-- profile
+`-- project.properties
+$RDECK_BASE/server/config
+|-- jaas-loginmodule.conf
+|-- realm.properties
+`-- rundeck-config.properties
+</code
+      ></pre
+    ></div
+  ></div
+><div id="configuration-files"
+><h2
+  ><a href="#TOC"
+    >Configuration files</a
+    ></h2
+  ><p
+  >Configuration is specified in a number of standard Rundeck configuration files generated during the installation process.</p
+  ><p
+  >See the <a href="configuration.html#configuration-layout"
+    >Configuration layout</a
+    > section for where these files reside for RPM and Launcher installations.</p
+  ><p
+  >The purpose of each configuration file is described in its own section.</p
+  ><div id="admin.aclpolicy"
+  ><h3
+    ><a href="#TOC"
+      >admin.aclpolicy</a
+      ></h3
+    ><p
+    >Administrator access control policy defined with a &quot;aclpolicy(5)&quot; XML document.</p
+    ><p
+    >This file governs the access for the &quot;admin&quot; group and role.</p
+    ><p
+    >See <a href="../manual/getting-started.html#authorization"
+      >Authorization</a
+      > for information about setting up policy files for other user groups.</p
+    ></div
+  ><div id="framework.properties"
+  ><h3
+    ><a href="#TOC"
+      >framework.properties</a
+      ></h3
+    ><p
+    >Configuration file used by shell tools and core Rundeck services. This file will be created for you at install time.</p
+    ><p
+    >Some important settings:</p
+    ><ul
+    ><li
+      ><code
+	>framework.node.hostname</code
+	>: Hostname of the Rundeck server node</li
+      ><li
+      ><code
+	>framework.node.name</code
+	>: Name (identity) of the Rundeck server node</li
+      ><li
+      ><code
+	>framework.projects.dir</code
+	>: Path to the directory containing Rundeck Project directories. Default is <code
+	>$RDECK_BASE/projects</code
+	>.</li
+      ><li
+      ><code
+	>framework.var.dir</code
+	>: Base directory for output and temp files used by the server and CLI tools. Default is <code
+	>$RDECK_BASE/var</code
+	>.</li
+      ><li
+      ><code
+	>framework.logs.dir</code
+	>: Directory for log files written by core services and Rundeck Server's Job executions. Default is <code
+	>$RDECK_BASE/var/logs</code
+	></li
+      ><li
+      ><code
+	>framework.server.username</code
+	>: Username for connection to the Rundeck server</li
+      ><li
+      ><code
+	>framework.server.password</code
+	>: Password for connection to the Rundeck server</li
+      ><li
+      ><code
+	>framework.rundeck.url</code
+	>: Base URL for Rundeck server.</li
+      ></ul
+    ><p
+    >Resource Provider settings:</p
+    ><ul
+    ><li
+      ><code
+	>framework.resources.allowedURL.X</code
+	>: a sequence of regular expressions (for <code
+	>X</code
+	> starting at 0 and increasing). These are matched against requested providerURL values when the <code
+	>/project/name/resources/refresh</code
+	> API endpoint is called. See <a href="../api/index.html#refreshing-resources-for-a-project"
+	>Refreshing Resources for a Project</a
+	>.</li
+      ></ul
+    ><p
+    >SSH Connection settings:</p
+    ><ul
+    ><li
+      ><code
+	>framework.ssh.keypath</code
+	>: Path to the SSH private key file used for SSH connections</li
+      ><li
+      ><code
+	>framework.ssh.user</code
+	>: Default username for SSH Connections, if not overridden by Node specific value.</li
+      ><li
+      ><code
+	>framework.ssh.timeout</code
+	>: timeout in milliseconds for SSH connections and executions. The default is &quot;0&quot; (no timeout). You can modify this to change the maximum time allowed for SSH connections.</li
+      ></ul
+    ><p
+    >Other settings:</p
+    ><ul
+    ><li
+      ><code
+	>framework.log.dispatch.console.format</code
+	>: Default format for non-terse node execution logging run by the <code
+	>dispatch</code
+	> CLI tool.</li
+      ></ul
+    ></div
+  ><div id="log4j.properties"
+  ><h3
+    ><a href="#TOC"
+      >log4j.properties</a
+      ></h3
+    ><p
+    >Rundeck uses <a href="http://logging.apache.org/log4j/"
+      >log4j</a
+      > as its application logging facility. This file defines the logging configuration for the Rundeck server.</p
+    ></div
+  ><div id="profile"
+  ><h3
+    ><a href="#TOC"
+      >profile</a
+      ></h3
+    ><p
+    >Shell environment variables used by the shell tools. This file contains several parameters needed during the startup of the shell tools like umask, Java home and classpath, and SSL options.</p
+    ></div
+  ><div id="project.properties"
+  ><h3
+    ><a href="#TOC"
+      >project.properties</a
+      ></h3
+    ><p
+    >Rundeck <a href="../manual/getting-started.html#project"
+      >project</a
+      > configuration file. One of these is generated at project setup time.</p
+    ><table
+    ><thead
+      ><tr class="header"
+	><th align="left"
+	  >Property</th
+	  ><th align="left"
+	  >Description</th
+	  ></tr
+	></thead
+      ><tbody
+      ><tr class="odd"
+	><td align="left"
+	  ><code
+	    >project.resources.file</code
+	    ></td
+	  ><td align="left"
+	  >A local file path to read a resource model document</td
+	  ></tr
+	><tr class="even"
+	><td align="left"
+	  ><code
+	    >project.resources.url</code
+	    ></td
+	  ><td align="left"
+	  >The URL to an external <a href="node-resource-sources.html#resource-model-source"
+	    >Resource Model Source</a
+	    >.(Optional)</td
+	  ></tr
+	><tr class="odd"
+	><td align="left"
+	  ><code
+	    >project.resources.allowedURL.X</code
+	    ></td
+	  ><td align="left"
+	  >A sequence of regular expressions (for <code
+	    >X</code
+	    > starting at 0 and increasing).</td
+	  ></tr
+	><tr class="even"
+	><td align="left"
+	  ><code
+	    >resources.source.N...</code
+	    ></td
+	  ><td align="left"
+	  >Defines a Resource model source see <a href="../manual/plugins.html#resource-model-sources"
+	    >Resource Model Sources</a
+	    >.</td
+	  ></tr
+	></tbody
+      ></table
+    ><p
+    >The <code
+      >project.resources.allowedURL.X</code
+      > values are matched against requested providerURL values when the <code
+      >/project/name/resources/refresh</code
+      > API endpoint is called. See <a href="../api/index.html#refreshing-resources-for-a-project"
+      >Refreshing Resources for a Project</a
+      >.</p
+    ></div
+  ><div id="jaas-loginmodule.conf"
+  ><h3
+    ><a href="#TOC"
+      >jaas-loginmodule.conf</a
+      ></h3
+    ><p
+    ><a href="http://docs.codehaus.org/display/JETTY/JAAS"
+      >JAAS</a
+      > configuration for the Rundeck server. The listing below shows the file content for a normal RPM installation. One can see it specifies the use of the <a href="http://jetty.codehaus.org/jetty/jetty-6/apidocs/org/mortbay/jetty/plus/jaas/spi/PropertyFileLoginModule.html"
+      >PropertyFileLoginModule</a
+      >:</p
+    ><pre
+    ><code
+      >RDpropertyfilelogin {
+  org.mortbay.jetty.plus.jaas.spi.PropertyFileLoginModule required
+  debug=&quot;true&quot;
+  file=&quot;/etc/rundeck/realm.properties&quot;;
+};
+</code
+      ></pre
+    ></div
+  ><div id="realm.properties"
+  ><h3
+    ><a href="#TOC"
+      >realm.properties</a
+      ></h3
+    ><p
+    >Property file user directory when PropertyFileLoginModule is used. Specified from <a href="configuration.html#jaas-loginmodule.conf"
+      >jaas-loginmodule.conf</a
+      >.</p
+    ></div
+  ><div id="rundeck-config.properties"
+  ><h3
+    ><a href="#TOC"
+      >rundeck-config.properties</a
+      ></h3
+    ><p
+    >The primary Rundeck webapp configuration file. Defines default loglevel, datasource configuration, and <a href="gui-customization.html"
+      >GUI customization</a
+      >.</p
+    ><div id="notification-email-settings"
+    ><h4
+      ><a href="#TOC"
+	>Notification email settings</a
+	></h4
+      ><p
+      >The URL and From: address used in email notifications are managed via the settings located in the rundeck-config.properties file.</p
+      ><p
+      >The two properties are:</p
+      ><ul
+      ><li
+	>grails.serverURL</li
+	><li
+	>grails.mail.default.from</li
+	></ul
+      ><p
+      >Here's an example:</p
+      ><pre
+      ><code
+	>grails.serverURL=https://node.fully.qualified.domain.name:4443
+grails.mail.default.from=deployer@domain.com
+</code
+	></pre
+      ></div
+    ></div
+  ></div
+><div id="gui-admin-page"
+><h2
+  ><a href="#TOC"
+    >GUI Admin Page</a
+    ></h2
+  ><p
+  >The Rundeck GUI has an Admin Page which contains lets you view and manage some configuration options. If you have <code
+    >admin</code
+    > role access, when you log in you will see an &quot;Admin&quot; link in the header of the page near your username:</p
+  ><div class="figure"
+  ><img src="../figures/fig0701.png" alt="Admin page link"
+     /><p class="caption"
+    >Admin page link</p
+    ></div
+  ><p
+  >Clicking on this link will take you to the Admin Page:</p
+  ><div class="figure"
+  ><img src="../figures/fig0702.png" alt="Admin page"
+     /><p class="caption"
+    >Admin page</p
+    ></div
+  ><p
+  >This page contains links to two sub-pages, and configuration information about the currently selected Project.</p
+  ><div id="system-information-page"
+  ><h3
+    ><a href="#TOC"
+      >System Information Page</a
+      ></h3
+    ><p
+    >The System Information page gives you a breakdown of some of the Rundeck server's system statistics and information:</p
+    ><div class="figure"
+    ><img src="../figures/fig0703.png" alt="System Info Page"
+       /><p class="caption"
+      >System Info Page</p
+      ></div
+    ><p
+    >This information is also available via the API: <a href="../api/index.html#system-info"
+      >API &gt; System Info</a
+      ></p
+    ></div
+  ><div id="user-profiles-page"
+  ><h3
+    ><a href="#TOC"
+      >User Profiles Page</a
+      ></h3
+    ><p
+    >The User Profiles page lists all User Profile records in the system. User Profiles are used to store some user preferences, and can be used to generate API Tokens for admin users.</p
+    ><div class="figure"
+    ><img src="../figures/fig0704.png" alt="User Profiles Page"
+       /><p class="caption"
+      >User Profiles Page</p
+      ></div
+    ></div
+  ><div id="project-configuration"
+  ><h3
+    ><a href="#TOC"
+      >Project Configuration</a
+      ></h3
+    ><p
+    >The selected project will be displayed with basic configuration options, and the list of configure Resource Model Sources, as well as the default Node Executor and File Copier settings.</p
+    ><p
+    >If you click on &quot;Configure Project&quot;, you will be taken to the Project Configuration form.</p
+    ><div class="figure"
+    ><img src="../figures/fig0705.png" alt="Project Configuration Form"
+       /><p class="caption"
+      >Project Configuration Form</p
+      ></div
+    ><p
+    >The first two fields allow configuration of some simple project basics.</p
+    ><p
+    >First, you can enter a URL for a Resource Model Source, which will be used as a URL Resource Model Source with default configuration options.</p
+    ><p
+    >Secondly, you can enter the Default SSH Key File, which is the private SSH Key file used by default for SSH and SCP actions. If you are not using SSH or SCP you do not have to enter one.</p
+    ><p
+    >There are then several more sections: Resource Model Sources, Default Node Executor, and Default File Copier sections. These are described below:</p
+    ></div
+  ><div id="resource-model-sources-configuration"
+  ><h3
+    ><a href="#TOC"
+      >Resource Model Sources Configuration</a
+      ></h3
+    ><p
+    >This section lets you add and modify <a href="../manual/plugins.html#resource-model-sources"
+      >Resource Model Sources</a
+      > for the project.</p
+    ><p
+    >To add a new one, click &quot;Add Source&quot;. You are prompted to select a type of source. The list shown will include all of the built-in types of sources, as well as any Plugins you have installed.</p
+    ><div class="figure"
+    ><img src="../figures/fig0706.png" alt="Add Resource Model Source"
+       /><p class="caption"
+      >Add Resource Model Source</p
+      ></div
+    ><p
+    >When you click &quot;Add&quot; for a type, you will be shown the configuration options for the type.</p
+    ><div class="figure"
+    ><img src="../figures/fig0707.png" alt="Configure Resource Model Source"
+       /><p class="caption"
+      >Configure Resource Model Source</p
+      ></div
+    ><p
+    >You can then click &quot;Cancel&quot; or &quot;Save&quot; to discard or add the configuration to the list.</p
+    ><p
+    >Each item you add will be shown in the list:</p
+    ><div class="figure"
+    ><img src="../figures/fig0708.png" alt="Configured Source"
+       /><p class="caption"
+      >Configured Source</p
+      ></div
+    ><p
+    >To edit an item in the list click the &quot;Edit&quot; button. To delete an item in the list click the &quot;Delete&quot; button.</p
+    ><p
+    >Each type of Resource Model Source will have different configuration settings of its own. The built-in Resource Model Source providers are shown below.</p
+    ><p
+    >You can install more sources as plugins, see <a href="../manual/plugins.html#resource-model-source-plugins"
+      >Resource Model Source Plugins</a
+      >.</p
+    ><div id="file-resource-model-source"
+    ><h4
+      ><a href="#TOC"
+	>File Resource Model Source</a
+	></h4
+      ><p
+      >This is the File Resource Model Source configuration form:</p
+      ><div class="figure"
+      ><img src="../figures/fig0707.png" alt="File Resource Model Source"
+	 /><p class="caption"
+	>File Resource Model Source</p
+	></div
+      ><p
+      >See <a href="../manual/plugins.html#file-resource-model-source-configuration"
+	>File Resource Model Source Configuration</a
+	> for more configuration information.</p
+      ></div
+    ><div id="directory-resource-model-source"
+    ><h4
+      ><a href="#TOC"
+	>Directory Resource Model Source</a
+	></h4
+      ><p
+      >Allows a directory to be scanned for resource document files. All files with an extension supported by one of the <a href="../manual/rundeck-basics.html#resource-model-document-formats"
+	>Resource Model Document Formats</a
+	> are included.</p
+      ><div class="figure"
+      ><img src="../figures/fig0709.png" alt="Directory Resource Model Source"
+	 /><p class="caption"
+	>Directory Resource Model Source</p
+	></div
+      ><p
+      >See <a href="../manual/plugins.html#directory-resource-model-source-configuration"
+	>Directory Resource Model Source Configuration</a
+	> for more configuration information.</p
+      ></div
+    ><div id="script-resource-model-source"
+    ><h4
+      ><a href="#TOC"
+	>Script Resource Model Source</a
+	></h4
+      ><p
+      >This source can run an external script to produce the resource model definitions.</p
+      ><div class="figure"
+      ><img src="../figures/fig0710.png" alt="Script Resource Model Source"
+	 /><p class="caption"
+	>Script Resource Model Source</p
+	></div
+      ><p
+      >See <a href="../manual/plugins.html#script-resource-model-source-configuration"
+	>Script Resource Model Source Configuration</a
+	> for more configuration information.</p
+      ></div
+    ><div id="url-resource-model-source"
+    ><h4
+      ><a href="#TOC"
+	>URL Resource Model Source</a
+	></h4
+      ><p
+      >This source performs a HTTP GET request on a URL to return the resource definitions.</p
+      ><div class="figure"
+      ><img src="../figures/fig0711.png" alt="URL Resource Model Source"
+	 /><p class="caption"
+	>URL Resource Model Source</p
+	></div
+      ><p
+      >See <a href="../manual/plugins.html#url-resource-model-source-configuration"
+	>URL Resource Model Source Configuration</a
+	> for more configuration information.</p
+      ></div
+    ></div
+  ><div id="default-node-executor-configuration"
+  ><h3
+    ><a href="#TOC"
+      >Default Node Executor Configuration</a
+      ></h3
+    ><p
+    >When Rundeck executes a command on a node, it does so via a &quot;Node Executor&quot;. The most common built-in Node Executor is the &quot;SSH&quot; implementation, which uses SSH to connect to the remote node, however other implementations can be used.</p
+    ><p
+    >Select the Default Node Executor you wish to use for all remote Nodes for the project:</p
+    ><div class="figure"
+    ><img src="../figures/fig0712.png" alt="Default Node Executor Choice"
+       /><p class="caption"
+      >Default Node Executor Choice</p
+      ></div
+    ><p
+    >You can install more types of Node Executors as plugins, see <a href="../manual/plugins.html#node-execution-plugins"
+      >Node Execution Plugins</a
+      >.</p
+    ></div
+  ><div id="default-file-copier-configuration"
+  ><h3
+    ><a href="#TOC"
+      >Default File Copier Configuration</a
+      ></h3
+    ><p
+    >When Rundeck executes a script on a node, it does so by first copying the script as a file to the node, via a &quot;File Copier&quot;. (It then uses a &quot;Node Executor&quot; to execute the script like a command.)</p
+    ><p
+    >The most common built-in File Copier is the &quot;SCP&quot; implementation, which uses SCP to copy the file to the remote node, however other implementations can be used.</p
+    ><p
+    >Select the Default File Copier you wish to use for all remote Nodes for the project:</p
+    ><div class="figure"
+    ><img src="../figures/fig0713.png" alt="Default File Copier Choice"
+       /><p class="caption"
+      >Default File Copier Choice</p
+      ></div
+    ><p
+    >You can install more types of File Copiers as plugins, see <a href="../manual/plugins.html#node-execution-plugins"
+      >Node Execution Plugins</a
+      >.</p
+    ></div
+  ></div
+>
+</div>
+
+<nav class="page bottom">
+    <ul>
+        <li class="current"><a href="configuration.html">Configuration</a></li>
+        <li class="toc"><a href="index.html">Administration Guide</a></li>
+        <li class="prev"><a href="startup-and-shutdown.html">Startup and Shutdown</a></li>
+        <li class="next"><a href="node-resource-sources.html">Node Resource Sources</a></li>
+    </ul>
+</nav>
+<nav class="breadcrumb bottom">
+    <ul>
+        <li><a href="../index.html">Rundeck Documentation (1.4.4)</a></li>
+    </ul>
+</nav>
+<footer class="copy">
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rundeck Documentation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dtosolutions.com" property="cc:attributionName" rel="cc:attributionURL">DTO Solutions</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
+<br/>
+&copy;2012 DTO Solutions
+<br/>
+<span class="generated-date" title="2012-10-26T20:48:11EDT">2012-10-26T20:48:11EDT</span>
+
+</footer>
+</body>
+</html>
