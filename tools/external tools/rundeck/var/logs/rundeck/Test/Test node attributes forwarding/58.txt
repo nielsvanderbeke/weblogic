@@ -1,9 +1,0 @@
-^^^10:03:25|INFO|pp||1-exec|egovacc||CLASSPATH=/opt/oracle/fmw/fmw11gR1PS2/patch_wls1033/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/lib/tools.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic_sp.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/weblogic.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/features/weblogic.server.modules_10.3.3.0.jar:/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/lib/webservices.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/opt/oracle/fmw/fmw11gR1PS2/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:^^^
-^^^10:03:25|INFO|pp||1-exec|egovacc||PATH=/opt/oracle/fmw/fmw11gR1PS2/wlserver_10.3/server/bin:/opt/oracle/fmw/fmw11gR1PS2/modules/org.apache.ant_1.7.1/bin:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/jre/bin:/opt/oracle/jvm/jrockit-jdk1.6.0_29-R28.2.2-4.1.0/bin:/usr/bin:/bin:/usr/local/bin^^^
-^^^10:03:25|INFO|pp||1-exec|egovacc||Your environment has been set.^^^
-^^^10:03:40|INFO|pp||1-exec|egovacc||Contents of InitialContext^^^
-^^^10:03:40|INFO|pp||1-exec|egovacc||weblogic: weblogic.jndi.internal.ServerNamingNode^^^
-^^^10:03:40|INFO|pp||1-exec|egovacc||ejb: weblogic.jndi.internal.ServerNamingNode^^^
-^^^10:03:40|INFO|pp||1-exec|egovacc||javax: weblogic.jndi.internal.ServerNamingNode^^^
-^^^10:03:40|INFO|pp||1-exec|egovacc||mejbmejb_jarMejb_EO: weblogic.rmi.cluster.ClusterableRemoteObject^^^
-^^^END^^^

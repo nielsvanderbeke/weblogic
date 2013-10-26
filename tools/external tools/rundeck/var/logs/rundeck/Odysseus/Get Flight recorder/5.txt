@@ -1,2 +1,0 @@
-^^^12:12:17|WARNING|pp||1-script|skywalker||hello RD^^^
-^^^END^^^

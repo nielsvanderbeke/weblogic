@@ -1,2 +1,0 @@
-^^^09:42:36|SEVERE|pp||1-exec|egovacc||Authentication failure connecting to node: "egovacc". Make sure your resource definitions and credentials are up to date.^^^
-^^^END^^^

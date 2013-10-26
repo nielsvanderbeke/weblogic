@@ -1,3 +1,0 @@
-^^^01:52:49|SEVERE|pp||1-script|badaboum||Authentication failure connecting to node: "badaboum". Make sure your resource definitions and credentials are up to date.^^^
-^^^01:52:50|SEVERE|||1-script|||Failed dispatching to node badaboum: com.dtolabs.rundeck.core.execution.service.FileCopierException: [jsch-scp] Failed copying the file: Authentication failure connecting to node: "badaboum". Make sure your resource definitions and credentials are up to date.^^^
-^^^END^^^

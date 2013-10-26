@@ -1,3 +1,0 @@
-^^^02:45:23|WARNING|pp||1-exec|skywalker||ssh -i /export/home/weblogic/pp/.ssh/id_rsa_unencrypted pp@podboudin.smals-mvm.be /bin/rm /var/tmp/Odysseus_BE_2-20121003150911.jfr^^^
-^^^02:45:30|WARNING|pp||1-exec|skywalker||ssh -i /export/home/weblogic/pp/.ssh/id_rsa_unencrypted pp@badaboum.smals-mvm.be /bin/rm /var/tmp/Odysseus_BE_1-20121003150857.jfr^^^
-^^^END^^^

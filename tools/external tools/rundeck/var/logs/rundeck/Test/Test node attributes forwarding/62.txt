@@ -1,3 +1,0 @@
-^^^02:47:46|SEVERE|pp||1-exec|egovacc||bash: ${node.adminuser}: bad substitution^^^
-^^^02:47:47|SEVERE|pp||1-exec|egovacc||Remote command failed with exit status 1^^^
-^^^END^^^

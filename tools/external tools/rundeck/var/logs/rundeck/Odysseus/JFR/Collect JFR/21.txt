@@ -1,4 +1,0 @@
-^^^03:24:07|WARNING|pp||1-exec|skywalker||Collecting Odysseus flight recording^^^
-^^^03:24:10|SEVERE|pp||2-rundeck-jobref|skywalker||Job ref [JFR/Dump Flight Recorder] failed: Failed to execute job JFR/Dump Flight Recorder: dab79198-967a-4880-969c-970cd2bf9d22: Option 'sshKeyPassphrase' is required.
-^^^
-^^^END^^^

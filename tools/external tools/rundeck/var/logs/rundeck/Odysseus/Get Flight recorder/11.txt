@@ -1,3 +1,0 @@
-^^^12:24:12|INFO|pp||1-script|badaboum||hello RD^^^
-^^^12:24:12|INFO|pp||1-script|badaboum||badaboum^^^
-^^^END^^^

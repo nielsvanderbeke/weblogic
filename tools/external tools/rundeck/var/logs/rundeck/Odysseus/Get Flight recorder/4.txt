@@ -1,2 +1,0 @@
-^^^12:10:56|SEVERE|||1-script|||Failed dispatching to node skywalker: com.dtolabs.rundeck.core.execution.service.FileCopierException: error writing script to tempfile: /bea/user_projects/tools/rd_test.sh (No such file or directory)^^^
-^^^END^^^

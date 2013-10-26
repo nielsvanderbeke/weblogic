@@ -1,3 +1,0 @@
-^^^01:54:33|SEVERE|pp||1-script|badaboum||/tmp/1349265267793-badaboum-get_jfr.sh: test: argument expected^^^
-^^^01:54:34|SEVERE|pp||1-script|badaboum||Remote command failed with exit status 1^^^
-^^^END^^^

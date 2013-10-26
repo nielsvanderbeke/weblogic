@@ -1,9 +1,0 @@
-^^^03:08:57|INFO|pp||1-script|badaboum||Odysseus_BE_1^^^
-^^^03:08:57|INFO|pp||1-script|badaboum||12682^^^
-^^^03:09:01|INFO|pp||1-script|badaboum||12682:^^^
-^^^03:09:06|INFO|pp||1-script|badaboum||Odysseus_BE_2^^^
-^^^03:09:11|INFO|pp||1-script|podboudin||Odysseus_BE_1^^^
-^^^03:09:11|INFO|pp||1-script|podboudin||Odysseus_BE_2^^^
-^^^03:09:11|INFO|pp||1-script|podboudin||176^^^
-^^^03:09:18|INFO|pp||1-script|podboudin||176:^^^
-^^^END^^^
