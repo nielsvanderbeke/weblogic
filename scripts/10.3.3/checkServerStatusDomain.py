@@ -1,7 +1,7 @@
 import getopt
 
-configFileProd='/export/home/weblogic/niv/secure/niv-WebLogicConfig.properties'
-keyFileProd='/export/home/weblogic/niv/secure/niv-WebLogicKey.properties'
+configFileProd='niv-WebLogicConfig.properties'
+keyFileProd='niv-WebLogicKey.properties'
 urldict={}
 
 class bcolors:

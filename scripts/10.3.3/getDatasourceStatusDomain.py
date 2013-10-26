@@ -1,9 +1,9 @@
 import getopt
 
-configFileProd='/export/home/weblogic/niv/secure/niv-WebLogicConfig.properties'
-keyFileProd='/export/home/weblogic/niv/secure/niv-WebLogicKey.properties'
-configFileSim='/bea/user_projects/tools/carto/sim.config'
-keyFileSim='/bea/user_projects/tools/carto/sim.key'
+configFileProd='niv-WebLogicConfig.properties'
+keyFileProd='niv-WebLogicKey.properties'
+configFileSim='sim.config'
+keyFileSim='sim.key'
 urldict={}
 
 class bcolors:

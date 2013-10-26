@@ -26,12 +26,12 @@
 ##############################################################
 import getopt
 
-configFileProd='/bea/user_projects/tools/carto/prd.config'
-keyFileProd='/bea/user_projects/tools/carto/prd.key'
-configFileAcc='/bea/user_projects/tools/carto/acc.config'
-keyFileAcc='/bea/user_projects/tools/carto/acc.key'
-configFileSim='/bea/user_projects/tools/carto/sim.config'
-keyFileSim='/bea/user_projects/tools/carto/sim.key'
+configFileProd='prd.config'
+keyFileProd='prd.key'
+configFileAcc='acc.config'
+keyFileAcc='acc.key'
+configFileSim='sim.config'
+keyFileSim='sim.key'
 
 def connecttoadmin(configFileProd,keyFileProd,adminurl):
         print '=============================================='
