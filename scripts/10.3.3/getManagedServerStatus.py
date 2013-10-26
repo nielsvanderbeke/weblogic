@@ -1,8 +1,8 @@
 ##############################################################
 #  Script     : manageServers.py
-#  Author     : TJ
+#  Author     : NIV
 #  Date       : 11/05/2012
-#  Last Edited: 11/05/2012, TJ
+#  Last Edited: 11/05/2012, NIV
 #  Description: Start/Stop/Suspend/Resume all the managed servers of a WL domain
 ##############################################################
 # Purpose:
